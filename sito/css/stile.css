@@ -57,11 +57,11 @@ sup{line-height:0}
 .carta-anno .etichetta{font-weight:600;font-size:1.15rem;margin-top:8px;border-top:1px solid var(--filetto);padding-top:8px}
 .carta-anno .stato{font-family:var(--sans);font-size:.85rem;color:var(--testo-2);margin-top:4px}
 .carta-anno::after{content:attr(data-simbolo);position:absolute;right:10px;bottom:-24px;font-family:var(--serif);font-size:7rem;color:var(--c);opacity:.12}
-.carta-anno.disattiva{cursor:default;filter:grayscale(.6);opacity:.75}
+.carta-anno.disattiva{cursor:default;filter:grayscale(.6)}
 .carta-anno.disattiva:hover{transform:none;box-shadow:none}
 @keyframes entra{to{opacity:1;transform:none}}
 .carta-anno.disattiva{animation-name:entra2}
-@keyframes entra2{to{opacity:.75;transform:none}}
+@keyframes entra2{to{opacity:1;transform:none}}
 
 /* ====== Indice dell'anno ====== */
 .contenitore{max-width:1060px;margin:0 auto;padding:36px 24px 80px}
@@ -366,3 +366,18 @@ table.colonna td:first-child{text-align:right;border-right:2px solid currentColo
   .esercizio .fig{max-width:60mm}
   .esercizio .fig.icona{width:26mm}
 }
+
+/* ====== Simboli fluttuanti: solo nel riquadro "Matematica" e nella pagina degli anni ====== */
+.copertina .simboli{display:none}
+.bottone-matematica{overflow:hidden;isolation:isolate}
+.bottone-matematica .simboli{display:block;position:absolute;inset:0;z-index:-1;pointer-events:none}
+.bottone-matematica .simboli span{position:absolute;bottom:0;color:rgba(31,79,163,.18);animation:saleBox linear infinite;font-family:var(--serif);white-space:nowrap}
+.bottone-matematica:hover .simboli span{color:rgba(255,255,255,.28)}
+@keyframes saleBox{from{transform:translateY(120%) rotate(0)}to{transform:translateY(-240px) rotate(200deg)}}
+.pagina-anni{position:relative;overflow:hidden;background:#fff}
+.pagina-anni>.simboli{position:absolute;inset:0;pointer-events:none;z-index:0}
+.pagina-anni>.simboli span{position:absolute;top:0;color:rgba(31,79,163,.2);animation:sale linear infinite;font-family:var(--serif);white-space:nowrap}
+.pagina-anni>h1,.pagina-anni>.sottotitolo,.pagina-anni>.griglia-anni{position:relative;z-index:1}
+@keyframes saleAnni{from{transform:translateY(100vh) rotate(-8deg)}to{transform:translateY(-12vh) rotate(8deg)}}
+.pagina-anni{min-height:calc(100vh - 54px)}
+.titolo-copertina{font-size:clamp(2rem,5vw,3.2rem);margin:0 0 6px;color:var(--blu-scuro)}
