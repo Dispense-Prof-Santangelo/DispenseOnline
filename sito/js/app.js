@@ -66,45 +66,44 @@
   /* ---------- briciole di pane ---------- */
   function imposta(voci) {
     barra.classList.remove("nascosta");
+    voci = [["Libri", "#home"]].concat(voci);
     briciole.innerHTML = voci.map((v, i) => i < voci.length - 1 ? `<a href="${v[1]}">${v[0]}</a><span class="sep">›</span>` : `<b>${v[0]}</b>`).join("");
+  }
+
+  /* simboli e formule che salgono lentamente (sfondo animato) */
+  function simboliFluttuanti(lista, quanti, base, passo) {
+    let sp = "";
+    for (let i = 0; i < quanti; i++) {
+      const s = lista[(i * 7) % lista.length];
+      sp += `<span style="left:${(i * 37) % 96}%;font-size:${base + ((i * 7) % 5) * passo}rem;animation-duration:${14 + (i * 5) % 16}s;animation-delay:-${(i * 3) % 20}s">${s}</span>`;
+    }
+    return sp;
   }
 
   /* ---------- PAGINA 1: copertina ---------- */
   function copertina() {
     barra.classList.add("nascosta");
     const simboli = ["π", "∑", "√", "∞", "ℕ", "÷", "x²", "∫", "≤", "%", "θ", "Δ", "7", "3", "+", "×", "∈", "sin", "cos", "e"];
-    let sp = "";
-    for (let i = 0; i < 34; i++) {
-      const s = simboli[i % simboli.length];
-      sp += `<span style="left:${(i * 37) % 100}%;font-size:${1.2 + ((i * 7) % 5) * 0.7}rem;animation-duration:${14 + (i * 5) % 16}s;animation-delay:-${(i * 3) % 20}s">${s}</span>`;
-    }
-    app.innerHTML = `<section class="copertina"><div class="simboli">${sp}</div>
+    const sp = simboliFluttuanti(simboli, 18, 0.9, 0.5);
+    app.innerHTML = `<section class="copertina">
       <div class="copertina-centro">
-        <svg class="cerchio-copertina" viewBox="-60 -60 120 120" aria-hidden="true">
-          <circle r="44" fill="none" stroke="#1f4fa3" stroke-width="2"/>
-          <line x1="-54" x2="54" stroke="#c9bfa8"/><line y1="-54" y2="54" stroke="#c9bfa8"/>
-          <line id="cp-r" stroke="#2a2620" stroke-width="2"/>
-          <line id="cp-s" stroke="#b8322f" stroke-width="3"/><line id="cp-c" stroke="#2a7a52" stroke-width="3"/>
-          <circle id="cp-p" r="5" fill="#1f4fa3"/></svg>
-        <p>Libro digitale per il liceo</p>
-        <a class="bottone-matematica" href="#anni">Matematica<small>Entra ›</small></a>
+        <h1 class="titolo-copertina">Dispense online</h1>
+        <p>Scegli il libro</p>
+        <a class="bottone-matematica" href="#anni"><span class="simboli" aria-hidden="true">${sp}</span><span class="scritta">Matematica</span><small>Entra ›</small></a>
       </div></section>`;
-    let t0 = performance.now();
-    (function giro(t) {
-      const p = document.getElementById("cp-p"); if (!p) return;
-      const a = (t - t0) / 1400, x = 44 * Math.cos(a), y = -44 * Math.sin(a);
-      p.setAttribute("cx", x); p.setAttribute("cy", y);
-      const r = document.getElementById("cp-r"); r.setAttribute("x2", x); r.setAttribute("y2", y);
-      const s = document.getElementById("cp-s"); s.setAttribute("x1", x); s.setAttribute("x2", x); s.setAttribute("y2", y);
-      const c = document.getElementById("cp-c"); c.setAttribute("x2", x);
-      requestAnimationFrame(giro);
-    })(t0);
   }
 
   /* ---------- PAGINA 2: scelta dell'anno ---------- */
   function anni() {
     imposta([["Scegli l'anno", "#anni"]]);
-    app.innerHTML = `<section class="pagina-anni"><h1>Scegli il tuo anno</h1>
+    const simboli = ["π", "∑", "√", "∞", "ℕ", "÷", "x²", "∫", "≤", "%", "θ", "Δ", "7", "3", "+", "×", "∈", "sin", "cos", "e",
+      "α", "β", "γ", "λ", "φ", "Ω", "ℤ", "ℚ", "ℝ", "≠", "≥", "±", "∅", "∪", "∩", "⊂", "∀", "∃", "y", "x³", "log", "tg", "lim", "0", "1", "2", "5", "8", "9", "=", "−", "·", "°", "∠", "⊥", "∥"];
+    let fl = "";
+    for (let i = 0; i < 90; i++) {
+      const s = simboli[(i * 13) % simboli.length];
+      fl += `<span style="left:${(i * 37 + Math.floor(i / 9) * 11) % 100}%;font-size:${1 + ((i * 7) % 6) * 0.6}rem;animation-duration:${14 + (i * 5) % 18}s;animation-delay:-${(i * 3.3) % 32}s">${s}</span>`;
+    }
+    app.innerHTML = `<section class="pagina-anni"><div class="simboli" aria-hidden="true">${fl}</div><h1>Scegli il tuo anno</h1>
       <p class="sottotitolo">Teoria, animazioni, curiosità ed esercizi con le soluzioni</p>
       <div class="griglia-anni">${L.anni.map((a, i) => `
         <a class="carta-anno ${a.pronto ? "" : "disattiva"}" ${a.pronto ? `href="#anno-${a.n}"` : 'aria-disabled="true"'} data-simbolo="${a.simbolo}"
