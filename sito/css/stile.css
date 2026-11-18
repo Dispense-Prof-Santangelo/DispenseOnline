@@ -381,3 +381,67 @@ table.colonna td:first-child{text-align:right;border-right:2px solid currentColo
 @keyframes saleAnni{from{transform:translateY(100vh) rotate(-8deg)}to{transform:translateY(-12vh) rotate(8deg)}}
 .pagina-anni{min-height:calc(100vh - 54px)}
 .titolo-copertina{font-size:clamp(2rem,5vw,3.2rem);margin:0 0 6px;color:var(--blu-scuro)}
+
+/* ====== CELLULARE E TABLET ====== */
+@media screen and (max-width:860px){
+  .capitolo{grid-template-columns:minmax(0,1fr);gap:18px;padding:16px 12px 60px}
+  .indice-laterale{position:static;max-height:none;overflow:visible;background:var(--carta);border:1px solid var(--bordo);padding:10px 12px}
+  .indice-laterale h4{cursor:pointer;margin:0;border-bottom:none;padding:4px 0;display:flex;justify-content:space-between;align-items:center}
+  .indice-laterale h4::after{content:"Indice ▾";letter-spacing:1px;font-size:.78rem;color:var(--blu)}
+  .indice-laterale.aperto h4::after{content:"Chiudi ▴"}
+  .indice-laterale>ol{display:none;margin-top:8px;border-top:1px solid var(--filetto);padding-top:6px}
+  .indice-laterale.aperto>ol{display:block}
+  .indice-laterale li a{white-space:normal}
+  .indice-laterale .azioni{margin-top:10px;flex-direction:row;flex-wrap:wrap}
+  .indice-laterale .azioni .bottone{flex:1 1 140px}
+  .paragrafo{padding:18px 14px;margin-bottom:16px}
+  .paragrafo>h2{font-size:1.35rem;gap:10px}
+  .paragrafo>h2 .num{font-size:1.7rem}
+  table.tab,.tab-es{display:block;overflow-x:auto;white-space:nowrap;max-width:100%}
+  .testata-capitolo{padding:18px 16px;margin-bottom:16px}
+  .testata-capitolo .grande{font-size:5rem;right:12px}
+  .anim{padding:10px}
+  .comandi{gap:8px 14px}
+  .comandi input[type=range]{width:110px}
+  .passo-expr{font-size:1.15rem;padding:12px 4px}
+}
+@media screen and (max-width:600px){
+  body{font-size:17px}
+  .barra{gap:10px;padding:8px 12px;flex-wrap:wrap}
+  .logo{font-size:1.05rem}
+  .briciole{font-size:.8rem;line-height:1.5}
+  .briciole span.sep{margin:0 4px}
+  .copertina::before{inset:10px;outline-width:3px;box-shadow:0 0 0 4px var(--bordo)}
+  .copertina-centro{padding:16px;width:100%}
+  .titolo-copertina{font-size:2.1rem}
+  .bottone-matematica{padding:22px 18px 18px;font-size:clamp(2rem,11vw,3rem);max-width:100%;width:min(340px,100%)}
+  .bottone-matematica small{font-size:.8rem}
+  .pagina-anni{padding:30px 12px}
+  .pagina-anni h1{font-size:1.8rem}
+  .pagina-anni .sottotitolo{margin-bottom:22px}
+  .griglia-anni{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .carta-anno{min-height:150px;padding:16px 14px}
+  .carta-anno .num{font-size:3rem}
+  .carta-anno::after{font-size:4.5rem}
+  .contenitore{padding:20px 12px 50px}
+  .intestazione-anno h1{font-size:1.8rem}
+  .capitolo-riga{grid-template-columns:40px minmax(0,1fr);gap:10px}
+  .capitolo-riga .n{height:40px;font-size:1.2rem}
+  .testata-capitolo h1{font-size:1.7rem}
+  .definizione,.regola,.attenzione,.esempio{padding:10px 12px}
+  .formula{font-size:1.1rem}
+  .esercizio{grid-template-columns:34px minmax(0,1fr);gap:8px}
+  .esercizio .nr span{font-size:.8rem}
+  .esercizio ol.voci li{gap:8px}
+  .esercizio ol.voci.affiancate{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+  .opzioni{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+  .esercizio .fig,.esercizio .fig.icona{float:none;width:auto;max-width:100%;margin:6px 0}
+  .esercizio .fig svg{max-width:100%}
+  .alberi svg{max-width:100%}
+  .box-es .box-corpo{padding:8px 10px}
+  .finale-testa h2{font-size:1.5rem}
+  .svolgimento.vis>div{padding:8px 10px}
+  .riquadro-testa{padding:10px 12px;gap:10px}
+  .riquadro-titolo{font-size:1rem}
+  .illustrazione{float:none;width:150px;margin:6px auto}
+}
