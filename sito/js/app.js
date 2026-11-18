@@ -58,6 +58,13 @@
     }
     const a = document.createElement("a"); a.href = url; a.download = nome; document.body.appendChild(a); a.click(); a.remove();
   }
+  /* sul cellulare l'indice del capitolo si apre e chiude toccando il titolo */
+  document.addEventListener("click", e => {
+    const t = e.target.closest(".indice-laterale h4");
+    if (t) t.parentElement.classList.toggle("aperto");
+    const l = e.target.closest(".indice-laterale [data-vai]");
+    if (l && window.innerWidth <= 860) l.closest(".indice-laterale").classList.remove("aperto");
+  });
   document.addEventListener("click", e => {
     const b = e.target.closest("[data-pdf]"); if (!b) return;
     e.preventDefault(); scarica(b.dataset.pdf, b.dataset.nome);
