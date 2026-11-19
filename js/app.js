@@ -133,7 +133,7 @@
             <div class="azioni"><a class="bottone b-teoria" href="#${c.id}">Teoria</a><a class="bottone b-esercizi" href="#${c.id}-esercizi">Esercizi</a></div></div>`
           : `<div class="capitolo-riga prossimamente" style="${d}"><div class="n">${c.n}</div><div><h3>${c.titolo}</h3></div><span class="etichetta-presto">in preparazione</span></div>`;
       }).join("")}</div>`).join("")}
-      <p class="link-crediti"><a href="#crediti">Crediti delle immagini</a></p></div>`;
+</div>`;
   }
 
   /* ---------- PAGINA 4: teoria del capitolo ---------- */
@@ -249,18 +249,42 @@
     }
     h += capitoli.map(c => `<div class="capitolo">${testata(c, false)}${corpoTeoria(c)}</div>`
       + (c.esercizi ? `<div class="capitolo esercizi-stampa">${testata(c, true)}${corpoEsercizi(c, true)}</div>` : "")).join("");
-    h += `<section class="crediti-stampa contenitore">${htmlCrediti()}</section>`;
     app.innerHTML = h;
     attivaRiquadri(app, true); attivaAnimazioni(app, true);
     app.querySelectorAll(".anim").forEach(a => a.classList.add("affianca"));
     /* titoli e istruzioni dei gruppi non restano soli in fondo alla pagina: li teniamo insieme al primo esercizio */
+    /* il titolo di una sezione (Fai il punto, Fondamentali, Teoria in sintesi…) va insieme a ciò che segue */
+    app.querySelectorAll("section.paragrafo").forEach(sez => {
+      const t = sez.querySelector(":scope > .punto-testa, :scope > .finale-testa, :scope > h2");
+      const dopo = t && t.nextElementSibling;
+      if (dopo && (dopo.matches(".gruppo") || dopo.matches(".sint-griglia"))) dopo.insertBefore(t, dopo.firstChild);
+    });
+    app.querySelectorAll(".esercizi-stampa").forEach(c => {
+      const h = c.querySelector(":scope > .testata-capitolo"), g = c.querySelector(".gruppo");
+      if (h && g) g.insertBefore(h, g.firstChild);
+    });
+    app.querySelectorAll(".sint-griglia").forEach(g => {
+      const t = g.firstElementChild, b = t && t.nextElementSibling;
+      if (t && t.matches("h2") && b) { const w = document.createElement("div"); w.className = "tieni-insieme"; g.insertBefore(w, t); w.appendChild(t); w.appendChild(b); }
+    });
     app.querySelectorAll(".gruppo").forEach(g => {
       const testa = []; let x = g.firstElementChild;
-      while (x && (x.matches("h3") || x.matches(".istruzione"))) { testa.push(x); x = x.nextElementSibling; }
-      if (!testa.length || !x || !x.matches(".esercizio")) return;
+      while (x && x.matches("h2, h3, .istruzione, .punto-testa, .finale-testa, .testata-capitolo")) { testa.push(x); x = x.nextElementSibling; }
+      if (!testa.length || !x || !x.matches(".esercizio, .box-es")) return;
       const w = document.createElement("div"); w.className = "tieni-insieme"; g.insertBefore(w, testa[0]);
-      testa.concat([x]).forEach(e => w.appendChild(e));
+      const tit = document.createElement("div"); tit.className = "titoli"; w.appendChild(tit);
+      testa.forEach(e => tit.appendChild(e)); w.appendChild(x);
     });
+  };
+  /* Nei PDF gli elementi lunghi (più di un quarto di pagina) possono dividersi fra due pagine,
+     così non restano grandi spazi bianchi; quelli corti restano interi. */
+  window.spezzaLunghi = function (soglia) {
+    soglia = soglia || 150; let n = 0;
+    app.querySelectorAll(".tieni-insieme").forEach(w => { if (w.getBoundingClientRect().height > soglia * 0.6) w.classList.add("spezzabile"); });
+    app.querySelectorAll(".esercizio, .box-es, .sint-blocco, .approfondimento, .riquadro, .definizione, .regola").forEach(e => {
+      if (e.getBoundingClientRect().height > soglia) { e.classList.add("spezzabile"); n++; }
+    });
+    return n;
   };
   /* Dopo l'impaginazione: un'immagine resta a fianco del testo solo se il testo la "riempie";
      se resterebbe da sola a destra, viene centrata. */
@@ -278,17 +302,6 @@
     return cambiati;
   };
 
-  /* ---------- crediti delle foto ---------- */
-  function htmlCrediti() {
-    const F = window.CREDITI_FOTO || {};
-    return `<h1>Crediti delle immagini</h1><p>Le fotografie illustrative provengono da Wikimedia Commons e sono usate secondo la loro licenza libera. I disegni, gli schemi e le animazioni sono originali.</p>
-      <ul class="lista-crediti">${Object.entries(F).map(([k, f]) => `<li><b>${f[0]}</b> — ${f[1]} · ${f[2]} · <a href="${f[3]}" target="_blank" rel="noopener">${f[3].replace("https://", "")}</a></li>`).join("")}</ul>`;
-  }
-  function crediti() {
-    imposta([["Crediti immagini", "#crediti"]]);
-    app.innerHTML = `<div class="contenitore pagina-crediti">${htmlCrediti()}</div>`;
-  }
-
   /* ---------- router ---------- */
   function vai() {
     if (document.body.classList.contains("pagina-stampa")) return;
@@ -298,7 +311,6 @@
     if (h === "home") return copertina();
     if (h === "anni") return anni();
     if (h === "anno-1") return annoUno();
-    if (h === "crediti") return crediti();
     const m = h.match(/^(cap\d+)(-esercizi)?$/);
     if (m && L.capitoli[m[1]]) return m[2] ? esercizi(L.capitoli[m[1]]) : teoria(L.capitoli[m[1]]);
     copertina();

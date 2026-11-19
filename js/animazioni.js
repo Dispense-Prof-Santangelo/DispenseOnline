@@ -517,7 +517,7 @@
     disegna();
   };
 
-  /* 14 ─ Regola dei segni: la regolarità della tabellina */
+  /* 14 ─ Regola del prodotto dei segni: la regolarità della tabellina */
   ANIM.segni = function (el, stampa) {
     let k = stampa ? 8 : 4, f = -3;
     const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el);
