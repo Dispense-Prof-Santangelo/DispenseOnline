@@ -346,6 +346,11 @@ table.colonna td:first-child{text-align:right;border-right:2px solid currentColo
 .box-accresci .box-titolo{background:#1f6fa8}
 .box-nota{border-color:#8fb8dd;background:#fbfdff}
 .box-nota .box-titolo{background:#e3eef8;color:#1f6fa8}
+.lista-controllo{list-style:none;padding:0;margin:6px 0}
+.lista-controllo li{padding:3px 0;border-bottom:1px dotted var(--bordo)}
+.lista-controllo li i{color:var(--testo-2);font-size:.9em}
+.appunti{display:none}
+@media print{.appunti{margin:8px 0;background:repeating-linear-gradient(to bottom,transparent 0,transparent 27px,#c9d6e6 27px,#c9d6e6 28px);border-top:1px solid #8fb8dd}.appunti span{display:block;font-style:italic;color:var(--testo-2);font-size:9pt;line-height:28px}}
 .paragrafo.punto{border-top:6px solid var(--rosso)}
 .punto-testa{margin-bottom:6px;break-after:avoid;page-break-after:avoid;break-inside:avoid}
 .gruppo>h3,.gruppo>.istruzione{break-after:avoid}
@@ -375,8 +380,13 @@ table.colonna td:first-child{text-align:right;border-right:2px solid currentColo
   .paragrafo.punto,.paragrafo.finale{border-top:3px solid var(--rosso);padding-top:3mm}
   .paragrafo.finale{border-top-color:var(--viola)}
   .spezzabile{break-inside:auto!important}
-  .esercizio .ris{display:block;text-align:right;color:var(--testo-2);font-size:9.5pt;margin-top:-2px}
+  .esercizio .ris{float:right;margin-left:14px;max-width:55%;text-align:right;color:var(--testo-2);font-size:9.5pt}
+  .paragrafo.finale.verifica{break-before:page}
   .riquadro,.box-es,.sint-blocco,.approfondimento,.definizione,.regola,.attenzione,.esempio,.curiosita{break-inside:avoid!important}
+  .box-es:has(.lista-controllo){break-inside:auto!important;border:none;border-top:3px solid #8fb8dd;background:none}
+  .box-es:has(.lista-controllo) .box-titolo{background:none;padding:6px 0;break-after:avoid}
+  .box-es:has(.lista-controllo) .box-corpo{padding:0}
+  .lista-controllo li{break-inside:avoid}
   .titoli,.testata-capitolo{break-inside:avoid!important;break-after:avoid!important}
   .approfondimento>b:first-child,.box-titolo{break-after:avoid}
   .spezzabile li,.spezzabile tr,.spezzabile .fig,.spezzabile .opzioni,.spezzabile .associa,.spezzabile .passi li,.spezzabile .sol-finale,.spezzabile .formula{break-inside:avoid}
