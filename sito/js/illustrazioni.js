@@ -100,5 +100,23 @@
   I.quadretti = s(`${[...Array(12)].map((_,r)=>[...Array(12)].map((_,c)=>`<rect x="${38+c*7}" y="${16+r*7}" width="7" height="7" fill="${(r+c)%2?"#dfe8f6":"#fff"}" stroke="#9fb3d6" stroke-width=".5"/>`).join("")).join("")}
     <rect x="38" y="16" width="84" height="84" fill="none" stroke="${B}" stroke-width="2"/><text x="80" y="114" font-size="11" text-anchor="middle" font-family="serif" fill="${B}">12 cm</text>`);
 
+  /* ---- FOTO REALI (immagini solo illustrative): file in img/, licenze libere da Wikimedia Commons ----
+     Le figure matematiche/geometriche restano disegni SVG qui sopra. */
+  const FOTO = {
+    mele:         ["Mele rosse", "Maksym Kozlenko", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Australian_Red_delicious_apples_at_the_store.jpg"],
+    caramelle:    ["Caramelle e dolciumi", "Elisa Azzali", "CC BY 2.0", "https://commons.wikimedia.org/wiki/File:Candy_in_Damascus.jpg"],
+    pizza:        ["Pizza napoletana", "Fabryx98", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Pizza-napoletana.jpg"],
+    hotel:        ["Facciata di un albergo di notte", "HAuwo PPlEILML", "CC0", "https://commons.wikimedia.org/wiki/File:SZ_Shenzhen_Futian_Yuheng_Road_Hampton_Hotel_night_facade_April_2026_N13P.jpg"],
+    calcolatrice: ["Calcolatrice tascabile", "LoMit", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Citizen_SLD-100NR_calculator.jpg"],
+    cronometro:   ["Cronometro", "StefanPohl (Wikipedia tedesca)", "Pubblico dominio", "https://commons.wikimedia.org/wiki/File:Stoppuhr_hanhart.jpg"],
+    chip:         ["Circuito integrato su una scheda", "Autore non indicato", "Pubblico dominio", "https://commons.wikimedia.org/wiki/File:Integrated_circuit_on_microchip.jpg"],
+    cicala:       ["Cicala periodica", "Jbjensen1", "CC BY 4.0", "https://commons.wikimedia.org/wiki/File:Periodical_cicada_laying_eggs.jpg"],
+    lucchetto:    ["Lucchetto con chiavi", "Trougnouf", "CC BY 4.0", "https://commons.wikimedia.org/wiki/File:Solex_99_30_padlock_with_keys_(DSCF2659).jpg"],
+    monete:       ["Monete in euro (ritaglio)", "Kritzolina", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Paid_bill_for_coffee.jpg"],
+    libri:        ["Pila di libri antichi", "Ch. Maderthoner", "CC0", "https://commons.wikimedia.org/wiki/File:Old_Books_01.JPG"]
+  };
+  Object.entries(FOTO).forEach(([k, f]) => { I[k] = `<img class="foto" src="img/${k}.jpg" alt="${f[0]}">`; });
+  window.CREDITI_FOTO = FOTO;
+
   window.ILLUSTRAZIONI = I;
 })();

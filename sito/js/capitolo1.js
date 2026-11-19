@@ -18,7 +18,7 @@ LIBRO.capitoli.cap1 = {
   /* ------------------------------ TEORIA ------------------------------ */
   paragrafi: [
   { n: 1, id: "p1", titolo: "Che cosa sono i numeri naturali", html: `
-<figure class="fig-testo" data-img="mele"><figcaption>Cinque mele: contare è il primo uso dei numeri naturali.</figcaption></figure><p>I primi numeri che impariamo servono a <b>contare</b> (tre mele, venti studenti) e a <b>mettere in ordine</b> (il primo, il secondo, il terzo arrivato). Sono i <b>numeri naturali</b>, e l'insieme che li contiene tutti si indica con la lettera <span class="mat">ℕ</span>:</p>
+<figure class="fig-testo" data-img="mele"><figcaption>Quante mele? Contare è il primo uso dei numeri naturali.</figcaption></figure><p>I primi numeri che impariamo servono a <b>contare</b> (tre mele, venti studenti) e a <b>mettere in ordine</b> (il primo, il secondo, il terzo arrivato). Sono i <b>numeri naturali</b>, e l'insieme che li contiene tutti si indica con la lettera <span class="mat">ℕ</span>:</p>
 <p class="formula">ℕ = {0, 1, 2, 3, 4, 5, 6, …}</p>
 <p>I puntini dicono che l'elenco non finisce mai: dopo ogni numero ne viene sempre un altro.</p>
 
@@ -181,7 +181,7 @@ La <b>potenza</b> <span class="mat">a<sup>n</sup></span>, con <span class="mat">
 <div class="esempio"><b>Esempio</b> &emsp; 37 + 26 + 4 = 37 + (26 + 4) = 37 + 30 = 67 &emsp; 4 · 13 · 25 = 13 · (4 · 25) = 13 · 100 = 1300</div>
 
 <h3>Proprietà distributiva</h3>
-<figure class="fig-testo" data-img="pizza"><figcaption>3 pizze da 6 fette e 2 da 6 fette: (3 + 2) · 6 = 3 · 6 + 2 · 6.</figcaption></figure><div class="regola"><b>Distributiva della moltiplicazione</b>Per moltiplicare un numero per una somma (o una differenza) si può moltiplicare il numero per ciascun termine e poi sommare (o sottrarre) i risultati.
+<figure class="fig-testo" data-img="pizza"><figcaption>Una pizza in 6 fette: 3 pizze e poi altre 2 danno (3 + 2) · 6 = 3 · 6 + 2 · 6 fette.</figcaption></figure><div class="regola"><b>Distributiva della moltiplicazione</b>Per moltiplicare un numero per una somma (o una differenza) si può moltiplicare il numero per ciascun termine e poi sommare (o sottrarre) i risultati.
 <p class="formula">a · (b + c) = a · b + a · c &emsp; a · (b − c) = a · b − a · c</p></div>
 <p>L'animazione mostra perché funziona: l'area di un rettangolo di base <span class="mat">b + c</span> e altezza <span class="mat">a</span> è uguale alla somma delle aree dei due rettangoli più piccoli.</p>
 <div class="anim" data-anim="area" data-titolo="La proprietà distributiva vista con le aree"></div>

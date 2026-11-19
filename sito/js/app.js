@@ -132,7 +132,8 @@
         return c.pronto ? `<div class="capitolo-riga" style="${d}"><div class="n">${c.n}</div><div><h3>${c.titolo}</h3><p class="paragrafi">${c.paragrafi}</p></div>
             <div class="azioni"><a class="bottone b-teoria" href="#${c.id}">Teoria</a><a class="bottone b-esercizi" href="#${c.id}-esercizi">Esercizi</a></div></div>`
           : `<div class="capitolo-riga prossimamente" style="${d}"><div class="n">${c.n}</div><div><h3>${c.titolo}</h3></div><span class="etichetta-presto">in preparazione</span></div>`;
-      }).join("")}</div>`).join("")}</div>`;
+      }).join("")}</div>`).join("")}
+      <p class="link-crediti"><a href="#crediti">Crediti delle immagini</a></p></div>`;
   }
 
   /* ---------- PAGINA 4: teoria del capitolo ---------- */
@@ -232,6 +233,7 @@
     }
     h += capitoli.map(c => `<div class="capitolo">${testata(c, false)}${c.paragrafi.map(p => `<section class="paragrafo" id="${p.id}"><h2><span class="num">${p.n}</span>${p.titolo}</h2>${p.html}</section>`).join("")}</div>`
       + (c.esercizi ? `<div class="capitolo esercizi-stampa">${testata(c, true)}${corpoEsercizi(c, true)}</div>` : "")).join("");
+    h += `<section class="crediti-stampa contenitore">${htmlCrediti()}</section>`;
     app.innerHTML = h;
     attivaRiquadri(app, true); attivaAnimazioni(app, true);
     app.querySelectorAll(".anim").forEach(a => a.classList.add("affianca"));
@@ -252,6 +254,17 @@
     return cambiati;
   };
 
+  /* ---------- crediti delle foto ---------- */
+  function htmlCrediti() {
+    const F = window.CREDITI_FOTO || {};
+    return `<h1>Crediti delle immagini</h1><p>Le fotografie illustrative provengono da Wikimedia Commons e sono usate secondo la loro licenza libera. I disegni, gli schemi e le animazioni sono originali.</p>
+      <ul class="lista-crediti">${Object.entries(F).map(([k, f]) => `<li><b>${f[0]}</b> — ${f[1]} · ${f[2]} · <a href="${f[3]}" target="_blank" rel="noopener">${f[3].replace("https://", "")}</a></li>`).join("")}</ul>`;
+  }
+  function crediti() {
+    imposta([["Crediti immagini", "#crediti"]]);
+    app.innerHTML = `<div class="contenitore pagina-crediti">${htmlCrediti()}</div>`;
+  }
+
   /* ---------- router ---------- */
   function vai() {
     if (document.body.classList.contains("pagina-stampa")) return;
@@ -261,6 +274,7 @@
     if (h === "home") return copertina();
     if (h === "anni") return anni();
     if (h === "anno-1") return annoUno();
+    if (h === "crediti") return crediti();
     const m = h.match(/^(cap\d+)(-esercizi)?$/);
     if (m && L.capitoli[m[1]]) return m[2] ? esercizi(L.capitoli[m[1]]) : teoria(L.capitoli[m[1]]);
     copertina();
