@@ -197,15 +197,25 @@
         ${g.es.map(e => htmlEsercizio(e, contatore(), stampa)).join("")}${prima ? "" : box}</div>`;
     }).join("");
   }
+  /* divide i gruppi di un paragrafo in blocchi consecutivi: esercizi normali e "Fai il punto" (anche a metà paragrafo) */
+  function segmenti(gruppi) {
+    const out = []; let np = 0, nn = 0;
+    (gruppi || []).forEach(g => {
+      const ult = out[out.length - 1];
+      if (g.punto) {
+        if (ult && ult.punto === g.punto) ult.gruppi.push(g);
+        else out.push({ punto: g.punto, gruppi: [g], n: np++ });
+      } else if (ult && !ult.punto) ult.gruppi.push(g);
+      else out.push({ gruppi: [g], k: nn++ });
+    });
+    return out;
+  }
   function corpoEsercizi(cap, stampa) {
     let n = 0; const cont = () => ++n;
     const E = cap.esercizi, FIN = cap.finali || [];
-    const sezPar = p => {
-      const normali = (E[p.id] || []).filter(g => !g.punto), punto = (E[p.id] || []).filter(g => g.punto);
-      let html = `<section class="paragrafo ex" id="e-${p.id}"><h2><span class="num">${p.n}</span>${p.titolo}</h2>${htmlGruppi(normali, cont, "e-" + p.id, stampa)}</section>`;
-      if (punto.length) { let k = 0; html += `<section class="paragrafo ex punto" id="punto-${p.id}"><div class="punto-testa"><span>FAI IL PUNTO SULLE COMPETENZE</span><h2>${punto[0].punto}</h2></div>${htmlGruppi(punto, () => ++k, "punto-" + p.id, stampa)}</section>`; }
-      return html;
-    };
+    const sezPar = p => segmenti(E[p.id]).map(sg => (sg.id = "punto-" + p.id + (sg.n ? "-" + sg.n : ""), sg)).map(sg => sg.punto
+      ? (() => { let k = 0; return `<section class="paragrafo ex punto" id="${sg.id}"><div class="punto-testa"><span>FAI IL PUNTO SULLE COMPETENZE</span><h2>${sg.punto}</h2></div>${htmlGruppi(sg.gruppi, () => ++k, sg.id, stampa)}</section>`; })()
+      : `<section class="paragrafo ex${sg.k ? " seguito" : ""}" id="${sg.k ? `e-${p.id}-${sg.k}` : "e-" + p.id}">${sg.k ? "" : `<h2><span class="num">${p.n}</span>${p.titolo}</h2>`}${htmlGruppi(sg.gruppi, cont, (sg.k ? `e-${p.id}-${sg.k}` : "e-" + p.id), stampa)}</section>`).join("");
     const sezFin = f => { let k = 0; return `<section class="paragrafo ex finale ${f.id}" id="fin-${f.id}"><div class="finale-testa"><h2>${f.titolo}</h2>${f.durata ? `<span class="durata">⏱ ${f.durata}</span>` : ""}</div>${htmlGruppi(f.gruppi, () => ++k, "fin-" + f.id, stampa)}${f.id === "verifica" ? '<p class="totale">Il tuo punteggio: …… / 100</p>' : ""}</section>`; };
     return cap.paragrafi.map(sezPar).join("") + FIN.map(sezFin).join("");
   }
@@ -213,7 +223,7 @@
     imposta([["Anni", "#anni"], ["1° anno", "#anno-1"], [`Cap. ${cap.numero} · Esercizi`, "#" + cap.id + "-esercizi"]]);
     const E = cap.esercizi, FIN = cap.finali || [];
     app.innerHTML = `<div class="capitolo">
-      <aside class="indice-laterale"><h4>Esercizi · Cap. ${cap.numero}</h4><ol>${cap.paragrafi.map(p => `<li><a href="#${cap.id}-esercizi" data-vai="e-${p.id}"><b>${p.n}</b>${p.titolo}</a>${(E[p.id] || []).some(g => g.punto) ? `<ol><li><a href="#${cap.id}-esercizi" data-vai="punto-${p.id}">Fai il punto sulle competenze</a></li></ol>` : ""}</li>`).join("")}
+      <aside class="indice-laterale"><h4>Esercizi · Cap. ${cap.numero}</h4><ol>${cap.paragrafi.map(p => `<li><a href="#${cap.id}-esercizi" data-vai="e-${p.id}"><b>${p.n}</b>${p.titolo}</a>${segmenti(E[p.id]).some(g => g.punto) ? `<ol>${segmenti(E[p.id]).filter(g => g.punto).map((g, i, t) => `<li><a href="#${cap.id}-esercizi" data-vai="punto-${p.id}${g.n ? "-" + g.n : ""}">${t.length > 1 ? "Fai il punto · " + g.punto : "Fai il punto sulle competenze"}</a></li>`).join("")}</ol>` : ""}</li>`).join("")}
         ${FIN.map(f => `<li><a href="#${cap.id}-esercizi" data-vai="fin-${f.id}"><b>✦</b>${f.titolo}</a></li>`).join("")}</ol>
         <div class="azioni"><a class="bottone b-teoria" href="#${cap.id}">‹ Torna alla teoria</a></div></aside>
       <article>${testata(cap, true)}
@@ -243,12 +253,20 @@
     app.innerHTML = h;
     attivaRiquadri(app, true); attivaAnimazioni(app, true);
     app.querySelectorAll(".anim").forEach(a => a.classList.add("affianca"));
+    /* titoli e istruzioni dei gruppi non restano soli in fondo alla pagina: li teniamo insieme al primo esercizio */
+    app.querySelectorAll(".gruppo").forEach(g => {
+      const testa = []; let x = g.firstElementChild;
+      while (x && (x.matches("h3") || x.matches(".istruzione"))) { testa.push(x); x = x.nextElementSibling; }
+      if (!testa.length || !x || !x.matches(".esercizio")) return;
+      const w = document.createElement("div"); w.className = "tieni-insieme"; g.insertBefore(w, testa[0]);
+      testa.concat([x]).forEach(e => w.appendChild(e));
+    });
   };
   /* Dopo l'impaginazione: un'immagine resta a fianco del testo solo se il testo la "riempie";
      se resterebbe da sola a destra, viene centrata. */
   window.sistemaImmagini = function () {
     const flottanti = [...app.querySelectorAll(".anim.affianca, .fig-testo, .illustrazione, .esercizio .fig:not(.larga)")];
-    const ferma = x => x.matches(".riquadro, .definizione, .regola, .attenzione, .esempio, table, h2, h3, .formula, .anim, figure, .fig-testo, .gruppo, .mostra-svolg, .opzioni, .associa");
+    const ferma = x => x.matches(".riquadro, .approfondimento, .definizione, .regola, .attenzione, .esempio, table, h2, h3, .formula, .anim, figure, .fig-testo, .gruppo, .mostra-svolg, .opzioni, .associa");
     let cambiati = 0;
     flottanti.forEach(f => {
       if (f.classList.contains("centra")) return;

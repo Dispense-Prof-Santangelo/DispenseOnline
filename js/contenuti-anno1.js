@@ -16,7 +16,8 @@ window.LIBRO = {
       { titolo: "Aritmetica e algebra", capitoli: [
         { n: 1,  id: "cap1", titolo: "I numeri naturali", pronto: true,
           paragrafi: "Numeri naturali · Le quattro operazioni · Potenze · Espressioni · Proprietà · Multipli e divisori · MCD e mcm" },
-        { n: 2,  titolo: "I numeri interi" },
+        { n: 2,  id: "cap2", titolo: "I numeri interi", pronto: true,
+          paragrafi: "Che cosa sono i numeri interi · Addizione e sottrazione · Moltiplicazione e divisione · La potenza · Le leggi di monotonia" },
         { n: 3,  titolo: "I numeri razionali e i numeri reali" },
         { n: 4,  titolo: "Gli insiemi e la logica" },
         { n: 5,  titolo: "Relazioni e funzioni" },

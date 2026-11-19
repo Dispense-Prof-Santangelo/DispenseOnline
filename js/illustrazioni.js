@@ -100,6 +100,14 @@
   I.quadretti = s(`${[...Array(12)].map((_,r)=>[...Array(12)].map((_,c)=>`<rect x="${38+c*7}" y="${16+r*7}" width="7" height="7" fill="${(r+c)%2?"#dfe8f6":"#fff"}" stroke="#9fb3d6" stroke-width=".5"/>`).join("")).join("")}
     <rect x="38" y="16" width="84" height="84" fill="none" stroke="${B}" stroke-width="2"/><text x="80" y="114" font-size="11" text-anchor="middle" font-family="serif" fill="${B}">12 cm</text>`);
 
+
+  /* ---- capitolo 2 ---- */
+  I.specchio = s(`<line x1="8" y1="78" x2="152" y2="78" stroke="${K}" stroke-width="1.6"/><path d="M154 78 l-7 -4 v8z" fill="${K}"/>
+    ${[-5,-4,-3,-2,-1,0,1,2,3,4,5].map(i=>`<line x1="${80+i*13}" y1="74" x2="${80+i*13}" y2="82" stroke="${K}" stroke-width="${i?1:1.8}"/><text x="${80+i*13}" y="94" font-size="7.5" text-anchor="middle" font-family="serif" fill="${i<0?R:i>0?B:K}">${i>0?"+"+i:i<0?"−"+(-i):0}</text>`).join("")}
+    <rect x="77.5" y="14" width="5" height="58" fill="#cfe3f3" stroke="${B}" stroke-width="1"/><line x1="79" y1="18" x2="81" y2="66" stroke="#fff" stroke-width="1"/>
+    <circle cx="106" cy="78" r="4" fill="${B}"/><circle cx="145" cy="78" r="4" fill="${B}"/><circle cx="54" cy="78" r="4" fill="${R}"/><circle cx="15" cy="78" r="4" fill="${R}"/>
+    <path d="M106 70 Q80 40 54 70" stroke="${P}" stroke-width="1.3" fill="none" stroke-dasharray="3 2"/><path d="M145 70 Q80 18 15 70" stroke="${P}" stroke-width="1.3" fill="none" stroke-dasharray="3 2"/>
+    <text x="80" y="112" font-size="9" text-anchor="middle" font-family="serif" fill="${P}">2 &lt; 5 &#160; diventa &#160; −2 &gt; −5</text>`);
   /* ---- FOTO REALI (immagini solo illustrative): file in img/, licenze libere da Wikimedia Commons ----
      Le figure matematiche/geometriche restano disegni SVG qui sopra. */
   const FOTO = {
@@ -113,7 +121,17 @@
     cicala:       ["Cicala periodica", "Jbjensen1", "CC BY 4.0", "https://commons.wikimedia.org/wiki/File:Periodical_cicada_laying_eggs.jpg"],
     lucchetto:    ["Lucchetto con chiavi", "Trougnouf", "CC BY 4.0", "https://commons.wikimedia.org/wiki/File:Solex_99_30_padlock_with_keys_(DSCF2659).jpg"],
     monete:       ["Monete in euro (ritaglio)", "Kritzolina", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Paid_bill_for_coffee.jpg"],
-    libri:        ["Pila di libri antichi", "Ch. Maderthoner", "CC0", "https://commons.wikimedia.org/wiki/File:Old_Books_01.JPG"]
+    libri:        ["Pila di libri antichi", "Ch. Maderthoner", "CC0", "https://commons.wikimedia.org/wiki/File:Old_Books_01.JPG"],
+    termometro:   ["Termometro da esterno ghiacciato", "August Geyler", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Eingefrorenes_Au%C3%9Fenthermometer.jpg"],
+    marmorto:     ["Riva del Mar Morto (Giordania)", "Bernard Gagnon", "CC BY-SA 3.0", "https://commons.wikimedia.org/wiki/File:Dead_Sea,_Jordan_02.jpg"],
+    registro:     ["Pagina di un registro contabile di un mercante (1832)", "Autore non indicato", "Pubblico dominio", "https://commons.wikimedia.org/wiki/File:Pittsboro_Merchant_Business_Ledger_-_DPLA_-_4cbfce8f8f08c14f851ab74af046c082_(page_42).jpg"],
+    lampadina:    ["Lampadina a incandescenza", "Reinhard Manthey", "CC BY-SA 3.0 DE", "https://commons.wikimedia.org/wiki/File:Old-fashioned_light_bulb.jpg"],
+    bilancia:     ["Bilancia a due piatti", "Nikodem Nijaki", "CC BY-SA 3.0", "https://commons.wikimedia.org/wiki/File:Balance_scale_IMGP9722.jpg"],
+    fusione:      ["Ghisa fusa versata in una fonderia", "Sm faysal", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:In-stream_inoculation_addition_while_molten_cast_iron_is_poured_to_a_green_sand_mold_in_a_foundry_in_Bangladesh.jpg"],
+    ghiaccio:     ["Cubetti di ghiaccio", "Darren Hester", "CC BY-SA 2.5", "https://commons.wikimedia.org/wiki/File:Ice_cubes_openphoto.jpg"],
+    montagna:     ["Sentiero di montagna nel bosco", "Greg Grossmeier", "CC BY-SA 3.0", "https://commons.wikimedia.org/wiki/File:Trinity_Alps_Wilderness_-_Canyon_Creek_Trail.jpg"],
+    bosco:        ["Luce del sole in un bosco", "Antoloji", "CC BY-SA 4.0", "https://commons.wikimedia.org/wiki/File:Sunlight_in_the_forest.jpg"],
+    clessidra:    ["Clessidra di legno", "S Sepp", "CC BY-SA 3.0", "https://commons.wikimedia.org/wiki/File:Wooden_hourglass_3.jpg"]
   };
   Object.entries(FOTO).forEach(([k, f]) => { I[k] = `<img class="foto" src="img/${k}.jpg" alt="${f[0]}">`; });
   window.CREDITI_FOTO = FOTO;

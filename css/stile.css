@@ -123,6 +123,11 @@ sup{line-height:0}
 .formula{font-family:var(--serif);font-size:1.25rem;text-align:center;margin:14px 0;color:var(--blu-scuro)}
 .esempio{border-left:3px solid var(--verde);padding:8px 16px;margin:14px 0;background:var(--verde-chiaro);font-family:var(--sans);font-size:1rem}
 .esempio>b:first-child{color:var(--verde);text-transform:uppercase;font-size:.78rem;letter-spacing:2px;margin-right:8px}
+.approfondimento{border:1px solid #c9b48a;border-left:4px solid #8a6a3a;background:#f7f0e1;padding:10px 18px;margin:18px 0;font-size:1rem}
+.approfondimento>b:first-child{display:block;color:#6d5332;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.approfondimento p{margin:6px 0}
+table.tab.segni{width:auto;min-width:200px;margin:12px auto}
+table.tab.segni th,table.tab.segni td{text-align:center;padding:6px 18px;font-size:1.1rem}
 table.tab{border-collapse:collapse;width:100%;margin:14px 0;font-family:var(--sans);font-size:.95rem;border-top:2px solid var(--blu);border-bottom:2px solid var(--blu)}
 table.tab th{color:var(--blu-scuro);text-align:left;padding:7px 12px;border-bottom:1px solid var(--blu)}
 table.tab td{border-bottom:1px solid var(--filetto);padding:7px 12px}
@@ -251,14 +256,14 @@ body:not(.insegnante) .solo-insegnante{display:none}
   .riquadro{break-inside:auto}
   .anim{padding:6px 8px;margin:8px auto;width:74%;clear:both}
   .anim.affianca{float:right;width:50%;margin:2px 0 8px 14px;clear:right}
-  .riquadro,.definizione,.regola,.attenzione,.esempio,table.tab,.paragrafo h3,.paragrafo>h2,.formula,figure,.fig-testo{clear:both}
+  .riquadro,.definizione,.regola,.attenzione,.esempio,.approfondimento,table.tab,.paragrafo h3,.paragrafo>h2,.formula,figure,.fig-testo{clear:both}
   .riquadro{display:flow-root}
   .anim .lettura{font-size:.8rem}
   .anim svg{max-height:40mm;width:auto;max-width:100%;margin:0 auto}
   .anim-titolo{margin-bottom:4px;font-size:.8rem}
   .anim-titolo .pallino{display:none}
   .lettura{padding:2px 8px;font-size:.92rem}
-  .definizione,.regola,.attenzione,.esempio,table.tab tr,.formula,.anim,.riquadro-testa{break-inside:avoid}
+  .definizione,.regola,.attenzione,.esempio,.approfondimento,table.tab tr,.formula,.anim,.riquadro-testa{break-inside:avoid}
   h2,h3{break-after:avoid}
   p{orphans:3;widows:3}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -336,7 +341,9 @@ table.colonna td:first-child{text-align:right;border-right:2px solid currentColo
 .box-agenda .box-titolo{background:var(--verde)}
 .box-accresci .box-titolo{background:#1f6fa8}
 .paragrafo.punto{border-top:6px solid var(--rosso)}
-.punto-testa{margin-bottom:6px}
+.punto-testa{margin-bottom:6px;break-after:avoid;page-break-after:avoid;break-inside:avoid}
+.gruppo>h3,.gruppo>.istruzione{break-after:avoid}
+.tieni-insieme{break-inside:avoid}
 .punto-testa span{font-family:var(--sans);font-weight:700;letter-spacing:2px;color:var(--rosso);font-size:.85rem}
 .punto-testa h2{margin:4px 0 10px;font-size:1.5rem}
 .paragrafo.finale{border-top:6px solid var(--viola)}
