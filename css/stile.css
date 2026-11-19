@@ -344,6 +344,8 @@ table.colonna td:first-child{text-align:right;border-right:2px solid currentColo
 .box-agenda{border-color:var(--verde);background:var(--verde-chiaro)}
 .box-agenda .box-titolo{background:var(--verde)}
 .box-accresci .box-titolo{background:#1f6fa8}
+.box-nota{border-color:#8fb8dd;background:#fbfdff}
+.box-nota .box-titolo{background:#e3eef8;color:#1f6fa8}
 .paragrafo.punto{border-top:6px solid var(--rosso)}
 .punto-testa{margin-bottom:6px;break-after:avoid;page-break-after:avoid;break-inside:avoid}
 .gruppo>h3,.gruppo>.istruzione{break-after:avoid}
@@ -373,6 +375,8 @@ table.colonna td:first-child{text-align:right;border-right:2px solid currentColo
   .paragrafo.punto,.paragrafo.finale{border-top:3px solid var(--rosso);padding-top:3mm}
   .paragrafo.finale{border-top-color:var(--viola)}
   .spezzabile{break-inside:auto!important}
+  .esercizio .ris{display:block;text-align:right;color:var(--testo-2);font-size:9.5pt;margin-top:-2px}
+  .riquadro,.box-es,.sint-blocco,.approfondimento,.definizione,.regola,.attenzione,.esempio,.curiosita{break-inside:avoid!important}
   .titoli,.testata-capitolo{break-inside:avoid!important;break-after:avoid!important}
   .approfondimento>b:first-child,.box-titolo{break-after:avoid}
   .spezzabile li,.spezzabile tr,.spezzabile .fig,.spezzabile .opzioni,.spezzabile .associa,.spezzabile .passi li,.spezzabile .sol-finale,.spezzabile .formula{break-inside:avoid}
@@ -495,8 +499,13 @@ img.foto{display:block;width:100%;height:auto;border:1px solid var(--bordo)}
 @media screen and (max-width:860px){.sint-griglia{grid-template-columns:minmax(0,1fr)}}
 @media screen and (max-width:600px){.sint-blocco table.tab{display:block;overflow-x:auto}.linea-tempo{padding-left:12px}}
 @media print{
-  .paragrafo.storia{break-inside:auto}
-  .linea-tempo li{break-inside:avoid}
+  .paragrafo.storia{break-inside:avoid;font-size:9.5pt;line-height:1.38;padding-top:4mm;padding-bottom:3mm}
+  .paragrafo.storia>h2{margin-bottom:6px}
+  .storia-domanda{font-size:11pt}
+  .linea-tempo{margin:8px 0}
+  .linea-tempo li{break-inside:avoid;margin:0 0 5px}
+  .linea-tempo .data{font-size:7.5pt}
+  .storia-capitolo{padding-top:5px}
   .sint-griglia{display:block}
   .sint-blocco{break-inside:avoid;margin:0 0 4mm;font-size:9pt}
   .sint-blocco table.tab{font-size:7.6pt}
