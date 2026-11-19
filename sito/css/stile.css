@@ -301,7 +301,7 @@ body:not(.insegnante) .solo-insegnante{display:none}
 .vf i{font-style:normal}
 .vf b{display:none}
 .sol-finale{margin:8px 0 0;padding-top:6px;border-top:1px solid #c5ddf0}
-.sol-finale b{color:#1f6fa8}
+.sol-finale>b:first-child{display:block;color:#1f6fa8;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px}
 
 /* ====== Esercizi: elementi come nel libro ====== */
 .esercizio .tag,.tag-inline{display:inline-block;font-family:var(--sans);font-size:.7rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#fff;background:var(--arancio);padding:1px 7px;margin-right:4px;vertical-align:2px}
@@ -460,3 +460,37 @@ img.foto{display:block;width:100%;height:auto;border:1px solid var(--bordo)}
   .crediti-stampa h1{font-size:16pt}
   .crediti-stampa .lista-crediti li{font-size:8.5pt}
 }
+
+/* ---------- STORIA DELLA MATEMATICA e TEORIA IN SINTESI ---------- */
+.indice-laterale li.extra a{font-style:italic}
+.paragrafo.storia{background:#fbf6ea;border-left:4px solid #9a7b4f}
+.paragrafo.storia>h2{color:#6d5332;border-bottom-color:#c9b48f}
+.paragrafo.storia>h2 .num{color:#9a7b4f}
+.storia-domanda{font-size:1.3rem;font-style:italic;color:#6d5332;margin:0 0 6px}
+.linea-tempo{list-style:none;margin:18px 0;padding:0 0 0 18px;border-left:2px solid #c9b48f}
+.linea-tempo li{position:relative;margin:0 0 14px;padding-left:14px}
+.linea-tempo li::before{content:"";position:absolute;left:-25px;top:7px;width:10px;height:10px;background:#9a7b4f;border:2px solid #fbf6ea}
+.linea-tempo .data{display:block;font-weight:700;color:#6d5332;font-size:.9rem;letter-spacing:.5px;text-transform:uppercase}
+.storia-capitolo{border-top:1px solid #c9b48f;padding-top:10px;margin-top:6px}
+.paragrafo.sintesi>h2{color:var(--blu-scuro)}
+.sint-griglia{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.sint-blocco{min-width:0}
+.sint-blocco{border-top:3px solid var(--blu);background:#fff;border-left:1px solid var(--bordo);border-right:1px solid var(--bordo);border-bottom:1px solid var(--bordo);padding:10px 16px 6px;font-size:.96rem}
+.sint-blocco h3::before{display:none}
+.sint-blocco h3{margin:0 0 8px;font-size:1.08rem;color:var(--blu-scuro);display:flex;gap:8px;align-items:baseline}
+.sint-blocco h3 span{display:inline-grid;place-items:center;min-width:22px;height:22px;background:var(--blu);color:#fff;font-size:.85rem}
+.sint-blocco p{margin:6px 0}
+.sint-blocco table.tab{font-size:.86rem;margin:6px 0;width:100%}
+.sint-blocco .formula{font-size:1rem;margin:8px 0}
+@media screen and (max-width:860px){.sint-griglia{grid-template-columns:minmax(0,1fr)}}
+@media screen and (max-width:600px){.sint-blocco table.tab{display:block;overflow-x:auto}.linea-tempo{padding-left:12px}}
+@media print{
+  .paragrafo.storia{break-inside:auto}
+  .linea-tempo li{break-inside:avoid}
+  .paragrafo.sintesi{break-before:page}
+  .sint-griglia{display:block}
+  .sint-blocco{break-inside:avoid;margin:0 0 4mm;font-size:9pt}
+  .sint-blocco table.tab{font-size:7.6pt}
+}
+.sint-blocco td:last-child{white-space:nowrap}
+@media screen and (max-width:600px){.sint-blocco td:last-child{white-space:normal}}

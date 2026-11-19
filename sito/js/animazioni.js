@@ -60,8 +60,8 @@
     function posa() {
       pall.setAttribute("cx", x0 + n * passo);
       lett.innerHTML = n === 0
-        ? "<b>n = 0</b> · precedente: <b>non esiste</b> (0 è il più piccolo naturale) · successivo: <b>1</b>"
-        : `<b>n = ${n}</b> · precedente: <b>${n - 1}</b> · successivo: <b>${n + 1}</b>`;
+        ? "<b>n = 0</b> · il precedente <b>non esiste</b> (0 è il più piccolo naturale) · il successivo è <b>1</b>"
+        : `<b>n = ${n}</b> · il precedente è <b>${n - 1}</b> · il successivo è <b>${n + 1}</b>`;
       r.value = n; r.nextElementSibling.textContent = n;
     }
     function salta(dir, fine) {
@@ -163,14 +163,14 @@
   /* 4 ─ Espressione passo dopo passo */
   ANIM.espressione = function (el, stampa) {
     const P = [
-      ["{[(<span class=hl>2 + 3</span>)² − 5 · 3] : 2 + 4⁰} · 3", "Si comincia dalle parentesi <b>tonde</b>: 2 + 3 = 5"],
-      ["{[<span class=hl>5²</span> − 5 · 3] : 2 + 4⁰} · 3", "Nelle quadre, prima la <b>potenza</b>: 5² = 25"],
-      ["{[25 − <span class=hl>5 · 3</span>] : 2 + 4⁰} · 3", "Poi la <b>moltiplicazione</b>: 5 · 3 = 15"],
-      ["{[<span class=hl>25 − 15</span>] : 2 + 4⁰} · 3", "Infine la <b>sottrazione</b>: 25 − 15 = 10. Le quadre sono risolte"],
-      ["{10 : 2 + <span class=hl>4⁰</span>} · 3", "Nelle graffe, prima la <b>potenza</b>: 4⁰ = 1"],
-      ["{<span class=hl>10 : 2</span> + 1} · 3", "Poi la <b>divisione</b>: 10 : 2 = 5"],
-      ["{<span class=hl>5 + 1</span>} · 3", "Poi l'<b>addizione</b>: 5 + 1 = 6"],
-      ["<span class=hl>6 · 3</span>", "Fuori dalle parentesi resta l'ultima operazione: 6 · 3 = 18"],
+      ["{[(<span class=hl>2 + 3</span>)² − 5 · 3] : 2 + 4⁰} · 3", "Si comincia dalle parentesi <b>tonde</b>, cioè 2 + 3 = 5"],
+      ["{[<span class=hl>5²</span> − 5 · 3] : 2 + 4⁰} · 3", "Nelle quadre, prima la <b>potenza</b>, cioè 5² = 25"],
+      ["{[25 − <span class=hl>5 · 3</span>] : 2 + 4⁰} · 3", "Poi la <b>moltiplicazione</b>, cioè 5 · 3 = 15"],
+      ["{[<span class=hl>25 − 15</span>] : 2 + 4⁰} · 3", "Infine la <b>sottrazione</b>, cioè 25 − 15 = 10. Le quadre sono risolte"],
+      ["{10 : 2 + <span class=hl>4⁰</span>} · 3", "Nelle graffe, prima la <b>potenza</b>, cioè 4⁰ = 1"],
+      ["{<span class=hl>10 : 2</span> + 1} · 3", "Poi la <b>divisione</b>, cioè 10 : 2 = 5"],
+      ["{<span class=hl>5 + 1</span>} · 3", "Poi l'<b>addizione</b>, cioè 5 + 1 = 6"],
+      ["<span class=hl>6 · 3</span>", "Fuori dalle parentesi resta l'ultima operazione, cioè 6 · 3 = 18"],
       ["18", "Il <b>valore</b> dell'espressione è <b>18</b> ✓"]
     ];
     if (stampa) {
@@ -251,11 +251,11 @@
         requestAnimationFrame(() => requestAnimationFrame(() => { g2.style.transform = "translateX(0)"; }));
         S("text", { x: W / 2, y: 120, "text-anchor": "middle", "font-size": 15, "font-weight": 800, fill: C.verde }, s, `${m + n} fattori uguali ad a`);
       } else {
-        S("text", { x: xs + ((m - 1) * sp) / 2, y: 120, "text-anchor": "middle", "font-size": 15, "font-weight": 800, fill: C.blu }, s, `a${sup(m)}: ${m} fattori`);
-        S("text", { x: xs2 + ((n - 1) * sp) / 2, y: 120, "text-anchor": "middle", "font-size": 15, "font-weight": 800, fill: C.arancio }, s, `a${sup(n)}: ${n} fattori`);
+        S("text", { x: xs + ((m - 1) * sp) / 2, y: 120, "text-anchor": "middle", "font-size": 15, "font-weight": 800, fill: C.blu }, s, `a${sup(m)} → ${m} fattori`);
+        S("text", { x: xs2 + ((n - 1) * sp) / 2, y: 120, "text-anchor": "middle", "font-size": 15, "font-weight": 800, fill: C.arancio }, s, `a${sup(n)} → ${n} fattori`);
       }
       bu.textContent = unito ? "↺ Separa" : "Unisci i fattori ▶";
-      lett.innerHTML = `a<sup>${m}</sup> · a<sup>${n}</sup> = a<sup>${m}+${n}</sup> = <b>a<sup>${m + n}</sup></b> &emsp; con a = 2: ${2 ** m} · ${2 ** n} = <b>${2 ** (m + n)}</b> = 2<sup>${m + n}</sup>`;
+      lett.innerHTML = `a<sup>${m}</sup> · a<sup>${n}</sup> = a<sup>${m}+${n}</sup> = <b>a<sup>${m + n}</sup></b> &emsp; con a = 2 si ha ${2 ** m} · ${2 ** n} = <b>${2 ** (m + n)}</b> = 2<sup>${m + n}</sup>`;
     }
     if (stampa) unito = false;
     disegna();
@@ -291,7 +291,7 @@
       requestAnimationFrame(() => requestAnimationFrame(() => s.querySelectorAll("rect").forEach(r => (r.style.opacity = 1))));
       const div = []; for (let d = 1; d <= n; d++) if (n % d === 0) div.push(d);
       const tipo = n === 1 ? "<b>1</b> non è né primo né composto (ha un solo divisore)" : div.length === 2 ? `<b style="color:${C.verde}">${n} è PRIMO</b>: si dispone solo in una fila` : `<b style="color:${C.blu}">${n} è COMPOSTO</b>: si dispone in ${coppie.length} rettangoli diversi`;
-      lett.innerHTML = `Divisori di ${n}: <b>${div.join(", ")}</b> (${div.length} divisori) · ${tipo}`;
+      lett.innerHTML = `I divisori di ${n} sono <b>${div.join(", ")}</b> (${div.length} divisori) · ${tipo}`;
     }
     disegna();
   };

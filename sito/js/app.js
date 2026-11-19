@@ -73,7 +73,7 @@
   /* ---------- briciole di pane ---------- */
   function imposta(voci) {
     barra.classList.remove("nascosta");
-    voci = [["Libri", "#home"]].concat(voci);
+    voci = [["Discipline", "#home"]].concat(voci);
     briciole.innerHTML = voci.map((v, i) => i < voci.length - 1 ? `<a href="${v[1]}">${v[0]}</a><span class="sep">›</span>` : `<b>${v[0]}</b>`).join("");
   }
 
@@ -95,7 +95,7 @@
     app.innerHTML = `<section class="copertina">
       <div class="copertina-centro">
         <h1 class="titolo-copertina">Dispense online</h1>
-        <p>Scegli il libro</p>
+        <p>Scegli la disciplina</p>
         <a class="bottone-matematica" href="#anni"><span class="simboli" aria-hidden="true">${sp}</span><span class="scritta">Matematica</span><small>Entra ›</small></a>
       </div></section>`;
   }
@@ -140,11 +140,17 @@
   function teoria(cap) {
     imposta([["Anni", "#anni"], ["1° anno", "#anno-1"], [`Cap. ${cap.numero} · Teoria`, "#" + cap.id]]);
     app.innerHTML = `<div class="capitolo">
-      <aside class="indice-laterale"><h4>Capitolo ${cap.numero}</h4><ol>${cap.paragrafi.map(p => `<li><a href="#${cap.id}" data-vai="${p.id}"><b>${p.n}</b>${p.titolo}</a></li>`).join("")}</ol>
+      <aside class="indice-laterale"><h4>Capitolo ${cap.numero}</h4><ol>${cap.storia ? `<li class="extra"><a href="#${cap.id}" data-vai="storia"><b>✦</b>Storia della matematica</a></li>` : ""}${cap.paragrafi.map(p => `<li><a href="#${cap.id}" data-vai="${p.id}"><b>${p.n}</b>${p.titolo}</a></li>`).join("")}${cap.sintesi ? `<li class="extra"><a href="#${cap.id}" data-vai="sintesi"><b>✦</b>Teoria in sintesi</a></li>` : ""}</ol>
         <div class="azioni"><a class="bottone b-esercizi" href="#${cap.id}-esercizi">Vai agli esercizi ›</a>
         <button class="bottone b-pdf" data-pdf="${cap.pdf}" data-nome="Capitolo ${cap.numero} - ${cap.titolo}.pdf">${ICONA_PDF} Scarica il capitolo (PDF)</button></div></aside>
-      <article>${testata(cap, false)}${cap.paragrafi.map(p => `<section class="paragrafo" id="${p.id}"><h2><span class="num">${p.n}</span>${p.titolo}</h2>${p.html}</section>`).join("")}</article></div>`;
+      <article>${testata(cap, false)}${corpoTeoria(cap)}</article></div>`;
     attivaRiquadri(app); attivaAnimazioni(app); collegaIndice(app);
+  }
+  /* teoria: storia (apertura) + paragrafi + teoria in sintesi (chiusura) */
+  function corpoTeoria(cap) {
+    return (cap.storia ? `<section class="paragrafo storia" id="storia"><h2><span class="num">✦</span>Storia della matematica</h2>${cap.storia}</section>` : "")
+      + cap.paragrafi.map(p => `<section class="paragrafo" id="${p.id}"><h2><span class="num">${p.n}</span>${p.titolo}</h2>${p.html}</section>`).join("")
+      + (cap.sintesi ? `<section class="paragrafo sintesi" id="sintesi"><h2><span class="num">✦</span>Teoria in sintesi</h2><div class="sint-griglia">${cap.sintesi}</div></section>` : "");
   }
   function testata(cap, es) {
     return `<header class="testata-capitolo ${es ? "esercizi" : ""}"><span class="grande">${cap.numero}</span><div class="cap">Capitolo ${cap.numero} · ${es ? "Esercizi" : "Teoria"}</div>
@@ -177,7 +183,7 @@
     return `<div class="esercizio"><div class="nr"><span>${nr}</span><b class="punti" title="${LIV[e.l]}">${PALLINI(e.l)}</b></div><div class="corpo">
       ${fig}${(e.t || e.tag) ? `<p class="testo">${tag}${e.t || ""}</p>` : ""}${voci}${opzioni}${assoc}${punti}
       ${stampa ? "" : `<button class="mostra-svolg" aria-expanded="false">Mostra svolgimento e soluzione</button>
-      <div class="svolgimento"><div>${svolg}<div class="sol-finale"><b>Soluzione:</b> ${e.s}</div></div></div>`}
+      <div class="svolgimento"><div>${svolg}<div class="sol-finale"><b>Soluzione</b>${e.s}</div></div></div>`}
     </div></div>`;
   }
   function htmlBox(b, stampa) {
@@ -229,9 +235,9 @@
     let h = "";
     if (tipo === "anno1") {
       h += `<section class="copertina-pdf"><div style="font-size:60pt;font-family:var(--titoli)">∑</div><h1>Matematica</h1><p>Primo anno · Teoria</p></section>`;
-      h += `<section class="indice-pdf contenitore"><h1>Indice</h1><ol>${capitoli.map(c => `<li><b>${c.titolo}</b><ol>${c.paragrafi.map(p => `<li>${p.titolo}</li>`).join("")}</ol></li>`).join("")}</ol></section>`;
+      h += `<section class="indice-pdf contenitore"><h1>Indice</h1><ol>${capitoli.map(c => `<li><b>${c.titolo}</b><ol>${c.storia ? "<li class=\"extra\">Storia della matematica</li>" : ""}${c.paragrafi.map(p => `<li>${p.titolo}</li>`).join("")}${c.sintesi ? "<li class=\"extra\">Teoria in sintesi</li>" : ""}</ol></li>`).join("")}</ol></section>`;
     }
-    h += capitoli.map(c => `<div class="capitolo">${testata(c, false)}${c.paragrafi.map(p => `<section class="paragrafo" id="${p.id}"><h2><span class="num">${p.n}</span>${p.titolo}</h2>${p.html}</section>`).join("")}</div>`
+    h += capitoli.map(c => `<div class="capitolo">${testata(c, false)}${corpoTeoria(c)}</div>`
       + (c.esercizi ? `<div class="capitolo esercizi-stampa">${testata(c, true)}${corpoEsercizi(c, true)}</div>` : "")).join("");
     h += `<section class="crediti-stampa contenitore">${htmlCrediti()}</section>`;
     app.innerHTML = h;
