@@ -381,7 +381,7 @@ table.colonna td:first-child{text-align:right;border-right:2px solid currentColo
   .paragrafo.finale{border-top-color:var(--viola)}
   .spezzabile{break-inside:auto!important}
   .esercizio .ris{float:right;margin-left:14px;max-width:55%;text-align:right;color:var(--testo-2);font-size:9.5pt}
-  .paragrafo.finale.verifica{break-before:page}
+  .paragrafo.finale.verifica,.paragrafo.sintesi,.esercizi-stampa{break-before:page}
   .riquadro,.box-es,.sint-blocco,.approfondimento,.definizione,.regola,.attenzione,.esempio,.curiosita{break-inside:avoid!important}
   .box-es:has(.lista-controllo){break-inside:auto!important;border:none;border-top:3px solid #8fb8dd;background:none}
   .box-es:has(.lista-controllo) .box-titolo{background:none;padding:6px 0;break-after:avoid}
