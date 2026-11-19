@@ -11,16 +11,16 @@ LIBRO.capitoli.cap2 = {
   /* --------------------- STORIA DELLA MATEMATICA (apertura) --------------------- */
   storia: `
 <p class="storia-domanda">A che cosa serve un numero “minore di niente”?</p>
-<p>Con i numeri naturali sappiamo contare ciò che <b>c'è</b>. Ma i mercanti, i banchieri e gli esattori delle tasse avevano un problema diverso, cioè annotare ciò che <b>manca</b>. Se possiedo 30 monete e ne devo 50, quanto “ho”? Per rispondere servono numeri che indichino un <b>debito</b>, cioè una quantità al di sotto di un livello di riferimento (lo zero). Per molti secoli questi numeri furono usati nei conti ma guardati con sospetto dai matematici, che li chiamavano “assurdi” o “falsi”. Solo più tardi sono diventati numeri a pieno titolo, utili anche per misurare temperature, altitudini e date.</p>
+<p>Con i numeri naturali sappiamo contare ciò che <b>c'è</b>. Ma i mercanti, i banchieri e gli esattori delle tasse avevano un problema diverso, cioè annotare ciò che <b>manca</b>. Se possiedo 30 monete e ne devo 50, quanto “ho”? Per rispondere servono numeri che indichino un <b>debito</b>, cioè una quantità al di sotto di un livello di riferimento (lo zero). Per secoli questi numeri furono usati nei conti ma guardati con sospetto dai matematici; solo più tardi sono diventati numeri a pieno titolo, utili anche per temperature, altitudini e date.</p>
 <ol class="linea-tempo">
-<li><span class="data">circa II secolo a.C. – III secolo d.C.</span>In <b>Cina</b> il trattato <i>Nove capitoli sull'arte matematica</i> risolve problemi di commercio e di raccolti con le <b>bacchette da calcolo</b> e dà le regole per sommare e sottrarre quantità positive e negative. Nel III secolo il commentatore <b>Liu Hui</b> spiega di usare bacchette rosse per le quantità positive e nere per quelle negative.</li>
-<li><span class="data">628 d.C.</span>In <b>India</b> l'astronomo <b>Brahmagupta</b> scrive le regole per calcolare con i “beni” (numeri positivi), i “debiti” (numeri negativi) e lo zero. Tra le sue regole c'è già quella che oggi chiamiamo regola dei segni, per esempio “il prodotto di due debiti è un bene”.</li>
+<li><span class="data">circa II secolo a.C. – III secolo d.C.</span>In <b>Cina</b> il trattato <i>Nove capitoli sull'arte matematica</i> dà le regole per sommare e sottrarre quantità positive e negative con le <b>bacchette da calcolo</b>; il commentatore <b>Liu Hui</b> usa bacchette rosse per le positive e nere per le negative.</li>
+<li><span class="data">628 d.C.</span>In <b>India</b> l'astronomo <b>Brahmagupta</b> scrive le regole per calcolare con i “beni” (numeri positivi), i “debiti” (numeri negativi) e lo zero. C'è già la regola del prodotto dei segni, per esempio “il prodotto di due debiti è un bene”.</li>
 <li><span class="data">1202 – 1225</span><b>Leonardo Fibonacci</b>, mercante pisano, incontra problemi di denaro con una soluzione negativa e la interpreta come una <b>perdita</b>, cioè un debito.</li>
-<li><span class="data">1494</span>Il frate <b>Luca Pacioli</b> descrive la <b>partita doppia</b>, il metodo dei mercanti veneziani per registrare “dare” e “avere” su due colonne. Entrate e uscite, crediti e debiti, si bilanciano proprio come numeri opposti.</li>
+<li><span class="data">1494</span>Il frate <b>Luca Pacioli</b> descrive la <b>partita doppia</b>, il metodo dei mercanti veneziani per registrare “dare” e “avere” su due colonne, che si bilanciano come numeri opposti.</li>
 <li><span class="data">1545 – 1637</span><b>Gerolamo Cardano</b> nella sua <i>Ars magna</i> accetta le soluzioni negative delle equazioni ma le chiama “numeri finti”; un secolo dopo <b>Cartesio</b> le chiama ancora “radici false”.</li>
-<li><span class="data">1742</span>Lo svedese <b>Anders Celsius</b> propone una scala di 100 gradi per i termometri. Pochi anni dopo la scala viene capovolta e lo zero viene fissato alla temperatura del ghiaccio che fonde, così le temperature invernali diventano numeri negativi di uso quotidiano.</li>
+<li><span class="data">1742</span>Lo svedese <b>Anders Celsius</b> propone una scala di 100 gradi per i termometri. Poco dopo la scala viene capovolta, con lo zero al ghiaccio che fonde, e le temperature invernali diventano numeri negativi.</li>
 <li><span class="data">1770</span><b>Leonhard Euler</b> pubblica un manuale di algebra per principianti in cui spiega i numeri negativi come debiti e giustifica perché “meno per meno fa più”.</li>
-<li><span class="data">1867</span>Il tedesco <b>Hermann Hankel</b> enuncia il <b>principio di permanenza delle proprietà formali</b>. Quando si allarga un insieme di numeri, le regole di calcolo vanno scelte in modo che le vecchie proprietà continuino a valere. È il motivo profondo della regola dei segni.</li>
+<li><span class="data">1867</span>Il tedesco <b>Hermann Hankel</b> enuncia il <b>principio di permanenza delle proprietà formali</b>. Allargando un insieme di numeri, le regole vanno scelte in modo che le vecchie proprietà continuino a valere.</li>
 <li><span class="data">XX secolo</span>Si diffonde il simbolo <b>ℤ</b> per l'insieme dei numeri interi, dall'iniziale della parola tedesca <i>Zahlen</i>, che significa “numeri”.</li>
 </ol>
 <p class="storia-capitolo"><b>In questo capitolo</b> costruiamo l'insieme dei numeri interi aggiungendo ai naturali i numeri negativi. Impareremo a rappresentarli su una retta e a confrontarli, a eseguire con loro le operazioni e le potenze, e scopriremo che in ℤ la sottrazione è sempre possibile, come serviva ai mercanti che dovevano registrare un debito. Infine studieremo le leggi di monotonia, cioè che cosa succede a uguaglianze e disuguaglianze quando si somma o si moltiplica per uno stesso numero.</p>
@@ -54,10 +54,8 @@ LIBRO.capitoli.cap2 = {
 <p><b>Parentesi</b>. Con il segno + davanti si eliminano lasciando i segni invariati; con il segno − davanti si eliminano cambiando tutti i segni interni.</p></div>
 
 <div class="sint-blocco"><h3><span>3</span>La moltiplicazione e la divisione</h3>
-<table class="tab segni"><tr><th>·  e  :</th><th>+</th><th>−</th></tr>
-<tr><th>+</th><td>+</td><td>−</td></tr>
-<tr><th>−</th><td>−</td><td>+</td></tr></table>
-<p><b>Regola dei segni</b>. Il prodotto (o il quoziente) di due interi ha per valore assoluto il prodotto (o il quoziente) dei valori assoluti, segno + se i numeri sono concordi, segno − se sono discordi. Con più fattori il prodotto è negativo se i fattori negativi sono in numero dispari.</p>
+<table class="tab-segni"><tr><th class="angolo">·&ensp;:</th><th>+</th><th>−</th></tr><tr><th>+</th><td>+</td><td>−</td></tr><tr><th>−</th><td>−</td><td>+</td></tr></table>
+<p><b>Regola del prodotto dei segni</b>. Il prodotto (o il quoziente) di due interi ha per valore assoluto il prodotto (o il quoziente) dei valori assoluti, segno + se i numeri sono concordi, segno − se sono discordi. Con più fattori il prodotto è negativo se i fattori negativi sono in numero dispari.</p>
 <div class="esempio"><b>Esempio</b>(−4) · (−6) = +24 &emsp; (+30) : (−5) = −6 &emsp; (−1)(−2)(−3) = −6</div>
 <p>La divisione <span class="mat">a : b</span> esiste in ℤ solo se <span class="mat">b ≠ 0</span> e <span class="mat">|a|</span> è multiplo di <span class="mat">|b|</span>. ℤ è un <b>ampliamento</b> di ℕ in cui valgono tutte le proprietà delle operazioni già note (principio di permanenza).</p></div>
 
@@ -200,8 +198,8 @@ La <b>differenza</b> di due numeri interi è la somma del minuendo con l'<b>oppo
 Il <b>prodotto</b> di due numeri interi è un intero che ha
 <ul><li>per valore assoluto il prodotto dei valori assoluti;</li>
 <li>per segno il segno <b>+</b> se i fattori sono <b>concordi</b>, il segno <b>−</b> se i fattori sono <b>discordi</b>.</li></ul>
-Questa è la <b>regola dei segni</b>.</div>
-<table class="tab segni"><tr><th>·</th><th>+</th><th>−</th></tr><tr><th>+</th><td>+</td><td>−</td></tr><tr><th>−</th><td>−</td><td>+</td></tr></table>
+Questa è la <b>regola del prodotto dei segni</b>.</div>
+<table class="tab-segni"><tr><th class="angolo">·</th><th>+</th><th>−</th></tr><tr><th>+</th><td>+</td><td>−</td></tr><tr><th>−</th><td>−</td><td>+</td></tr></table>
 <div class="esempio"><b>Esempio</b>(+4) · (+7) = +28 &emsp; (−6) · (−3) = +18 &emsp; (−5) · (+8) = −40 &emsp; (+9) · (−2) = −18</div>
 <p>Spesso il punto della moltiplicazione si omette, e si scrive (−6)(−3) al posto di (−6) · (−3). In questo caso le parentesi sono indispensabili. Infatti (+4)(−7) è una moltiplicazione e vale −28, mentre +4 − 7 è un'addizione algebrica e vale −3. Si può scrivere anche 4(−7), ma non 4 − 7.</p>
 <p>Se i fattori sono più di due, basta <b>contare i fattori negativi</b>.</p>
@@ -217,7 +215,7 @@ Questa è la <b>regola dei segni</b>.</div>
 <div class="definizione"><b>Definizione</b>
 Se il secondo numero è diverso da 0 e il valore assoluto del primo è multiplo del valore assoluto del secondo, il <b>quoziente</b> di due numeri interi è un intero che ha
 <ul><li>per valore assoluto il quoziente dei valori assoluti;</li>
-<li>per segno quello dato dalla regola dei segni della moltiplicazione.</li></ul></div>
+<li>per segno quello dato dalla regola del prodotto dei segni.</li></ul></div>
 <div class="esempio"><b>Esempio</b>(+56) : (+8) = +7 &emsp; (−36) : (−4) = +9 &emsp; (+42) : (−6) = −7 &emsp; (−20) : (+5) = −4</div>
 <p>Per la divisione valgono la <b>proprietà invariantiva</b> e la <b>distributiva a destra</b> rispetto all'addizione algebrica. Per esempio (−48) : 12 = (−48 : 4) : (12 : 4) = −12 : 3 = −4 e (18 − 30) : (−6) = 18 : (−6) − 30 : (−6) = −3 + 5 = +2.</p>
 <div class="attenzione"><b>Attenzione</b>Non vale invece la distributiva <b>a sinistra</b>. Per esempio 24 : (6 − 2) = 24 : 4 = 6, mentre 24 : 6 − 24 : 2 = 4 − 12 = −8.</div>
@@ -232,7 +230,7 @@ Se il secondo numero è diverso da 0 e il valore assoluto del primo è multiplo 
 
 <h3>ℤ è un ampliamento di ℕ</h3>
 <p><b>Ampliare</b> un insieme numerico significa aggiungere nuovi numeri per risolvere problemi che prima non avevano soluzione. ℤ contiene tutti i numeri di ℕ (gli interi non negativi) più i numeri negativi, ed è quindi un ampliamento di ℕ in cui la sottrazione è sempre possibile.</p>
-<p>Quando si amplia un insieme si vuole però non perdere nulla di ciò che funzionava prima. È un po' come aggiungere un piano nuovo a una casa, dove si vuole che le stanze vecchie restino abitabili e che le scale le colleghino a quelle nuove. Questo è il <b>principio di permanenza delle proprietà formali</b>. Le regole delle operazioni in ℤ sono state scelte proprio per rispettarlo, e la regola dei segni ne è l'esempio più famoso.</p>
+<p>Quando si amplia un insieme si vuole però non perdere nulla di ciò che funzionava prima. È un po' come aggiungere un piano nuovo a una casa, dove si vuole che le stanze vecchie restino abitabili e che le scale le colleghino a quelle nuove. Questo è il <b>principio di permanenza delle proprietà formali</b>. Le regole delle operazioni in ℤ sono state scelte proprio per rispettarlo, e la regola del prodotto dei segni ne è l'esempio più famoso.</p>
 <ul>
 <li><b>(+) · (+) = +</b>, perché sugli interi positivi vogliamo ritrovare i risultati di ℕ. Per esempio (+3)(+5) = +15 come 3 · 5 = 15.</li>
 <li><b>(−) · (+) = −</b>, perché moltiplicare per +4 deve restare un'addizione ripetuta. Infatti (−6)(+4) = (−6) + (−6) + (−6) + (−6) = −24.</li>
@@ -242,13 +240,13 @@ Se il secondo numero è diverso da 0 e il valore assoluto del primo è multiplo 
 
 <div class="curiosita" data-img="libri" data-titolo="Lo scrittore che non credeva al “meno per meno”">
 <p>Lo scrittore francese <b>Stendhal</b> (1783 – 1842), autore di romanzi famosi come <i>Il rosso e il nero</i>, da ragazzo era bravissimo in matematica. Nella sua autobiografia racconta però di essere rimasto deluso perché nessuno dei suoi insegnanti sapeva spiegargli <b>perché</b> “meno per meno fa più”. Gli rispondevano soltanto che era la regola.</p>
-<p>La spiegazione c'è, e l'hai vista sopra. La regola dei segni non è un capriccio, ma l'unica scelta che permette alla proprietà distributiva di continuare a valere anche con i numeri negativi.</p>
+<p>La spiegazione c'è, e l'hai vista sopra. La regola del prodotto dei segni non è un capriccio, ma l'unica scelta che permette alla proprietà distributiva di continuare a valere anche con i numeri negativi.</p>
 <p>Si può anche ragionare con il tempo. Se una vasca si svuota di 3 litri al minuto (−3) e guardiamo come era 2 minuti fa (−2), la vasca conteneva 6 litri in più (+6). Infatti (−3)(−2) = +6.</p>
 </div>
 `},
 
   { n: 4, id: "p4", titolo: "La potenza", html: `
-<p>Come in ℕ, la potenza di un intero con esponente naturale è un modo breve di scrivere un prodotto di fattori uguali, per esempio <span class="mat">(−2)<sup>3</sup> = (−2)(−2)(−2)</span>. Il segno del risultato si ricava dalla regola dei segni contando i fattori negativi.</p>
+<p>Come in ℕ, la potenza di un intero con esponente naturale è un modo breve di scrivere un prodotto di fattori uguali, per esempio <span class="mat">(−2)<sup>3</sup> = (−2)(−2)(−2)</span>. Il segno del risultato si ricava dalla regola del prodotto dei segni contando i fattori negativi.</p>
 <div class="definizione"><b>Definizione</b>
 La <b>potenza</b> di un numero intero con esponente naturale è un intero che ha
 <ul><li>per valore assoluto la potenza del valore assoluto della base;</li>
@@ -317,6 +315,7 @@ Se si moltiplicano i due membri di una disuguaglianza per un numero <b>positivo<
 <p class="formula">a &lt; b &ensp;→&ensp; a · c &lt; b · c se c &gt; 0 &emsp;&emsp; a &lt; b &ensp;→&ensp; a · c &gt; b · c se c &lt; 0</p></div>
 <div class="esempio"><b>Esempio</b>Da +3 &lt; +7, moltiplicando per −2, si ottiene −6 &gt; −14. Il verso cambia da &lt; a &gt;.</div>
 <p>Il motivo si vede bene sulla retta. Moltiplicare per −1 scambia ogni numero con il suo opposto, cioè “ribalta” la retta attorno allo 0 come in uno specchio. Il numero che prima stava più a destra finisce più a sinistra, e quindi il verso si inverte.</p>
+<div class="attenzione"><b>Attenzione</b>Nella seconda legge il numero per cui si moltiplica non può essere 0. Da 2 &lt; 5, moltiplicando per 0, si otterrebbe 0 = 0 e la disuguaglianza andrebbe persa. Per lo stesso motivo nelle leggi di cancellazione non si può “cancellare” un fattore 0, infatti 0 · 3 = 0 · 7 ma 3 ≠ 7.</div>
 <div class="anim" data-anim="monotonia" data-titolo="Moltiplicare una disuguaglianza: quando cambia il verso?"></div>
 
 <h3>Le leggi di cancellazione</h3>
@@ -325,6 +324,9 @@ Se si moltiplicano i due membri di una disuguaglianza per un numero <b>positivo<
 <li><b>Prima legge di cancellazione</b>. Un addendo uguale nei due membri si può eliminare. Per esempio da 9 + 4 = 7 + 2 + 4 si ottiene 9 = 7 + 2, e da 3 − 8 &lt; 5 − 8 si ottiene 3 &lt; 5.</li>
 <li><b>Seconda legge di cancellazione</b>. Un fattore uguale e diverso da 0 nei due membri si può eliminare, cambiando il verso di una disuguaglianza se il fattore è negativo. Per esempio da 12 · 5 = (8 + 4) · 5 si ottiene 12 = 8 + 4, e da (−2) · 6 &lt; (−2) · 1 si ottiene 6 &gt; 1.</li>
 </ul>
+
+<div class="attenzione"><b>Attenzione</b>Elevare al quadrato i due membri <b>non</b> è una legge di monotonia. Per esempio −5 &lt; 2, ma (−5)<sup>2</sup> = 25 è maggiore di 2<sup>2</sup> = 4.</div>
+<div class="esempio"><b>Esempio</b>Le leggi di monotonia servono a trovare un numero sconosciuto. Se <span class="mat">x + 7 = 3</span>, aggiungendo −7 ai due membri si ottiene <span class="mat">x = 3 − 7 = −4</span>. Se <span class="mat">−3x &lt; 12</span>, moltiplicando i due membri per −1 si ottiene <span class="mat">3x &gt; −12</span> (il verso cambia!), e quindi x deve essere maggiore di −4. Le studierai a fondo nei capitoli sulle equazioni e sulle disequazioni.</div>
 
 <div class="curiosita" data-img="specchio" data-titolo="Lo specchio dei numeri">
 <p>Metti uno specchio verticale appoggiato sullo 0 della retta dei numeri. Il riflesso di +5 è −5, quello di −2 è +2. Ogni numero si riflette nel suo opposto.</p>

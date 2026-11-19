@@ -72,7 +72,11 @@ LIBRO.capitoli.cap1 = {
 <div class="sint-blocco"><h3><span>4</span>Le espressioni</h3>
 <p><b>Ordine di calcolo.</b> Prima le parentesi, dalle tonde alle quadre alle graffe. Dentro ogni parentesi si calcolano prima le potenze, poi moltiplicazioni e divisioni nell'ordine in cui compaiono, infine addizioni e sottrazioni nell'ordine in cui compaiono.</p>
 <p class="formula">[(2 + 3)<sup>2</sup> − 5 · 3] : 2 = [25 − 15] : 2 = 10 : 2 = 5</p>
-<p>In un'<b>espressione letterale</b> le lettere (variabili) stanno al posto dei numeri. Per calcolarne il valore si sostituiscono i numeri alle lettere.</p></div>
+<p>In un'<b>espressione letterale</b> le lettere (variabili) stanno al posto dei numeri. Per calcolarne il valore si sostituiscono i numeri alle lettere.</p>
+<table class="tab"><tr><th>A parole</th><th>Con i simboli</th><th>Con a = 3 e b = 4</th></tr>
+<tr><td>il quadrato della somma di a e b</td><td>(a + b)<sup>2</sup></td><td>7<sup>2</sup> = 49</td></tr>
+<tr><td>la somma dei quadrati di a e b</td><td>a<sup>2</sup> + b<sup>2</sup></td><td>9 + 16 = 25</td></tr>
+<tr><td>il doppio del successivo di a</td><td>2(a + 1)</td><td>2 · 4 = 8</td></tr></table></div>
 
 <div class="sint-blocco"><h3><span>5</span>Le proprietà delle operazioni</h3>
 <table class="tab"><tr><th>Proprietà</th><th>Vale per</th><th>Espressione</th></tr>
@@ -284,6 +288,7 @@ La <b>potenza</b> <span class="mat">a<sup>n</sup></span>, con <span class="mat">
 <div class="regola"><b>Associativa</b>In una somma (o in un prodotto) di tre o più termini, si possono raggruppare a piacere due termini vicini e sostituirli con il loro risultato.
 <p class="formula">(a + b) + c = a + (b + c) &emsp; (a · b) · c = a · (b · c)</p></div>
 <div class="esempio"><b>Esempio</b> &emsp; 37 + 26 + 4 = 37 + (26 + 4) = 37 + 30 = 67 &emsp; 4 · 13 · 25 = 13 · (4 · 25) = 13 · 100 = 1300</div>
+<p>Anche l'associativa non vale per la sottrazione e per la divisione. Per esempio (20 − 8) − 2 = 10, mentre 20 − (8 − 2) = 14; (48 : 4) : 2 = 6, mentre 48 : (4 : 2) = 24.</p>
 
 <h3>Proprietà distributiva</h3>
 <figure class="fig-testo" data-img="pizza"><figcaption>Ogni pizza ha 6 fette, quindi 3 pizze e poi altre 2 danno (3 + 2) · 6 = 3 · 6 + 2 · 6 fette.</figcaption></figure><div class="regola"><b>Distributiva della moltiplicazione</b>Per moltiplicare un numero per una somma (o una differenza) si può moltiplicare il numero per ciascun termine e poi sommare (o sottrarre) i risultati.

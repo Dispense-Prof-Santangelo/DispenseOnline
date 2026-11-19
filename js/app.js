@@ -180,8 +180,17 @@
     const svolg = (e.p ? `<ul class="passi">${e.p.map(x => `<li><span class="eq">${x}</span></li>`).join("")}</ul>` : "") + (e.sv ? `<p>${e.sv}</p>` : "");
     const tag = e.tag ? `<span class="tag">${e.tag}</span> ` : "";
     const punti = e.pt ? `<span class="punteggio">…… / ${e.pt}</span>` : "";
+    /* nei PDF, come nel libro, il risultato delle espressioni e dei problemi compare tra parentesi quadre */
+    const PROBLEMI = /INTORNO A NOI|EDUCAZIONE FINANZIARIA|FISICA|SCIENZE|INFORMATICA/;
+    let ris = "";
+    if (stampa && !e.vf && !e.o && !e.assoc && typeof e.s === "string" && !/<(table|svg|br)/.test(e.s)) {
+      if (e.p || e.r) ris = e.p && e.s.includes(" = ") ? e.s.slice(e.s.lastIndexOf(" = ") + 3) : e.s;
+      else if (!e.v && !e.f && e.s.length < 60 && !/SPIEGALO|ESEMPIO|COMPLETA|CACCIA|TEST|ASSOCIA/.test(e.tag || "") &&
+               ((e.tag && PROBLEMI.test(e.tag)) || (e.t || "").replace(/<[^>]+>/g, "").length > 110)) ris = e.s;
+    }
+    const risultato = ris ? `<span class="ris">[${ris}]</span>` : "";
     return `<div class="esercizio"><div class="nr"><span>${nr}</span><b class="punti" title="${LIV[e.l]}">${PALLINI(e.l)}</b></div><div class="corpo">
-      ${fig}${(e.t || e.tag) ? `<p class="testo">${tag}${e.t || ""}</p>` : ""}${voci}${opzioni}${assoc}${punti}
+      ${fig}${(e.t || e.tag) ? `<p class="testo">${tag}${e.t || ""}</p>` : ""}${voci}${opzioni}${assoc}${risultato}${punti}
       ${stampa ? "" : `<button class="mostra-svolg" aria-expanded="false">Mostra svolgimento e soluzione</button>
       <div class="svolgimento"><div>${svolg}<div class="sol-finale"><b>Soluzione</b>${e.s}</div></div></div>`}
     </div></div>`;
@@ -281,10 +290,33 @@
   window.spezzaLunghi = function (soglia) {
     soglia = soglia || 150; let n = 0;
     app.querySelectorAll(".tieni-insieme").forEach(w => { if (w.getBoundingClientRect().height > soglia * 0.6) w.classList.add("spezzabile"); });
-    app.querySelectorAll(".esercizio, .box-es, .sint-blocco, .approfondimento, .riquadro, .definizione, .regola").forEach(e => {
+    app.querySelectorAll(".esercizio").forEach(e => {
       if (e.getBoundingClientRect().height > soglia) { e.classList.add("spezzabile"); n++; }
     });
     return n;
+  };
+  /* Nei PDF i riquadri non si spezzano mai. Se un riquadro (o un blocco che non si può dividere) non entra
+     nello spazio rimasto in fondo alla pagina, viene rimpicciolito quanto basta (fino al 68%, le figure e la sintesi fino al 60%); una figura affiancata al testo può invece scendere dopo il paragrafo che la segue,
+     invece di lasciare un buco bianco. */
+  const BLOCCHI = ".riquadro, .anim, .sint-blocco, .esempio, .definizione, .regola, .attenzione, .approfondimento, .box-es, table.tab-segni, table.tab, .fig-testo, .tieni-insieme, .esercizio:not(.spezzabile)";
+  window.bloccoInizio = function (righe) {
+    const norm = x => x.replace(/\s+/g, "").replace(/[^\p{L}\p{N}]/gu, "").toLowerCase();
+    const r = norm(righe.join(" "));
+    const lista = [...app.querySelectorAll(BLOCCHI)];
+    let k = -1;
+    lista.forEach((e, i) => { if (k < 0) { const t = norm(e.innerText).slice(0, 30); if (t.length > 6 && r.startsWith(t.slice(0, Math.min(30, r.length)))) k = i; } });
+    return k < 0 ? null : [k, Math.round(lista[k].getBoundingClientRect().height), lista[k].matches(".fig-testo, .anim, .sint-blocco") || lista[k].querySelector(".sint-blocco") ? 0.6 : 0.68, lista[k].matches(".fig-testo")];
+  };
+  window.applicaZoom = function (lista, figure) {
+    const el = [...app.querySelectorAll(BLOCCHI)];
+    /* una figura che non entra in fondo alla pagina scende dopo il paragrafo che la segue (resta affiancata al testo) */
+    (figure || []).map(k => el[k]).forEach(f => {
+      if (!f) return; let x = f.nextElementSibling;
+      while (x && !x.matches("p")) { if (x.matches("h2, h3, .riquadro, .anim, .definizione, .regola")) return; x = x.nextElementSibling; }
+      if (x) x.after(f);
+    });
+    lista.forEach(([k, f]) => { const e = el[k]; if (e && !e.closest("[style*=zoom]") && !e.querySelector("[style*=zoom]")) e.style.zoom = f; });
+    return lista.length;
   };
   /* Dopo l'impaginazione: un'immagine resta a fianco del testo solo se il testo la "riempie";
      se resterebbe da sola a destra, viene centrata. */
