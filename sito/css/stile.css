@@ -1,7 +1,7 @@
 /* ====== STILE "LIBRO CLASSICO" — cambia qui colori e caratteri ====== */
 :root{
   --blu:#1f4fa3; --blu-scuro:#1f3260; --blu-chiaro:#eef2f9;
-  --arancio:#c8621f; --arancio-chiaro:#fbf0e6;
+  --arancio:#2a86c9; --arancio-chiaro:#eaf4fc; /* colore della sezione ESERCIZI (azzurro) */
   --verde:#2a7a52; --verde-chiaro:#eaf4ee;
   --viola:#6b47b8; --viola-chiaro:#f3effa;
   --giallo:#d9a514; --giallo-chiaro:#fdf6df;
@@ -83,7 +83,7 @@ sup{line-height:0}
 .b-teoria{background:var(--blu);color:#fff}
 .b-teoria:hover{background:var(--blu-scuro)}
 .b-esercizi{border-color:var(--arancio);background:var(--arancio);color:#fff}
-.b-esercizi:hover{background:#a24d14}
+.b-esercizi:hover{background:#1f6fa8}
 .etichetta-presto{font-family:var(--sans);font-size:.82rem;color:#8f8676;font-style:italic}
 
 /* ====== Pagina del capitolo ====== */
@@ -297,7 +297,7 @@ body:not(.insegnante) .solo-insegnante{display:none}
 .svolgimento.vis>div{padding:8px 14px}
 .esercizio .fig.icona{width:120px}
 .vf{display:inline-flex;gap:6px;flex:none;align-self:center}
-.vf>span{display:grid;place-items:center;width:22px;height:22px;border:1.5px solid var(--arancio);background:#fff;font-family:var(--sans);font-size:.8rem;font-weight:700;color:var(--arancio);line-height:1}
+.vf>span{display:grid;place-items:center;width:22px;height:22px;border:1.5px solid var(--testo);background:#fff;font-family:var(--sans);font-size:.8rem;font-weight:700;color:var(--testo);line-height:1}
 .vf i{font-style:normal}
 .vf b{display:none}
 .sol-finale{margin:8px 0 0;padding-top:6px;border-top:1px solid #cfe3d7}
@@ -327,14 +327,14 @@ table.colonna td:first-child{text-align:right;border-right:2px solid currentColo
 .sol-finale svg{max-width:420px;height:auto;background:#fff;display:block;margin-top:4px}
 .punteggio{display:block;text-align:right;font-family:var(--sans);font-weight:700;color:var(--rosso)}
 .totale{text-align:right;font-size:1.2rem;font-weight:700;color:var(--rosso);border-top:2px solid var(--rosso);padding-top:8px}
-.box-es{margin:18px 0;border:1.5px solid var(--arancio);background:#fff8f1}
+.box-es{margin:18px 0;border:1.5px solid var(--arancio);background:#f3f9fe}
 .box-es .box-titolo{font-family:var(--sans);font-weight:700;color:#fff;background:var(--arancio);padding:6px 14px;letter-spacing:.5px}
 .box-es .box-corpo{padding:8px 16px}
 .box-es>.mostra-svolg,.box-es>.svolgimento{margin-left:16px;margin-right:16px}
 .box-es>.svolgimento{margin-bottom:10px}
 .box-agenda{border-color:var(--verde);background:var(--verde-chiaro)}
 .box-agenda .box-titolo{background:var(--verde)}
-.box-accresci .box-titolo{background:#a24d14}
+.box-accresci .box-titolo{background:#1f6fa8}
 .paragrafo.punto{border-top:6px solid var(--rosso)}
 .punto-testa{margin-bottom:6px}
 .punto-testa span{font-family:var(--sans);font-weight:700;letter-spacing:2px;color:var(--rosso);font-size:.85rem}
@@ -444,4 +444,19 @@ table.colonna td:first-child{text-align:right;border-right:2px solid currentColo
   .riquadro-testa{padding:10px 12px;gap:10px}
   .riquadro-titolo{font-size:1rem}
   .illustrazione{float:none;width:150px;margin:6px auto}
+}
+
+/* ---------- FOTO REALI E CREDITI ---------- */
+img.foto{display:block;width:100%;height:auto;border:1px solid var(--bordo)}
+.illustrazione img.foto{border-radius:0}
+.pagina-crediti h1{margin-top:28px}
+.lista-crediti{padding-left:20px;line-height:1.6}
+.lista-crediti li{margin-bottom:6px;font-size:.95rem}
+.lista-crediti a{word-break:break-all}
+.link-crediti{text-align:center;margin:36px 0 20px;font-size:.9rem}
+.link-crediti a{color:var(--testo-2)}
+@media print{
+  .crediti-stampa{break-before:page;font-size:9pt}
+  .crediti-stampa h1{font-size:16pt}
+  .crediti-stampa .lista-crediti li{font-size:8.5pt}
 }
