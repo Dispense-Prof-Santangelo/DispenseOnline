@@ -190,7 +190,7 @@
     }
     const risultato = ris ? `<span class="ris">[${ris}]</span>` : "";
     return `<div class="esercizio"><div class="nr"><span>${nr}</span><b class="punti" title="${LIV[e.l]}">${PALLINI(e.l)}</b></div><div class="corpo">
-      ${fig}${(e.t || e.tag) ? `<p class="testo">${tag}${e.t || ""}</p>` : ""}${voci}${opzioni}${assoc}${risultato}${punti}
+      ${fig}${(e.t || e.tag) ? `<p class="testo">${tag}${e.t || ""}${risultato}</p>` : risultato}${voci}${opzioni}${assoc}${punti}
       ${stampa ? "" : `<button class="mostra-svolg" aria-expanded="false">Mostra svolgimento e soluzione</button>
       <div class="svolgimento"><div>${svolg}<div class="sol-finale"><b>Soluzione</b>${e.s}</div></div></div>`}
     </div></div>`;
@@ -298,14 +298,14 @@
   /* Nei PDF i riquadri non si spezzano mai. Se un riquadro (o un blocco che non si può dividere) non entra
      nello spazio rimasto in fondo alla pagina, viene rimpicciolito quanto basta (fino al 68%, le figure e la sintesi fino al 60%); una figura affiancata al testo può invece scendere dopo il paragrafo che la segue,
      invece di lasciare un buco bianco. */
-  const BLOCCHI = ".riquadro, .anim, .sint-blocco, .esempio, .definizione, .regola, .attenzione, .approfondimento, .box-es, table.tab-segni, table.tab, .fig-testo, .tieni-insieme, .esercizio:not(.spezzabile)";
+  const BLOCCHI = ".riquadro, .anim, .sint-blocco, .esempio, .definizione, .regola, .attenzione, .approfondimento, .box-es:not(:has(.lista-controllo)), table.tab-segni, table.tab, .fig-testo, .tieni-insieme, .esercizio:not(.spezzabile)";
   window.bloccoInizio = function (righe) {
     const norm = x => x.replace(/\s+/g, "").replace(/[^\p{L}\p{N}]/gu, "").toLowerCase();
     const r = norm(righe.join(" "));
     const lista = [...app.querySelectorAll(BLOCCHI)];
     let k = -1;
     lista.forEach((e, i) => { if (k < 0) { const t = norm(e.innerText).slice(0, 30); if (t.length > 6 && r.startsWith(t.slice(0, Math.min(30, r.length)))) k = i; } });
-    return k < 0 ? null : [k, Math.round(lista[k].getBoundingClientRect().height), lista[k].matches(".fig-testo, .anim, .sint-blocco") || lista[k].querySelector(".sint-blocco") ? 0.6 : 0.68, lista[k].matches(".fig-testo")];
+    return k < 0 ? null : [k, Math.round(lista[k].getBoundingClientRect().height), lista[k].matches(".fig-testo, .anim, .sint-blocco, .box-es") || lista[k].querySelector(".sint-blocco, .box-es") ? 0.6 : 0.68, lista[k].matches(".fig-testo")];
   };
   window.applicaZoom = function (lista, figure) {
     const el = [...app.querySelectorAll(BLOCCHI)];
