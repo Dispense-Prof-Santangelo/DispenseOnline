@@ -424,6 +424,10 @@ Il <b>minimo comune multiplo</b> di due o più numeri (diversi da 0) è il più 
 <div class="regola"><b>Regola</b>Il mcm è il prodotto di tutti i fattori primi, <b>comuni e non comuni</b>, presi una sola volta con l'esponente <b>maggiore</b>.</div>
 <div class="esempio"><b>Esempio</b> &emsp; 60 = 2<sup>2</sup> · 3 · 5 &emsp; 90 = 2 · 3<sup>2</sup> · 5 &emsp; mcm(60, 90) = 2<sup>2</sup> · 3<sup>2</sup> · 5 = 180</div>
 <p>Per due numeri vale sempre una relazione elegante: <span class="mat">MCD(a, b) · mcm(a, b) = a · b</span>. Per esempio, con 60 e 90 si ha MCD = 30, mcm = 180 e 30 · 180 = 5400 = 60 · 90.</p>
+<div class="regola"><b>MCD o mcm? Come riconoscerli nei problemi</b>
+<ul><li>Si usa il <b>MCD</b> quando bisogna <b>dividere</b> più quantità in parti uguali, le più grandi possibili, senza avanzi (per esempio tagliare due nastri da 60 cm e 90 cm in pezzi uguali e più lunghi possibile, cioè da 30 cm).</li>
+<li>Si usa il <b>mcm</b> quando si cerca <b>quando</b> due o più fatti che si ripetono capiteranno di nuovo insieme (per esempio due autobus che partono ogni 60 e ogni 90 minuti ripartono insieme dopo 180 minuti).</li></ul>
+Il MCD non supera mai il più piccolo dei numeri, il mcm non è mai minore del più grande.</div>
 <p>Il mcm risponde a domande del tipo: <i>due eventi si ripetono ogni tot giorni: quando capiteranno di nuovo insieme?</i></p>
 
 <div class="curiosita" data-img="cicala" data-titolo="Le cicale che contano con i numeri primi">

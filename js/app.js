@@ -150,7 +150,7 @@
   function corpoTeoria(cap) {
     return (cap.storia ? `<section class="paragrafo storia" id="storia"><h2><span class="num">✦</span>Storia della matematica</h2>${cap.storia}</section>` : "")
       + cap.paragrafi.map(p => `<section class="paragrafo" id="${p.id}"><h2><span class="num">${p.n}</span>${p.titolo}</h2>${p.html}</section>`).join("")
-      + (cap.sintesi ? `<section class="paragrafo sintesi" id="sintesi"><h2><span class="num">✦</span>Teoria in sintesi</h2><div class="sint-griglia">${cap.sintesi}</div></section>` : "");
+      + (cap.sintesi ? `<section class="paragrafo sintesi" id="sintesi"><h2><span class="num">✦</span>Teoria in sintesi</h2><div class="sint-griglia">${cap.sintesi}</div><div class="appunti"><span>Appunti</span></div></section>` : "");
   }
   function testata(cap, es) {
     return `<header class="testata-capitolo ${es ? "esercizi" : ""}"><span class="grande">${cap.numero}</span><div class="cap">Capitolo ${cap.numero} · ${es ? "Esercizi" : "Teoria"}</div>
