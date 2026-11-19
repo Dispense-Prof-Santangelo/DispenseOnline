@@ -288,20 +288,20 @@ body:not(.insegnante) .solo-insegnante{display:none}
 .esercizio ol.voci{display:block;margin:4px 0 6px;padding:0;list-style:none}
 .esercizio ol.voci li{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:1px 0;border-bottom:1px dotted transparent}
 .esercizio ol.voci li:hover{border-bottom-color:var(--filetto)}
-.mostra-svolg{margin-top:6px;border:none;background:none;color:var(--verde);font-weight:700;font-size:.92rem;padding:2px 0;cursor:pointer}
+.mostra-svolg{margin-top:6px;border:none;background:none;color:#1f6fa8;font-weight:700;font-size:.92rem;padding:2px 0;cursor:pointer}
 .mostra-svolg::before{content:"▸ ";display:inline-block;transition:transform .25s}
 .mostra-svolg[aria-expanded=true]::before{transform:rotate(90deg)}
 .svolgimento{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
 .svolgimento.vis{grid-template-rows:1fr}
-.svolgimento>div{overflow:hidden;border-left:3px solid var(--verde);background:var(--verde-chiaro);padding:0 14px;margin-top:4px}
+.svolgimento>div{overflow:hidden;border-left:3px solid var(--arancio);background:var(--arancio-chiaro);padding:0 14px;margin-top:4px}
 .svolgimento.vis>div{padding:8px 14px}
 .esercizio .fig.icona{width:120px}
 .vf{display:inline-flex;gap:6px;flex:none;align-self:center}
 .vf>span{display:grid;place-items:center;width:22px;height:22px;border:1.5px solid var(--testo);background:#fff;font-family:var(--sans);font-size:.8rem;font-weight:700;color:var(--testo);line-height:1}
 .vf i{font-style:normal}
 .vf b{display:none}
-.sol-finale{margin:8px 0 0;padding-top:6px;border-top:1px solid #cfe3d7}
-.sol-finale b{color:var(--verde)}
+.sol-finale{margin:8px 0 0;padding-top:6px;border-top:1px solid #c5ddf0}
+.sol-finale b{color:#1f6fa8}
 
 /* ====== Esercizi: elementi come nel libro ====== */
 .esercizio .tag,.tag-inline{display:inline-block;font-family:var(--sans);font-size:.7rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#fff;background:var(--arancio);padding:1px 7px;margin-right:4px;vertical-align:2px}
