@@ -1,6 +1,0 @@
-/* "Libro Serif" = Liberation Serif (licenza SIL OFL), stesse proporzioni del Times New Roman.
-   Si usa il Times New Roman del computer se c'è, altrimenti questo. */
-@font-face{font-family:'Libro Serif';font-style:normal;font-weight:400;font-display:swap;src:url(../font/libro-serif-Regular.woff2) format('woff2')}
-@font-face{font-family:'Libro Serif';font-style:normal;font-weight:500 800;font-display:swap;src:url(../font/libro-serif-Bold.woff2) format('woff2')}
-@font-face{font-family:'Libro Serif';font-style:italic;font-weight:400;font-display:swap;src:url(../font/libro-serif-Italic.woff2) format('woff2')}
-@font-face{font-family:'Libro Serif';font-style:italic;font-weight:500 800;font-display:swap;src:url(../font/libro-serif-BoldItalic.woff2) format('woff2')}
