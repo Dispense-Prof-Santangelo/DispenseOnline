@@ -109,8 +109,8 @@ sup{line-height:0}
 .testata-capitolo.esercizi .grande{color:var(--arancio)}
 
 .paragrafo{background:var(--carta);border:1px solid var(--bordo);padding:30px 38px;margin-bottom:26px;scroll-margin-top:72px}
-.paragrafo>h2{display:flex;align-items:baseline;gap:14px;margin:0 0 16px;font-size:1.75rem;border-bottom:2px solid var(--blu);padding-bottom:8px}
-.paragrafo>h2 .num{flex:none;font-size:2.3rem;color:var(--blu);font-weight:700}
+.paragrafo h2:not(.punto-testa h2, .finale-testa h2){display:flex;align-items:baseline;gap:14px;margin:0 0 16px;font-size:1.75rem;border-bottom:2px solid var(--blu);padding-bottom:8px}
+.paragrafo h2:not(.punto-testa h2, .finale-testa h2) .num{flex:none;font-size:2.3rem;color:var(--blu);font-weight:700}
 .paragrafo h3{font-size:1.22rem;margin:26px 0 8px;display:flex;align-items:center;gap:10px}
 .paragrafo h3::before{content:"";width:10px;height:10px;background:var(--rosso);flex:none}
 .paragrafo p{margin:10px 0}
@@ -123,6 +123,15 @@ sup{line-height:0}
 .formula{font-family:var(--serif);font-size:1.25rem;text-align:center;margin:14px 0;color:var(--blu-scuro)}
 .esempio{border-left:3px solid var(--verde);padding:8px 16px;margin:14px 0;background:var(--verde-chiaro);font-family:var(--sans);font-size:1rem}
 .esempio>b:first-child{color:var(--verde);text-transform:uppercase;font-size:.78rem;letter-spacing:2px;margin-right:8px}
+.approfondimento{border:1px solid #c9b48a;border-left:4px solid #8a6a3a;background:#f7f0e1;padding:10px 18px;margin:18px 0;font-size:1rem}
+.approfondimento>b:first-child{display:block;color:#6d5332;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+.approfondimento p{margin:6px 0}
+table.tab-segni{border-collapse:collapse;margin:14px auto;font-family:var(--serif)}
+table.tab-segni th,table.tab-segni td{width:58px;height:44px;text-align:center;vertical-align:middle;font-size:1.35rem;border:1px solid var(--bordo);padding:0}
+table.tab-segni th{background:#dbe9f7;color:var(--blu-scuro);font-weight:700;border:2px solid var(--blu)}
+table.tab-segni th.angolo{background:var(--blu);color:#fff;font-size:1.8rem}
+table.tab-segni td{background:#fff;color:var(--testo);font-weight:400}
+@media print{table.tab-segni{break-inside:avoid;margin:6px auto}table.tab-segni th,table.tab-segni td{width:40px;height:28px;font-size:1.05rem}}
 table.tab{border-collapse:collapse;width:100%;margin:14px 0;font-family:var(--sans);font-size:.95rem;border-top:2px solid var(--blu);border-bottom:2px solid var(--blu)}
 table.tab th{color:var(--blu-scuro);text-align:left;padding:7px 12px;border-bottom:1px solid var(--blu)}
 table.tab td{border-bottom:1px solid var(--filetto);padding:7px 12px}
@@ -239,7 +248,7 @@ body:not(.insegnante) .solo-insegnante{display:none}
   .barra,.indice-laterale,.comandi,.riquadro-freccia,.non-stampa,.avviso{display:none!important}
   .capitolo{display:block;padding:0;max-width:none}
   .paragrafo{border:none;padding:0;margin:0 0 6mm;background:none}
-  .paragrafo>h2{break-after:avoid}
+  .paragrafo h2:not(.punto-testa h2, .finale-testa h2){break-after:avoid}
   .testata-capitolo{background:none;margin-bottom:5mm;padding:4mm 0 3mm;border-left:none;border-right:none;border-bottom:none}
   .riquadro{background:none}
   .riquadro-corpo{grid-template-rows:1fr!important}
@@ -251,14 +260,14 @@ body:not(.insegnante) .solo-insegnante{display:none}
   .riquadro{break-inside:auto}
   .anim{padding:6px 8px;margin:8px auto;width:74%;clear:both}
   .anim.affianca{float:right;width:50%;margin:2px 0 8px 14px;clear:right}
-  .riquadro,.definizione,.regola,.attenzione,.esempio,table.tab,.paragrafo h3,.paragrafo>h2,.formula,figure,.fig-testo{clear:both}
+  .riquadro,.definizione,.regola,.attenzione,.esempio,.approfondimento,table.tab,.paragrafo h3,.paragrafo h2:not(.punto-testa h2, .finale-testa h2),.formula,figure,.fig-testo{clear:both}
   .riquadro{display:flow-root}
   .anim .lettura{font-size:.8rem}
   .anim svg{max-height:40mm;width:auto;max-width:100%;margin:0 auto}
   .anim-titolo{margin-bottom:4px;font-size:.8rem}
   .anim-titolo .pallino{display:none}
   .lettura{padding:2px 8px;font-size:.92rem}
-  .definizione,.regola,.attenzione,.esempio,table.tab tr,.formula,.anim,.riquadro-testa{break-inside:avoid}
+  .definizione,.regola,.attenzione,.esempio,.approfondimento,table.tab tr,.formula,.anim,.riquadro-testa{break-inside:avoid}
   h2,h3{break-after:avoid}
   p{orphans:3;widows:3}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -335,8 +344,17 @@ table.colonna td:first-child{text-align:right;border-right:2px solid currentColo
 .box-agenda{border-color:var(--verde);background:var(--verde-chiaro)}
 .box-agenda .box-titolo{background:var(--verde)}
 .box-accresci .box-titolo{background:#1f6fa8}
+.box-nota{border-color:#8fb8dd;background:#fbfdff}
+.box-nota .box-titolo{background:#e3eef8;color:#1f6fa8}
+.lista-controllo{list-style:none;padding:0;margin:6px 0}
+.lista-controllo li{padding:3px 0;border-bottom:1px dotted var(--bordo)}
+.lista-controllo li i{color:var(--testo-2);font-size:.9em}
+.appunti{display:none}
+@media print{.appunti{margin:8px 0;background:repeating-linear-gradient(to bottom,transparent 0,transparent 27px,#c9d6e6 27px,#c9d6e6 28px);border-top:1px solid #8fb8dd}.appunti span{display:block;font-style:italic;color:var(--testo-2);font-size:9pt;line-height:28px}}
 .paragrafo.punto{border-top:6px solid var(--rosso)}
-.punto-testa{margin-bottom:6px}
+.punto-testa{margin-bottom:6px;break-after:avoid;page-break-after:avoid;break-inside:avoid}
+.gruppo>h3,.gruppo>.istruzione{break-after:avoid}
+.tieni-insieme{break-inside:avoid}
 .punto-testa span{font-family:var(--sans);font-weight:700;letter-spacing:2px;color:var(--rosso);font-size:.85rem}
 .punto-testa h2{margin:4px 0 10px;font-size:1.5rem}
 .paragrafo.finale{border-top:6px solid var(--viola)}
@@ -354,14 +372,29 @@ table.colonna td:first-child{text-align:right;border-right:2px solid currentColo
   .fig-testo.centra{width:52mm}
   .illustrazione.centra{width:36mm}
   .esercizio .fig.centra{width:auto;max-width:70mm}
-  .esercizi-stampa{break-before:page}
   .esercizio{break-inside:avoid;padding:6px 0;grid-template-columns:34px 1fr;gap:8px}
   .esercizio .nr span{font-size:.8rem}
   .gruppo>h3,.istruzione{break-after:avoid}
   .box-es{break-inside:avoid}
   .paragrafo.ex,.paragrafo.punto,.paragrafo.finale{border:none;padding:0;margin:0 0 6mm}
   .paragrafo.punto,.paragrafo.finale{border-top:3px solid var(--rosso);padding-top:3mm}
-  .paragrafo.finale{border-top-color:var(--viola);break-before:page}
+  .paragrafo.finale{border-top-color:var(--viola)}
+  .spezzabile{break-inside:auto!important}
+  .esercizio .ris{float:right;margin-left:14px;max-width:55%;text-align:right;color:var(--testo-2);font-size:9.5pt}
+  .paragrafo.finale.verifica,.paragrafo.sintesi,.esercizi-stampa{break-before:page}
+  .riquadro,.box-es,.sint-blocco,.approfondimento,.definizione,.regola,.attenzione,.esempio,.curiosita{break-inside:avoid!important}
+  .box-es:has(.lista-controllo){break-inside:auto!important;border:none;border-top:3px solid #8fb8dd;background:none}
+  .box-es:has(.lista-controllo) .box-titolo{background:none;padding:6px 0;break-after:avoid}
+  .box-es:has(.lista-controllo) .box-corpo{padding:0}
+  .lista-controllo li{break-inside:avoid}
+  .titoli,.testata-capitolo{break-inside:avoid!important;break-after:avoid!important}
+  .approfondimento>b:first-child,.box-titolo{break-after:avoid}
+  .spezzabile li,.spezzabile tr,.spezzabile .fig,.spezzabile .opzioni,.spezzabile .associa,.spezzabile .passi li,.spezzabile .sol-finale,.spezzabile .formula{break-inside:avoid}
+  .spezzabile p{orphans:2;widows:2}
+  .esercizio.spezzabile,.spezzabile .esercizio{display:block}
+  .esercizio.spezzabile>.nr,.spezzabile .esercizio>.nr{float:left;width:34px}
+  .esercizio.spezzabile>.corpo,.spezzabile .esercizio>.corpo{margin-left:42px}
+  .box-titolo,.riquadro-testa{break-after:avoid}
   .barra-esercizi{display:none}
   .esercizio .fig{max-width:60mm}
   .esercizio .fig.icona{width:26mm}
@@ -395,8 +428,8 @@ table.colonna td:first-child{text-align:right;border-right:2px solid currentColo
   .indice-laterale .azioni{margin-top:10px;flex-direction:row;flex-wrap:wrap}
   .indice-laterale .azioni .bottone{flex:1 1 140px}
   .paragrafo{padding:18px 14px;margin-bottom:16px}
-  .paragrafo>h2{font-size:1.35rem;gap:10px}
-  .paragrafo>h2 .num{font-size:1.7rem}
+  .paragrafo h2:not(.punto-testa h2, .finale-testa h2){font-size:1.35rem;gap:10px}
+  .paragrafo h2:not(.punto-testa h2, .finale-testa h2) .num{font-size:1.7rem}
   table.tab,.tab-es{display:block;overflow-x:auto;white-space:nowrap;max-width:100%}
   .testata-capitolo{padding:18px 16px;margin-bottom:16px}
   .testata-capitolo .grande{font-size:5rem;right:12px}
@@ -449,16 +482,7 @@ table.colonna td:first-child{text-align:right;border-right:2px solid currentColo
 /* ---------- FOTO REALI E CREDITI ---------- */
 img.foto{display:block;width:100%;height:auto;border:1px solid var(--bordo)}
 .illustrazione img.foto{border-radius:0}
-.pagina-crediti h1{margin-top:28px}
-.lista-crediti{padding-left:20px;line-height:1.6}
-.lista-crediti li{margin-bottom:6px;font-size:.95rem}
-.lista-crediti a{word-break:break-all}
-.link-crediti{text-align:center;margin:36px 0 20px;font-size:.9rem}
-.link-crediti a{color:var(--testo-2)}
 @media print{
-  .crediti-stampa{break-before:page;font-size:9pt}
-  .crediti-stampa h1{font-size:16pt}
-  .crediti-stampa .lista-crediti li{font-size:8.5pt}
 }
 
 /* ---------- STORIA DELLA MATEMATICA e TEORIA IN SINTESI ---------- */
@@ -485,12 +509,76 @@ img.foto{display:block;width:100%;height:auto;border:1px solid var(--bordo)}
 @media screen and (max-width:860px){.sint-griglia{grid-template-columns:minmax(0,1fr)}}
 @media screen and (max-width:600px){.sint-blocco table.tab{display:block;overflow-x:auto}.linea-tempo{padding-left:12px}}
 @media print{
-  .paragrafo.storia{break-inside:auto}
-  .linea-tempo li{break-inside:avoid}
-  .paragrafo.sintesi{break-before:page}
+  .paragrafo.storia{break-inside:avoid;font-size:9.5pt;line-height:1.38;padding-top:4mm;padding-bottom:3mm}
+  .paragrafo.storia>h2{margin-bottom:6px}
+  .storia-domanda{font-size:11pt}
+  .linea-tempo{margin:8px 0}
+  .linea-tempo li{break-inside:avoid;margin:0 0 5px}
+  .linea-tempo .data{font-size:7.5pt}
+  .storia-capitolo{padding-top:5px}
   .sint-griglia{display:block}
   .sint-blocco{break-inside:avoid;margin:0 0 4mm;font-size:9pt}
   .sint-blocco table.tab{font-size:7.6pt}
 }
 .sint-blocco td:last-child{white-space:nowrap}
 @media screen and (max-width:600px){.sint-blocco td:last-child{white-space:normal}}
+.sint-lista{list-style:none;margin:6px 0 8px;padding:0}
+.sint-lista li{display:grid;grid-template-columns:minmax(9em,auto) 1fr;gap:4px 18px;padding:3px 0;border-bottom:1px dotted var(--filetto);align-items:baseline}
+.sint-lista li:last-child{border-bottom:none}
+.sint-lista li>.mat:only-child{grid-column:1 / -1}
+.sint-lista .nota{color:var(--testo-2);font-size:.92em}
+.sint-blocco td small{color:var(--testo-2)}
+.sint-blocco .esempio{margin:8px 0}
+@media screen and (max-width:600px){.sint-lista li{grid-template-columns:1fr;gap:0}}
+.sint-blocco .esempio .sint-lista li{grid-template-columns:19em 1fr}
+@media screen and (max-width:600px){.sint-blocco .esempio .sint-lista li{grid-template-columns:1fr}}
+
+/* ===== CAPITOLO 3: frazioni scritte una sopra l'altra e decimali periodici ===== */
+.fr{display:inline-block;vertical-align:middle;text-align:center;margin:0 .1em;line-height:1.12;font-size:.9em;white-space:nowrap}
+.fr>span{display:block;padding:0 .14em}
+.fr>span:first-child{border-bottom:1px solid currentColor}
+.fr sup{font-size:.72em}
+.per{text-decoration:overline;text-decoration-thickness:1px}
+.passi .eq,.formula,.voci li,.opzioni li{line-height:1.9}
+.vuoto{display:inline-block;min-width:1.4em;border:1px solid #9aa4b8;background:#fff;color:transparent;line-height:1.1}
+/* parentesi alte quanto le frazioni che racchiudono (classi create da esprq.ingrandisci) */
+.pg{display:inline-block;line-height:1;vertical-align:middle;font-weight:300;margin:0 .03em;transform:scaleY(1.08)}
+.pg1{font-size:1.75em}.pg2{font-size:2.05em}.pg3{font-size:2.35em}
+.pg+sup{vertical-align:1.05em;margin-left:-.05em}
+/* semplificazioni: numero barrato e nuovo valore piccolo sopra (o sotto nei denominatori) */
+.canc{position:relative;display:inline-block}
+.canc::after{content:"";position:absolute;left:-2px;right:-2px;top:55%;border-top:1.4px solid #c8373b;transform:rotate(-32deg)}
+.canc::before{content:attr(data-n);position:absolute;left:62%;top:-.78em;font-size:.66em;color:#c8373b;line-height:1;font-weight:700}
+.canc.giu::before{top:auto;bottom:-.78em}
+.fr>span:first-child:has(.canc){padding-top:.5em}
+.fr>span:last-child:has(.canc){padding-bottom:.5em}
+/* evidenziazioni a colori nei passaggi */
+.c1{color:#c8373b;font-weight:700}.c2{color:#1f4fa3;font-weight:700}.c3{color:#1f8a5b;font-weight:700}.c4{color:#6b47b8;font-weight:700}
+.passaggi{margin:.4em 0 .6em;padding-left:0;list-style:none}
+.passaggi li{padding:.35em 0;border-bottom:1px dotted #d8cfbb;line-height:2}
+.passaggi li:last-child{border-bottom:0}
+.passaggi .perche{display:block;font-size:.9em;color:#5b5446;font-style:italic;line-height:1.4}
+p:has(.pg),li:has(.pg),.box-corpo:has(.pg) p,.sol-finale:has(.pg){line-height:2.5}
+.passi li:has(.pg){padding:4px 0}
+.esercizio ol.voci.affiancate:has(.pg){grid-template-columns:1fr}
+.esercizio ol.voci li:has(.pg){line-height:2.5}
+.sol-finale p br+*,.svolgimento p{line-height:2.4}
+
+/* parentesi che crescono con il contenuto (come \left( \right) in LaTeX): create da esprq.ingrandisci */
+.gp{display:inline-flex;align-items:stretch;vertical-align:middle;white-space:nowrap;margin:0 .04em}
+.gp>.gpC{display:block;padding:.08em .04em}
+.gp>.gpL,.gp>.gpR{flex:none;width:.42em;background-repeat:no-repeat;background-size:100% 100%}
+.gp.gb>.gpL,.gp.gb>.gpR{width:.3em}
+.gp>.gpR{transform:scaleX(-1)}
+.gp+sup{vertical-align:1.15em;margin-left:.02em}
+p:has(.gp),li:has(.gp),.box-corpo:has(.gp) p,.sol-finale:has(.gp){line-height:2.6}
+.esercizio ol.voci.affiancate:has(.gp){grid-template-columns:1fr}
+.gt>.gpL,.gt>.gpR{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2010%20100%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M8.5%201%20C1.5%2022%201.5%2078%208.5%2099%22%20fill%3D%22none%22%20stroke%3D%22%232a2620%22%20stroke-width%3D%221.3%22%20vector-effect%3D%22non-scaling-stroke%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E")}
+.gq>.gpL,.gq>.gpR{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2010%20100%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M8%201%20H3%20V99%20H8%22%20fill%3D%22none%22%20stroke%3D%22%232a2620%22%20stroke-width%3D%221.3%22%20vector-effect%3D%22non-scaling-stroke%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E")}
+.gg>.gpL,.gg>.gpR{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2010%20100%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M8.5%201%20C4.5%201%205.5%208%205.5%2020%20L5.5%2040%20C5.5%2046%204%2050%201.5%2050%20C4%2050%205.5%2054%205.5%2060%20L5.5%2080%20C5.5%2092%204.5%2099%208.5%2099%22%20fill%3D%22none%22%20stroke%3D%22%232a2620%22%20stroke-width%3D%221.3%22%20vector-effect%3D%22non-scaling-stroke%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E")}
+.gb>.gpL,.gb>.gpR{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2010%20100%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M5%201%20V99%22%20fill%3D%22none%22%20stroke%3D%22%232a2620%22%20stroke-width%3D%221.3%22%20vector-effect%3D%22non-scaling-stroke%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E")}
+.esempio:has(br)>b:first-child{display:block;margin-bottom:.2em}
+.esempio br+*{margin-top:0}
+.gp{max-width:100%;white-space:normal}.gp>.gpC{min-width:0;flex:0 1 auto}
+.nw{display:inline-block;vertical-align:middle}
+.rad{white-space:nowrap}.radv{border-top:1.3px solid currentColor;padding:0 .1em 0 .06em;margin-left:-.04em;line-height:1.05}

@@ -404,5 +404,356 @@
     disegna();
   };
 
+
+  /* ===================== CAPITOLO 2 – I NUMERI INTERI ===================== */
+  const fz = n => (n > 0 ? "+" + n : n < 0 ? "−" + (-n) : "0");          // intero con segno
+  const fp = n => (n < 0 ? "(" + fz(n) + ")" : fz(n));                      // tra parentesi se negativo
+  function cursoreZ(comandi, etichetta, min, max, val, cb) {
+    const l = H("label", {}, comandi, etichetta + " ");
+    const r = H("input", { type: "range", min, max, value: val, step: 1 }, l);
+    const o = H("output", {}, l, fz(val));
+    r.addEventListener("input", () => { o.textContent = fz(+r.value); cb(+r.value); });
+    return r;
+  }
+  function retta(s, x0, u, y, da, a, etichette) {
+    S("line", { x1: x0 + da * u - 18, y1: y, x2: x0 + a * u + 22, y2: y, stroke: C.testo, "stroke-width": 2.2 }, s);
+    S("path", { d: `M${x0 + a * u + 24} ${y} l-11 -6 v12 z`, fill: C.testo }, s);
+    for (let i = da; i <= a; i++) {
+      const x = x0 + i * u;
+      S("line", { x1: x, y1: y - 7, x2: x, y2: y + 7, stroke: C.testo, "stroke-width": i === 0 ? 2.6 : 1.5 }, s);
+      if (etichette !== false) S("text", { x, y: y + 26, "text-anchor": "middle", "font-size": u < 28 ? 11.5 : 14, "font-weight": i === 0 ? 800 : 600, fill: i < 0 ? C.rosso : i > 0 ? C.blu : C.testo }, s, fz(i));
+    }
+  }
+
+  /* 11 ─ Termometro: sopra e sotto lo zero */
+  ANIM.termometro = function (el) {
+    let t = -4;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el);
+    const com = H("div", { class: "comandi" }, el);
+    cursoreZ(com, "Temperatura (°C)", -20, 30, t, v => { t = v; disegna(); });
+    function disegna() {
+      box.innerHTML = "";
+      const W = 760, H0 = 236, xT = 120, y0 = 12, u = 3;   // scala da +30 a −20
+      const s = svg(box, W, H0);
+      const yv = v => y0 + 10 + (30 - v) * u;
+      S("rect", { x: xT - 11, y: y0, width: 22, height: 50 * u + 20, rx: 11, fill: "#fff", stroke: C.testo, "stroke-width": 2 }, s);
+      S("circle", { cx: xT, cy: y0 + 50 * u + 34, r: 20, fill: C.rosso, stroke: C.testo, "stroke-width": 2 }, s);
+      S("rect", { x: xT - 6, y: yv(t), width: 12, height: y0 + 50 * u + 30 - yv(t), fill: C.rosso }, s);
+      for (let v = -20; v <= 30; v += 5) {
+        S("line", { x1: xT + 14, y1: yv(v), x2: xT + (v % 10 ? 22 : 30), y2: yv(v), stroke: C.testo, "stroke-width": v === 0 ? 2.6 : 1.3 }, s);
+        if (v % 10 === 0) S("text", { x: xT + 36, y: yv(v) + 5, "font-size": 14, "font-weight": v === 0 ? 800 : 600, fill: v < 0 ? C.rosso : v > 0 ? C.blu : C.testo }, s, fz(v));
+      }
+      S("line", { x1: xT - 40, y1: yv(0), x2: W - 30, y2: yv(0), stroke: C.grigio, "stroke-dasharray": "6 5", "stroke-width": 1.5 }, s);
+      S("text", { x: W - 30, y: yv(0) - 8, "text-anchor": "end", "font-size": 13, fill: C.grigio }, s, "livello di riferimento, 0 °C (il ghiaccio fonde)");
+      S("text", { x: 260, y: 50, "font-size": 16, "font-weight": 800, fill: C.blu }, s, "sopra lo zero → numeri positivi");
+      S("text", { x: 260, y: 180, "font-size": 16, "font-weight": 800, fill: C.rosso }, s, "sotto lo zero → numeri negativi");
+      S("path", { d: `M${xT - 18} ${yv(t)} l-14 -7 v14 z`, fill: C.arancio }, s);
+      S("text", { x: xT - 38, y: yv(t) + 5, "text-anchor": "end", "font-size": 16, "font-weight": 800, fill: C.arancio }, s, fz(t) + " °C");
+      lett.innerHTML = t > 0 ? `<b>${fz(t)} °C</b> → ${t} gradi <b>sopra</b> lo zero, quindi numero <b style="color:${C.blu}">positivo</b>`
+        : t < 0 ? `<b>${fz(t)} °C</b> → ${-t} gradi <b>sotto</b> lo zero, quindi numero <b style="color:${C.rosso}">negativo</b>`
+        : `<b>0 °C</b> → è il livello di riferimento e lo zero non è né positivo né negativo`;
+    }
+    disegna();
+  };
+
+  /* 12 ─ Retta dei numeri interi: opposto e valore assoluto */
+  ANIM.rettaz = function (el) {
+    let a = -5;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el);
+    const com = H("div", { class: "comandi" }, el);
+    cursoreZ(com, "a =", -9, 9, a, v => { a = v; disegna(); });
+    function disegna() {
+      box.innerHTML = "";
+      const W = 760, u = 38, x0 = W / 2, y = 110;
+      const s = svg(box, W, 178);
+      retta(s, x0, u, y, -9, 9);
+      if (a !== 0) {
+        const xa = x0 + a * u, xo = x0 - a * u;
+        S("path", { d: `M${x0} ${y - 14} L${xa} ${y - 14}`, stroke: C.arancio, "stroke-width": 5, opacity: .8 }, s);
+        S("path", { d: `M${x0} ${y + 40} L${xo} ${y + 40}`, stroke: C.verde, "stroke-width": 5, opacity: .8 }, s);
+        S("text", { x: (x0 + xa) / 2, y: y - 22, "text-anchor": "middle", "font-size": 14, "font-weight": 800, fill: C.arancio }, s, `distanza da 0 = |a| = ${Math.abs(a)}`);
+        S("text", { x: (x0 + xo) / 2, y: y + 58, "text-anchor": "middle", "font-size": 14, "font-weight": 800, fill: C.verde }, s, `distanza da 0 = ${Math.abs(a)}`);
+        S("path", { d: `M${xa} ${y - 46} Q${x0} ${y - 100} ${xo} ${y - 46}`, fill: "none", stroke: C.viola, "stroke-width": 2, "stroke-dasharray": "5 5" }, s);
+        S("text", { x: x0, y: y - 80, "text-anchor": "middle", "font-size": 13, "font-weight": 700, fill: C.viola }, s, "simmetrici rispetto a 0");
+        S("circle", { cx: xo, cy: y, r: 11, fill: C.verde, stroke: "#fff", "stroke-width": 3 }, s);
+        S("text", { x: xo, y: y - 34, "text-anchor": "middle", "font-size": 15, "font-weight": 800, fill: C.verde }, s, "−a");
+      }
+      S("circle", { cx: x0 + a * u, cy: y, r: 11, fill: C.arancio, stroke: "#fff", "stroke-width": 3 }, s);
+      S("text", { x: x0 + a * u, y: y - 34, "text-anchor": "middle", "font-size": 15, "font-weight": 800, fill: C.arancio }, s, "a");
+      lett.innerHTML = a === 0 ? "<b>a = 0</b> → lo zero è opposto di se stesso e |0| = 0"
+        : `<b>a = ${fz(a)}</b> → opposto <b>−a = ${fz(-a)}</b> &emsp; valore assoluto <b>|${fz(a)}| = ${Math.abs(a)}</b> &emsp; precedente ${fz(a - 1)}, successivo ${fz(a + 1)}`;
+    }
+    disegna();
+  };
+
+  /* 13 ─ Somma con i salti sulla retta */
+  ANIM.somma = function (el, stampa) {
+    let a = 2, b = -6;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el);
+    const com = H("div", { class: "comandi" }, el);
+    cursoreZ(com, "a =", -7, 7, a, v => { a = v; disegna(); });
+    cursoreZ(com, "b =", -7, 7, b, v => { b = v; disegna(); });
+    function disegna() {
+      box.innerHTML = "";
+      const W = 760, u = 25, x0 = W / 2, y = 112;
+      const s = svg(box, W, 190);
+      retta(s, x0, u, y, -14, 14);
+      const xa = x0 + a * u, xs = x0 + (a + b) * u;
+      if (a) {
+        S("path", { d: `M${x0} ${y + 44} L${xa} ${y + 44}`, stroke: C.blu, "stroke-width": 4 }, s);
+        S("text", { x: (x0 + xa) / 2, y: y + 64, "text-anchor": "middle", "font-size": 13, "font-weight": 800, fill: C.blu }, s, "a = " + fz(a));
+      }
+      const g = S("g", {}, s);
+      S("path", { d: `M${xa} ${y - 4} Q${(xa + xs) / 2} ${y - 95} ${xs} ${y - 4}`, fill: "none", stroke: b >= 0 ? C.verde : C.rosso, "stroke-width": 3, "stroke-dasharray": "7 5" }, g);
+      S("text", { x: (xa + xs) / 2, y: y - 58, "text-anchor": "middle", "font-size": 15, "font-weight": 800, fill: b >= 0 ? C.verde : C.rosso }, g,
+        b === 0 ? "nessuno spostamento" : `b = ${fz(b)} → ${Math.abs(b)} ${Math.abs(b) === 1 ? "passo" : "passi"} verso ${b > 0 ? "destra" : "sinistra"}`);
+      if (!stampa) { g.style.cssText = "opacity:0;transition:opacity .5s .15s"; requestAnimationFrame(() => requestAnimationFrame(() => (g.style.opacity = 1))); }
+      S("circle", { cx: xa, cy: y, r: 9, fill: C.blu, stroke: "#fff", "stroke-width": 2.5 }, s);
+      S("circle", { cx: xs, cy: y, r: 11, fill: C.arancio, stroke: "#fff", "stroke-width": 3 }, s);
+      const tipo = a === 0 || b === 0 ? "" : (a > 0) === (b > 0) ? "addendi <b>concordi</b> → si sommano i valori assoluti, segno comune"
+        : "addendi <b>discordi</b> → differenza dei valori assoluti, segno di quello con valore assoluto maggiore";
+      lett.innerHTML = `${fp(a)} + ${fp(b)} = <b style="color:${C.arancio}">${fz(a + b)}</b> &emsp; ${tipo}`;
+    }
+    disegna();
+  };
+
+  /* 14 ─ Regola del prodotto dei segni: la regolarità della tabellina */
+  ANIM.segni = function (el, stampa) {
+    let k = stampa ? 8 : 4, f = -3;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el);
+    const com = H("div", { class: "comandi" }, el);
+    cursoreZ(com, "fattore fisso", -5, -1, f, v => { f = v; disegna(); });
+    if (!stampa) {
+      bottone(com, "Riga successiva ▼", () => { if (k < 8) { k++; disegna(); } });
+      bottone(com, "↺ Ricomincia", () => { k = 4; disegna(); }, true);
+    }
+    function disegna() {
+      box.innerHTML = "";
+      const W = 760, dy = 21, H0 = 30 + 9 * dy;
+      const s = svg(box, W, H0);
+      for (let i = 0; i <= k; i++) {
+        const m = 4 - i, y = 24 + i * dy, p = f * m, neg = m < 0;
+        S("text", { x: 250, y, "text-anchor": "end", "font-size": 17, "font-weight": 700, fill: C.testo }, s, `(${fz(f)}) · ${m ? "(" + fz(m) + ")" : "0"} =`);
+        S("text", { x: 262, y, "font-size": 17, "font-weight": 800, fill: p > 0 ? C.verde : p < 0 ? C.rosso : C.testo }, s, fz(p));
+        if (i > 0) S("text", { x: 330, y: y - 4, "font-size": 13, fill: C.viola, "font-weight": 700 }, s, `↓ ${fz(-f)}`);
+        if (neg) S("rect", { x: 70, y: y - 16, width: 230, height: 21, fill: C.verdec, opacity: .5 }, s);
+      }
+      S("text", { x: 420, y: 40, "font-size": 15, fill: C.testo }, s, "Quando il secondo fattore");
+      S("text", { x: 420, y: 60, "font-size": 15, fill: C.testo }, s, "diminuisce di 1, il prodotto");
+      S("text", { x: 420, y: 80, "font-size": 15, fill: C.viola, "font-weight": 800 }, s, `aumenta di ${-f} ogni volta.`);
+      if (k > 4) {
+        S("text", { x: 420, y: 130, "font-size": 15, fill: C.verde, "font-weight": 800 }, s, "Continuando la regolarità oltre lo 0,");
+        S("text", { x: 420, y: 150, "font-size": 15, fill: C.verde, "font-weight": 800 }, s, "negativo per negativo dà positivo!");
+      }
+      lett.innerHTML = k <= 4 ? "Premi <b>Riga successiva</b> e prova a indovinare il risultato prima di vederlo."
+        : `${fp(f)} · ${fp(4 - k)} = <b style="color:${C.verde}">${fz(f * (4 - k))}</b> &emsp; due fattori negativi (concordi) → prodotto <b>positivo</b>`;
+    }
+    disegna();
+  };
+
+  /* 15 ─ Il segno di una potenza */
+  ANIM.potenza = function (el) {
+    let b = -2, n = 3;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el);
+    const com = H("div", { class: "comandi" }, el);
+    cursoreZ(com, "base", -5, 5, b, v => { b = v; disegna(); });
+    cursore(com, "esponente", 0, 7, n, v => { n = v; disegna(); });
+    function disegna() {
+      box.innerHTML = "";
+      const W = 760, s = svg(box, W, 120), r = 22, sp = 70, x0 = W / 2 - ((Math.max(n, 1) - 1) * sp) / 2;
+      if (n === 0) S("text", { x: W / 2, y: 60, "text-anchor": "middle", "font-size": 18, "font-weight": 700, fill: C.testo }, s, b === 0 ? "0⁰ non è definita" : "nessun fattore, per definizione la potenza vale +1");
+      for (let i = 0; i < n; i++) {
+        const x = x0 + i * sp, g = S("g", {}, s);
+        S("circle", { cx: x, cy: 50, r, fill: b < 0 ? "#f6d4d2" : b > 0 ? C.bluc : "#eee", stroke: b < 0 ? C.rosso : C.blu, "stroke-width": 2.5 }, g);
+        S("text", { x, y: 57, "text-anchor": "middle", "font-size": 17, "font-weight": 800, fill: b < 0 ? C.rosso : C.blu }, g, fz(b));
+        if (i < n - 1) S("text", { x: x + sp / 2, y: 56, "text-anchor": "middle", "font-size": 22, fill: C.testo }, s, "·");
+        if (b < 0) S("text", { x, y: 100, "text-anchor": "middle", "font-size": 13, "font-weight": 700, fill: C.rosso }, s, `${i + 1}° segno −`);
+      }
+      const v = b === 0 && n === 0 ? null : Math.pow(b, n);
+      const motivo = b >= 0 || n === 0 ? (b > 0 ? "base positiva → potenza positiva" : b === 0 ? "base 0 → la potenza vale 0" : "")
+        : n % 2 ? `${n} fattori negativi, un numero <b>dispari</b> → potenza <b style="color:${C.rosso}">negativa</b>` : `${n} fattori negativi, un numero <b>pari</b> → potenza <b style="color:${C.verde}">positiva</b>`;
+      lett.innerHTML = v === null ? "0<sup>0</sup> non è definita" : `${fp(b)}<sup>${n}</sup> = <b>${fz(v)}</b> &emsp; ${motivo}`;
+    }
+    disegna();
+  };
+
+  /* 16 ─ Leggi di monotonia: moltiplicare una disuguaglianza */
+  ANIM.monotonia = function (el) {
+    let a = -1, b = 3, c = -2;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el);
+    const com = H("div", { class: "comandi" }, el);
+    cursoreZ(com, "a =", -4, 4, a, v => { a = v; disegna(); });
+    cursoreZ(com, "b =", -4, 4, b, v => { b = v; disegna(); });
+    cursoreZ(com, "moltiplico per c =", -3, 3, c, v => { c = v; disegna(); });
+    const rel = (x, y) => (x < y ? "&lt;" : x > y ? "&gt;" : "=");
+    function disegna() {
+      box.innerHTML = "";
+      const W = 760, u = 30, x0 = W / 2, s = svg(box, W, 200);
+      [[60, a, b, "prima"], [150, a * c, b * c, "dopo"]].forEach(([y, p, q, et], j) => {
+        retta(s, x0, u, y, -12, 12);
+        S("text", { x: 14, y: y - 18, "font-size": 13, "font-weight": 700, fill: C.grigio }, s, et === "prima" ? "a e b" : "a·c e b·c");
+        S("circle", { cx: x0 + p * u, cy: y, r: 10, fill: C.blu, stroke: "#fff", "stroke-width": 3 }, s);
+        S("text", { x: x0 + p * u, y: y - 16, "text-anchor": "middle", "font-size": 14, "font-weight": 800, fill: C.blu }, s, j ? "a·c" : "a");
+        S("circle", { cx: x0 + q * u, cy: y, r: 10, fill: C.arancio, stroke: "#fff", "stroke-width": 3 }, s);
+        S("text", { x: x0 + q * u, y: y - 16 - (p === q ? 16 : 0), "text-anchor": "middle", "font-size": 14, "font-weight": 800, fill: C.arancio }, s, j ? "b·c" : "b");
+      });
+      const r1 = rel(a, b), r2 = rel(a * c, b * c), cambia = a !== b && c !== 0 && r1 !== r2;
+      lett.innerHTML = `${fz(a)} ${r1} ${fz(b)} &ensp;→&ensp; ${fp(a)} · ${fp(c)} ${r2} ${fp(b)} · ${fp(c)}, cioè <b>${fz(a * c)} ${r2} ${fz(b * c)}</b> &emsp; `
+        + (c === 0 ? `con c = 0 i due membri diventano uguali, per questo c deve essere diverso da 0`
+          : a === b ? "l'uguaglianza resta vera" : cambia ? `<b style="color:${C.rosso}">c negativo → il verso si è invertito</b>` : `<b style="color:${C.verde}">c positivo → il verso resta lo stesso</b>`);
+    }
+    disegna();
+  };
+
+  /* ======================= CAPITOLO 3 – NUMERI RAZIONALI ======================= */
+  const FR = (n, d) => `<span class="fr"><span>${n}</span><span>${d}</span></span>`;
+  const FRs = (n, d) => { const g = mcd(Math.abs(n), d), a = n / g, b = d / g; return b === 1 ? (a < 0 ? "−" + (-a) : "" + a) : (a < 0 ? "−" : "") + FR(Math.abs(a), b); };
+
+  /* 21 ─ Che cosa indica una frazione: barre divise in d parti, n parti colorate */
+  ANIM.frazione = function (el) {
+    let n = 3, d = 4;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    cursore(com, "numeratore n", 0, 12, n, v => { n = v; disegna(); });
+    cursore(com, "denominatore d", 1, 8, d, v => { d = v; disegna(); });
+    function disegna() {
+      box.innerHTML = "";
+      const nb = Math.max(1, Math.ceil(n / d)), W = 760, bw = 680 / Math.max(nb, 1) - 14, h = 54;
+      const s = svg(box, W, 120);
+      for (let b = 0; b < nb; b++) {
+        const x0 = 40 + b * (bw + 14);
+        for (let k = 0; k < d; k++) {
+          const pieno = b * d + k < n;
+          S("rect", { x: x0 + k * bw / d, y: 28, width: bw / d, height: h, fill: pieno ? C.aranc : "#fff", stroke: C.testo, "stroke-width": 1.6 }, s);
+        }
+        S("text", { x: x0 + bw / 2, y: 104, "text-anchor": "middle", "font-size": 14, fill: C.grigio }, s, `intero ${b + 1}`);
+      }
+      const tipo = n % d === 0 ? "apparente: rappresenta un numero intero, " + (n / d) : (n < d ? "propria: è minore dell'intero" : "impropria: è maggiore dell'intero");
+      lett.innerHTML = `Ogni intero è diviso in <b>${d}</b> parti uguali e se ne prendono <b>${n}</b>. La frazione ${FR(n, d)} è <b>${tipo}</b>.`;
+    }
+    disegna();
+  };
+
+  /* 22 ─ Frazioni equivalenti: moltiplico numeratore e denominatore per k */
+  ANIM.equivalenti = function (el) {
+    let n = 2, d = 3, k = 2;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    cursore(com, "n", 1, 5, n, v => { n = Math.min(v, d); disegna(); });
+    cursore(com, "d", 2, 6, d, v => { d = v; if (n > d) n = d; disegna(); });
+    cursore(com, "fattore k", 1, 5, k, v => { k = v; disegna(); });
+    function barra(s, y, num, den, col) {
+      for (let i = 0; i < den; i++) S("rect", { x: 40 + i * 680 / den, y, width: 680 / den, height: 40, fill: i < num ? col : "#fff", stroke: C.testo, "stroke-width": 1.4 }, s);
+    }
+    function disegna() {
+      box.innerHTML = ""; const s = svg(box, 760, 120);
+      barra(s, 10, n, d, C.aranc); barra(s, 66, n * k, d * k, C.bluc);
+      lett.innerHTML = `${FR(n, d)} ∼ ${FR(n + " · " + k, d + " · " + k)} = ${FR(n * k, d * k)} &emsp; la parte colorata è la stessa: le due frazioni sono <b>equivalenti</b> (prodotti in croce ${n} · ${d * k} = ${d} · ${n * k} = ${n * d * k}).`;
+    }
+    disegna();
+  };
+
+  /* 23 ─ Un numero razionale sulla retta orientata */
+  ANIM.rettaq = function (el) {
+    let n = -7, d = 4;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    cursore(com, "numeratore", -12, 12, n, v => { n = v; disegna(); });
+    cursore(com, "denominatore", 1, 6, d, v => { d = v; disegna(); });
+    function disegna() {
+      box.innerHTML = "";
+      const W = 760, x0 = W / 2, u = 110, y = 90, s = svg(box, W, 150);
+      S("line", { x1: 20, y1: y, x2: W - 14, y2: y, stroke: C.testo, "stroke-width": 2.5 }, s);
+      S("path", { d: `M${W - 12} ${y} l-12 -7 v14 z`, fill: C.testo }, s);
+      for (let i = -3 * d; i <= 3 * d; i++) {
+        const x = x0 + i * u / d, intero = i % d === 0;
+        S("line", { x1: x, y1: y - (intero ? 10 : 5), x2: x, y2: y + (intero ? 10 : 5), stroke: intero ? C.testo : C.grigio, "stroke-width": intero ? 2 : 1.2 }, s);
+        if (intero) S("text", { x, y: y + 32, "text-anchor": "middle", "font-size": 16, "font-weight": 700, fill: C.testo }, s, i / d < 0 ? "−" + (-i / d) : i / d);
+      }
+      const v = n / d, xv = x0 + Math.max(-3.2, Math.min(3.2, v)) * u;
+      S("path", { d: `M${x0} ${y - 22} L${xv} ${y - 22}`, stroke: v < 0 ? C.verde : C.arancio, "stroke-width": 5, opacity: .8 }, s);
+      S("circle", { cx: xv, cy: y, r: 10, fill: C.rosso, stroke: "#fff", "stroke-width": 3 }, s);
+      const fuori = Math.abs(v) > 3 ? " (fuori dal disegno)" : "";
+      lett.innerHTML = `${FRs(n, d)} ${n === 0 ? "coincide con l'origine" : `si trova a <b>${FRs(Math.abs(n), d)}</b> unità ${v < 0 ? "a sinistra" : "a destra"} dello 0${fuori}`}. Ogni unità è divisa in ${d} parti e si contano ${Math.abs(n)} parti ${v < 0 ? "verso sinistra" : "verso destra"}.`;
+    }
+    disegna();
+  };
+
+  /* 24 ─ Il prodotto di due frazioni come area */
+  ANIM.prodottofrazioni = function (el) {
+    let a = 2, b = 3, c = 4, d = 5;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    cursore(com, "a", 1, 6, a, v => { a = Math.min(v, b); disegna(); });
+    cursore(com, "b", 1, 6, b, v => { b = v; if (a > b) a = b; disegna(); });
+    cursore(com, "c", 1, 6, c, v => { c = Math.min(v, d); disegna(); });
+    cursore(com, "d", 1, 6, d, v => { d = v; if (c > d) c = d; disegna(); });
+    function disegna() {
+      box.innerHTML = ""; const L0 = 220, x0 = 270, y0 = 16, s = svg(box, 760, 260);
+      for (let i = 0; i < d; i++) for (let j = 0; j < b; j++) {
+        const dentro = i < c && j < a;
+        S("rect", { x: x0 + i * L0 / d, y: y0 + L0 - (j + 1) * L0 / b, width: L0 / d, height: L0 / b, fill: dentro ? C.aranc : (i < c ? "#fdf0e4" : (j < a ? "#e7eefb" : "#fff")), stroke: C.testo, "stroke-width": 1.2 }, s);
+      }
+      S("rect", { x: x0, y: y0, width: L0, height: L0, fill: "none", stroke: C.testo, "stroke-width": 2.5 }, s);
+      S("text", { x: x0 + L0 * c / d / 2, y: y0 + L0 + 22, "text-anchor": "middle", "font-size": 15, "font-weight": 800, fill: C.arancio }, s, `${c}/${d}`);
+      S("text", { x: x0 - 12, y: y0 + L0 - L0 * a / b / 2 + 5, "text-anchor": "end", "font-size": 15, "font-weight": 800, fill: C.blu }, s, `${a}/${b}`);
+      S("text", { x: x0 + L0 + 16, y: y0 + 20, "font-size": 13, fill: C.grigio }, s, "lato 1");
+      lett.innerHTML = `Il quadrato di lato 1 è diviso in ${b} · ${d} = <b>${b * d}</b> rettangolini; quelli colorati sono ${a} · ${c} = <b>${a * c}</b>. Quindi ${FR(a, b)} · ${FR(c, d)} = ${FR(a * c, b * d)}${mcd(a * c, b * d) > 1 ? " = " + FRs(a * c, b * d) : ""}.`;
+    }
+    disegna();
+  };
+
+  /* 25 ─ Dalla frazione al numero decimale: i resti si ripetono */
+  ANIM.periodo = function (el) {
+    let n = 17, d = 7;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    cursore(com, "numeratore", 1, 40, n, v => { n = v; disegna(); });
+    cursore(com, "denominatore", 2, 30, d, v => { d = v; disegna(); });
+    function disegna() {
+      const ip = Math.floor(n / d); let r = n % d; const cifre = [], resti = [], visti = {};
+      while (r && visti[r] === undefined && cifre.length < 40) { visti[r] = cifre.length; resti.push(r); r *= 10; cifre.push(Math.floor(r / d)); r %= d; }
+      let testo, tipo;
+      if (!r) { testo = ip + (cifre.length ? "," + cifre.join("") : ""); tipo = cifre.length ? "decimale <b>finito</b>: a un certo punto il resto è 0" : "numero <b>intero</b>: la frazione è apparente"; }
+      else { const k = visti[r]; testo = ip + "," + cifre.slice(0, k).join("") + `<span class="per">${cifre.slice(k).join("")}</span>`;
+        tipo = `decimale <b>periodico ${k ? "misto" : "semplice"}</b>: il resto ${r} è già comparso, da lì le cifre si ripetono`; }
+      box.innerHTML = `<div class="passo-expr" style="font-size:1.25rem;text-align:center">${FR(n, d)} = ${n} : ${d} = <b>${testo}</b></div>
+        <p style="text-align:center;margin:.4em 0 0">resti incontrati: ${resti.map(x => x === r ? `<b style="color:${C.rosso}">${x}</b>` : x).join(", ") || "nessuno"}</p>`;
+      lett.innerHTML = tipo + `. I resti possibili sono minori di ${d}, quindi al massimo ${d - 1} diversi da 0.`;
+    }
+    disegna();
+  };
+
+  /* 26 ─ La percentuale su una griglia 10 × 10 */
+  ANIM.percentuale = function (el) {
+    let p = 35, tot = 240;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    cursore(com, "percentuale", 0, 100, p, v => { p = v; disegna(); });
+    cursore(com, "totale", 20, 500, tot, v => { tot = v; disegna(); });
+    function disegna() {
+      box.innerHTML = ""; const s = svg(box, 760, 230), q = 20, x0 = 270;
+      for (let i = 0; i < 100; i++) S("rect", { x: x0 + (i % 10) * q, y: 10 + Math.floor(i / 10) * q, width: q, height: q, fill: i < p ? C.aranc : "#fff", stroke: C.grigio, "stroke-width": 1 }, s);
+      S("rect", { x: x0, y: 10, width: 10 * q, height: 10 * q, fill: "none", stroke: C.testo, "stroke-width": 2 }, s);
+      const val = Math.round(p * tot) / 100;
+      lett.innerHTML = `${p}% = ${FR(p, 100)}${mcd(p, 100) > 1 && p ? " = " + FRs(p, 100) : ""} = ${(p / 100).toString().replace(".", ",")} &emsp; il ${p}% di ${tot} è ${FR(p, 100)} · ${tot} = <b>${String(val).replace(".", ",")}</b>`;
+    }
+    disegna();
+  };
+
+  /* 27 ─ Notazione scientifica: sposto la virgola */
+  ANIM.notazione = function (el) {
+    let e = 5;
+    const cifre = "345";
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    cursore(com, "esponente n", -6, 8, e, v => { e = v; disegna(); });
+    function decim(n) {
+      const s0 = cifre[0] + "," + cifre.slice(1);
+      if (n === 0) return s0;
+      if (n > 0) { let c = cifre.slice(0) + "0".repeat(Math.max(0, n + 1 - cifre.length)); const intera = c.slice(0, n + 1), dec = c.slice(n + 1); return grp(intera) + (dec ? "," + dec : ""); }
+      return "0," + "0".repeat(-n - 1) + cifre;
+    }
+    function grp(s) { return s.replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
+    function disegna() {
+      box.innerHTML = `<div class="passo-expr" style="font-size:1.3rem;text-align:center">3,45 · 10<sup>${e < 0 ? "−" + (-e) : e}</sup> = <b>${decim(e)}</b></div>`;
+      lett.innerHTML = e === 0 ? "10<sup>0</sup> = 1: la virgola resta dov'è." : `Moltiplicare per 10<sup>${e < 0 ? "−" + (-e) : e}</sup> sposta la virgola di <b>${Math.abs(e)}</b> ${Math.abs(e) === 1 ? "posto" : "posti"} verso ${e > 0 ? "destra (numero grande)" : "sinistra (numero piccolo)"}. Poiché il coefficiente 3,45 è minore di 5,5, il numero è più vicino a 10<sup>${e < 0 ? "−" + (-e) : e}</sup> che a 10<sup>${e + 1 < 0 ? "−" + (-(e + 1)) : e + 1}</sup>, quindi l'ordine di grandezza è 10<sup>${e < 0 ? "−" + (-e) : e}</sup>.`;
+    }
+    disegna();
+  };
+
   window.ANIM = ANIM;
 })();

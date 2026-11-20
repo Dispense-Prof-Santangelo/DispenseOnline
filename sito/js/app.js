@@ -133,7 +133,7 @@
             <div class="azioni"><a class="bottone b-teoria" href="#${c.id}">Teoria</a><a class="bottone b-esercizi" href="#${c.id}-esercizi">Esercizi</a></div></div>`
           : `<div class="capitolo-riga prossimamente" style="${d}"><div class="n">${c.n}</div><div><h3>${c.titolo}</h3></div><span class="etichetta-presto">in preparazione</span></div>`;
       }).join("")}</div>`).join("")}
-      <p class="link-crediti"><a href="#crediti">Crediti delle immagini</a></p></div>`;
+</div>`;
   }
 
   /* ---------- PAGINA 4: teoria del capitolo ---------- */
@@ -150,7 +150,7 @@
   function corpoTeoria(cap) {
     return (cap.storia ? `<section class="paragrafo storia" id="storia"><h2><span class="num">✦</span>Storia della matematica</h2>${cap.storia}</section>` : "")
       + cap.paragrafi.map(p => `<section class="paragrafo" id="${p.id}"><h2><span class="num">${p.n}</span>${p.titolo}</h2>${p.html}</section>`).join("")
-      + (cap.sintesi ? `<section class="paragrafo sintesi" id="sintesi"><h2><span class="num">✦</span>Teoria in sintesi</h2><div class="sint-griglia">${cap.sintesi}</div></section>` : "");
+      + (cap.sintesi ? `<section class="paragrafo sintesi" id="sintesi"><h2><span class="num">✦</span>Teoria in sintesi</h2><div class="sint-griglia">${cap.sintesi}</div><div class="appunti"><span>Appunti</span></div></section>` : "");
   }
   function testata(cap, es) {
     return `<header class="testata-capitolo ${es ? "esercizi" : ""}"><span class="grande">${cap.numero}</span><div class="cap">Capitolo ${cap.numero} · ${es ? "Esercizi" : "Teoria"}</div>
@@ -180,8 +180,17 @@
     const svolg = (e.p ? `<ul class="passi">${e.p.map(x => `<li><span class="eq">${x}</span></li>`).join("")}</ul>` : "") + (e.sv ? `<p>${e.sv}</p>` : "");
     const tag = e.tag ? `<span class="tag">${e.tag}</span> ` : "";
     const punti = e.pt ? `<span class="punteggio">…… / ${e.pt}</span>` : "";
+    /* nei PDF, come nel libro, il risultato delle espressioni e dei problemi compare tra parentesi quadre */
+    const PROBLEMI = /INTORNO A NOI|EDUCAZIONE FINANZIARIA|FISICA|SCIENZE|INFORMATICA/;
+    let ris = "";
+    if (stampa && !e.vf && !e.o && !e.assoc && typeof e.s === "string" && !/<(table|svg|br)/.test(e.s)) {
+      if (e.p || e.r) ris = e.p && e.s.includes(" = ") ? e.s.slice(e.s.lastIndexOf(" = ") + 3) : e.s;
+      else if (!e.v && !e.f && e.s.length < 60 && !/SPIEGALO|ESEMPIO|COMPLETA|CACCIA|TEST|ASSOCIA/.test(e.tag || "") &&
+               ((e.tag && PROBLEMI.test(e.tag)) || (e.t || "").replace(/<[^>]+>/g, "").length > 110)) ris = e.s;
+    }
+    const risultato = ris ? `<span class="ris">[${ris}]</span>` : "";
     return `<div class="esercizio"><div class="nr"><span>${nr}</span><b class="punti" title="${LIV[e.l]}">${PALLINI(e.l)}</b></div><div class="corpo">
-      ${fig}${(e.t || e.tag) ? `<p class="testo">${tag}${e.t || ""}</p>` : ""}${voci}${opzioni}${assoc}${punti}
+      ${fig}${(e.t || e.tag) ? `<p class="testo">${tag}${e.t || ""}${risultato}</p>` : risultato}${voci}${opzioni}${assoc}${punti}
       ${stampa ? "" : `<button class="mostra-svolg" aria-expanded="false">Mostra svolgimento e soluzione</button>
       <div class="svolgimento"><div>${svolg}<div class="sol-finale"><b>Soluzione</b>${e.s}</div></div></div>`}
     </div></div>`;
@@ -197,15 +206,25 @@
         ${g.es.map(e => htmlEsercizio(e, contatore(), stampa)).join("")}${prima ? "" : box}</div>`;
     }).join("");
   }
+  /* divide i gruppi di un paragrafo in blocchi consecutivi: esercizi normali e "Fai il punto" (anche a metà paragrafo) */
+  function segmenti(gruppi) {
+    const out = []; let np = 0, nn = 0;
+    (gruppi || []).forEach(g => {
+      const ult = out[out.length - 1];
+      if (g.punto) {
+        if (ult && ult.punto === g.punto) ult.gruppi.push(g);
+        else out.push({ punto: g.punto, gruppi: [g], n: np++ });
+      } else if (ult && !ult.punto) ult.gruppi.push(g);
+      else out.push({ gruppi: [g], k: nn++ });
+    });
+    return out;
+  }
   function corpoEsercizi(cap, stampa) {
     let n = 0; const cont = () => ++n;
     const E = cap.esercizi, FIN = cap.finali || [];
-    const sezPar = p => {
-      const normali = (E[p.id] || []).filter(g => !g.punto), punto = (E[p.id] || []).filter(g => g.punto);
-      let html = `<section class="paragrafo ex" id="e-${p.id}"><h2><span class="num">${p.n}</span>${p.titolo}</h2>${htmlGruppi(normali, cont, "e-" + p.id, stampa)}</section>`;
-      if (punto.length) { let k = 0; html += `<section class="paragrafo ex punto" id="punto-${p.id}"><div class="punto-testa"><span>FAI IL PUNTO SULLE COMPETENZE</span><h2>${punto[0].punto}</h2></div>${htmlGruppi(punto, () => ++k, "punto-" + p.id, stampa)}</section>`; }
-      return html;
-    };
+    const sezPar = p => segmenti(E[p.id]).map(sg => (sg.id = "punto-" + p.id + (sg.n ? "-" + sg.n : ""), sg)).map(sg => sg.punto
+      ? (() => { let k = 0; return `<section class="paragrafo ex punto" id="${sg.id}"><div class="punto-testa"><span>FAI IL PUNTO SULLE COMPETENZE</span><h2>${sg.punto}</h2></div>${htmlGruppi(sg.gruppi, () => ++k, sg.id, stampa)}</section>`; })()
+      : `<section class="paragrafo ex${sg.k ? " seguito" : ""}" id="${sg.k ? `e-${p.id}-${sg.k}` : "e-" + p.id}">${sg.k ? "" : `<h2><span class="num">${p.n}</span>${p.titolo}</h2>`}${htmlGruppi(sg.gruppi, cont, (sg.k ? `e-${p.id}-${sg.k}` : "e-" + p.id), stampa)}</section>`).join("");
     const sezFin = f => { let k = 0; return `<section class="paragrafo ex finale ${f.id}" id="fin-${f.id}"><div class="finale-testa"><h2>${f.titolo}</h2>${f.durata ? `<span class="durata">⏱ ${f.durata}</span>` : ""}</div>${htmlGruppi(f.gruppi, () => ++k, "fin-" + f.id, stampa)}${f.id === "verifica" ? '<p class="totale">Il tuo punteggio: …… / 100</p>' : ""}</section>`; };
     return cap.paragrafi.map(sezPar).join("") + FIN.map(sezFin).join("");
   }
@@ -213,7 +232,7 @@
     imposta([["Anni", "#anni"], ["1° anno", "#anno-1"], [`Cap. ${cap.numero} · Esercizi`, "#" + cap.id + "-esercizi"]]);
     const E = cap.esercizi, FIN = cap.finali || [];
     app.innerHTML = `<div class="capitolo">
-      <aside class="indice-laterale"><h4>Esercizi · Cap. ${cap.numero}</h4><ol>${cap.paragrafi.map(p => `<li><a href="#${cap.id}-esercizi" data-vai="e-${p.id}"><b>${p.n}</b>${p.titolo}</a>${(E[p.id] || []).some(g => g.punto) ? `<ol><li><a href="#${cap.id}-esercizi" data-vai="punto-${p.id}">Fai il punto sulle competenze</a></li></ol>` : ""}</li>`).join("")}
+      <aside class="indice-laterale"><h4>Esercizi · Cap. ${cap.numero}</h4><ol>${cap.paragrafi.map(p => `<li><a href="#${cap.id}-esercizi" data-vai="e-${p.id}"><b>${p.n}</b>${p.titolo}</a>${segmenti(E[p.id]).some(g => g.punto) ? `<ol>${segmenti(E[p.id]).filter(g => g.punto).map((g, i, t) => `<li><a href="#${cap.id}-esercizi" data-vai="punto-${p.id}${g.n ? "-" + g.n : ""}">${t.length > 1 ? "Fai il punto · " + g.punto : "Fai il punto sulle competenze"}</a></li>`).join("")}</ol>` : ""}</li>`).join("")}
         ${FIN.map(f => `<li><a href="#${cap.id}-esercizi" data-vai="fin-${f.id}"><b>✦</b>${f.titolo}</a></li>`).join("")}</ol>
         <div class="azioni"><a class="bottone b-teoria" href="#${cap.id}">‹ Torna alla teoria</a></div></aside>
       <article>${testata(cap, true)}
@@ -239,16 +258,71 @@
     }
     h += capitoli.map(c => `<div class="capitolo">${testata(c, false)}${corpoTeoria(c)}</div>`
       + (c.esercizi ? `<div class="capitolo esercizi-stampa">${testata(c, true)}${corpoEsercizi(c, true)}</div>` : "")).join("");
-    h += `<section class="crediti-stampa contenitore">${htmlCrediti()}</section>`;
     app.innerHTML = h;
     attivaRiquadri(app, true); attivaAnimazioni(app, true);
     app.querySelectorAll(".anim").forEach(a => a.classList.add("affianca"));
+    /* titoli e istruzioni dei gruppi non restano soli in fondo alla pagina: li teniamo insieme al primo esercizio */
+    /* il titolo di una sezione (Fai il punto, Fondamentali, Teoria in sintesi…) va insieme a ciò che segue */
+    app.querySelectorAll("section.paragrafo").forEach(sez => {
+      const t = sez.querySelector(":scope > .punto-testa, :scope > .finale-testa, :scope > h2");
+      const dopo = t && t.nextElementSibling;
+      if (dopo && (dopo.matches(".gruppo") || dopo.matches(".sint-griglia"))) dopo.insertBefore(t, dopo.firstChild);
+    });
+    app.querySelectorAll(".esercizi-stampa").forEach(c => {
+      const h = c.querySelector(":scope > .testata-capitolo"), g = c.querySelector(".gruppo");
+      if (h && g) g.insertBefore(h, g.firstChild);
+    });
+    app.querySelectorAll(".sint-griglia").forEach(g => {
+      const t = g.firstElementChild, b = t && t.nextElementSibling;
+      if (t && t.matches("h2") && b) { const w = document.createElement("div"); w.className = "tieni-insieme"; g.insertBefore(w, t); w.appendChild(t); w.appendChild(b); }
+    });
+    app.querySelectorAll(".gruppo").forEach(g => {
+      const testa = []; let x = g.firstElementChild;
+      while (x && x.matches("h2, h3, .istruzione, .punto-testa, .finale-testa, .testata-capitolo")) { testa.push(x); x = x.nextElementSibling; }
+      if (!testa.length || !x || !x.matches(".esercizio, .box-es")) return;
+      const w = document.createElement("div"); w.className = "tieni-insieme"; g.insertBefore(w, testa[0]);
+      const tit = document.createElement("div"); tit.className = "titoli"; w.appendChild(tit);
+      testa.forEach(e => tit.appendChild(e)); w.appendChild(x);
+    });
+  };
+  /* Nei PDF gli elementi lunghi (più di un quarto di pagina) possono dividersi fra due pagine,
+     così non restano grandi spazi bianchi; quelli corti restano interi. */
+  window.spezzaLunghi = function (soglia) {
+    soglia = soglia || 150; let n = 0;
+    app.querySelectorAll(".tieni-insieme").forEach(w => { if (w.getBoundingClientRect().height > soglia * 0.6) w.classList.add("spezzabile"); });
+    app.querySelectorAll(".esercizio").forEach(e => {
+      if (e.getBoundingClientRect().height > soglia) { e.classList.add("spezzabile"); n++; }
+    });
+    return n;
+  };
+  /* Nei PDF i riquadri non si spezzano mai. Se un riquadro (o un blocco che non si può dividere) non entra
+     nello spazio rimasto in fondo alla pagina, viene rimpicciolito quanto basta (fino al 68%, le figure e la sintesi fino al 60%); una figura affiancata al testo può invece scendere dopo il paragrafo che la segue,
+     invece di lasciare un buco bianco. */
+  const BLOCCHI = ".riquadro, .anim, .sint-blocco, .esempio, .definizione, .regola, .attenzione, .approfondimento, .box-es:not(:has(.lista-controllo)), table.tab-segni, table.tab, .fig-testo, .tieni-insieme, .esercizio:not(.spezzabile)";
+  window.bloccoInizio = function (righe) {
+    const norm = x => x.replace(/\s+/g, "").replace(/[^\p{L}\p{N}]/gu, "").toLowerCase();
+    const r = norm(righe.join(" "));
+    const lista = [...app.querySelectorAll(BLOCCHI)];
+    let k = -1;
+    lista.forEach((e, i) => { if (k < 0) { const t = norm(e.innerText).slice(0, 30); if (t.length > 6 && r.startsWith(t.slice(0, Math.min(30, r.length)))) k = i; } });
+    return k < 0 ? null : [k, Math.round(lista[k].getBoundingClientRect().height), lista[k].matches(".fig-testo, .anim, .sint-blocco, .box-es") || lista[k].querySelector(".sint-blocco, .box-es") ? 0.6 : 0.68, lista[k].matches(".fig-testo")];
+  };
+  window.applicaZoom = function (lista, figure) {
+    const el = [...app.querySelectorAll(BLOCCHI)];
+    /* una figura che non entra in fondo alla pagina scende dopo il paragrafo che la segue (resta affiancata al testo) */
+    (figure || []).map(k => el[k]).forEach(f => {
+      if (!f) return; let x = f.nextElementSibling;
+      while (x && !x.matches("p")) { if (x.matches("h2, h3, .riquadro, .anim, .definizione, .regola")) return; x = x.nextElementSibling; }
+      if (x) x.after(f);
+    });
+    lista.forEach(([k, f]) => { const e = el[k]; if (e && !e.closest("[style*=zoom]") && !e.querySelector("[style*=zoom]")) e.style.zoom = f; });
+    return lista.length;
   };
   /* Dopo l'impaginazione: un'immagine resta a fianco del testo solo se il testo la "riempie";
      se resterebbe da sola a destra, viene centrata. */
   window.sistemaImmagini = function () {
     const flottanti = [...app.querySelectorAll(".anim.affianca, .fig-testo, .illustrazione, .esercizio .fig:not(.larga)")];
-    const ferma = x => x.matches(".riquadro, .definizione, .regola, .attenzione, .esempio, table, h2, h3, .formula, .anim, figure, .fig-testo, .gruppo, .mostra-svolg, .opzioni, .associa");
+    const ferma = x => x.matches(".riquadro, .approfondimento, .definizione, .regola, .attenzione, .esempio, table, h2, h3, .formula, .anim, figure, .fig-testo, .gruppo, .mostra-svolg, .opzioni, .associa");
     let cambiati = 0;
     flottanti.forEach(f => {
       if (f.classList.contains("centra")) return;
@@ -260,17 +334,6 @@
     return cambiati;
   };
 
-  /* ---------- crediti delle foto ---------- */
-  function htmlCrediti() {
-    const F = window.CREDITI_FOTO || {};
-    return `<h1>Crediti delle immagini</h1><p>Le fotografie illustrative provengono da Wikimedia Commons e sono usate secondo la loro licenza libera. I disegni, gli schemi e le animazioni sono originali.</p>
-      <ul class="lista-crediti">${Object.entries(F).map(([k, f]) => `<li><b>${f[0]}</b> — ${f[1]} · ${f[2]} · <a href="${f[3]}" target="_blank" rel="noopener">${f[3].replace("https://", "")}</a></li>`).join("")}</ul>`;
-  }
-  function crediti() {
-    imposta([["Crediti immagini", "#crediti"]]);
-    app.innerHTML = `<div class="contenitore pagina-crediti">${htmlCrediti()}</div>`;
-  }
-
   /* ---------- router ---------- */
   function vai() {
     if (document.body.classList.contains("pagina-stampa")) return;
@@ -280,7 +343,6 @@
     if (h === "home") return copertina();
     if (h === "anni") return anni();
     if (h === "anno-1") return annoUno();
-    if (h === "crediti") return crediti();
     const m = h.match(/^(cap\d+)(-esercizi)?$/);
     if (m && L.capitoli[m[1]]) return m[2] ? esercizi(L.capitoli[m[1]]) : teoria(L.capitoli[m[1]]);
     copertina();

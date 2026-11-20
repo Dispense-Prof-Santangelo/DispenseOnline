@@ -36,7 +36,11 @@ LIBRO.capitoli.cap1 = {
   sintesi: `
 <div class="sint-blocco"><h3><span>1</span>Che cosa sono i numeri naturali</h3>
 <p>I numeri naturali sono <span class="mat">ℕ = {0, 1, 2, 3, …}</span>. Ogni numero <span class="mat">n</span> ha un <b>successivo</b> <span class="mat">n + 1</span>; ogni numero diverso da 0 ha un <b>precedente</b> <span class="mat">n − 1</span>. Lo 0 è il più piccolo numero naturale e non esiste un numero naturale più grande di tutti.</p>
-<p>Due numeri si confrontano con i simboli <span class="mat">=, ≠, &lt;, &gt;, ≤, ≥</span>. Sono <b>pari</b> i numeri della forma <span class="mat">2k</span> e <b>dispari</b> quelli della forma <span class="mat">2k + 1</span>.</p></div>
+<p>Due numeri si confrontano con i simboli <span class="mat">=</span> &ensp;<span class="mat">≠</span> &ensp;<span class="mat">&lt;</span> &ensp;<span class="mat">&gt;</span> &ensp;<span class="mat">≤</span> &ensp;<span class="mat">≥</span></p>
+<ul class="sint-lista">
+<li><span class="mat">2k</span><span class="nota">numeri <b>pari</b> (0, 2, 4, 6, …)</span></li>
+<li><span class="mat">2k + 1</span><span class="nota">numeri <b>dispari</b> (1, 3, 5, 7, …)</span></li>
+</ul></div>
 
 <div class="sint-blocco"><h3><span>2</span>Le quattro operazioni</h3>
 <table class="tab"><tr><th>Operazione</th><th>Termini</th><th>Risultato</th><th>Si può sempre fare in ℕ?</th></tr>
@@ -45,46 +49,79 @@ LIBRO.capitoli.cap1 = {
 <tr><td>sottrazione</td><td>minuendo, sottraendo</td><td>differenza</td><td>solo se il minuendo è ≥ del sottraendo</td></tr>
 <tr><td>divisione</td><td>dividendo, divisore</td><td>quoziente</td><td>solo se il dividendo è multiplo del divisore</td></tr></table>
 <p><b>Divisione con resto.</b> Dati <span class="mat">a</span> e <span class="mat">b ≠ 0</span>, si ha <span class="mat">a = b · q + r</span> con <span class="mat">r &lt; b</span>. Per esempio 23 = 5 · 4 + 3.</p>
-<p><b>Lo 0 e l'1.</b> <span class="mat">a + 0 = a</span>, <span class="mat">a · 1 = a</span>, <span class="mat">a · 0 = 0</span>, <span class="mat">0 : a = 0</span> (con a ≠ 0). La divisione <span class="mat">a : 0</span> è <b>impossibile</b> se a ≠ 0, mentre <span class="mat">0 : 0</span> è <b>indeterminata</b>.</p></div>
+<p><b>Lo 0 e l'1</b></p>
+<ul class="sint-lista">
+<li><span class="mat">a + 0 = a</span><span class="nota">lo 0 è l'elemento neutro dell'addizione</span></li>
+<li><span class="mat">a · 1 = a</span><span class="nota">l'1 è l'elemento neutro della moltiplicazione</span></li>
+<li><span class="mat">a · 0 = 0</span><span class="nota">lo 0 è l'elemento assorbente della moltiplicazione</span></li>
+<li><span class="mat">0 : a = 0</span><span class="nota">con a ≠ 0</span></li>
+<li><span class="mat">a : 0</span><span class="nota"><b>impossibile</b> se a ≠ 0</span></li>
+<li><span class="mat">0 : 0</span><span class="nota"><b>indeterminata</b></span></li>
+</ul></div>
 
 <div class="sint-blocco"><h3><span>3</span>Le potenze</h3>
 <p>La potenza <span class="mat">a<sup>n</sup></span> è il prodotto di <span class="mat">n</span> fattori uguali ad <span class="mat">a</span>. La <b>base</b> è <span class="mat">a</span>, l'<b>esponente</b> è <span class="mat">n</span>. Per esempio 2<sup>5</sup> = 2 · 2 · 2 · 2 · 2 = 32.</p>
-<p><span class="mat">a<sup>1</sup> = a</span>, &ensp; <span class="mat">a<sup>0</sup> = 1</span> (con a ≠ 0), &ensp; <span class="mat">1<sup>n</sup> = 1</span>, &ensp; <span class="mat">0<sup>n</sup> = 0</span> (con n ≠ 0). La scrittura 0<sup>0</sup> non ha significato.</p></div>
+<ul class="sint-lista">
+<li><span class="mat">a<sup>1</sup> = a</span><span class="nota">esponente 1</span></li>
+<li><span class="mat">a<sup>0</sup> = 1</span><span class="nota">esponente 0, con a ≠ 0</span></li>
+<li><span class="mat">1<sup>n</sup> = 1</span><span class="nota">base 1</span></li>
+<li><span class="mat">0<sup>n</sup> = 0</span><span class="nota">base 0, con n ≠ 0</span></li>
+<li><span class="mat">0<sup>0</sup></span><span class="nota">non ha significato</span></li>
+</ul></div>
 
 <div class="sint-blocco"><h3><span>4</span>Le espressioni</h3>
 <p><b>Ordine di calcolo.</b> Prima le parentesi, dalle tonde alle quadre alle graffe. Dentro ogni parentesi si calcolano prima le potenze, poi moltiplicazioni e divisioni nell'ordine in cui compaiono, infine addizioni e sottrazioni nell'ordine in cui compaiono.</p>
 <p class="formula">[(2 + 3)<sup>2</sup> − 5 · 3] : 2 = [25 − 15] : 2 = 10 : 2 = 5</p>
-<p>In un'<b>espressione letterale</b> le lettere (variabili) stanno al posto dei numeri. Per calcolarne il valore si sostituiscono i numeri alle lettere.</p></div>
+<p>In un'<b>espressione letterale</b> le lettere (variabili) stanno al posto dei numeri. Per calcolarne il valore si sostituiscono i numeri alle lettere.</p>
+<table class="tab"><tr><th>A parole</th><th>Con i simboli</th><th>Con a = 3 e b = 4</th></tr>
+<tr><td>il quadrato della somma di a e b</td><td>(a + b)<sup>2</sup></td><td>7<sup>2</sup> = 49</td></tr>
+<tr><td>la somma dei quadrati di a e b</td><td>a<sup>2</sup> + b<sup>2</sup></td><td>9 + 16 = 25</td></tr>
+<tr><td>il doppio del successivo di a</td><td>2(a + 1)</td><td>2 · 4 = 8</td></tr></table></div>
 
 <div class="sint-blocco"><h3><span>5</span>Le proprietà delle operazioni</h3>
 <table class="tab"><tr><th>Proprietà</th><th>Vale per</th><th>Espressione</th></tr>
-<tr><td>commutativa</td><td>addizione, moltiplicazione</td><td>a + b = b + a &emsp; a · b = b · a</td></tr>
-<tr><td>associativa</td><td>addizione, moltiplicazione</td><td>(a + b) + c = a + (b + c) &emsp; (a · b) · c = a · (b · c)</td></tr>
-<tr><td>distributiva</td><td>moltiplicazione rispetto ad addizione e sottrazione</td><td>a · (b + c) = a · b + a · c</td></tr>
-<tr><td>distributiva a destra</td><td>divisione rispetto ad addizione e sottrazione</td><td>(a + b) : c = a : c + b : c &emsp; (c ≠ 0, divisioni esatte)</td></tr>
+<tr><td>commutativa</td><td>addizione, moltiplicazione</td><td>a + b = b + a<br>a · b = b · a</td></tr>
+<tr><td>associativa</td><td>addizione, moltiplicazione</td><td>(a + b) + c = a + (b + c)<br>(a · b) · c = a · (b · c)</td></tr>
+<tr><td>distributiva</td><td>moltiplicazione rispetto ad addizione e sottrazione</td><td>a · (b + c) = a · b + a · c<br>a · (b − c) = a · b − a · c</td></tr>
+<tr><td>distributiva a destra</td><td>divisione rispetto ad addizione e sottrazione</td><td>(a + b) : c = a : c + b : c<br><small>c ≠ 0, divisioni esatte</small></td></tr>
 <tr><td>invariantiva</td><td>sottrazione</td><td>a − b = (a + c) − (b + c)</td></tr>
-<tr><td>invariantiva</td><td>divisione</td><td>a : b = (a · c) : (b · c) &emsp; (b ≠ 0, c ≠ 0)</td></tr></table>
-<p>Lo 0 è l'elemento neutro dell'addizione, l'1 è l'elemento neutro della moltiplicazione, lo 0 è l'elemento assorbente della moltiplicazione.</p></div>
+<tr><td>invariantiva</td><td>divisione</td><td>a : b = (a · c) : (b · c)<br><small>b ≠ 0, c ≠ 0</small></td></tr></table>
+</div>
 
 <div class="sint-blocco"><h3><span>6</span>Le proprietà delle potenze</h3>
 <table class="tab"><tr><th>Proprietà</th><th>Espressione</th><th>Esempio</th></tr>
 <tr><td>prodotto di potenze con la stessa base</td><td>a<sup>m</sup> · a<sup>n</sup> = a<sup>m + n</sup></td><td>3<sup>2</sup> · 3<sup>4</sup> = 3<sup>6</sup></td></tr>
-<tr><td>quoziente di potenze con la stessa base</td><td>a<sup>m</sup> : a<sup>n</sup> = a<sup>m − n</sup> &ensp; (a ≠ 0, m ≥ n)</td><td>7<sup>5</sup> : 7<sup>2</sup> = 7<sup>3</sup></td></tr>
+<tr><td>quoziente di potenze con la stessa base</td><td>a<sup>m</sup> : a<sup>n</sup> = a<sup>m − n</sup><br><small>a ≠ 0, m ≥ n</small></td><td>7<sup>5</sup> : 7<sup>2</sup> = 7<sup>3</sup></td></tr>
 <tr><td>potenza di una potenza</td><td>(a<sup>m</sup>)<sup>n</sup> = a<sup>m · n</sup></td><td>(2<sup>3</sup>)<sup>4</sup> = 2<sup>12</sup></td></tr>
 <tr><td>prodotto di potenze con lo stesso esponente</td><td>a<sup>n</sup> · b<sup>n</sup> = (a · b)<sup>n</sup></td><td>4<sup>3</sup> · 5<sup>3</sup> = 20<sup>3</sup></td></tr>
-<tr><td>quoziente di potenze con lo stesso esponente</td><td>a<sup>n</sup> : b<sup>n</sup> = (a : b)<sup>n</sup> &ensp; (b ≠ 0, a multiplo di b)</td><td>18<sup>2</sup> : 6<sup>2</sup> = 3<sup>2</sup></td></tr></table>
+<tr><td>quoziente di potenze con lo stesso esponente</td><td>a<sup>n</sup> : b<sup>n</sup> = (a : b)<sup>n</sup><br><small>b ≠ 0, a multiplo di b</small></td><td>18<sup>2</sup> : 6<sup>2</sup> = 3<sup>2</sup></td></tr></table>
 <p>Attenzione, non esistono regole per la somma: in generale <span class="mat">(a + b)<sup>2</sup> ≠ a<sup>2</sup> + b<sup>2</sup></span>.</p></div>
 
 <div class="sint-blocco"><h3><span>7</span>Multipli e divisori</h3>
 <p><span class="mat">a</span> è <b>multiplo</b> di <span class="mat">b</span>, e <span class="mat">b</span> è <b>divisore</b> di <span class="mat">a</span>, se esiste un numero naturale <span class="mat">c</span> tale che <span class="mat">a = b · c</span>. Per esempio 42 = 6 · 7, quindi 42 è multiplo di 6 e di 7, mentre 6 e 7 sono divisori di 42.</p>
 <p>Un numero maggiore di 1 è <b>primo</b> se ha come divisori solo 1 e se stesso, altrimenti è <b>composto</b>. Ogni numero composto si scrive in un solo modo come prodotto di fattori primi, per esempio 90 = 2 · 3<sup>2</sup> · 5.</p>
-<p><b>Criteri di divisibilità.</b> Per 2 l'ultima cifra è pari; per 5 l'ultima cifra è 0 o 5; per 3 e per 9 la somma delle cifre è divisibile per 3 o per 9; per 4 e per 25 lo sono le ultime due cifre; per 11 la differenza tra le cifre di posto dispari e di posto pari è 0 o un multiplo di 11.</p></div>
+<p><b>Criteri di divisibilità</b></p>
+<table class="tab"><tr><th>Divisibile per</th><th>se…</th></tr>
+<tr><td>2</td><td>l'ultima cifra è pari</td></tr>
+<tr><td>3</td><td>la somma delle cifre è divisibile per 3</td></tr>
+<tr><td>4</td><td>le ultime due cifre formano un multiplo di 4 (o sono 00)</td></tr>
+<tr><td>5</td><td>l'ultima cifra è 0 o 5</td></tr>
+<tr><td>9</td><td>la somma delle cifre è divisibile per 9</td></tr>
+<tr><td>10, 100, …</td><td>termina con uno, due, … zeri</td></tr>
+<tr><td>11</td><td>la differenza tra la somma delle cifre di posto dispari e quella delle cifre di posto pari è 0 o un multiplo di 11</td></tr>
+<tr><td>25</td><td>le ultime due cifre sono 00, 25, 50 o 75</td></tr></table></div>
 
 <div class="sint-blocco"><h3><span>8</span>MCD e mcm</h3>
 <p>Il <b>MCD</b> di due o più numeri è il prodotto dei soli fattori primi <b>comuni</b>, ciascuno preso una volta con l'esponente <b>minore</b>. Il <b>mcm</b> è il prodotto dei fattori primi <b>comuni e non comuni</b>, ciascuno preso una volta con l'esponente <b>maggiore</b>.</p>
-<p class="formula">36 = 2<sup>2</sup> · 3<sup>2</sup> &emsp; 60 = 2<sup>2</sup> · 3 · 5</p>
-<p class="formula">MCD(36, 60) = 2<sup>2</sup> · 3 = 12 &emsp; mcm(36, 60) = 2<sup>2</sup> · 3<sup>2</sup> · 5 = 180</p>
-<p>Due numeri con MCD = 1 si dicono <b>primi tra loro</b>. Per due numeri vale sempre MCD(a, b) · mcm(a, b) = a · b.</p></div>
+<div class="esempio"><b>Esempio</b>
+<ul class="sint-lista">
+<li><span class="mat">36 = 2<sup>2</sup> · 3<sup>2</sup></span></li>
+<li><span class="mat">60 = 2<sup>2</sup> · 3 · 5</span></li>
+<li><span class="mat">MCD(36, 60) = 2<sup>2</sup> · 3 = 12</span><span class="nota">fattori comuni, esponente minore</span></li>
+<li><span class="mat">mcm(36, 60) = 2<sup>2</sup> · 3<sup>2</sup> · 5 = 180</span><span class="nota">tutti i fattori, esponente maggiore</span></li>
+</ul></div>
+<p>Due numeri con MCD = 1 si dicono <b>primi tra loro</b>.</p>
+<p class="formula">MCD(a, b) · mcm(a, b) = a · b</p></div>
 `,
 
   /* ------------------------------ TEORIA ------------------------------ */
@@ -251,6 +288,7 @@ La <b>potenza</b> <span class="mat">a<sup>n</sup></span>, con <span class="mat">
 <div class="regola"><b>Associativa</b>In una somma (o in un prodotto) di tre o più termini, si possono raggruppare a piacere due termini vicini e sostituirli con il loro risultato.
 <p class="formula">(a + b) + c = a + (b + c) &emsp; (a · b) · c = a · (b · c)</p></div>
 <div class="esempio"><b>Esempio</b> &emsp; 37 + 26 + 4 = 37 + (26 + 4) = 37 + 30 = 67 &emsp; 4 · 13 · 25 = 13 · (4 · 25) = 13 · 100 = 1300</div>
+<p>Anche l'associativa non vale per la sottrazione e per la divisione. Per esempio (20 − 8) − 2 = 10, mentre 20 − (8 − 2) = 14; (48 : 4) : 2 = 6, mentre 48 : (4 : 2) = 24.</p>
 
 <h3>Proprietà distributiva</h3>
 <figure class="fig-testo" data-img="pizza"><figcaption>Ogni pizza ha 6 fette, quindi 3 pizze e poi altre 2 danno (3 + 2) · 6 = 3 · 6 + 2 · 6 fette.</figcaption></figure><div class="regola"><b>Distributiva della moltiplicazione</b>Per moltiplicare un numero per una somma (o una differenza) si può moltiplicare il numero per ciascun termine e poi sommare (o sottrarre) i risultati.
@@ -386,6 +424,10 @@ Il <b>minimo comune multiplo</b> di due o più numeri (diversi da 0) è il più 
 <div class="regola"><b>Regola</b>Il mcm è il prodotto di tutti i fattori primi, <b>comuni e non comuni</b>, presi una sola volta con l'esponente <b>maggiore</b>.</div>
 <div class="esempio"><b>Esempio</b> &emsp; 60 = 2<sup>2</sup> · 3 · 5 &emsp; 90 = 2 · 3<sup>2</sup> · 5 &emsp; mcm(60, 90) = 2<sup>2</sup> · 3<sup>2</sup> · 5 = 180</div>
 <p>Per due numeri vale sempre una relazione elegante: <span class="mat">MCD(a, b) · mcm(a, b) = a · b</span>. Per esempio, con 60 e 90 si ha MCD = 30, mcm = 180 e 30 · 180 = 5400 = 60 · 90.</p>
+<div class="regola"><b>MCD o mcm? Come riconoscerli nei problemi</b>
+<ul><li>Si usa il <b>MCD</b> quando bisogna <b>dividere</b> più quantità in parti uguali, le più grandi possibili, senza avanzi (per esempio tagliare due nastri da 60 cm e 90 cm in pezzi uguali e più lunghi possibile, cioè da 30 cm).</li>
+<li>Si usa il <b>mcm</b> quando si cerca <b>quando</b> due o più fatti che si ripetono capiteranno di nuovo insieme (per esempio due autobus che partono ogni 60 e ogni 90 minuti ripartono insieme dopo 180 minuti).</li></ul>
+Il MCD non supera mai il più piccolo dei numeri, il mcm non è mai minore del più grande.</div>
 <p>Il mcm risponde a domande del tipo: <i>due eventi si ripetono ogni tot giorni: quando capiteranno di nuovo insieme?</i></p>
 
 <div class="curiosita" data-img="cicala" data-titolo="Le cicale che contano con i numeri primi">
