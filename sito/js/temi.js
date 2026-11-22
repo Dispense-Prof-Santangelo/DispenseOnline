@@ -55,6 +55,7 @@
     trasporti:   { colore: "#1f6f8b", segni: ["@ancora", "@camion", "@aereo", "@nave", "@container", "@bussola", "km", "kn", "→", "⇄", "@pacco", "N", "@onde"] },
     logistica:   { colore: "#8a5a1f", segni: ["@container", "@pacco", "@camion", "@aereo", "kg", "km", "→", "⇄", "▮▯▮▮▯▮", "t", "m³", "@nave"] },
     "navale-faro": { colore: "#1f3260", segni: ["@ancora", "@timone", "@bussola", "@nave", "@onde"] },
+    "navale-giorno": { colore: "#1f3260", segni: ["@ancora", "@timone", "@bussola", "@nave", "@onde"] },
     navale:      { colore: "#1f3260", segni: ["@ancora", "@timone", "@bussola", "@nave", "@onde", "kn", "N", "S", "E", "W", "44° N", "@onde", "~"] }
   };
 
