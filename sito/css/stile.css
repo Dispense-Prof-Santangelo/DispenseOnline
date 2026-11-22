@@ -627,3 +627,22 @@ a.bottone-tema:hover .sfondo-tema{color:#fff}
   .ingressi .bottone-tema .scritta{font-size:2rem}
   .griglia-ingressi,.ingressi{gap:14px}
 }
+/* copertina: due ingressi grandi, affiancati */
+.ingressi{gap:34px}
+.ingressi .bottone-tema{width:380px;min-height:280px;gap:10px}
+.ingressi .bottone-tema .scritta{font-size:3.2rem}
+.ingressi .bottone-tema .simbolo svg{width:3.6rem;height:3.6rem;display:block}
+.bottone-tema .simbolo svg{width:2.4rem;height:2.4rem;display:block}
+.copertina>.sfondo-tema span{opacity:.16}
+@media screen and (max-width:600px){
+  .ingressi .bottone-tema{width:100%;max-width:340px;min-height:190px}
+  .ingressi .bottone-tema .scritta{font-size:2.4rem}
+  .ingressi .bottone-tema .simbolo svg{width:2.8rem;height:2.8rem}
+}
+/* scene animate su canvas (js/scene.js): restano ferme dietro ai contenuti mentre si scorre */
+.sfondo-tema.scena{position:fixed;inset:0;z-index:0}
+.sfondo-tema.scena canvas{display:block;width:100%;height:100%}
+.pagina-tema.scura{background:#0e1a33}
+.pagina-tema.scura h1,.pagina-tema.scura h2.gruppo{color:#f3ead2}
+.pagina-tema.scura .sottotitolo{color:#c9d3e6}
+.pagina-tema.scura .indice-tema h1{color:var(--blu-scuro)}

@@ -122,7 +122,8 @@
       ${simbolo ? `<span class="simbolo">${simbolo}</span>` : ""}<span class="scritta">${titolo}</span><small>${sotto}</small></a>`;
   }
   function pagina(tema, contenuto) {
-    app.innerHTML = `<section class="pagina-tema" style="--tc:${TEMI.colore(tema)}">${TEMI.sfondo(tema, 60)}<div class="pagina-tema-dentro">${contenuto}</div></section>`;
+    app.innerHTML = `<section class="pagina-tema" style="--tc:${TEMI.colore(tema)}">${TEMI.sfondo(tema, 120, true)}<div class="pagina-tema-dentro">${contenuto}</div></section>`;
+    if (window.SCENE) window.SCENE.avvia(app);
   }
   function carteAnni(n, href, attivo, extra) {
     return `<div class="griglia-anni">${Array.from({ length: n }, (_, i) => i + 1).map((a, i) => {
@@ -135,13 +136,13 @@
   /* ---------- copertina: chi sei? ---------- */
   function copertina() {
     barra.classList.add("nascosta"); contesto = null;
-    app.innerHTML = `<section class="copertina">${TEMI.sfondo("neutro", 40)}
+    app.innerHTML = `<section class="copertina">${TEMI.sfondo("neutro", 130)}
       <div class="copertina-centro">
         <h1 class="titolo-copertina">Dispense online</h1>
         <p>Scegli il tuo ingresso</p>
         <div class="ingressi">
-          ${bottoneTema("#studenti", "Studenti", "Scegli indirizzo e anno ›", "linguistico", "✎")}
-          ${bottoneTema("#docenti", "Docenti", "Scegli la disciplina ›", "matematica", "§")}
+          ${bottoneTema("#docenti", "Docenti", "Scegli la disciplina ›", "matematica", TEMI.icona("lavagna"))}
+          ${bottoneTema("#studenti", "Studenti", "Scegli indirizzo e anno ›", "linguistico", TEMI.icona("tocco"))}
         </div>
       </div></section>`;
   }
