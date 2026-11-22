@@ -73,7 +73,7 @@
   /* ---------- briciole di pane ---------- */
   function imposta(voci) {
     barra.classList.remove("nascosta");
-    voci = [["Discipline", "#home"]].concat(voci);
+    voci = [["Inizio", "#home"]].concat(voci);
     briciole.innerHTML = voci.map((v, i) => i < voci.length - 1 ? `<a href="${v[1]}">${v[0]}</a><span class="sep">›</span>` : `<b>${v[0]}</b>`).join("");
   }
 
@@ -87,58 +87,158 @@
     return sp;
   }
 
-  /* ---------- PAGINA 1: copertina ---------- */
+  /* =====================================================================
+     DUE INGRESSI: DOCENTI e STUDENTI (stesse dispense, elenchi diversi)
+     Dati in catalogo.js (window.SCUOLA), sfondi in temi.js (window.TEMI).
+     ===================================================================== */
+  const S = window.SCUOLA, TEMI = window.TEMI;
+  let contesto = null; // briciole di pane da mostrare sopra teoria ed esercizi
+  const nomeAnno = n => ["", "Primo", "Secondo", "Terzo", "Quarto", "Quinto"][n] + " anno";
+  const disciplina = id => S.discipline.find(d => d.id === id);
+  const indirizzo = id => S.indirizzi.find(i => i.id === id);
+  /* un "percorso" è un indirizzo oppure un'articolazione (es. logistica) */
+  function percorso(id) {
+    const i = indirizzo(id); if (i) return { id, nome: i.nome, breve: i.breve, tema: i.tema, anni: i.anni, ind: i };
+    for (const x of S.indirizzi) for (const a of ((x.articolazioni || {}).scelte || []))
+      if (a.id === id) return { id, nome: x.nome + " – " + a.nome, breve: a.nome, tema: a.tema, anni: x.anni, da: x.articolazioni.da, padre: x };
+    return null;
+  }
+  function piano(disc, perc, anno) {
+    const P = S.piani[disc] || {}; let p = P[`${perc}-${anno}`], giri = 0;
+    while (p && p.usa && giri++ < 10) p = P[p.usa];
+    return p || null;
+  }
+  const revisionata = id => S.stato[id] === "revisionata";
+  const pronto = id => typeof id === "string" && L.capitoli[id];
+  function capitoliVisibili(p, studenti) {
+    return p.parti.map(pt => ({ titolo: pt.titolo, capitoli: pt.capitoli.map((c, k) => ({ c, k }))
+      .filter(x => !studenti || (pronto(x.c) && revisionata(x.c))) })).filter(pt => pt.capitoli.length);
+  }
+  function contaRevisionati(p) { return p ? p.parti.reduce((s, pt) => s + pt.capitoli.filter(c => pronto(c) && revisionata(c)).length, 0) : 0; }
+
+  /* pulsante grande con segni fluttuanti a tema */
+  function bottoneTema(href, titolo, sotto, tema, simbolo) {
+    return `<a class="bottone-tema" href="${href}" style="--tc:${TEMI.colore(tema)}">${TEMI.sfondo(tema, 14).replace('class="sfondo-tema"', 'class="sfondo-tema mini"')}
+      ${simbolo ? `<span class="simbolo">${simbolo}</span>` : ""}<span class="scritta">${titolo}</span><small>${sotto}</small></a>`;
+  }
+  function pagina(tema, contenuto) {
+    app.innerHTML = `<section class="pagina-tema" style="--tc:${TEMI.colore(tema)}">${TEMI.sfondo(tema, 60)}<div class="pagina-tema-dentro">${contenuto}</div></section>`;
+  }
+  function carteAnni(n, href, attivo, extra) {
+    return `<div class="griglia-anni">${Array.from({ length: n }, (_, i) => i + 1).map((a, i) => {
+      const ok = attivo(a), y = L.anni[a - 1] || L.anni[0];
+      return `<a class="carta-anno ${ok ? "" : "disattiva"}" ${ok ? `href="${href(a)}"` : 'aria-disabled="true"'} style="--c:${y.colore};animation-delay:${i * 0.08}s">
+        <div class="num">${a}<sup>°</sup></div><div class="etichetta">${nomeAnno(a)}</div><div class="stato">${ok ? (extra ? extra(a) : "Apri ›") : "In preparazione"}</div></a>`;
+    }).join("")}</div>`;
+  }
+
+  /* ---------- copertina: chi sei? ---------- */
   function copertina() {
-    barra.classList.add("nascosta");
-    const simboli = ["π", "∑", "√", "∞", "ℕ", "÷", "x²", "∫", "≤", "%", "θ", "Δ", "7", "3", "+", "×", "∈", "sin", "cos", "e"];
-    const sp = simboliFluttuanti(simboli, 18, 0.9, 0.5);
-    app.innerHTML = `<section class="copertina">
+    barra.classList.add("nascosta"); contesto = null;
+    app.innerHTML = `<section class="copertina">${TEMI.sfondo("neutro", 40)}
       <div class="copertina-centro">
         <h1 class="titolo-copertina">Dispense online</h1>
-        <p>Scegli la disciplina</p>
-        <a class="bottone-matematica" href="#anni"><span class="simboli" aria-hidden="true">${sp}</span><span class="scritta">Matematica</span><small>Entra ›</small></a>
+        <p>Scegli il tuo ingresso</p>
+        <div class="ingressi">
+          ${bottoneTema("#studenti", "Studenti", "Scegli indirizzo e anno ›", "linguistico", "✎")}
+          ${bottoneTema("#docenti", "Docenti", "Scegli la disciplina ›", "matematica", "§")}
+        </div>
       </div></section>`;
   }
 
-  /* ---------- PAGINA 2: scelta dell'anno ---------- */
-  function anni() {
-    imposta([["Scegli l'anno", "#anni"]]);
-    const simboli = ["π", "∑", "√", "∞", "ℕ", "÷", "x²", "∫", "≤", "%", "θ", "Δ", "7", "3", "+", "×", "∈", "sin", "cos", "e",
-      "α", "β", "γ", "λ", "φ", "Ω", "ℤ", "ℚ", "ℝ", "≠", "≥", "±", "∅", "∪", "∩", "⊂", "∀", "∃", "y", "x³", "log", "tg", "lim", "0", "1", "2", "5", "8", "9", "=", "−", "·", "°", "∠", "⊥", "∥"];
-    let fl = "";
-    for (let i = 0; i < 90; i++) {
-      const s = simboli[(i * 13) % simboli.length];
-      fl += `<span style="left:${(i * 37 + Math.floor(i / 9) * 11) % 100}%;font-size:${1 + ((i * 7) % 6) * 0.6}rem;animation-duration:${14 + (i * 5) % 18}s;animation-delay:-${(i * 3.3) % 32}s">${s}</span>`;
-    }
-    app.innerHTML = `<section class="pagina-anni"><div class="simboli" aria-hidden="true">${fl}</div><h1>Scegli il tuo anno</h1>
-      <p class="sottotitolo">Teoria, animazioni, curiosità ed esercizi con le soluzioni</p>
-      <div class="griglia-anni">${L.anni.map((a, i) => `
-        <a class="carta-anno ${a.pronto ? "" : "disattiva"}" ${a.pronto ? `href="#anno-${a.n}"` : 'aria-disabled="true"'} data-simbolo="${a.simbolo}"
-           style="--c:${a.colore};animation-delay:${i * 0.1}s">
-          <div class="num">${a.n}<sup>°</sup></div><div class="etichetta">${a.nome}</div>
-          <div class="stato">${a.pronto ? "Apri l'indice ›" : "In preparazione"}</div></a>`).join("")}
-      </div></section>`;
+  /* ---------- DOCENTI ---------- */
+  function docenti() {
+    imposta([["Docenti", "#docenti"]]); contesto = null;
+    pagina("neutro", `<h1>Area docenti</h1><p class="sottotitolo">Scegli la disciplina: trovi tutte le dispense, ordinate per indirizzo e anno, comprese quelle ancora in revisione.</p>
+      <div class="griglia-ingressi">${S.discipline.map(d => bottoneTema(`#docenti/${d.id}`, d.nome, "Entra ›", d.tema, d.simbolo)).join("")}</div>`);
+  }
+  function docentiDisciplina(d) {
+    imposta([["Docenti", "#docenti"], [d.nome, `#docenti/${d.id}`]]); contesto = null;
+    pagina(d.tema, `<h1>${d.nome}</h1><p class="sottotitolo">Dispense per indirizzo e anno. Gli studenti vedono solo i capitoli revisionati.</p>
+      ${d.gruppi.map(g => {
+        const p0 = percorso(g.percorsi[0]), anni = g.anni || Array.from({ length: p0.anni }, (_, i) => i + 1);
+        return `<h2 class="gruppo">${g.nome}</h2><div class="griglia-anni">${anni.map((a, i) => {
+          const p = piano(d.id, g.percorsi[0], a), y = L.anni[a - 1];
+          const tot = p ? p.parti.reduce((s, pt) => s + pt.capitoli.filter(pronto).length, 0) : 0;
+          return `<a class="carta-anno ${p ? "" : "disattiva"}" ${p ? `href="#docenti/${d.id}/${g.percorsi[0]}-${a}"` : 'aria-disabled="true"'} data-simbolo="${y.simbolo}" style="--c:${y.colore};animation-delay:${i * 0.08}s">
+            <div class="num">${a}<sup>°</sup></div><div class="etichetta">${nomeAnno(a)}</div>
+            <div class="stato">${p ? `${tot} capitoli pronti · ${contaRevisionati(p)} revisionati` : "In preparazione"}</div></a>`;
+        }).join("")}</div>`;
+      }).join("")}`);
+  }
+  function docentiIndice(d, perc, anno) {
+    const p = piano(d.id, perc, anno), pc = percorso(perc);
+    const g = d.gruppi.find(x => x.percorsi.includes(perc));
+    const voci = [["Docenti", "#docenti"], [d.nome, `#docenti/${d.id}`], [`${(g && g.nome) || pc.nome} · ${anno}° anno`, `#docenti/${d.id}/${perc}-${anno}`]];
+    imposta(voci); contesto = voci;
+    if (!p) return pagina(d.tema, `<h1>${d.nome}</h1><p class="sottotitolo">Dispense in preparazione.</p>`);
+    indiceCapitoli(d, p, `${nomeAnno(anno)} · ${(g && g.nome) || pc.nome}`, false);
   }
 
-  /* ---------- PAGINA 3: indice dell'anno ---------- */
-  function annoUno() {
-    imposta([["Anni", "#anni"], ["1° anno", "#anno-1"]]);
+  /* ---------- STUDENTI ---------- */
+  function studenti() {
+    imposta([["Studenti", "#studenti"]]); contesto = null;
+    pagina("neutro", `<h1>Area studenti</h1><p class="sottotitolo">Scegli il tuo indirizzo.</p>
+      <div class="griglia-ingressi">${S.indirizzi.map(i => bottoneTema(`#studenti/${i.id}`, i.breve, "Entra ›", i.tema)).join("")}</div>`);
+  }
+  function studentiIndirizzo(pc) {
+    imposta([["Studenti", "#studenti"], [pc.breve, `#studenti/${pc.id}`]]); contesto = null;
+    pagina(pc.tema, `<h1>${pc.nome}</h1><p class="sottotitolo">Scegli il tuo anno.</p>
+      ${carteAnni(pc.anni, a => `#studenti/${pc.id}/${a}`, () => true)}`);
+  }
+  function studentiArticolazione(pc, anno) {
+    const art = pc.ind.articolazioni;
+    imposta([["Studenti", "#studenti"], [pc.breve, `#studenti/${pc.id}`], [`${anno}° anno`, `#studenti/${pc.id}/${anno}`]]); contesto = null;
+    pagina(pc.tema, `<h1>${pc.nome} · ${anno}° anno</h1><p class="sottotitolo">Scegli la tua articolazione.</p>
+      <div class="griglia-ingressi">${art.scelte.map(a => bottoneTema(`#studenti/${a.id}/${anno}`, a.nome, "Entra ›", a.tema)).join("")}</div>`);
+  }
+  function studentiAnno(pc, anno) {
+    const voci = [["Studenti", "#studenti"]];
+    if (pc.padre) voci.push([pc.padre.breve, `#studenti/${pc.padre.id}`], [`${anno}° anno`, `#studenti/${pc.padre.id}/${anno}`], [pc.breve, `#studenti/${pc.id}/${anno}`]);
+    else voci.push([pc.breve, `#studenti/${pc.id}`], [`${anno}° anno`, `#studenti/${pc.id}/${anno}`]);
+    imposta(voci); contesto = null;
+    const lista = S.discipline.map(d => ({ d, p: piano(d.id, pc.id, anno) })).filter(x => x.p);
+    pagina(pc.tema, `<h1>${pc.nome}</h1><p class="sottotitolo">${nomeAnno(anno)} · scegli la disciplina.</p>
+      ${lista.length ? `<div class="griglia-ingressi">${lista.map(({ d, p }) => {
+        const n = contaRevisionati(p);
+        return n ? bottoneTema(`#studenti/${pc.id}/${anno}/${d.id}`, d.nome, `${n} ${n === 1 ? "capitolo" : "capitoli"} ›`, d.tema, d.simbolo)
+          : `<div class="bottone-tema spento" style="--tc:#8a8273"><span class="simbolo">${d.simbolo}</span><span class="scritta">${d.nome}</span><small>In preparazione</small></div>`;
+      }).join("")}</div>` : `<p class="vuoto-msg">Le dispense di questo anno sono in preparazione.</p>`}`);
+  }
+  function studentiIndice(pc, anno, d) {
+    const p = piano(d.id, pc.id, anno);
+    const voci = [["Studenti", "#studenti"], [pc.breve, `#studenti/${pc.id}`], [`${anno}° anno`, `#studenti/${pc.id}/${anno}`], [d.nome, `#studenti/${pc.id}/${anno}/${d.id}`]];
+    imposta(voci); contesto = voci;
+    if (!p || !contaRevisionati(p)) return pagina(pc.tema, `<h1>${d.nome}</h1><p class="vuoto-msg">Le dispense di ${d.nome} per questo anno sono in preparazione.</p>`);
+    indiceCapitoli(d, p, `${nomeAnno(anno)} · ${pc.nome}`, true, pc.tema);
+  }
+
+  /* ---------- indice dei capitoli (docenti: tutti; studenti: solo revisionati) ---------- */
+  function indiceCapitoli(d, p, sotto, studenti, tema) {
     let k = 0;
-    app.innerHTML = `<div class="contenitore">
-      <div class="intestazione-anno"><div><h1>Primo anno</h1><p>Scegli un capitolo: teoria o esercizi.</p></div>
-        <button class="bottone b-pdf" data-pdf="pdf/matematica-primo-anno.pdf" data-nome="Matematica - Primo anno.pdf">${ICONA_PDF} Scarica il libro del 1° anno (PDF)</button></div>
-      ${L.anno1.parti.map(p => `<h2 class="parte">${p.titolo}</h2><div class="lista-capitoli">${p.capitoli.map(c => {
-        const d = `animation-delay:${(k++) * 0.05}s`;
-        return c.pronto ? `<div class="capitolo-riga" style="${d}"><div class="n">${c.n}</div><div><h3>${c.titolo}</h3><p class="paragrafi">${c.paragrafi}</p></div>
-            <div class="azioni"><a class="bottone b-teoria" href="#${c.id}">Teoria</a><a class="bottone b-esercizi" href="#${c.id}-esercizi">Esercizi</a></div></div>`
-          : `<div class="capitolo-riga prossimamente" style="${d}"><div class="n">${c.n}</div><div><h3>${c.titolo}</h3></div><span class="etichetta-presto">in preparazione</span></div>`;
+    const parti = capitoliVisibili(p, studenti);
+    pagina(tema || d.tema, `<div class="contenitore indice-tema">
+      <div class="intestazione-anno"><div><h1>${d.nome}</h1><p>${sotto}</p></div>
+        ${!studenti && p.pdf ? `<button class="bottone b-pdf" data-pdf="${p.pdf}" data-nome="${p.pdfNome || "Libro dell'anno.pdf"}">${ICONA_PDF} Scarica il libro dell'anno (PDF)</button>` : ""}</div>
+      ${parti.map(pt => `<h2 class="parte">${pt.titolo}</h2><div class="lista-capitoli">${pt.capitoli.map(({ c, k: pos }) => {
+        const st = `animation-delay:${(k++) * 0.05}s`, cap = pronto(c);
+        const n = cap ? cap.numero : pos + 1;
+        if (!cap) return `<div class="capitolo-riga prossimamente" style="${st}"><div class="n">${n}</div><div><h3>${c.titolo}</h3></div><span class="etichetta-presto">in preparazione</span></div>`;
+        const badge = studenti ? "" : (revisionata(c) ? `<span class="stato-cap ok">revisionato</span>` : `<span class="stato-cap rev">in revisione</span>`);
+        const par = (L.anno1.parti.flatMap(x => x.capitoli).find(x => x.id === c) || {}).paragrafi || cap.paragrafi.map(x => x.titolo).join(" · ");
+        return `<div class="capitolo-riga" style="${st}"><div class="n">${n}</div><div><h3>${cap.titolo} ${badge}</h3><p class="paragrafi">${par}</p></div>
+          <div class="azioni"><a class="bottone b-teoria" href="#${c}">Teoria</a><a class="bottone b-esercizi" href="#${c}-esercizi">Esercizi</a></div></div>`;
       }).join("")}</div>`).join("")}
-</div>`;
+    </div>`);
   }
-
+  /* briciole sopra teoria ed esercizi: dal percorso da cui si è arrivati, altrimenti area docenti */
+  function briciolePrima(cap) {
+    if (contesto) return contesto;
+    return [["Docenti", "#docenti"], ["Matematica", "#docenti/matematica"], ["Scientifico · 1° anno", "#docenti/matematica/scientifico-1"]];
+  }
   /* ---------- PAGINA 4: teoria del capitolo ---------- */
   function teoria(cap) {
-    imposta([["Anni", "#anni"], ["1° anno", "#anno-1"], [`Cap. ${cap.numero} · Teoria`, "#" + cap.id]]);
+    imposta(briciolePrima(cap).concat([[`Cap. ${cap.numero} · Teoria`, "#" + cap.id]]));
     app.innerHTML = `<div class="capitolo">
       <aside class="indice-laterale"><h4>Capitolo ${cap.numero}</h4><ol>${cap.storia ? `<li class="extra"><a href="#${cap.id}" data-vai="storia"><b>✦</b>Storia della matematica</a></li>` : ""}${cap.paragrafi.map(p => `<li><a href="#${cap.id}" data-vai="${p.id}"><b>${p.n}</b>${p.titolo}</a></li>`).join("")}${cap.sintesi ? `<li class="extra"><a href="#${cap.id}" data-vai="sintesi"><b>✦</b>Teoria in sintesi</a></li>` : ""}</ol>
         <div class="azioni"><a class="bottone b-esercizi" href="#${cap.id}-esercizi">Vai agli esercizi ›</a>
@@ -229,7 +329,7 @@
     return cap.paragrafi.map(sezPar).join("") + FIN.map(sezFin).join("");
   }
   function esercizi(cap) {
-    imposta([["Anni", "#anni"], ["1° anno", "#anno-1"], [`Cap. ${cap.numero} · Esercizi`, "#" + cap.id + "-esercizi"]]);
+    imposta(briciolePrima(cap).concat([[`Cap. ${cap.numero} · Esercizi`, "#" + cap.id + "-esercizi"]]));
     const E = cap.esercizi, FIN = cap.finali || [];
     app.innerHTML = `<div class="capitolo">
       <aside class="indice-laterale"><h4>Esercizi · Cap. ${cap.numero}</h4><ol>${cap.paragrafi.map(p => `<li><a href="#${cap.id}-esercizi" data-vai="e-${p.id}"><b>${p.n}</b>${p.titolo}</a>${segmenti(E[p.id]).some(g => g.punto) ? `<ol>${segmenti(E[p.id]).filter(g => g.punto).map((g, i, t) => `<li><a href="#${cap.id}-esercizi" data-vai="punto-${p.id}${g.n ? "-" + g.n : ""}">${t.length > 1 ? "Fai il punto · " + g.punto : "Fai il punto sulle competenze"}</a></li>`).join("")}</ol>` : ""}</li>`).join("")}
@@ -341,8 +441,32 @@
     document.body.classList.remove("insegnante");
     window.scrollTo(0, 0);
     if (h === "home") return copertina();
-    if (h === "anni") return anni();
-    if (h === "anno-1") return annoUno();
+    /* indirizzi vecchi (link già condivisi e creazione dei PDF) */
+    if (h === "anni") return docentiDisciplina(disciplina("matematica"));
+    if (h === "anno-1") return docentiIndice(disciplina("matematica"), "scientifico", 1);
+    const r = decodeURIComponent(h).split("/");
+    if (r[0] === "docenti") {
+      if (r.length === 1) return docenti();
+      const d = disciplina(r[1]);
+      if (d && r.length === 2) return docentiDisciplina(d);
+      const pa = d && r[2] && r[2].match(/^(.+)-(\d)$/);
+      if (pa && percorso(pa[1])) return docentiIndice(d, pa[1], +pa[2]);
+      return docenti();
+    }
+    if (r[0] === "studenti") {
+      if (r.length === 1) return studenti();
+      const pc = percorso(r[1]);
+      if (!pc) return studenti();
+      if (r.length === 2) return studentiIndirizzo(pc.padre ? percorso(pc.padre.id) : pc);
+      const anno = +r[2];
+      if (!(anno >= 1 && anno <= pc.anni)) return studentiIndirizzo(pc);
+      const art = pc.ind && pc.ind.articolazioni;
+      if (art && anno >= art.da) return studentiArticolazione(pc, anno);
+      if (pc.padre && anno < pc.da) return location.replace(`#studenti/${pc.padre.id}/${anno}`);
+      if (r.length === 3) return studentiAnno(pc, anno);
+      const d = disciplina(r[3]);
+      return d ? studentiIndice(pc, anno, d) : studentiAnno(pc, anno);
+    }
     const m = h.match(/^(cap\d+)(-esercizi)?$/);
     if (m && L.capitoli[m[1]]) return m[2] ? esercizi(L.capitoli[m[1]]) : teoria(L.capitoli[m[1]]);
     copertina();

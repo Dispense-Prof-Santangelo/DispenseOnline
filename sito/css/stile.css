@@ -582,3 +582,48 @@ p:has(.gp),li:has(.gp),.box-corpo:has(.gp) p,.sol-finale:has(.gp){line-height:2.
 .gp{max-width:100%;white-space:normal}.gp>.gpC{min-width:0;flex:0 1 auto}
 .nw{display:inline-block;vertical-align:middle}
 .rad{white-space:nowrap}.radv{border-top:1.3px solid currentColor;padding:0 .1em 0 .06em;margin-left:-.04em;line-height:1.05}
+
+/* ====== DUE INGRESSI (docenti/studenti) E SFONDI A TEMA — temi in js/temi.js ====== */
+.sfondo-tema{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;color:var(--tc,#1f4fa3)}
+.sfondo-tema span{position:absolute;top:0;opacity:.2;animation:sale linear infinite;font-family:var(--serif);white-space:nowrap;line-height:1}
+.sfondo-tema span svg{display:block;width:1.6em;height:1.6em}
+.sfondo-tema .macchia{position:absolute;top:0;opacity:.13;animation:sale linear infinite;filter:blur(1px)}
+.copertina>.sfondo-tema span{opacity:.12}
+.sfondo-tema.mini{z-index:-1}
+.sfondo-tema.mini span{top:auto;bottom:0;opacity:.22;animation-name:saleBox}
+.sfondo-tema.mini .macchia{display:none}
+.ingressi,.griglia-ingressi{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
+.griglia-ingressi{max-width:1100px;margin:0 auto}
+.bottone-tema{text-decoration:none;position:relative;overflow:hidden;isolation:isolate;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  width:260px;min-height:170px;padding:24px 18px 20px;border:2px solid var(--tc);background:var(--carta);color:var(--tc);text-align:center;transition:background .25s,color .25s,transform .25s}
+.bottone-tema::after{content:"";position:absolute;inset:6px;border:1px solid var(--tc);opacity:.5;pointer-events:none}
+.bottone-tema .simbolo{font-family:var(--serif);font-size:2.2rem;line-height:1}
+.bottone-tema .scritta{font-family:var(--serif);font-size:1.9rem;font-weight:700;line-height:1.15}
+.bottone-tema small{font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--tc)}
+a.bottone-tema:hover{background:var(--tc);color:#fff;transform:translateY(-3px)}
+a.bottone-tema:hover small{color:#fff}
+a.bottone-tema:hover::after{border-color:#fff}
+a.bottone-tema:hover .sfondo-tema{color:#fff}
+.bottone-tema.spento{opacity:.65;cursor:default}
+.ingressi .bottone-tema{width:300px;min-height:200px}
+.ingressi .bottone-tema .scritta{font-size:2.4rem}
+.pagina-tema{position:relative;overflow:hidden;min-height:calc(100vh - 54px);background:#fff;padding:48px 24px 70px}
+.pagina-tema-dentro{position:relative;z-index:1}
+.pagina-tema h1{text-align:center;font-size:2.4rem;margin:0 0 6px;color:var(--tc)}
+.pagina-tema .sottotitolo{text-align:center;color:var(--testo-2);margin:0 auto 36px;font-style:italic;max-width:720px}
+.pagina-tema h2.gruppo{max-width:1100px;margin:34px auto 14px;font-size:1.35rem;color:var(--tc);border-bottom:1px solid var(--filetto);padding-bottom:6px}
+.pagina-tema .vuoto-msg{text-align:center;font-style:italic;color:var(--testo-2);background:var(--carta);border:1px solid var(--bordo);max-width:560px;margin:30px auto;padding:18px}
+.indice-tema{background:rgba(255,255,255,.88);padding:6px 0 20px}
+.pagina-tema .indice-tema h1{text-align:left;margin:0}
+.stato-cap{display:inline-block;vertical-align:middle;font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:2px 7px;margin-left:6px;border:1px solid}
+.stato-cap.rev{color:#9a6b00;border-color:#d9a514;background:#fdf6df}
+.stato-cap.ok{color:var(--verde);border-color:var(--verde);background:var(--verde-chiaro)}
+@media (prefers-reduced-motion:reduce){.sfondo-tema span,.sfondo-tema .macchia{animation:none;display:none}}
+@media screen and (max-width:600px){
+  .pagina-tema{padding:28px 12px 50px}
+  .pagina-tema h1{font-size:1.8rem}
+  .bottone-tema{width:100%;max-width:340px;min-height:130px}
+  .ingressi .bottone-tema{width:100%;max-width:320px;min-height:150px}
+  .ingressi .bottone-tema .scritta{font-size:2rem}
+  .griglia-ingressi,.ingressi{gap:14px}
+}
