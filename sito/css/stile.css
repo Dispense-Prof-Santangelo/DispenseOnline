@@ -665,7 +665,7 @@ a.bottone-tema:hover .sfondo-tema{color:#fff}
 .crediti-lista{margin:0;padding-left:18px;font-size:.78rem;line-height:1.45;columns:2;column-gap:28px}
 .crediti-lista li{break-inside:avoid;margin-bottom:3px}
 .crediti-lista a{color:var(--testo-2)}
-@media (max-width:700px){.crediti-lista{columns:1}.note-dispense{padding:14px}}
+@media screen and (max-width:700px){.crediti-lista{columns:1}.note-dispense{padding:14px}}
 @media print{
   .note-pdf{break-before:auto;break-inside:auto;border:none;border-top:1px solid #999;padding:3mm 0 0;margin-top:6mm;background:none;font-size:9.5pt}
   .note-pdf h2,.note-pdf h3{break-after:avoid;font-size:13pt;border-bottom:1px solid var(--blu)}
