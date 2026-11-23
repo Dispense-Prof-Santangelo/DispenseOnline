@@ -205,6 +205,77 @@
     ${[["0","41",V],["1","43",V],["2","47",V],["…","…",K],["39","1601",V],["40","1681 = 41²",R]].map(([n,v,c],i)=>`<text x="40" y="${46+i*12}" font-size="10" text-anchor="middle" font-family="serif" fill="${K}">${n}</text><text x="98" y="${46+i*12}" font-size="10" text-anchor="middle" font-family="serif" fill="${c}" font-weight="700">${v}</text>`).join("")}
     <line x1="62" y1="36" x2="62" y2="110" stroke="${L}" stroke-width="1.4"/>`);
 
+  /* ---- CAPITOLO 5 ---- */
+  /* rete di conoscenze: persone (punti) e collegamenti */
+  I.rete = s(`<rect width="160" height="120" fill="${C}"/>
+    ${[[20,30,52,18],[52,18,88,34],[88,34,124,20],[124,20,146,48],[20,30,30,70],[30,70,64,62],[64,62,88,34],[64,62,96,86],[96,86,130,80],[130,80,146,48],[30,70,40,104],[96,86,78,108],[130,80,140,108],[52,18,64,62]].map(([a,b,c,d])=>`<line x1="${a}" y1="${b}" x2="${c}" y2="${d}" stroke="#b9ab8c" stroke-width="1.6"/>`).join("")}
+    <path d="M20 30 L30 70 L64 62 L96 86 L130 80" fill="none" stroke="${R}" stroke-width="3"/>
+    ${[[20,30,B],[52,18,A],[88,34,V],[124,20,P],[146,48,A],[30,70,V],[64,62,B],[96,86,P],[130,80,G],[40,104,A],[78,108,B],[140,108,V]].map(([x,y,c])=>`<circle cx="${x}" cy="${y}" r="7" fill="${c}" stroke="#fff" stroke-width="1.5"/><circle cx="${x}" cy="${y-2}" r="2.2" fill="#fff"/>`).join("")}`);
+  /* sasso, carta, forbice in cerchio con le frecce «batte» */
+  I.morra = s(`<rect width="160" height="120" fill="${C}"/>
+    <path d="M42 26 C30 20 20 30 24 44 C20 56 34 64 46 58 C60 62 66 48 60 38 C64 28 54 20 42 26Z" fill="#9b958a" stroke="${K}" stroke-width="1.5"/>
+    <path d="M34 36 q6 -4 12 2 M38 50 q8 2 12 -4" stroke="#6f6a60" stroke-width="1.4" fill="none"/>
+    <rect x="102" y="18" width="40" height="48" fill="#fff" stroke="${K}" stroke-width="1.5"/><path d="M108 28 H136 M108 36 H136 M108 44 H132 M108 52 H128" stroke="${L}" stroke-width="2"/>
+    <circle cx="70" cy="100" r="7" fill="none" stroke="${R}" stroke-width="3"/><circle cx="90" cy="100" r="7" fill="none" stroke="${R}" stroke-width="3"/>
+    <path d="M75 95 L104 74 M85 95 L58 74" stroke="#7a8794" stroke-width="4" stroke-linecap="round"/>
+    <path d="M58 74 L70 86" stroke="${B}" stroke-width="2" fill="none"/>
+    <path d="M44 66 Q46 92 60 98" fill="none" stroke="${V}" stroke-width="2.4"/><polygon points="60,98 50,97 54,90" fill="${V}"/>
+    <path d="M104 98 Q122 90 122 72" fill="none" stroke="${V}" stroke-width="2.4"/><polygon points="122,72 126,82 118,81" fill="${V}"/>
+    <path d="M98 36 Q80 24 66 30" fill="none" stroke="${V}" stroke-width="2.4"/><polygon points="66,30 74,24 75,32" fill="${V}"/>`);
+  /* orologio: 9 + 5 = 2 */
+  I.orologio = s(`<rect width="160" height="120" fill="${C}"/>
+    <circle cx="80" cy="60" r="50" fill="#fff" stroke="${K}" stroke-width="3"/>
+    ${Array.from({length:12},(_, i)=>{const a=(i+1)*Math.PI/6-Math.PI/2;return `<text x="${(80+38*Math.cos(a)).toFixed(1)}" y="${(64+38*Math.sin(a)).toFixed(1)}" font-size="11" text-anchor="middle" font-family="serif" fill="${i+1===2||i+1===9?R:K}" font-weight="${i+1===2||i+1===9?700:400}">${i+1}</text>`}).join("")}
+    <path d="M44.9 60 A35 35 0 1 1 97.5 90.3" fill="none" stroke="${V}" stroke-width="3" stroke-dasharray="5 3"/><polygon points="97.5,90.3 99,80 106,87" fill="${V}"/>
+    <line x1="80" y1="60" x2="58" y2="60" stroke="${K}" stroke-width="4" stroke-linecap="round"/><line x1="80" y1="60" x2="80" y2="24" stroke="${K}" stroke-width="2.4" stroke-linecap="round"/>
+    <circle cx="80" cy="60" r="3.5" fill="${R}"/>
+    <text x="80" y="118" font-size="10" text-anchor="middle" font-family="serif" fill="${V}" font-weight="700">+ 5 ore</text>`);
+  /* dizionario aperto con le parole in ordine */
+  I.dizionario = s(`<rect width="160" height="120" fill="${C}"/>
+    <path d="M10 26 Q45 16 80 26 L80 110 Q45 100 10 110Z" fill="#fff" stroke="${K}" stroke-width="1.6"/>
+    <path d="M150 26 Q115 16 80 26 L80 110 Q115 100 150 110Z" fill="#fff" stroke="${K}" stroke-width="1.6"/>
+    <rect x="70" y="8" width="20" height="14" fill="${R}"/><text x="80" y="19" font-size="11" text-anchor="middle" font-family="serif" fill="#fff" font-weight="700">M</text>
+    ${["mare","marea","marina","marmo","marte"].map((w,i)=>`<text x="18" y="${42+i*13}" font-size="10" font-family="serif" fill="${K}"><tspan fill="${B}" font-weight="700">mar</tspan>${w.slice(3)}</text><line x1="50" y1="${39+i*13}" x2="74" y2="${39+i*13}" stroke="${L}" stroke-width="2"/>`).join("")}
+    ${["masso","matita","mattone","mazzo","meta"].map((w,i)=>`<text x="88" y="${42+i*13}" font-size="10" font-family="serif" fill="${K}"><tspan fill="${A}" font-weight="700">${w.slice(0,2)}</tspan>${w.slice(2)}</text><line x1="124" y1="${39+i*13}" x2="144" y2="${39+i*13}" stroke="${L}" stroke-width="2"/>`).join("")}`);
+  /* tessera con codice: persona → codice (una freccia sola) */
+  I.codice = s(`<rect width="160" height="120" fill="${C}"/>
+    <rect x="14" y="20" width="132" height="82" fill="#e6efe2" stroke="${V}" stroke-width="2"/><rect x="14" y="20" width="132" height="16" fill="${V}"/>
+    <text x="80" y="32" font-size="9" text-anchor="middle" font-family="serif" fill="#fff" font-weight="700">TESSERA DI ESEMPIO</text>
+    <rect x="22" y="44" width="30" height="36" fill="#fff" stroke="${K}"/><circle cx="37" cy="56" r="7" fill="#c9b48f"/><path d="M25 80 q12 -18 24 0z" fill="#c9b48f"/>
+    <text x="60" y="52" font-size="8" font-family="serif" fill="${K}">Codice</text>
+    <text x="60" y="64" font-size="9.5" font-family="monospace" fill="${K}" font-weight="700">XXXYYY00A00</text>
+    <text x="60" y="76" font-size="9.5" font-family="monospace" fill="${K}" font-weight="700">A000Z</text>
+    ${Array.from({length:30},(_, i)=>`<rect x="${24+i*3.7}" y="86" width="${[1,2,1,3,1,2][i%6]}" height="12" fill="${K}"/>`).join("")}`);
+  /* due dischi dell'alfabeto spostati di tre posti */
+  I.cesare = s(`<rect width="160" height="120" fill="${C}"/>
+    <circle cx="80" cy="60" r="54" fill="#f3ead6" stroke="${K}" stroke-width="1.6"/><circle cx="80" cy="60" r="36" fill="#fff" stroke="${K}" stroke-width="1.6"/><circle cx="80" cy="60" r="18" fill="${C}" stroke="${K}"/>
+    ${"ABCDEFGHILMNOPQRSTUVZ".split("").map((c,i)=>{const a=i*2*Math.PI/21-Math.PI/2, b=c==="A"||c==="R";return `<text x="${(80+45*Math.cos(a)).toFixed(1)}" y="${(63.5+45*Math.sin(a)).toFixed(1)}" font-size="9" text-anchor="middle" font-family="serif" fill="${b?R:K}" font-weight="${b?700:400}">${c}</text>`}).join("")}
+    ${"ABCDEFGHILMNOPQRSTUVZ".split("").map((c,i)=>{const a=(i-3)*2*Math.PI/21-Math.PI/2, b=c==="D"||c==="U";return `<text x="${(80+27*Math.cos(a)).toFixed(1)}" y="${(63+27*Math.sin(a)).toFixed(1)}" font-size="8" text-anchor="middle" font-family="serif" fill="${b?B:K}" font-weight="${b?700:400}">${c}</text>`}).join("")}
+    <text x="80" y="64" font-size="9" text-anchor="middle" font-family="serif" fill="${K}" font-weight="700">+3</text>`);
+  /* grafico a linee in stile antico, due serie e area fra le curve */
+  I.playfair = s(`<rect width="160" height="120" fill="#efe5c8"/><rect x="14" y="10" width="136" height="92" fill="#f8f1dc" stroke="#7a6440" stroke-width="1.4"/>
+    ${[0,1,2,3,4,5,6].map(i=>`<line x1="${14+i*22.7}" y1="10" x2="${14+i*22.7}" y2="102" stroke="#d6c69c"/>`).join("")}${[0,1,2,3].map(j=>`<line x1="14" y1="${33+j*23}" x2="150" y2="${33+j*23}" stroke="#d6c69c"/>`).join("")}
+    <path d="M14 80 C40 76 56 70 76 58 S120 30 150 26 L150 46 C124 52 104 64 84 70 S38 86 14 88Z" fill="#e8b9a8" opacity=".75"/>
+    <path d="M14 80 C40 76 56 70 76 58 S120 30 150 26" fill="none" stroke="${R}" stroke-width="2.4"/>
+    <path d="M14 88 C38 86 64 76 84 70 S124 52 150 46" fill="none" stroke="#c9a227" stroke-width="2.4"/>
+    <text x="82" y="114" font-size="9" text-anchor="middle" font-family="serif" font-style="italic" fill="#5b4a2e">anni →</text>`);
+  /* Boyle: tubo a J con aria e mercurio, accanto l'iperbole */
+  I.boyle = s(`<rect width="160" height="120" fill="${C}"/>
+    <path d="M24 12 V92 Q24 108 40 108 Q56 108 56 92 V40" fill="none" stroke="${K}" stroke-width="7"/>
+    <path d="M24 12 V92 Q24 108 40 108 Q56 108 56 92 V40" fill="none" stroke="#fff" stroke-width="4"/>
+    <path d="M24 60 V92 Q24 108 40 108 Q56 108 56 92 V30" fill="none" stroke="#9aa4b8" stroke-width="4"/>
+    <rect x="22" y="12" width="4" height="48" fill="#cfe3f5"/><text x="12" y="38" font-size="9" font-family="serif" fill="${B}" font-weight="700" transform="rotate(-90 12 38)">aria</text>
+    <line x1="76" y1="104" x2="152" y2="104" stroke="${K}" stroke-width="1.4"/><line x1="80" y1="108" x2="80" y2="14" stroke="${K}" stroke-width="1.4"/>
+    <path d="${Array.from({length:40},(_, i)=>{const p=1+i*0.18;return (i?"L":"M")+(80+p*9).toFixed(1)+" "+(104-80/p).toFixed(1)}).join(" ")}" fill="none" stroke="${R}" stroke-width="2.4"/>
+    <text x="150" y="116" font-size="9" text-anchor="end" font-family="serif" font-style="italic" fill="${K}">pressione</text>
+    <text x="84" y="20" font-size="9" font-family="serif" font-style="italic" fill="${K}">volume</text>`);
+  /* piano inclinato con le posizioni della sfera a tempi uguali: 1, 4, 9, 16 */
+  I.galileo = s(`<rect width="160" height="120" fill="${C}"/>
+    <polygon points="8,104 152,104 8,24" fill="#e2d3b0" stroke="${K}" stroke-width="1.6"/>
+    ${[0,1,4,9,16].map((d,i)=>{const t=d/16, x=8+t*144, y=24+t*80;return `<circle cx="${(x+5).toFixed(1)}" cy="${(y-8).toFixed(1)}" r="5" fill="${i===0?K:R}" opacity="${i===0?1:0.35+0.15*i}"/><line x1="${x.toFixed(1)}" y1="${y.toFixed(1)}" x2="${(x+4).toFixed(1)}" y2="${(y+7).toFixed(1)}" stroke="${K}"/>`}).join("")}
+    ${[["1",22,40],["3",52,58],["5",92,80],["7",134,104]].map(([n,x,y])=>`<text x="${x}" y="${y+12}" font-size="10" text-anchor="middle" font-family="serif" fill="${B}" font-weight="700">${n}</text>`).join("")}
+    <text x="104" y="40" font-size="10" font-family="serif" fill="${K}" font-style="italic">spazi come</text><text x="104" y="52" font-size="10" font-family="serif" fill="${K}" font-style="italic">1, 3, 5, 7…</text>`);
+
   /* ---- FOTO REALI (immagini solo illustrative): file in img/, licenze libere da Wikimedia Commons ----
      Le figure matematiche/geometriche restano disegni SVG qui sopra. */
   const FOTO = {

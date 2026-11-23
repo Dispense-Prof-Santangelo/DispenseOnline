@@ -703,3 +703,21 @@ table.tav tr.evid td{background:#fdf3d6}
 @media screen and (max-width:600px){.tav-lato{float:none}.tav-lato table.tav{margin:8px auto}}
 @media print{.tav-lato{break-inside:avoid}.schema{break-inside:avoid}table.tav{break-inside:avoid}}
 @media screen and (max-width:600px){table.tav{display:table;white-space:normal;margin:8px auto}}
+
+/* ====== CAPITOLO 5 — relazioni e funzioni ====== */
+/* figura più larga (piano cartesiano, partizioni) */
+.fig-testo.larga{width:290px}
+/* più figure affiancate, non flottanti */
+.fig-riga{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 16px;margin:10px 0 14px;clear:both}
+.fig-riga figure{flex:0 1 200px;margin:0;padding:8px;background:#fff;border:1px solid var(--bordo)}
+.fig-riga figure svg{display:block;width:100%;height:auto}
+.fig-riga figure.larga{flex-basis:330px}
+.fig-riga figure.piccola{flex-basis:165px}
+/* una curiosità (riquadro chiuso) non si affianca mai a una figura flottante: va sotto */
+.paragrafo .riquadro{clear:both}
+/* figure degli esercizi un po' più grandi (piani cartesiani) */
+.esercizio .fig.media{width:300px;max-width:48%}
+.fig-riga figcaption{font-family:var(--sans);font-size:.8rem;color:var(--testo-2);font-style:italic;margin-top:6px;line-height:1.35}
+@media screen and (max-width:860px){.fig-testo.larga{width:270px}}
+@media screen and (max-width:600px){.fig-riga figure{flex:1 1 150px;max-width:220px}.esercizio .fig.media{width:auto;max-width:100%}}
+@media print{.fig-testo.larga{width:54mm}.fig-riga{break-inside:avoid}.fig-riga figure{flex:0 1 42mm}.fig-riga figure.larga{flex-basis:75mm}.fig-riga figure.piccola{flex-basis:36mm}.esercizio .fig.media{max-width:66mm}}

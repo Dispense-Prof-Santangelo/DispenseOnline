@@ -856,5 +856,124 @@
     disegna();
   };
 
+
+  /* ====================== CAPITOLO 5 ====================== */
+  function freccia(s, x1, y1, x2, y2, col) {
+    S("line", { x1, y1, x2, y2, stroke: col, "stroke-width": 2 }, s);
+    const a = Math.atan2(y2 - y1, x2 - x1), L = 10, W = 4.5;
+    S("polygon", { points: `${x2},${y2} ${x2 - L * Math.cos(a) + W * Math.sin(a)},${y2 - L * Math.sin(a) - W * Math.cos(a)} ${x2 - L * Math.cos(a) - W * Math.sin(a)},${y2 - L * Math.sin(a) + W * Math.cos(a)}`, fill: col }, s);
+  }
+
+  /* 31 ─ Relazione o funzione? Si cambiano le frecce che partono da ogni elemento di A */
+  ANIM.relfun = function (el, stampa) {
+    const A = [1, 2, 3, 4], B = ["a", "b", "c", "d"];
+    const SCELTE = [[], [0], [1], [2], [3], [0, 1]];
+    let st = [1, 2, 3, 4];
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    A.forEach((x, i) => bottone(com, "frecce da " + x, () => { st[i] = (st[i] + 1) % SCELTE.length; disegna(); }, true));
+    bottone(com, "esempio biiettiva", () => { st = [2, 3, 4, 1]; disegna(); });
+    function disegna() {
+      box.innerHTML = ""; const s = svg(box, 420, 190);
+      S("ellipse", { cx: 110, cy: 100, rx: 52, ry: 80, fill: "#eef3fb", stroke: C.blu, "stroke-width": 2 }, s);
+      S("ellipse", { cx: 310, cy: 100, rx: 52, ry: 80, fill: "#fdf0e4", stroke: C.arancio, "stroke-width": 2 }, s);
+      S("text", { x: 60, y: 26, "font-size": 18, "font-style": "italic", "font-weight": 700, fill: C.blu, "font-family": "serif" }, s, "A");
+      S("text", { x: 352, y: 26, "font-size": 18, "font-style": "italic", "font-weight": 700, fill: C.arancio, "font-family": "serif" }, s, "B");
+      const y = i => 46 + i * 36, arrivi = B.map(() => 0);
+      A.forEach((x, i) => { S("text", { x: 100, y: y(i) + 6, "font-size": 17, "text-anchor": "middle", "font-family": "serif" }, s, x);
+        S("circle", { cx: 122, cy: y(i), r: 3, fill: C.testo }, s); });
+      B.forEach((b, j) => { S("text", { x: 320, y: y(j) + 6, "font-size": 17, "text-anchor": "middle", "font-family": "serif" }, s, b);
+        S("circle", { cx: 298, cy: y(j), r: 3, fill: C.testo }, s); });
+      A.forEach((x, i) => SCELTE[st[i]].forEach(j => { arrivi[j]++; freccia(s, 125, y(i), 294, y(j), SCELTE[st[i]].length > 1 ? C.rosso : C.verde); }));
+      const senza = A.filter((x, i) => SCELTE[st[i]].length === 0), doppie = A.filter((x, i) => SCELTE[st[i]].length > 1);
+      let t;
+      if (senza.length || doppie.length) {
+        t = "<b>Non è una funzione</b>, perché " + [senza.length ? "da " + senza.join(" e ") + " non parte nessuna freccia" : "", doppie.length ? "da " + doppie.join(" e ") + " partono due frecce" : ""].filter(Boolean).join(" e ") + ".";
+      } else {
+        const inj = arrivi.every(n => n <= 1), sur = arrivi.every(n => n >= 1);
+        t = "<b>È una funzione</b>, da ogni elemento di <i>A</i> parte una sola freccia. " +
+          (inj && sur ? "È <b>biiettiva</b>, a ogni elemento di <i>B</i> arriva esattamente una freccia." :
+            (inj ? "È iniettiva" : "Non è iniettiva, a " + B.filter((b, j) => arrivi[j] > 1).join(" e ") + " arrivano più frecce") + ", " +
+            (sur ? "è suriettiva." : "non è suriettiva, a " + B.filter((b, j) => !arrivi[j]).join(" e ") + " non arriva nessuna freccia."));
+      }
+      lett.innerHTML = t;
+    }
+    disegna();
+  };
+
+  /* 32 ─ Composizione: due macchine in fila, f(x) = x + 3 e g(x) = x² */
+  ANIM.composizione = function (el, stampa) {
+    let x = 2, prima_f = true;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    const cx = cursore(com, "x =", -5, 5, x, v => { x = v; disegna(); }); cx.addEventListener("input", () => { cx.nextSibling.textContent = nf(+cx.value); });
+    bottone(com, "scambia l'ordine", () => { prima_f = !prima_f; disegna(); });
+    const f = t => t + 3, g = t => t * t, nf = t => (t < 0 ? "−" + (-t) : "" + t);
+    function macchina(s, x0, nome, legge, col) {
+      S("rect", { x: x0, y: 50, width: 110, height: 70, fill: "#fff", stroke: col, "stroke-width": 2.5 }, s);
+      S("rect", { x: x0 + 10, y: 36, width: 90, height: 14, fill: col }, s);
+      S("text", { x: x0 + 55, y: 82, "font-size": 20, "text-anchor": "middle", "font-style": "italic", "font-weight": 700, fill: col, "font-family": "serif" }, s, nome);
+      S("text", { x: x0 + 55, y: 106, "font-size": 14, "text-anchor": "middle", fill: C.testo, "font-family": "serif" }, s, legge);
+    }
+    function disegna() {
+      box.innerHTML = ""; const s = svg(box, 560, 160);
+      const P = prima_f ? [["f", "aggiunge 3", f, C.blu], ["g", "eleva al quadrato", g, C.arancio]] : [["g", "eleva al quadrato", g, C.arancio], ["f", "aggiunge 3", f, C.blu]];
+      const v1 = P[0][2](x), v2 = P[1][2](v1);
+      macchina(s, 120, P[0][0], P[0][1], P[0][3]); macchina(s, 330, P[1][0], P[1][1], P[1][3]);
+      [[30, 112, x], [236, 322, v1], [446, 520, v2]].forEach(([a, b, v], i) => {
+        freccia(s, a + (i ? 0 : 40), 85, b, 85, C.testo);
+        S("text", { x: i === 0 ? 40 : (a + b) / 2, y: 74, "font-size": 20, "text-anchor": "middle", "font-weight": 700, fill: i === 2 ? C.rosso : C.testo, "font-family": "serif" }, s, nf(v));
+      });
+      const nome = prima_f ? "(<i>g</i> ∘ <i>f</i>)" : "(<i>f</i> ∘ <i>g</i>)", altro = prima_f ? x * x + 3 : (x + 3) * (x + 3);
+      lett.innerHTML = `${nome}(${nf(x)}) = ${prima_f ? "<i>g</i>(<i>f</i>" : "<i>f</i>(<i>g</i>"}(${nf(x)})) = ${prima_f ? "<i>g</i>" : "<i>f</i>"}(${nf(v1)}) = <b>${nf(v2)}</b>. ` +
+        `Con l'ordine scambiato si otterrebbe ${nf(altro)}` + (altro === v2 ? ", lo stesso numero solo per caso." : ", quindi la composizione non è commutativa.");
+    }
+    disegna();
+  };
+
+  /* 33 ─ Grafici delle funzioni fondamentali, con i parametri che si muovono */
+  ANIM.grafici = function (el, stampa) {
+    let tipo = 0, m = 2, q = 1, k = 4, a = 1;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el), par = H("div", { class: "comandi" }, el);
+    const TIPI = ["lineare", "inversa", "quadratica", "valore assoluto"];
+    TIPI.forEach((t, i) => bottone(com, t, () => { tipo = i; comandi(); disegna(); }, true));
+    const fmt = v => (v < 0 ? "−" : "") + String(Math.abs(v)).replace(".", ",");
+    function slider(etich, min, max, step, val, cb) {
+      const l = H("label", {}, par, etich + " ");
+      const r = H("input", { type: "range", min, max, step, value: val }, l), o = H("output", {}, l, fmt(val));
+      r.addEventListener("input", () => { let v = +r.value; if (v === 0 && min < 0) v = step; o.textContent = fmt(v); cb(v); disegna(); });
+    }
+    function comandi() {
+      par.innerHTML = "";
+      if (tipo === 0) { slider("m", -3, 3, 0.5, m, v => m = v); slider("q", -4, 4, 1, q, v => q = v); }
+      if (tipo === 1) slider("k", -8, 8, 1, k, v => k = v);
+      if (tipo === 2) slider("a", -2, 2, 0.5, a, v => a = v);
+    }
+    function disegna() {
+      box.innerHTML = ""; const s = svg(box, 360, 300), u = 25, ox = 180, oy = 150; s.style.maxWidth = "420px"; s.style.display = "block"; s.style.margin = "0 auto";
+      const X = t => ox + t * u, Y = t => oy - t * u;
+      for (let i = -7; i <= 7; i++) S("line", { x1: X(i), y1: 0, x2: X(i), y2: 300, stroke: "#ece4d2" }, s);
+      for (let j = -6; j <= 6; j++) S("line", { x1: 0, y1: Y(j), x2: 360, y2: Y(j), stroke: "#ece4d2" }, s);
+      freccia(s, 0, oy, 356, oy, C.testo); freccia(s, ox, 300, ox, 4, C.testo);
+      S("text", { x: 348, y: oy - 8, "font-size": 15, "font-style": "italic", "font-family": "serif" }, s, "x");
+      S("text", { x: ox + 8, y: 16, "font-size": 15, "font-style": "italic", "font-family": "serif" }, s, "y");
+      [-6, -4, -2, 2, 4, 6].forEach(i => { S("text", { x: X(i), y: oy + 15, "font-size": 11, "text-anchor": "middle", "font-family": "serif" }, s, i < 0 ? "−" + (-i) : i);
+        S("text", { x: ox - 6, y: Y(i) + 4, "font-size": 11, "text-anchor": "end", "font-family": "serif" }, s, i < 0 ? "−" + (-i) : i); });
+      const f = [t => m * t + q, t => (t === 0 ? NaN : k / t), t => a * t * t, t => Math.abs(t)][tipo];
+      let d = "", su = false;
+      for (let i = 0; i <= 720; i++) {
+        const t = -7.2 + i * 0.02, v = f(t);
+        if (!isFinite(v) || Math.abs(v) > 40 || (tipo === 1 && Math.abs(t) < 0.011)) { su = false; continue; }
+        d += (su ? " L" : " M") + X(t).toFixed(1) + " " + Y(v).toFixed(1); su = true;
+      }
+      S("path", { d, fill: "none", stroke: C.blu, "stroke-width": 2.6 }, s);
+      let t;
+      if (tipo === 0) t = `<i>y</i> = ${fmt(m)} · <i>x</i> ${q < 0 ? "− " + (-q) : "+ " + q} &emsp; retta che passa per (0; ${fmt(q)}). ` + (m > 0 ? "Con <i>m</i> &gt; 0 è crescente." : "Con <i>m</i> &lt; 0 è decrescente.") + (q === 0 ? " Con <i>q</i> = 0 è una proporzionalità diretta." : "");
+      if (tipo === 1) t = `<i>y</i> = ${fmt(k)} : <i>x</i> &emsp; iperbole con i rami nel ${k > 0 ? "primo e nel terzo" : "secondo e nel quarto"} quadrante. Il prodotto <i>x</i> · <i>y</i> vale sempre ${fmt(k)}.`;
+      if (tipo === 2) t = `<i>y</i> = ${fmt(a)} · <i>x</i><sup>2</sup> &emsp; parabola con il vertice nell'origine, rivolta verso ${a > 0 ? "l'alto" : "il basso"}. ` + (Math.abs(a) > 1 ? "È più stretta di <i>y</i> = <i>x</i><sup>2</sup>." : Math.abs(a) < 1 ? "È più larga di <i>y</i> = <i>x</i><sup>2</sup>." : "");
+      if (tipo === 3) t = "<i>y</i> = |<i>x</i>| &emsp; a destra dell'asse <i>y</i> coincide con <i>y</i> = <i>x</i>, a sinistra con <i>y</i> = −<i>x</i>. Non è mai negativa.";
+      lett.innerHTML = t;
+    }
+    comandi(); disegna();
+  };
+
   window.ANIM = ANIM;
 })();
