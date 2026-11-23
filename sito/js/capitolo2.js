@@ -33,7 +33,7 @@ LIBRO.capitoli.cap2 = {
 <ul class="sint-lista">
 <li><span class="mat">ℤ<sup>+</sup></span><span class="nota">interi <b>positivi</b></span></li>
 <li><span class="mat">ℤ<sup>−</sup></span><span class="nota">interi <b>negativi</b></span></li>
-<li><span class="mat">ℤ<sub>0</sub><sup>+</sup></span><span class="nota">interi <b>non negativi</b> (positivi e zero), che corrispondono a ℕ</span></li>
+<li><span class="mat">ℤ<span class="pot"><sub>0</sub><sup>+</sup></span></span><span class="nota">interi <b>non negativi</b> (positivi e zero), che corrispondono a ℕ</span></li>
 </ul>
 <p><b>Opposti</b> sono due interi con segno diverso e stesso valore assoluto, come +7 e −7. Due interi diversi da 0 sono <b>concordi</b> se hanno lo stesso segno, <b>discordi</b> se hanno segno diverso.</p>
 <p><b>Valore assoluto</b>. <span class="mat">|a| = <i>a</i></span> se <span class="mat"><i>a</i> ≥ 0</span> e <span class="mat">|a| = −a</span> se <span class="mat"><i>a</i> &lt; 0</span>. Per esempio |−9| = 9 e |+4| = 4.</p>
@@ -63,22 +63,22 @@ LIBRO.capitoli.cap2 = {
 </div>
 
 <div class="sint-blocco"><h3><span>4</span>Le potenze in ℤ e le loro proprietà</h3>
-<p>Il valore assoluto di <span class="mat"><i>a</i><sup><i>n</i></sup></span> è la potenza del valore assoluto della base. Il segno è <b>negativo solo se la base è negativa e l'esponente è dispari</b>.</p>
+<p>Il valore assoluto di <span class="mat"><span class="pot"><i>a</i><sup><i>n</i></sup></span></span> è la potenza del valore assoluto della base. Il segno è <b>negativo solo se la base è negativa e l'esponente è dispari</b>.</p>
 <ul class="sint-lista">
-<li><span class="mat">(−2)<sup>4</sup> = +16</span><span class="nota">base negativa, esponente pari</span></li>
-<li><span class="mat">(−2)<sup>3</sup> = −8</span><span class="nota">base negativa, esponente dispari</span></li>
-<li><span class="mat">−2<sup>4</sup> = −16</span><span class="nota">la potenza si calcola prima del segno</span></li>
-<li><span class="mat"><i>a</i><sup>0</sup> = 1</span><span class="nota">con <i>a</i> ≠ 0; 0<sup>0</sup> non è definita</span></li>
+<li><span class="mat"><span class="pot">(−2)<sup>4</sup></span> = +16</span><span class="nota">base negativa, esponente pari</span></li>
+<li><span class="mat"><span class="pot">(−2)<sup>3</sup></span> = −8</span><span class="nota">base negativa, esponente dispari</span></li>
+<li><span class="mat">−<span class="pot">2<sup>4</sup></span> = −16</span><span class="nota">la potenza si calcola prima del segno</span></li>
+<li><span class="mat"><span class="pot"><i>a</i><sup>0</sup></span> = 1</span><span class="nota">con <i>a</i> ≠ 0; <span class="pot">0<sup>0</sup></span> non è definita</span></li>
 </ul>
-<p>Valgono le cinque proprietà delle potenze di ℕ, cioè <span class="mat"><i>a</i><sup><i>m</i></sup> · <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i>+<i>n</i></sup></span>, <span class="mat"><i>a</i><sup><i>m</i></sup> : <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i>−<i>n</i></sup></span>, <span class="mat">(<i>a</i><sup><i>m</i></sup>)<sup><i>n</i></sup> = <i>a</i><sup><i>m</i>·<i>n</i></sup></span>, <span class="mat"><i>a</i><sup><i>n</i></sup> · <i>b</i><sup><i>n</i></sup> = (<i>a</i> · <i>b</i>)<sup><i>n</i></sup></span>, <span class="mat"><i>a</i><sup><i>n</i></sup> : <i>b</i><sup><i>n</i></sup> = (<i>a</i> : <i>b</i>)<sup><i>n</i></sup></span>.</p>
+<p>Valgono le cinque proprietà delle potenze di ℕ, cioè <span class="mat"><span class="pot"><i>a</i><sup><i>m</i></sup></span> · <span class="pot"><i>a</i><sup><i>n</i></sup></span> = <span class="pot"><i>a</i><sup><i>m</i>+<i>n</i></sup></span></span>, <span class="mat"><span class="pot"><i>a</i><sup><i>m</i></sup></span> : <span class="pot"><i>a</i><sup><i>n</i></sup></span> = <span class="pot"><i>a</i><sup><i>m</i>−<i>n</i></sup></span></span>, <span class="mat"><span class="pot">(<i>a</i><sup><i>m</i></sup>)<sup><i>n</i></sup></span> = <span class="pot"><i>a</i><sup><i>m</i>·<i>n</i></sup></span></span>, <span class="mat"><span class="pot"><i>a</i><sup><i>n</i></sup></span> · <span class="pot"><i>b</i><sup><i>n</i></sup></span> = <span class="pot">(<i>a</i> · <i>b</i>)<sup><i>n</i></sup></span></span>, <span class="mat"><span class="pot"><i>a</i><sup><i>n</i></sup></span> : <span class="pot"><i>b</i><sup><i>n</i></sup></span> = <span class="pot">(<i>a</i> : <i>b</i>)<sup><i>n</i></sup></span></span>.</p>
 </div>
 
 <div class="sint-blocco"><h3><span>5</span>Le espressioni con i numeri interi</h3>
 <p>Si seguono le regole delle espressioni in ℕ (parentesi, poi potenze, poi moltiplicazioni e divisioni, infine addizioni algebriche), applicando a ogni passaggio le regole dei segni.</p>
-<p class="formula">[(−2)<sup>3</sup> + 5] · (−4) − (−6)<sup>2</sup> : 9 = (−3) · (−4) − 36 : 9 = +12 − 4 = +8</p>
+<p class="formula">[<span class="pot">(−2)<sup>3</sup></span> + 5] · (−4) − <span class="pot">(−6)<sup>2</sup></span> : 9 = (−3) · (−4) − 36 : 9 = +12 − 4 = +8</p>
 <ul class="sint-lista">
-<li><span class="mat">−2<sup>4</sup> = −16, (−2)<sup>4</sup> = +16</span><span class="nota">il meno fuori dalla parentesi non fa parte della base</span></li>
-<li><span class="mat"><i>a</i> = −5 → <i>a</i><sup>2</sup> = (−5)<sup>2</sup> = +25</span><span class="nota">nelle espressioni letterali i numeri negativi si sostituiscono tra parentesi</span></li>
+<li><span class="mat">−<span class="pot">2<sup>4</sup></span> = −16, <span class="pot">(−2)<sup>4</sup></span> = +16</span><span class="nota">il meno fuori dalla parentesi non fa parte della base</span></li>
+<li><span class="mat"><i>a</i> = −5 → <span class="pot"><i>a</i><sup>2</sup></span> = <span class="pot">(−5)<sup>2</sup></span> = +25</span><span class="nota">nelle espressioni letterali i numeri negativi si sostituiscono tra parentesi</span></li>
 </ul>
 </div>
 
@@ -106,7 +106,7 @@ I numeri positivi, i numeri negativi e lo zero formano l'insieme dei <b>numeri i
 <table class="tab"><tr><th>Simbolo</th><th>Che cosa contiene</th><th>Esempi</th></tr>
 <tr><td>ℤ<sup>+</sup></td><td>gli interi positivi</td><td>+1, +2, +3, …</td></tr>
 <tr><td>ℤ<sup>−</sup></td><td>gli interi negativi</td><td>−1, −2, −3, …</td></tr>
-<tr><td>ℤ<sub>0</sub><sup>+</sup></td><td>gli interi non negativi, cioè i positivi e lo zero</td><td>0, +1, +2, +3, …</td></tr></table>
+<tr><td>ℤ<span class="pot"><sub>0</sub><sup>+</sup></span></td><td>gli interi non negativi, cioè i positivi e lo zero</td><td>0, +1, +2, +3, …</td></tr></table>
 <p>A ogni numero naturale corrisponde uno e un solo intero non negativo, e viceversa. A 0 corrisponde 0, a 1 corrisponde +1, a 2 corrisponde +2 e così via. Per questo un intero positivo si scrive spesso anche <b>senza il segno +</b>, per esempio 15 indica sia il naturale 15 sia l'intero +15.</p>
 
 <h3>Opposti, concordi, discordi</h3>
@@ -197,7 +197,7 @@ La <b>differenza</b> di due numeri interi è la somma del minuendo con l'<b>oppo
 <div class="approfondimento"><b>Per approfondire · Anni avanti Cristo e dopo Cristo</b>
 <p>Nel nostro calendario possiamo indicare gli anni avanti Cristo con numeri negativi e quelli dopo Cristo con numeri positivi. C'è però una particolarità, cioè <b>l'anno 0 non esiste</b>, perché all'anno 1 a.C. segue direttamente l'anno 1 d.C. Per questo, se un periodo comincia in un anno a.C. e finisce in un anno d.C., alla differenza fra i due numeri bisogna togliere 1.</p>
 <p>Secondo la tradizione Roma fu fondata nel 753 a.C. Quanti anni sono trascorsi fino al 2026? Si ha 2026 − (−753) − 1 = 2026 + 753 − 1 = 2778 anni.</p>
-<p>Gli antichi Greci contavano gli anni in <b>Olimpiadi</b>, periodi di 4 anni a partire dai primi giochi del 776 a.C. Dal 776 a.C. al 2026 sono trascorsi 2026 + 776 − 1 = 2801 anni. Poiché 2801 = 4 · 700 + 1, sono passate 700 Olimpiadi complete e il 2026 sarebbe il secondo anno della 701<sup><i>a</i></sup> Olimpiade.</p></div>
+<p>Gli antichi Greci contavano gli anni in <b>Olimpiadi</b>, periodi di 4 anni a partire dai primi giochi del 776 a.C. Dal 776 a.C. al 2026 sono trascorsi 2026 + 776 − 1 = 2801 anni. Poiché 2801 = 4 · 700 + 1, sono passate 700 Olimpiadi complete e il 2026 sarebbe il secondo anno della <span class="pot">701<sup><i>a</i></sup></span> Olimpiade.</p></div>
 
 <div class="curiosita" data-img="registro" data-titolo="Essere “in rosso”">
 <p>Si dice che un conto è “in rosso” quando il saldo è negativo, cioè quando si deve del denaro alla banca. L'espressione viene dall'abitudine dei contabili di scrivere i debiti e le perdite con l'inchiostro rosso e i crediti con quello nero.</p>
@@ -260,45 +260,45 @@ Se il secondo numero è diverso da 0 e il valore assoluto del primo è multiplo 
 `},
 
   { n: 4, id: "p4", titolo: "Le potenze in ℤ e le loro proprietà", html: `
-<p>Come in ℕ, la potenza di un intero con esponente naturale è un modo breve di scrivere un prodotto di fattori uguali, per esempio <span class="mat">(−2)<sup>3</sup> = (−2)(−2)(−2)</span>. Il segno del risultato si ricava dalla regola del prodotto dei segni contando i fattori negativi.</p>
+<p>Come in ℕ, la potenza di un intero con esponente naturale è un modo breve di scrivere un prodotto di fattori uguali, per esempio <span class="mat"><span class="pot">(−2)<sup>3</sup></span> = (−2)(−2)(−2)</span>. Il segno del risultato si ricava dalla regola del prodotto dei segni contando i fattori negativi.</p>
 <div class="definizione"><b>Definizione</b>
 La <b>potenza</b> di un numero intero con esponente naturale è un intero che ha
 <ul><li>per valore assoluto la potenza del valore assoluto della base;</li>
 <li>per segno il segno <b>−</b> se la base è negativa e l'esponente è <b>dispari</b>, il segno <b>+</b> in tutti gli altri casi.</li></ul></div>
 <table class="tab"><tr><th>Base</th><th>Esponente pari</th><th>Esponente dispari</th></tr>
-<tr><td>positiva</td><td>(+3)<sup>2</sup> = +9</td><td>(+3)<sup>3</sup> = +27</td></tr>
-<tr><td>negativa</td><td>(−3)<sup>2</sup> = +9</td><td>(−3)<sup>3</sup> = −27</td></tr></table>
-<p>Per esempio (−2)<sup>4</sup> = (−2)(−2)(−2)(−2) = +16, perché ci sono 4 fattori negativi, un numero pari; invece (−2)<sup>5</sup> = −32, perché i fattori negativi sono 5, un numero dispari. In particolare <b>il quadrato di un intero non è mai negativo</b>.</p>
+<tr><td>positiva</td><td><span class="pot">(+3)<sup>2</sup></span> = +9</td><td><span class="pot">(+3)<sup>3</sup></span> = +27</td></tr>
+<tr><td>negativa</td><td><span class="pot">(−3)<sup>2</sup></span> = +9</td><td><span class="pot">(−3)<sup>3</sup></span> = −27</td></tr></table>
+<p>Per esempio <span class="pot">(−2)<sup>4</sup></span> = (−2)(−2)(−2)(−2) = +16, perché ci sono 4 fattori negativi, un numero pari; invece <span class="pot">(−2)<sup>5</sup></span> = −32, perché i fattori negativi sono 5, un numero dispari. In particolare <b>il quadrato di un intero non è mai negativo</b>.</p>
 <div class="anim" data-anim="potenza" data-titolo="Il segno di una potenza"></div>
 
 <div class="attenzione"><b>Attenzione</b>La potenza ha la precedenza sul segno. Se la base negativa non è fra parentesi, l'esponente si riferisce solo al numero e non al segno che lo precede.
-<p class="formula">−3<sup>2</sup> = −(3 · 3) = −9 &emsp; mentre &emsp; (−3)<sup>2</sup> = (−3)(−3) = +9</p></div>
+<p class="formula">−<span class="pot">3<sup>2</sup></span> = −(3 · 3) = −9 &emsp; mentre &emsp; <span class="pot">(−3)<sup>2</sup></span> = (−3)(−3) = +9</p></div>
 <p>I casi particolari sono gli stessi di ℕ.</p>
 <ul>
-<li><span class="mat"><i>a</i><sup>1</sup> = <i>a</i></span>, per esempio (−7)<sup>1</sup> = −7;</li>
-<li><span class="mat"><i>a</i><sup>0</sup> = 1</span> se <span class="mat"><i>a</i> ≠ 0</span>, per esempio (−7)<sup>0</sup> = +1;</li>
-<li><span class="mat">0<sup><i>n</i></sup> = 0</span> se <span class="mat"><i>n</i> ≠ 0</span>, mentre <span class="mat">0<sup>0</sup></span> non è definita.</li>
+<li><span class="mat"><span class="pot"><i>a</i><sup>1</sup></span> = <i>a</i></span>, per esempio <span class="pot">(−7)<sup>1</sup></span> = −7;</li>
+<li><span class="mat"><span class="pot"><i>a</i><sup>0</sup></span> = 1</span> se <span class="mat"><i>a</i> ≠ 0</span>, per esempio <span class="pot">(−7)<sup>0</sup></span> = +1;</li>
+<li><span class="mat"><span class="pot">0<sup><i>n</i></sup></span> = 0</span> se <span class="mat"><i>n</i> ≠ 0</span>, mentre <span class="mat"><span class="pot">0<sup>0</sup></span></span> non è definita.</li>
 </ul>
 <p>Le potenze di −1 sono speciali, perché valgono +1 se l'esponente è pari e −1 se è dispari.</p>
 
 <h3>Le proprietà delle potenze</h3>
 <p>In ℤ valgono le stesse proprietà delle potenze viste in ℕ.</p>
 <table class="tab"><tr><th>Proprietà</th><th>Esempio in ℤ</th></tr>
-<tr><td><i>a</i><sup><i>m</i></sup> · <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i>+<i>n</i></sup></td><td>(−2)<sup>3</sup> · (−2)<sup>4</sup> = (−2)<sup>7</sup></td></tr>
-<tr><td><i>a</i><sup><i>m</i></sup> : <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i>−<i>n</i></sup>, con <i>m</i> ≥ <i>n</i> e <i>a</i> ≠ 0</td><td>(−5)<sup>9</sup> : (−5)<sup>6</sup> = (−5)<sup>3</sup></td></tr>
-<tr><td>(<i>a</i><sup><i>m</i></sup>)<sup><i>n</i></sup> = <i>a</i><sup><i>m</i>·<i>n</i></sup></td><td>[(−3)<sup>2</sup>]<sup>4</sup> = (−3)<sup>8</sup></td></tr>
-<tr><td><i>a</i><sup><i>n</i></sup> · <i>b</i><sup><i>n</i></sup> = (<i>a</i> · <i>b</i>)<sup><i>n</i></sup></td><td>(−4)<sup>3</sup> · (+2)<sup>3</sup> = (−8)<sup>3</sup></td></tr>
-<tr><td><i>a</i><sup><i>n</i></sup> : <i>b</i><sup><i>n</i></sup> = (<i>a</i> : <i>b</i>)<sup><i>n</i></sup>, con <i>b</i> ≠ 0 e |a| multiplo di |<i>b</i>|</td><td>(−18)<sup>5</sup> : (+6)<sup>5</sup> = (−3)<sup>5</sup></td></tr></table>
+<tr><td><span class="pot"><i>a</i><sup><i>m</i></sup></span> · <span class="pot"><i>a</i><sup><i>n</i></sup></span> = <span class="pot"><i>a</i><sup><i>m</i>+<i>n</i></sup></span></td><td><span class="pot">(−2)<sup>3</sup></span> · <span class="pot">(−2)<sup>4</sup></span> = <span class="pot">(−2)<sup>7</sup></span></td></tr>
+<tr><td><span class="pot"><i>a</i><sup><i>m</i></sup></span> : <span class="pot"><i>a</i><sup><i>n</i></sup></span> = <span class="pot"><i>a</i><sup><i>m</i>−<i>n</i></sup></span>, con <i>m</i> ≥ <i>n</i> e <i>a</i> ≠ 0</td><td><span class="pot">(−5)<sup>9</sup></span> : <span class="pot">(−5)<sup>6</sup></span> = <span class="pot">(−5)<sup>3</sup></span></td></tr>
+<tr><td><span class="pot">(<i>a</i><sup><i>m</i></sup>)<sup><i>n</i></sup></span> = <span class="pot"><i>a</i><sup><i>m</i>·<i>n</i></sup></span></td><td><span class="pot">[(−3)<sup>2</sup>]<sup>4</sup></span> = <span class="pot">(−3)<sup>8</sup></span></td></tr>
+<tr><td><span class="pot"><i>a</i><sup><i>n</i></sup></span> · <span class="pot"><i>b</i><sup><i>n</i></sup></span> = <span class="pot">(<i>a</i> · <i>b</i>)<sup><i>n</i></sup></span></td><td><span class="pot">(−4)<sup>3</sup></span> · <span class="pot">(+2)<sup>3</sup></span> = <span class="pot">(−8)<sup>3</sup></span></td></tr>
+<tr><td><span class="pot"><i>a</i><sup><i>n</i></sup></span> : <span class="pot"><i>b</i><sup><i>n</i></sup></span> = <span class="pot">(<i>a</i> : <i>b</i>)<sup><i>n</i></sup></span>, con <i>b</i> ≠ 0 e |a| multiplo di |<i>b</i>|</td><td><span class="pot">(−18)<sup>5</sup></span> : <span class="pot">(+6)<sup>5</sup></span> = <span class="pot">(−3)<sup>5</sup></span></td></tr></table>
 <p>Quando le basi sono <b>opposte</b> conviene prima renderle uguali.</p>
 <ul>
-<li>Se l'esponente è pari si può cambiare il segno della base, per esempio (−6)<sup>4</sup> = (+6)<sup>4</sup>.</li>
-<li>Se l'esponente è dispari si può “portare fuori” il segno, per esempio (−6)<sup>3</sup> = −6<sup>3</sup>.</li>
+<li>Se l'esponente è pari si può cambiare il segno della base, per esempio <span class="pot">(−6)<sup>4</sup></span> = <span class="pot">(+6)<sup>4</sup></span>.</li>
+<li>Se l'esponente è dispari si può “portare fuori” il segno, per esempio <span class="pot">(−6)<sup>3</sup></span> = −<span class="pot">6<sup>3</sup></span>.</li>
 </ul>
-<div class="esempio"><b>Esempio</b>(−6)<sup>4</sup> · 6<sup>3</sup> = 6<sup>4</sup> · 6<sup>3</sup> = 6<sup>7</sup> &emsp; (−6)<sup>5</sup> : 6<sup>2</sup> = −6<sup>5</sup> : 6<sup>2</sup> = −6<sup>3</sup></div>
+<div class="esempio"><b>Esempio</b><span class="pot">(−6)<sup>4</sup></span> · <span class="pot">6<sup>3</sup></span> = <span class="pot">6<sup>4</sup></span> · <span class="pot">6<sup>3</sup></span> = <span class="pot">6<sup>7</sup></span> &emsp; <span class="pot">(−6)<sup>5</sup></span> : <span class="pot">6<sup>2</sup></span> = −<span class="pot">6<sup>5</sup></span> : <span class="pot">6<sup>2</sup></span> = −<span class="pot">6<sup>3</sup></span></div>
 
 <div class="curiosita" data-img="lampadina" data-titolo="Acceso, spento, acceso… le potenze di −1">
 <p>Immagina una lampadina comandata da un interruttore. Ogni volta che premi il pulsante, lo stato si inverte. Se +1 vuol dire “accesa” e −1 “spenta”, premere il pulsante equivale a moltiplicare per −1.</p>
-<p>Partendo da accesa (+1), dopo <span class="mat"><i>n</i></span> pressioni la lampadina è nello stato <span class="mat">(−1)<sup><i>n</i></sup></span>. Dopo 2, 4, 6, … pressioni è di nuovo accesa (+1), dopo 1, 3, 5, … pressioni è spenta (−1). Quindi, per sapere come sarà dopo 2027 pressioni, non serve contarle una per una. Basta osservare che 2027 è dispari, perciò (−1)<sup>2027</sup> = −1 e la lampadina sarà spenta.</p>
+<p>Partendo da accesa (+1), dopo <span class="mat"><i>n</i></span> pressioni la lampadina è nello stato <span class="mat"><span class="pot">(−1)<sup><i>n</i></sup></span></span>. Dopo 2, 4, 6, … pressioni è di nuovo accesa (+1), dopo 1, 3, 5, … pressioni è spenta (−1). Quindi, per sapere come sarà dopo 2027 pressioni, non serve contarle una per una. Basta osservare che 2027 è dispari, perciò <span class="pot">(−1)<sup>2027</sup></span> = −1 e la lampadina sarà spenta.</p>
 <p>Questa “altalena” dei segni si usa spesso in matematica e in informatica per indicare qualcosa che si alterna, come i turni di due giocatori.</p>
 </div>
 `},
@@ -308,27 +308,27 @@ La <b>potenza</b> di un numero intero con esponente naturale è un intero che ha
 <div class="regola"><b>Regola</b>Si calcolano prima le espressioni nelle parentesi tonde, poi nelle quadre, poi nelle graffe. All'interno di ogni parentesi si calcolano prima le potenze, poi moltiplicazioni e divisioni nell'ordine in cui compaiono, infine le addizioni algebriche.</div>
 
 <h3>Un esempio passo passo</h3>
-<div class="esempio"><b>Esempio</b> &emsp; Calcoliamo [(−2)<sup>3</sup> + 5] · (−4) − (−6)<sup>2</sup> : 9.</div>
+<div class="esempio"><b>Esempio</b> &emsp; Calcoliamo [<span class="pot">(−2)<sup>3</sup></span> + 5] · (−4) − <span class="pot">(−6)<sup>2</sup></span> : 9.</div>
 <ol class="passaggi">
-<li>Nella parentesi quadra c'è una potenza con base negativa ed esponente dispari, quindi il risultato è negativo. &emsp; <span class="nw">(−2)<sup>3</sup> = <span class="c1">−8</span></span></li>
+<li>Nella parentesi quadra c'è una potenza con base negativa ed esponente dispari, quindi il risultato è negativo. &emsp; <span class="nw"><span class="pot">(−2)<sup>3</sup></span> = <span class="c1">−8</span></span></li>
 <li>Si fa l'addizione algebrica nella parentesi. &emsp; <span class="nw">[<span class="c1">−8</span> + 5] = <span class="c2">−3</span></span></li>
-<li>Fuori dalle parentesi resta una potenza con base negativa ed esponente pari, che è positiva. &emsp; <span class="nw">(−6)<sup>2</sup> = <span class="c3">+36</span></span></li>
+<li>Fuori dalle parentesi resta una potenza con base negativa ed esponente pari, che è positiva. &emsp; <span class="nw"><span class="pot">(−6)<sup>2</sup></span> = <span class="c3">+36</span></span></li>
 <li>Si fanno moltiplicazione e divisione con la regola del prodotto dei segni. <span class="perche">Meno per meno dà più, più diviso più dà più.</span> &emsp; <span class="nw">(<span class="c2">−3</span>) · (−4) = +12 &emsp; <span class="c3">36</span> : 9 = 4</span></li>
 <li>Resta l'addizione algebrica finale. &emsp; <span class="nw">+12 − 4 = +8</span></li>
 </ol>
 
-<div class="attenzione"><b>Attenzione</b>Un segno meno davanti a una potenza senza parentesi non fa parte della base. Per esempio −2<sup>4</sup> = −16, mentre (−2)<sup>4</sup> = +16. Allo stesso modo −(−3)<sup>2</sup> = −9, perché prima si calcola la potenza (+9) e poi si cambia il segno.</div>
+<div class="attenzione"><b>Attenzione</b>Un segno meno davanti a una potenza senza parentesi non fa parte della base. Per esempio −<span class="pot">2<sup>4</sup></span> = −16, mentre <span class="pot">(−2)<sup>4</sup></span> = +16. Allo stesso modo −<span class="pot">(−3)<sup>2</sup></span> = −9, perché prima si calcola la potenza (+9) e poi si cambia il segno.</div>
 
 <h3>Le espressioni letterali con i numeri interi</h3>
 <p>Quando in un'espressione letterale si sostituisce alle lettere un numero negativo, il numero va <b>sempre scritto tra parentesi</b>. Così si evitano errori di segno, soprattutto con le potenze.</p>
-<div class="esempio"><b>Esempio</b> &emsp; Calcoliamo <span class="mat"><i>a</i><sup>2</sup> − 3<i>b</i></span> per <span class="mat"><i>a</i> = −5</span> e <span class="mat"><i>b</i> = −2</span>.</div>
+<div class="esempio"><b>Esempio</b> &emsp; Calcoliamo <span class="mat"><span class="pot"><i>a</i><sup>2</sup></span> − 3<i>b</i></span> per <span class="mat"><i>a</i> = −5</span> e <span class="mat"><i>b</i> = −2</span>.</div>
 <ol class="passaggi">
-<li>Si sostituiscono i valori, ciascuno tra parentesi. &emsp; <span class="nw">(<span class="c1">−5</span>)<sup>2</sup> − 3 · (<span class="c2">−2</span>)</span></li>
+<li>Si sostituiscono i valori, ciascuno tra parentesi. &emsp; <span class="nw"><span class="pot">(<span class="c1">−5</span>)<sup>2</sup></span> − 3 · (<span class="c2">−2</span>)</span></li>
 <li>Si calcola la potenza. <span class="perche">Base negativa ed esponente pari, quindi risultato positivo.</span> &emsp; <span class="nw">= +25 − 3 · (−2)</span></li>
 <li>Si fa la moltiplicazione. &emsp; <span class="nw">= +25 + 6</span></li>
 <li>Si somma. &emsp; <span class="nw">= +31</span></li>
 </ol>
-<p>Senza parentesi si sarebbe potuto scrivere −5<sup>2</sup>, che vale −25, e il risultato sarebbe stato sbagliato.</p>
+<p>Senza parentesi si sarebbe potuto scrivere −<span class="pot">5<sup>2</sup></span>, che vale −25, e il risultato sarebbe stato sbagliato.</p>
 
 <h3>Dalle parole alle espressioni</h3>
 <p>Le espressioni con i numeri interi descrivono bene le situazioni in cui una grandezza aumenta e diminuisce, come un saldo, una temperatura, una quota. Per esempio, se la temperatura è di −3 °C, sale di 7 gradi e poi scende di 9, l'espressione −3 + 7 − 9 = −5 dà la temperatura finale, −5 °C.</p>
@@ -366,7 +366,7 @@ Se si moltiplicano i due membri di una disuguaglianza per un numero <b>positivo<
 <li><b>Seconda legge di cancellazione</b>. Un fattore uguale e diverso da 0 nei due membri si può eliminare, cambiando il verso di una disuguaglianza se il fattore è negativo. Per esempio da 12 · 5 = (8 + 4) · 5 si ottiene 12 = 8 + 4, e da (−2) · 6 &lt; (−2) · 1 si ottiene 6 &gt; 1.</li>
 </ul>
 
-<div class="attenzione"><b>Attenzione</b>Elevare al quadrato i due membri <b>non</b> è una legge di monotonia. Per esempio −5 &lt; 2, ma (−5)<sup>2</sup> = 25 è maggiore di 2<sup>2</sup> = 4.</div>
+<div class="attenzione"><b>Attenzione</b>Elevare al quadrato i due membri <b>non</b> è una legge di monotonia. Per esempio −5 &lt; 2, ma <span class="pot">(−5)<sup>2</sup></span> = 25 è maggiore di <span class="pot">2<sup>2</sup></span> = 4.</div>
 <div class="esempio"><b>Esempio</b>Le leggi di monotonia servono a trovare un numero sconosciuto. Se <span class="mat"><i>x</i> + 7 = 3</span>, aggiungendo −7 ai due membri si ottiene <span class="mat"><i>x</i> = 3 − 7 = −4</span>. Se <span class="mat">−3<i>x</i> &lt; 12</span>, moltiplicando i due membri per −1 si ottiene <span class="mat">3<i>x</i> &gt; −12</span> (il verso cambia!), e quindi <i>x</i> deve essere maggiore di −4. Le studierai a fondo nei capitoli sulle equazioni e sulle disequazioni.</div>
 
 <div class="curiosita" data-img="specchio" data-titolo="Lo specchio dei numeri">

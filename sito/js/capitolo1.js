@@ -72,25 +72,25 @@ LIBRO.capitoli.cap1 = {
 </div>
 
 <div class="sint-blocco"><h3><span>4</span>Le potenze e le loro proprietà</h3>
-<p>La potenza <span class="mat"><i>a</i><sup><i>n</i></sup></span> è il prodotto di <span class="mat"><i>n</i></span> fattori uguali ad <span class="mat"><i>a</i></span>. La <b>base</b> è <span class="mat"><i>a</i></span>, l'<b>esponente</b> è <span class="mat"><i>n</i></span>. Per esempio 2<sup>5</sup> = 2 · 2 · 2 · 2 · 2 = 32.</p>
+<p>La potenza <span class="mat"><span class="pot"><i>a</i><sup><i>n</i></sup></span></span> è il prodotto di <span class="mat"><i>n</i></span> fattori uguali ad <span class="mat"><i>a</i></span>. La <b>base</b> è <span class="mat"><i>a</i></span>, l'<b>esponente</b> è <span class="mat"><i>n</i></span>. Per esempio <span class="pot">2<sup>5</sup></span> = 2 · 2 · 2 · 2 · 2 = 32.</p>
 <ul class="sint-lista">
-<li><span class="mat"><i>a</i><sup>1</sup> = <i>a</i></span><span class="nota">esponente 1</span></li>
-<li><span class="mat"><i>a</i><sup>0</sup> = 1</span><span class="nota">esponente 0, con <i>a</i> ≠ 0</span></li>
-<li><span class="mat">1<sup><i>n</i></sup> = 1</span><span class="nota">base 1</span></li>
-<li><span class="mat">0<sup><i>n</i></sup> = 0</span><span class="nota">base 0, con <i>n</i> ≠ 0</span></li>
-<li><span class="mat">0<sup>0</sup></span><span class="nota">non ha significato</span></li>
+<li><span class="mat"><span class="pot"><i>a</i><sup>1</sup></span> = <i>a</i></span><span class="nota">esponente 1</span></li>
+<li><span class="mat"><span class="pot"><i>a</i><sup>0</sup></span> = 1</span><span class="nota">esponente 0, con <i>a</i> ≠ 0</span></li>
+<li><span class="mat"><span class="pot">1<sup><i>n</i></sup></span> = 1</span><span class="nota">base 1</span></li>
+<li><span class="mat"><span class="pot">0<sup><i>n</i></sup></span> = 0</span><span class="nota">base 0, con <i>n</i> ≠ 0</span></li>
+<li><span class="mat"><span class="pot">0<sup>0</sup></span></span><span class="nota">non ha significato</span></li>
 </ul>
 <table class="tab"><tr><th>Proprietà</th><th>Espressione</th><th>Esempio</th></tr>
-<tr><td>prodotto di potenze con la stessa base</td><td><i>a</i><sup><i>m</i></sup> · <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i> + <i>n</i></sup></td><td>3<sup>2</sup> · 3<sup>4</sup> = 3<sup>6</sup></td></tr>
-<tr><td>quoziente di potenze con la stessa base</td><td><i>a</i><sup><i>m</i></sup> : <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i> − <i>n</i></sup><br><small><i>a</i> ≠ 0, <i>m</i> ≥ <i>n</i></small></td><td>7<sup>5</sup> : 7<sup>2</sup> = 7<sup>3</sup></td></tr>
-<tr><td>potenza di una potenza</td><td>(<i>a</i><sup><i>m</i></sup>)<sup><i>n</i></sup> = <i>a</i><sup><i>m</i> · <i>n</i></sup></td><td>(2<sup>3</sup>)<sup>4</sup> = 2<sup>12</sup></td></tr>
-<tr><td>prodotto di potenze con lo stesso esponente</td><td><i>a</i><sup><i>n</i></sup> · <i>b</i><sup><i>n</i></sup> = (<i>a</i> · <i>b</i>)<sup><i>n</i></sup></td><td>4<sup>3</sup> · 5<sup>3</sup> = 20<sup>3</sup></td></tr>
-<tr><td>quoziente di potenze con lo stesso esponente</td><td><i>a</i><sup><i>n</i></sup> : <i>b</i><sup><i>n</i></sup> = (<i>a</i> : <i>b</i>)<sup><i>n</i></sup><br><small><i>b</i> ≠ 0, a multiplo di <i>b</i></small></td><td>18<sup>2</sup> : 6<sup>2</sup> = 3<sup>2</sup></td></tr></table>
-<p>Attenzione, non esistono regole per la somma: in generale <span class="mat">(<i>a</i> + <i>b</i>)<sup>2</sup> ≠ <i>a</i><sup>2</sup> + <i>b</i><sup>2</sup></span>.</p>
+<tr><td>prodotto di potenze con la stessa base</td><td><span class="pot"><i>a</i><sup><i>m</i></sup></span> · <span class="pot"><i>a</i><sup><i>n</i></sup></span> = <span class="pot"><i>a</i><sup><i>m</i> + <i>n</i></sup></span></td><td><span class="pot">3<sup>2</sup></span> · <span class="pot">3<sup>4</sup></span> = <span class="pot">3<sup>6</sup></span></td></tr>
+<tr><td>quoziente di potenze con la stessa base</td><td><span class="pot"><i>a</i><sup><i>m</i></sup></span> : <span class="pot"><i>a</i><sup><i>n</i></sup></span> = <span class="pot"><i>a</i><sup><i>m</i> − <i>n</i></sup></span><br><small><i>a</i> ≠ 0, <i>m</i> ≥ <i>n</i></small></td><td><span class="pot">7<sup>5</sup></span> : <span class="pot">7<sup>2</sup></span> = <span class="pot">7<sup>3</sup></span></td></tr>
+<tr><td>potenza di una potenza</td><td><span class="pot">(<i>a</i><sup><i>m</i></sup>)<sup><i>n</i></sup></span> = <span class="pot"><i>a</i><sup><i>m</i> · <i>n</i></sup></span></td><td><span class="pot">(2<sup>3</sup>)<sup>4</sup></span> = <span class="pot">2<sup>12</sup></span></td></tr>
+<tr><td>prodotto di potenze con lo stesso esponente</td><td><span class="pot"><i>a</i><sup><i>n</i></sup></span> · <span class="pot"><i>b</i><sup><i>n</i></sup></span> = <span class="pot">(<i>a</i> · <i>b</i>)<sup><i>n</i></sup></span></td><td><span class="pot">4<sup>3</sup></span> · <span class="pot">5<sup>3</sup></span> = <span class="pot">20<sup>3</sup></span></td></tr>
+<tr><td>quoziente di potenze con lo stesso esponente</td><td><span class="pot"><i>a</i><sup><i>n</i></sup></span> : <span class="pot"><i>b</i><sup><i>n</i></sup></span> = <span class="pot">(<i>a</i> : <i>b</i>)<sup><i>n</i></sup></span><br><small><i>b</i> ≠ 0, a multiplo di <i>b</i></small></td><td><span class="pot">18<sup>2</sup></span> : <span class="pot">6<sup>2</sup></span> = <span class="pot">3<sup>2</sup></span></td></tr></table>
+<p>Attenzione, non esistono regole per la somma: in generale <span class="mat"><span class="pot">(<i>a</i> + <i>b</i>)<sup>2</sup></span> ≠ <span class="pot"><i>a</i><sup>2</sup></span> + <span class="pot"><i>b</i><sup>2</sup></span></span>.</p>
 </div>
 
 <div class="sint-blocco"><h3><span>5</span>Base 10 e base 2</h3>
-<p>Il nostro sistema di numerazione è <b>posizionale</b> e in <b>base 10</b>, cioè ogni posizione vale 10 volte quella alla sua destra. 3507 = 3 · 10<sup>3</sup> + 5 · 10<sup>2</sup> + 0 · 10<sup>1</sup> + 7 · 10<sup>0</sup>.</p>
+<p>Il nostro sistema di numerazione è <b>posizionale</b> e in <b>base 10</b>, cioè ogni posizione vale 10 volte quella alla sua destra. 3507 = 3 · <span class="pot">10<sup>3</sup></span> + 5 · <span class="pot">10<sup>2</sup></span> + 0 · <span class="pot">10<sup>1</sup></span> + 7 · <span class="pot">10<sup>0</sup></span>.</p>
 <p>In <b>base 2</b> si usano solo le cifre 0 e 1 e ogni posizione vale il doppio di quella alla sua destra (1, 2, 4, 8, 16, …).</p>
 <ul class="sint-lista">
 <li><span class="mat">1101<sub>2</sub> = 8 + 4 + 0 + 1 = 13</span><span class="nota">da base 2 a base 10, si sommano i valori delle posizioni con l'1</span></li>
@@ -100,17 +100,17 @@ LIBRO.capitoli.cap1 = {
 
 <div class="sint-blocco"><h3><span>6</span>Le espressioni</h3>
 <p><b>Ordine di calcolo.</b> Prima le parentesi, dalle tonde alle quadre alle graffe. Dentro ogni parentesi si calcolano prima le potenze, poi moltiplicazioni e divisioni nell'ordine in cui compaiono, infine addizioni e sottrazioni nell'ordine in cui compaiono.</p>
-<p class="formula">[(2 + 3)<sup>2</sup> − 5 · 3] : 2 = [25 − 15] : 2 = 10 : 2 = 5</p>
+<p class="formula">[<span class="pot">(2 + 3)<sup>2</sup></span> − 5 · 3] : 2 = [25 − 15] : 2 = 10 : 2 = 5</p>
 <p>In un'<b>espressione letterale</b> le lettere (variabili) stanno al posto dei numeri. Per calcolarne il valore si sostituiscono i numeri alle lettere.</p>
 <table class="tab"><tr><th>A parole</th><th>Con i simboli</th><th>Con <i>a</i> = 3 e <i>b</i> = 4</th></tr>
-<tr><td>il quadrato della somma di <i>a</i> e <i>b</i></td><td>(<i>a</i> + <i>b</i>)<sup>2</sup></td><td>7<sup>2</sup> = 49</td></tr>
-<tr><td>la somma dei quadrati di <i>a</i> e <i>b</i></td><td><i>a</i><sup>2</sup> + <i>b</i><sup>2</sup></td><td>9 + 16 = 25</td></tr>
+<tr><td>il quadrato della somma di <i>a</i> e <i>b</i></td><td><span class="pot">(<i>a</i> + <i>b</i>)<sup>2</sup></span></td><td><span class="pot">7<sup>2</sup></span> = 49</td></tr>
+<tr><td>la somma dei quadrati di <i>a</i> e <i>b</i></td><td><span class="pot"><i>a</i><sup>2</sup></span> + <span class="pot"><i>b</i><sup>2</sup></span></td><td>9 + 16 = 25</td></tr>
 <tr><td>il doppio del successivo di a</td><td>2(<i>a</i> + 1)</td><td>2 · 4 = 8</td></tr></table>
 </div>
 
 <div class="sint-blocco"><h3><span>7</span>Multipli e divisori</h3>
 <p><span class="mat"><i>a</i></span> è <b>multiplo</b> di <span class="mat"><i>b</i></span>, e <span class="mat"><i>b</i></span> è <b>divisore</b> di <span class="mat"><i>a</i></span>, se esiste un numero naturale <span class="mat"><i>c</i></span> tale che <span class="mat"><i>a</i> = <i>b</i> · c</span>. Per esempio 42 = 6 · 7, quindi 42 è multiplo di 6 e di 7, mentre 6 e 7 sono divisori di 42.</p>
-<p>Un numero maggiore di 1 è <b>primo</b> se ha come divisori solo 1 e se stesso, altrimenti è <b>composto</b>. Ogni numero composto si scrive in un solo modo come prodotto di fattori primi, per esempio 90 = 2 · 3<sup>2</sup> · 5.</p>
+<p>Un numero maggiore di 1 è <b>primo</b> se ha come divisori solo 1 e se stesso, altrimenti è <b>composto</b>. Ogni numero composto si scrive in un solo modo come prodotto di fattori primi, per esempio 90 = 2 · <span class="pot">3<sup>2</sup></span> · 5.</p>
 <p><b>Criteri di divisibilità</b></p>
 <table class="tab"><tr><th>Divisibile per</th><th>se…</th></tr>
 <tr><td>2</td><td>l'ultima cifra è pari</td></tr>
@@ -127,10 +127,10 @@ LIBRO.capitoli.cap1 = {
 <p>Il <b>MCD</b> di due o più numeri è il prodotto dei soli fattori primi <b>comuni</b>, ciascuno preso una volta con l'esponente <b>minore</b>. Il <b>mcm</b> è il prodotto dei fattori primi <b>comuni e non comuni</b>, ciascuno preso una volta con l'esponente <b>maggiore</b>.</p>
 <div class="esempio"><b>Esempio</b>
 <ul class="sint-lista">
-<li><span class="mat">36 = 2<sup>2</sup> · 3<sup>2</sup></span></li>
-<li><span class="mat">60 = 2<sup>2</sup> · 3 · 5</span></li>
-<li><span class="mat">MCD(36; 60) = 2<sup>2</sup> · 3 = 12</span><span class="nota">fattori comuni, esponente minore</span></li>
-<li><span class="mat">mcm(36; 60) = 2<sup>2</sup> · 3<sup>2</sup> · 5 = 180</span><span class="nota">tutti i fattori, esponente maggiore</span></li>
+<li><span class="mat">36 = <span class="pot">2<sup>2</sup></span> · <span class="pot">3<sup>2</sup></span></span></li>
+<li><span class="mat">60 = <span class="pot">2<sup>2</sup></span> · 3 · 5</span></li>
+<li><span class="mat">MCD(36; 60) = <span class="pot">2<sup>2</sup></span> · 3 = 12</span><span class="nota">fattori comuni, esponente minore</span></li>
+<li><span class="mat">mcm(36; 60) = <span class="pot">2<sup>2</sup></span> · <span class="pot">3<sup>2</sup></span> · 5 = 180</span><span class="nota">tutti i fattori, esponente maggiore</span></li>
 </ul></div>
 <p>Due numeri con MCD = 1 si dicono <b>primi tra loro</b>.</p>
 <p class="formula">MCD(<i>a</i>; <i>b</i>) · mcm(<i>a</i>; <i>b</i>) = <i>a</i> · <i>b</i></p>
@@ -269,16 +269,16 @@ Il resto è sempre più piccolo del divisore. Se <span class="mat"><i>r</i> = 0<
 
   { n: 4, id: "p4", titolo: "Le potenze e le loro proprietà", html: `
 <p>Quando moltiplichiamo un numero per se stesso più volte, la scrittura diventa lunga, come in <span class="mat">2 · 2 · 2 · 2 · 2</span>. Per abbreviarla si usa la <b>potenza</b>:</p>
-<p class="formula">2 · 2 · 2 · 2 · 2 = 2<sup>5</sup> = 32</p>
+<p class="formula">2 · 2 · 2 · 2 · 2 = <span class="pot">2<sup>5</sup></span> = 32</p>
 <div class="definizione"><b>Definizione</b>
-La <b>potenza</b> <span class="mat"><i>a</i><sup><i>n</i></sup></span>, con <span class="mat"><i>n</i> ≥ 2</span>, è il prodotto di <span class="mat"><i>n</i></span> fattori tutti uguali ad <span class="mat"><i>a</i></span>. Il numero <span class="mat"><i>a</i></span> si chiama <b>base</b>, il numero <span class="mat"><i>n</i></span> <b>esponente</b>.</div>
-<p>Si legge “<i>a</i> elevato alla <i>n</i>”. Alcune potenze hanno nomi speciali. Per esempio <span class="mat"><i>a</i><sup>2</sup></span> è “<i>a</i> al quadrato”, <span class="mat"><i>a</i><sup>3</sup></span> è “<i>a</i> al cubo”.</p>
-<div class="attenzione"><b>Attenzione</b>2<sup>5</sup> non è 2 · 5 = 10! L'esponente dice <b>quante volte</b> la base compare come fattore, quindi 2<sup>5</sup> = 32.</div>
+La <b>potenza</b> <span class="mat"><span class="pot"><i>a</i><sup><i>n</i></sup></span></span>, con <span class="mat"><i>n</i> ≥ 2</span>, è il prodotto di <span class="mat"><i>n</i></span> fattori tutti uguali ad <span class="mat"><i>a</i></span>. Il numero <span class="mat"><i>a</i></span> si chiama <b>base</b>, il numero <span class="mat"><i>n</i></span> <b>esponente</b>.</div>
+<p>Si legge “<i>a</i> elevato alla <i>n</i>”. Alcune potenze hanno nomi speciali. Per esempio <span class="mat"><span class="pot"><i>a</i><sup>2</sup></span></span> è “<i>a</i> al quadrato”, <span class="mat"><span class="pot"><i>a</i><sup>3</sup></span></span> è “<i>a</i> al cubo”.</p>
+<div class="attenzione"><b>Attenzione</b><span class="pot">2<sup>5</sup></span> non è 2 · 5 = 10! L'esponente dice <b>quante volte</b> la base compare come fattore, quindi <span class="pot">2<sup>5</sup></span> = 32.</div>
 
 <h3>Esponente 1 ed esponente 0</h3>
 <p>La definizione funziona da 2 fattori in su. Per gli esponenti 1 e 0 si stabilisce che</p>
-<p class="formula"><i>a</i><sup>1</sup> = <i>a</i> &emsp; <i>a</i><sup>0</sup> = 1 &emsp; (con <i>a</i> ≠ 0)</p>
-<p>La scelta di <span class="mat"><i>a</i><sup>0</sup> = 1</span> non è un capriccio: più avanti, con le proprietà delle potenze, vedremo che è l'unica che le rende coerenti. L'espressione <span class="mat">0<sup>0</sup></span> invece <b>non ha significato</b>. Inoltre <span class="mat">1<sup><i>n</i></sup> = 1</span> e <span class="mat">0<sup><i>n</i></sup> = 0</span> per ogni <span class="mat"><i>n</i> ≥ 1</span>.</p>
+<p class="formula"><span class="pot"><i>a</i><sup>1</sup></span> = <i>a</i> &emsp; <span class="pot"><i>a</i><sup>0</sup></span> = 1 &emsp; (con <i>a</i> ≠ 0)</p>
+<p>La scelta di <span class="mat"><span class="pot"><i>a</i><sup>0</sup></span> = 1</span> non è un capriccio: più avanti, con le proprietà delle potenze, vedremo che è l'unica che le rende coerenti. L'espressione <span class="mat"><span class="pot">0<sup>0</sup></span></span> invece <b>non ha significato</b>. Inoltre <span class="mat"><span class="pot">1<sup><i>n</i></sup></span> = 1</span> e <span class="mat"><span class="pot">0<sup><i>n</i></sup></span> = 0</span> per ogni <span class="mat"><i>n</i> ≥ 1</span>.</p>
 
 <h3>Le potenze crescono in fretta</h3>
 <p>Ogni volta che l'esponente aumenta di 1, il risultato viene moltiplicato per la base. Con la base 2 il risultato raddoppia a ogni passo; con la base 3 triplica. Guarda l'albero: ogni ramo si divide in tanti rami quanta è la base.</p>
@@ -286,7 +286,7 @@ La <b>potenza</b> <span class="mat"><i>a</i><sup><i>n</i></sup></span>, con <spa
 
 <div class="curiosita" data-img="scacchiera" data-titolo="La leggenda della scacchiera e del riso">
 <p>Una leggenda indiana racconta che l'inventore degli scacchi, invitato dal re a scegliere una ricompensa, chiese solo del riso. Voleva <b>1 chicco</b> sulla prima casella della scacchiera, <b>2</b> sulla seconda, <b>4</b> sulla terza, e così via raddoppiando fino alla sessantaquattresima.</p>
-<p>Il re rise per la richiesta così modesta. Ma sull'ultima casella ci sarebbero dovuti essere <span class="mat">2<sup>63</sup></span> chicchi, cioè più di <b>9 miliardi di miliardi</b>. Tutto il riso prodotto oggi nel mondo in un anno non basterebbe nemmeno lontanamente: per riempire la scacchiera servirebbero alcune centinaia di anni di raccolti mondiali.</p>
+<p>Il re rise per la richiesta così modesta. Ma sull'ultima casella ci sarebbero dovuti essere <span class="mat"><span class="pot">2<sup>63</sup></span></span> chicchi, cioè più di <b>9 miliardi di miliardi</b>. Tutto il riso prodotto oggi nel mondo in un anno non basterebbe nemmeno lontanamente: per riempire la scacchiera servirebbero alcune centinaia di anni di raccolti mondiali.</p>
 <p>Un esperimento simile puoi farlo con un foglio: piegandolo a metà lo spessore raddoppia. Dopo 42 piegature (se fosse possibile farle!) lo spessore supererebbe la distanza tra la Terra e la Luna.</p>
 </div>
 
@@ -294,31 +294,31 @@ La <b>potenza</b> <span class="mat"><i>a</i><sup><i>n</i></sup></span>, con <spa
 <p>Le potenze con la stessa base, o con lo stesso esponente, si possono combinare con cinque regole. Tutte nascono dalla definizione: basta “contare i fattori”.</p>
 
 <h4>1. Prodotto di potenze con la stessa base</h4>
-<p class="formula"><i>a</i><sup><i>m</i></sup> · <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i> + <i>n</i></sup></p>
-<p>Infatti <span class="mat">2<sup>3</sup> · 2<sup>2</sup> = (2 · 2 · 2) · (2 · 2)</span>, quindi in tutto ci sono 3 + 2 = 5 fattori uguali a 2.</p>
+<p class="formula"><span class="pot"><i>a</i><sup><i>m</i></sup></span> · <span class="pot"><i>a</i><sup><i>n</i></sup></span> = <span class="pot"><i>a</i><sup><i>m</i> + <i>n</i></sup></span></p>
+<p>Infatti <span class="mat"><span class="pot">2<sup>3</sup></span> · <span class="pot">2<sup>2</sup></span> = (2 · 2 · 2) · (2 · 2)</span>, quindi in tutto ci sono 3 + 2 = 5 fattori uguali a 2.</p>
 <div class="anim" data-anim="gettoni" data-titolo="Contiamo i fattori: prodotto di potenze con la stessa base"></div>
 
 <h4>2. Quoziente di potenze con la stessa base</h4>
-<p class="formula"><i>a</i><sup><i>m</i></sup> : <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i> − <i>n</i></sup> &emsp; (<i>a</i> ≠ 0, <i>m</i> ≥ <i>n</i>)</p>
-<p>Dividendo si “eliminano” fattori. Per esempio 5<sup>6</sup> : 5<sup>4</sup> = 5<sup>2</sup>. Se <span class="mat"><i>m</i> = <i>n</i></span> otteniamo <span class="mat"><i>a</i><sup><i>n</i></sup> : <i>a</i><sup><i>n</i></sup> = <i>a</i><sup>0</sup></span>; ma un numero diviso per se stesso dà 1. Ecco perché si pone <span class="mat"><i>a</i><sup>0</sup> = 1</span>.</p>
+<p class="formula"><span class="pot"><i>a</i><sup><i>m</i></sup></span> : <span class="pot"><i>a</i><sup><i>n</i></sup></span> = <span class="pot"><i>a</i><sup><i>m</i> − <i>n</i></sup></span> &emsp; (<i>a</i> ≠ 0, <i>m</i> ≥ <i>n</i>)</p>
+<p>Dividendo si “eliminano” fattori. Per esempio <span class="pot">5<sup>6</sup></span> : <span class="pot">5<sup>4</sup></span> = <span class="pot">5<sup>2</sup></span>. Se <span class="mat"><i>m</i> = <i>n</i></span> otteniamo <span class="mat"><span class="pot"><i>a</i><sup><i>n</i></sup></span> : <span class="pot"><i>a</i><sup><i>n</i></sup></span> = <span class="pot"><i>a</i><sup>0</sup></span></span>; ma un numero diviso per se stesso dà 1. Ecco perché si pone <span class="mat"><span class="pot"><i>a</i><sup>0</sup></span> = 1</span>.</p>
 
 <h4>3. Potenza di una potenza</h4>
-<p class="formula">(<i>a</i><sup><i>m</i></sup>)<sup><i>n</i></sup> = <i>a</i><sup><i>m</i> · <i>n</i></sup></p>
-<p>(3<sup>2</sup>)<sup>3</sup> = 3<sup>2</sup> · 3<sup>2</sup> · 3<sup>2</sup> = 3<sup>6</sup>.</p>
+<p class="formula"><span class="pot">(<i>a</i><sup><i>m</i></sup>)<sup><i>n</i></sup></span> = <span class="pot"><i>a</i><sup><i>m</i> · <i>n</i></sup></span></p>
+<p><span class="pot">(3<sup>2</sup>)<sup>3</sup></span> = <span class="pot">3<sup>2</sup></span> · <span class="pot">3<sup>2</sup></span> · <span class="pot">3<sup>2</sup></span> = <span class="pot">3<sup>6</sup></span>.</p>
 
 <h4>4. Prodotto di potenze con lo stesso esponente</h4>
-<p class="formula"><i>a</i><sup><i>n</i></sup> · <i>b</i><sup><i>n</i></sup> = (<i>a</i> · <i>b</i>)<sup><i>n</i></sup></p>
-<p>2<sup>3</sup> · 5<sup>3</sup> = (2 · 5)<sup>3</sup> = 10<sup>3</sup> = 1000. Utilissima per i calcoli a mente!</p>
+<p class="formula"><span class="pot"><i>a</i><sup><i>n</i></sup></span> · <span class="pot"><i>b</i><sup><i>n</i></sup></span> = <span class="pot">(<i>a</i> · <i>b</i>)<sup><i>n</i></sup></span></p>
+<p><span class="pot">2<sup>3</sup></span> · <span class="pot">5<sup>3</sup></span> = <span class="pot">(2 · 5)<sup>3</sup></span> = <span class="pot">10<sup>3</sup></span> = 1000. Utilissima per i calcoli a mente!</p>
 
 <h4>5. Quoziente di potenze con lo stesso esponente</h4>
-<p class="formula"><i>a</i><sup><i>n</i></sup> : <i>b</i><sup><i>n</i></sup> = (<i>a</i> : <i>b</i>)<sup><i>n</i></sup> &emsp; (<i>b</i> ≠ 0, a multiplo di <i>b</i>)</p>
-<p>12<sup>4</sup> : 4<sup>4</sup> = (12 : 4)<sup>4</sup> = 3<sup>4</sup> = 81.</p>
+<p class="formula"><span class="pot"><i>a</i><sup><i>n</i></sup></span> : <span class="pot"><i>b</i><sup><i>n</i></sup></span> = <span class="pot">(<i>a</i> : <i>b</i>)<sup><i>n</i></sup></span> &emsp; (<i>b</i> ≠ 0, a multiplo di <i>b</i>)</p>
+<p><span class="pot">12<sup>4</sup></span> : <span class="pot">4<sup>4</sup></span> = <span class="pot">(12 : 4)<sup>4</sup></span> = <span class="pot">3<sup>4</sup></span> = 81.</p>
 
 <div class="attenzione"><b>Errori da evitare</b>
 <ul style="margin:4px 0 0">
-<li>2<sup>3</sup> · 3<sup>2</sup> <b>non</b> si semplifica: basi ed esponenti sono entrambi diversi.</li>
-<li>(<i>a</i> + <i>b</i>)<sup>2</sup> ≠ <i>a</i><sup>2</sup> + <i>b</i><sup>2</sup>, perché le proprietà valgono per prodotti e quozienti, <b>non</b> per somme e differenze.</li>
-<li>(2<sup>3</sup>)<sup>2</sup> = 2<sup>6</sup>, mentre 2<sup>3</sup> · 2<sup>2</sup> = 2<sup>5</sup>. Non confondere la terza proprietà con la prima.</li>
+<li><span class="pot">2<sup>3</sup></span> · <span class="pot">3<sup>2</sup></span> <b>non</b> si semplifica: basi ed esponenti sono entrambi diversi.</li>
+<li><span class="pot">(<i>a</i> + <i>b</i>)<sup>2</sup></span> ≠ <span class="pot"><i>a</i><sup>2</sup></span> + <span class="pot"><i>b</i><sup>2</sup></span>, perché le proprietà valgono per prodotti e quozienti, <b>non</b> per somme e differenze.</li>
+<li><span class="pot">(2<sup>3</sup>)<sup>2</sup></span> = <span class="pot">2<sup>6</sup></span>, mentre <span class="pot">2<sup>3</sup></span> · <span class="pot">2<sup>2</sup></span> = <span class="pot">2<sup>5</sup></span>. Non confondere la terza proprietà con la prima.</li>
 </ul></div>
 `},
 
@@ -328,10 +328,10 @@ La <b>potenza</b> <span class="mat"><i>a</i><sup><i>n</i></sup></span>, con <spa
 <h3>Il sistema decimale</h3>
 <figure class="fig-testo" data-img="monete"><figcaption>Unità, decine, centinaia: ogni posizione vale 10 volte la precedente.</figcaption></figure><p>Il nostro sistema di numerazione è <b>decimale</b> (si basa sul 10) e <b>posizionale</b>. Partendo da destra, la prima cifra conta le unità, la seconda le decine, la terza le centinaia, e così via. Ogni posizione vale 10 volte quella alla sua destra, quindi le posizioni corrispondono alle potenze di 10.</p>
 <table class="tab"><tr><th>Posizione</th><th>migliaia</th><th>centinaia</th><th>decine</th><th>unità</th></tr>
-<tr><td>Valore</td><td>10<sup>3</sup> = 1000</td><td>10<sup>2</sup> = 100</td><td>10<sup>1</sup> = 10</td><td>10<sup>0</sup> = 1</td></tr>
+<tr><td>Valore</td><td><span class="pot">10<sup>3</sup></span> = 1000</td><td><span class="pot">10<sup>2</sup></span> = 100</td><td><span class="pot">10<sup>1</sup></span> = 10</td><td><span class="pot">10<sup>0</sup></span> = 1</td></tr>
 <tr><td>Cifre di 3507</td><td>3</td><td>5</td><td>0</td><td>7</td></tr></table>
 <p>Ogni cifra si moltiplica per il valore della sua posizione e poi si sommano i risultati.</p>
-<p class="formula">3507 = 3 · 10<sup>3</sup> + 5 · 10<sup>2</sup> + 0 · 10<sup>1</sup> + 7 · 10<sup>0</sup></p>
+<p class="formula">3507 = 3 · <span class="pot">10<sup>3</sup></span> + 5 · <span class="pot">10<sup>2</sup></span> + 0 · <span class="pot">10<sup>1</sup></span> + 7 · <span class="pot">10<sup>0</sup></span></p>
 <p>Il 3 vale tremila perché sta nella posizione delle migliaia. Lo 0 è indispensabile, perché segna che le decine mancano. Senza lo 0, 3507 e 357 si scriverebbero allo stesso modo.</p>
 <div class="definizione"><b>Definizione</b>
 Un sistema di numerazione è <b>posizionale</b> se il valore di una cifra dipende dalla posizione che occupa nel numero. La <b>base</b> è il numero di cifre che il sistema usa, ed è anche il numero per cui si moltiplica il valore passando da una posizione a quella alla sua sinistra.</div>
@@ -339,14 +339,14 @@ Un sistema di numerazione è <b>posizionale</b> se il valore di una cifra dipend
 <h3>Il sistema binario</h3>
 <p>Nulla ci obbliga a usare proprio il 10. Con la base 2 bastano due cifre, lo <b>0</b> e l'<b>1</b>, e ogni posizione vale il doppio di quella alla sua destra.</p>
 <table class="tab"><tr><th>Posizione</th><th>5ª</th><th>4ª</th><th>3ª</th><th>2ª</th><th>1ª</th></tr>
-<tr><td>Valore</td><td>2<sup>4</sup> = 16</td><td>2<sup>3</sup> = 8</td><td>2<sup>2</sup> = 4</td><td>2<sup>1</sup> = 2</td><td>2<sup>0</sup> = 1</td></tr></table>
+<tr><td>Valore</td><td><span class="pot">2<sup>4</sup></span> = 16</td><td><span class="pot">2<sup>3</sup></span> = 8</td><td><span class="pot">2<sup>2</sup></span> = 4</td><td><span class="pot">2<sup>1</sup></span> = 2</td><td><span class="pot">2<sup>0</sup></span> = 1</td></tr></table>
 <p>Per non confondere un numero scritto in base 2 con uno scritto in base 10, si scrive la base in piccolo, in basso a destra. Per esempio 1101<sub>2</sub> si legge “uno uno zero uno in base due”.</p>
 
 <h3>Dalla base 2 alla base 10</h3>
 <div class="regola"><b>Regola</b>Per trovare il valore di un numero scritto in base 2 si moltiplica ogni cifra per la potenza di 2 della sua posizione e si sommano i risultati. In pratica basta sommare i valori delle posizioni in cui c'è un 1.</div>
 <div class="esempio"><b>Esempio</b> &emsp; Quanto vale 1101<sub>2</sub> in base 10?</div>
 <ol class="passaggi">
-<li>Si scrivono le cifre con il valore della loro posizione, partendo da destra. &emsp; <span class="nw">1101<sub>2</sub> = <span class="c1">1</span> · 2<sup>3</sup> + <span class="c2">1</span> · 2<sup>2</sup> + <span class="c3">0</span> · 2<sup>1</sup> + <span class="c4">1</span> · 2<sup>0</sup></span></li>
+<li>Si scrivono le cifre con il valore della loro posizione, partendo da destra. &emsp; <span class="nw">1101<sub>2</sub> = <span class="c1">1</span> · <span class="pot">2<sup>3</sup></span> + <span class="c2">1</span> · <span class="pot">2<sup>2</sup></span> + <span class="c3">0</span> · <span class="pot">2<sup>1</sup></span> + <span class="c4">1</span> · <span class="pot">2<sup>0</sup></span></span></li>
 <li>Si calcolano le potenze di 2. &emsp; <span class="nw">= <span class="c1">1</span> · 8 + <span class="c2">1</span> · 4 + <span class="c3">0</span> · 2 + <span class="c4">1</span> · 1</span></li>
 <li>Si fanno le moltiplicazioni e si somma. <span class="perche">La cifra 0 non porta niente, quindi si possono sommare solo i valori delle posizioni con l'1.</span> &emsp; <span class="nw">= 8 + 4 + 0 + 1 = 13</span></li>
 </ol>
@@ -364,21 +364,21 @@ Un sistema di numerazione è <b>posizionale</b> se il valore di una cifra dipend
 <div class="attenzione"><b>Attenzione</b>10<sub>2</sub> non è “dieci”, ma vale 1 · 2 + 0 · 1 = 2. Allo stesso modo 100<sub>2</sub> = 4 e 1000<sub>2</sub> = 8. In base 2, aggiungere uno 0 a destra <b>raddoppia</b> il numero, come in base 10 aggiungere uno 0 lo moltiplica per 10.</div>
 
 <div class="curiosita" data-img="chip" data-titolo="Perché 1 kilobyte non è 1000 byte?">
-<p>I computer lavorano con circuiti che hanno solo due stati, acceso e spento, ed è per questo che “pensano” in base 2. Ogni informazione è una sequenza di 0 e 1, i <b>bit</b>, e un gruppo di 8 bit (2<sup>3</sup>) forma un <b>byte</b>.</p>
-<p>La potenza di 2 più vicina a 1000 è <b>2<sup>10</sup> = 1024</b>. Per decenni i programmatori hanno chiamato “kilobyte” 1024 byte, “megabyte” 1024 · 1024 = 2<sup>20</sup> byte, e così via. Oggi per questi multipli si usano nomi diversi (kibibyte, mebibyte), ma molti programmi continuano a contare in potenze di 2. Ecco perché una chiavetta da “64 GB” sul computer risulta un po' più piccola di quanto ti aspetti!</p>
-<p>Con un byte si possono scrivere 2<sup>8</sup> = 256 numeri diversi, da 00000000<sub>2</sub> = 0 a 11111111<sub>2</sub> = 255. Per questo i livelli di colore di un'immagine digitale vanno spesso da 0 a 255.</p>
+<p>I computer lavorano con circuiti che hanno solo due stati, acceso e spento, ed è per questo che “pensano” in base 2. Ogni informazione è una sequenza di 0 e 1, i <b>bit</b>, e un gruppo di 8 bit (<span class="pot">2<sup>3</sup></span>) forma un <b>byte</b>.</p>
+<p>La potenza di 2 più vicina a 1000 è <b><span class="pot">2<sup>10</sup></span> = 1024</b>. Per decenni i programmatori hanno chiamato “kilobyte” 1024 byte, “megabyte” 1024 · 1024 = <span class="pot">2<sup>20</sup></span> byte, e così via. Oggi per questi multipli si usano nomi diversi (kibibyte, mebibyte), ma molti programmi continuano a contare in potenze di 2. Ecco perché una chiavetta da “64 GB” sul computer risulta un po' più piccola di quanto ti aspetti!</p>
+<p>Con un byte si possono scrivere <span class="pot">2<sup>8</sup></span> = 256 numeri diversi, da 00000000<sub>2</sub> = 0 a 11111111<sub>2</sub> = 255. Per questo i livelli di colore di un'immagine digitale vanno spesso da 0 a 255.</p>
 </div>
 `},
 
   { n: 6, id: "p6", titolo: "Le espressioni", html: `
-<p>Un'<b>espressione</b> è una sequenza di numeri legati da operazioni, ad esempio <span class="mat">20 − 3 · 4 + 2<sup>3</sup></span>. Il risultato finale si chiama <b>valore</b> dell'espressione. Perché tutti ottengano lo stesso valore, bisogna rispettare un ordine preciso.</p>
+<p>Un'<b>espressione</b> è una sequenza di numeri legati da operazioni, ad esempio <span class="mat">20 − 3 · 4 + <span class="pot">2<sup>3</sup></span></span>. Il risultato finale si chiama <b>valore</b> dell'espressione. Perché tutti ottengano lo stesso valore, bisogna rispettare un ordine preciso.</p>
 <div class="regola"><b>Ordine delle operazioni</b>
 <ol>
 <li>si calcolano le <b>potenze</b>;</li>
 <li>si eseguono <b>moltiplicazioni e divisioni</b>, nell'ordine in cui compaiono da sinistra a destra;</li>
 <li>si eseguono <b>addizioni e sottrazioni</b>, nell'ordine in cui compaiono da sinistra a destra.</li>
 </ol></div>
-<div class="esempio"><b>Esempio</b> &emsp; 20 − 3 · 4 + 2<sup>3</sup> = 20 − 3 · 4 + 8 = 20 − 12 + 8 = 8 + 8 = 16</div>
+<div class="esempio"><b>Esempio</b> &emsp; 20 − 3 · 4 + <span class="pot">2<sup>3</sup></span> = 20 − 3 · 4 + 8 = 20 − 12 + 8 = 8 + 8 = 16</div>
 <div class="attenzione"><b>Attenzione</b>“Da sinistra a destra” conta davvero. Per esempio 24 : 4 · 2 = 6 · 2 = 12, e non 24 : 8 = 3.</div>
 
 <h3>Le parentesi</h3>
@@ -393,9 +393,9 @@ Un sistema di numerazione è <b>posizionale</b> se il valore di una cifra dipend
 <tr><td>il doppio di <i>a</i></td><td>2<i>a</i></td></tr>
 <tr><td>la metà di <i>a</i></td><td><i>a</i> : 2</td></tr>
 <tr><td>il successivo di <i>n</i></td><td><i>n</i> + 1</td></tr>
-<tr><td>la somma dei quadrati di <i>a</i> e <i>b</i></td><td><i>a</i><sup>2</sup> + <i>b</i><sup>2</sup></td></tr>
-<tr><td>il quadrato della somma di <i>a</i> e <i>b</i></td><td>(<i>a</i> + <i>b</i>)<sup>2</sup></td></tr></table>
-<p>Le ultime due righe sembrano simili ma non lo sono: con <span class="mat"><i>a</i> = 3</span> e <span class="mat"><i>b</i> = 4</span> la prima vale 9 + 16 = 25, la seconda 7<sup>2</sup> = 49.</p>
+<tr><td>la somma dei quadrati di <i>a</i> e <i>b</i></td><td><span class="pot"><i>a</i><sup>2</sup></span> + <span class="pot"><i>b</i><sup>2</sup></span></td></tr>
+<tr><td>il quadrato della somma di <i>a</i> e <i>b</i></td><td><span class="pot">(<i>a</i> + <i>b</i>)<sup>2</sup></span></td></tr></table>
+<p>Le ultime due righe sembrano simili ma non lo sono: con <span class="mat"><i>a</i> = 3</span> e <span class="mat"><i>b</i> = 4</span> la prima vale 9 + 16 = 25, la seconda <span class="pot">7<sup>2</sup></span> = 49.</p>
 
 <div class="curiosita" data-img="telefono" data-titolo="Il problema che ha diviso Internet">
 <p>Qualche anno fa sui social è diventata virale questa espressione, <b>6 : 2(1 + 2)</b>. Metà delle persone rispondeva 9, l'altra metà 1. E perfino le calcolatrici non erano d'accordo tra loro!</p>
@@ -456,13 +456,13 @@ Un numero naturale maggiore di 1 è <b>primo</b> se ha esattamente due divisori,
 <tr><td style="text-align:right;padding:0 10px;border-right:2px solid #333">15</td><td style="padding:0 10px">3</td></tr>
 <tr><td style="text-align:right;padding:0 10px;border-right:2px solid #333">5</td><td style="padding:0 10px">5</td></tr>
 <tr><td style="text-align:right;padding:0 10px;border-right:2px solid #333">1</td><td></td></tr></table>
-quindi 180 = 2<sup>2</sup> · 3<sup>2</sup> · 5</div>
+quindi 180 = <span class="pot">2<sup>2</sup></span> · <span class="pot">3<sup>2</sup></span> · 5</div>
 
 <h3>Il massimo comune divisore (MCD)</h3>
 <div class="definizione"><b>Definizione</b>
 Il <b>massimo comune divisore</b> di due o più numeri è il più grande tra i loro divisori comuni.</div>
 <div class="regola"><b>Regola</b>Il MCD è il prodotto dei soli fattori primi <b>comuni</b>, presi una sola volta con l'esponente <b>minore</b>.</div>
-<div class="esempio"><b>Esempio</b> &emsp; 60 = 2<sup>2</sup> · 3 · 5 &emsp; 90 = 2 · 3<sup>2</sup> · 5 &emsp; MCD(60; 90) = 2 · 3 · 5 = 30</div>
+<div class="esempio"><b>Esempio</b> &emsp; 60 = <span class="pot">2<sup>2</sup></span> · 3 · 5 &emsp; 90 = 2 · <span class="pot">3<sup>2</sup></span> · 5 &emsp; MCD(60; 90) = 2 · 3 · 5 = 30</div>
 <p>Se il MCD di due numeri è 1, i numeri si dicono <b>primi tra loro</b> (ad esempio 8 e 15).</p>
 <p>Il MCD risponde a domande del tipo: <i>qual è la piastrella quadrata più grande con cui posso ricoprire esattamente un pavimento rettangolare?</i></p>
 <div class="anim" data-anim="piastrelle" data-titolo="La piastrella più grande: il MCD"></div>
@@ -471,7 +471,7 @@ Il <b>massimo comune divisore</b> di due o più numeri è il più grande tra i l
 <figure class="fig-testo" data-img="ingranaggi"><figcaption>Due ruote dentate da 12 e 8 denti tornano nella posizione iniziale dopo mcm(12; 8) = 24 denti.</figcaption></figure><div class="definizione"><b>Definizione</b>
 Il <b>minimo comune multiplo</b> di due o più numeri (diversi da 0) è il più piccolo tra i loro multipli comuni diversi da 0.</div>
 <div class="regola"><b>Regola</b>Il mcm è il prodotto di tutti i fattori primi, <b>comuni e non comuni</b>, presi una sola volta con l'esponente <b>maggiore</b>.</div>
-<div class="esempio"><b>Esempio</b> &emsp; 60 = 2<sup>2</sup> · 3 · 5 &emsp; 90 = 2 · 3<sup>2</sup> · 5 &emsp; mcm(60; 90) = 2<sup>2</sup> · 3<sup>2</sup> · 5 = 180</div>
+<div class="esempio"><b>Esempio</b> &emsp; 60 = <span class="pot">2<sup>2</sup></span> · 3 · 5 &emsp; 90 = 2 · <span class="pot">3<sup>2</sup></span> · 5 &emsp; mcm(60; 90) = <span class="pot">2<sup>2</sup></span> · <span class="pot">3<sup>2</sup></span> · 5 = 180</div>
 <p>Per due numeri vale sempre una relazione elegante: <span class="mat">MCD(<i>a</i>; <i>b</i>) · mcm(<i>a</i>; <i>b</i>) = <i>a</i> · b</span>. Per esempio, con 60 e 90 si ha MCD = 30, mcm = 180 e 30 · 180 = 5400 = 60 · 90.</p>
 <div class="regola"><b>MCD o mcm? Come riconoscerli nei problemi</b>
 <ul><li>Si usa il <b>MCD</b> quando bisogna <b>dividere</b> più quantità in parti uguali, le più grandi possibili, senza avanzi (per esempio tagliare due nastri da 60 cm e 90 cm in pezzi uguali e più lunghi possibile, cioè da 30 cm).</li>

@@ -676,3 +676,11 @@ a.bottone-tema:hover .sfondo-tema{color:#fff}
 }
 .paragrafo h4{font-size:1.05rem;margin:18px 0 6px;color:var(--blu-scuro)}
 @media print{.paragrafo h4{break-after:avoid}}
+
+/* potenze: base ed esponente non si separano mai a fine riga (span.pot creato da corsivo.py) */
+.pot{white-space:nowrap}
+/* esempi, regole e riquadri con frazioni o potenze: più spazio fra le righe, così nulla si sovrappone */
+/* le parentesi grandi e le frazioni hanno un margine verticale: le righe che le contengono si allontanano da sole
+   (per gli elementi inline-block il margine conta nell'altezza della riga) */
+.gp{margin-top:.3em;margin-bottom:.3em}
+.esempio:has(.fr),.esempio:has(.gp){line-height:2.2}
