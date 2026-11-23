@@ -23,12 +23,12 @@ LIBRO.capitoli.cap2 = {
 <li><span class="data">1867</span>Il tedesco <b>Hermann Hankel</b> enuncia il <b>principio di permanenza delle proprietà formali</b>. Allargando un insieme di numeri, le regole vanno scelte in modo che le vecchie proprietà continuino a valere.</li>
 <li><span class="data">XX secolo</span>Si diffonde il simbolo <b>ℤ</b> per l'insieme dei numeri interi, dall'iniziale della parola tedesca <i>Zahlen</i>, che significa “numeri”.</li>
 </ol>
-<p class="storia-capitolo"><b>In questo capitolo</b> costruiamo l'insieme dei numeri interi aggiungendo ai naturali i numeri negativi. Impareremo a rappresentarli su una retta e a confrontarli, a eseguire con loro le operazioni e le potenze, e scopriremo che in ℤ la sottrazione è sempre possibile, come serviva ai mercanti che dovevano registrare un debito. Infine studieremo le leggi di monotonia, cioè che cosa succede a uguaglianze e disuguaglianze quando si somma o si moltiplica per uno stesso numero.</p>
+<p class="storia-capitolo"><b>In questo capitolo</b> costruiamo l'insieme dei numeri interi aggiungendo ai naturali i numeri negativi. Impareremo a rappresentarli su una retta e a confrontarli, a eseguire con loro le operazioni e le potenze e a calcolare espressioni, e scopriremo che in ℤ la sottrazione è sempre possibile, come serviva ai mercanti che dovevano registrare un debito. Infine studieremo le leggi di monotonia, cioè che cosa succede a uguaglianze e disuguaglianze quando si somma o si moltiplica per uno stesso numero.</p>
 `,
 
   /* ------------------------- TEORIA IN SINTESI (chiusura) ------------------------- */
   sintesi: `
-<div class="sint-blocco"><h3><span>1</span>Che cosa sono i numeri interi</h3>
+<div class="sint-blocco"><h3><span>1</span>I numeri con il segno</h3>
 <p class="formula">ℤ = {…, −3, −2, −1, 0, +1, +2, +3, …}</p>
 <ul class="sint-lista">
 <li><span class="mat">ℤ<sup>+</sup></span><span class="nota">interi <b>positivi</b></span></li>
@@ -43,7 +43,8 @@ LIBRO.capitoli.cap2 = {
 <li><span class="mat">−3 &gt; −8</span><span class="nota">fra due negativi è maggiore quello con valore assoluto <b>minore</b></span></li>
 <li><span class="mat">−8 &lt; 0 &lt; +3</span><span class="nota">lo zero sta fra i negativi e i positivi</span></li>
 </ul>
-<p>ℤ è ordinato, discreto e infinito; ogni intero <span class="mat"><i>x</i></span> ha il precedente <span class="mat"><i>x</i> − 1</span> e il successivo <span class="mat"><i>x</i> + 1</span>.</p></div>
+<p>ℤ è ordinato, discreto e infinito; ogni intero <span class="mat"><i>x</i></span> ha il precedente <span class="mat"><i>x</i> − 1</span> e il successivo <span class="mat"><i>x</i> + 1</span>.</p>
+</div>
 
 <div class="sint-blocco"><h3><span>2</span>L'addizione e la sottrazione</h3>
 <table class="tab"><tr><th>Addendi</th><th>Valore assoluto della somma</th><th>Segno della somma</th><th>Esempio</th></tr>
@@ -51,15 +52,17 @@ LIBRO.capitoli.cap2 = {
 <tr><td>discordi</td><td>differenza dei valori assoluti (maggiore meno minore)</td><td>quello dell'addendo con valore assoluto maggiore</td><td>(−9) + (+4) = −5</td></tr></table>
 <p class="formula"><i>a</i> − <i>b</i> = <i>a</i> + (−<i>b</i>)</p>
 <p>La differenza è la somma del minuendo con l'opposto del sottraendo, per esempio (+3) − (−7) = +3 + 7 = +10. In ℤ la sottrazione è sempre possibile. Addizione e sottrazione diventano un'unica operazione, l'<b>addizione algebrica</b>.</p>
-<p><b>Parentesi</b>. Con il segno + davanti si eliminano lasciando i segni invariati; con il segno − davanti si eliminano cambiando tutti i segni interni.</p></div>
+<p><b>Parentesi</b>. Con il segno + davanti si eliminano lasciando i segni invariati; con il segno − davanti si eliminano cambiando tutti i segni interni.</p>
+</div>
 
 <div class="sint-blocco"><h3><span>3</span>La moltiplicazione e la divisione</h3>
 <table class="tab-segni"><tr><th class="angolo">·&ensp;:</th><th>+</th><th>−</th></tr><tr><th>+</th><td>+</td><td>−</td></tr><tr><th>−</th><td>−</td><td>+</td></tr></table>
 <p><b>Regola del prodotto dei segni</b>. Il prodotto (o il quoziente) di due interi ha per valore assoluto il prodotto (o il quoziente) dei valori assoluti, segno + se i numeri sono concordi, segno − se sono discordi. Con più fattori il prodotto è negativo se i fattori negativi sono in numero dispari.</p>
 <div class="esempio"><b>Esempio</b>(−4) · (−6) = +24 &emsp; (+30) : (−5) = −6 &emsp; (−1)(−2)(−3) = −6</div>
-<p>La divisione <span class="mat"><i>a</i> : <i>b</i></span> esiste in ℤ solo se <span class="mat"><i>b</i> ≠ 0</span> e <span class="mat">|a|</span> è multiplo di <span class="mat">|<i>b</i>|</span>. ℤ è un <b>ampliamento</b> di ℕ in cui valgono tutte le proprietà delle operazioni già note (principio di permanenza).</p></div>
+<p>La divisione <span class="mat"><i>a</i> : <i>b</i></span> esiste in ℤ solo se <span class="mat"><i>b</i> ≠ 0</span> e <span class="mat">|a|</span> è multiplo di <span class="mat">|<i>b</i>|</span>. ℤ è un <b>ampliamento</b> di ℕ in cui valgono tutte le proprietà delle operazioni già note (principio di permanenza).</p>
+</div>
 
-<div class="sint-blocco"><h3><span>4</span>La potenza</h3>
+<div class="sint-blocco"><h3><span>4</span>Le potenze in ℤ e le loro proprietà</h3>
 <p>Il valore assoluto di <span class="mat"><i>a</i><sup><i>n</i></sup></span> è la potenza del valore assoluto della base. Il segno è <b>negativo solo se la base è negativa e l'esponente è dispari</b>.</p>
 <ul class="sint-lista">
 <li><span class="mat">(−2)<sup>4</sup> = +16</span><span class="nota">base negativa, esponente pari</span></li>
@@ -67,19 +70,30 @@ LIBRO.capitoli.cap2 = {
 <li><span class="mat">−2<sup>4</sup> = −16</span><span class="nota">la potenza si calcola prima del segno</span></li>
 <li><span class="mat"><i>a</i><sup>0</sup> = 1</span><span class="nota">con <i>a</i> ≠ 0; 0<sup>0</sup> non è definita</span></li>
 </ul>
-<p>Valgono le cinque proprietà delle potenze di ℕ, cioè <span class="mat"><i>a</i><sup><i>m</i></sup> · <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i>+<i>n</i></sup></span>, <span class="mat"><i>a</i><sup><i>m</i></sup> : <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i>−<i>n</i></sup></span>, <span class="mat">(<i>a</i><sup><i>m</i></sup>)<sup><i>n</i></sup> = <i>a</i><sup><i>m</i>·<i>n</i></sup></span>, <span class="mat"><i>a</i><sup><i>n</i></sup> · <i>b</i><sup><i>n</i></sup> = (<i>a</i> · <i>b</i>)<sup><i>n</i></sup></span>, <span class="mat"><i>a</i><sup><i>n</i></sup> : <i>b</i><sup><i>n</i></sup> = (<i>a</i> : <i>b</i>)<sup><i>n</i></sup></span>.</p></div>
+<p>Valgono le cinque proprietà delle potenze di ℕ, cioè <span class="mat"><i>a</i><sup><i>m</i></sup> · <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i>+<i>n</i></sup></span>, <span class="mat"><i>a</i><sup><i>m</i></sup> : <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i>−<i>n</i></sup></span>, <span class="mat">(<i>a</i><sup><i>m</i></sup>)<sup><i>n</i></sup> = <i>a</i><sup><i>m</i>·<i>n</i></sup></span>, <span class="mat"><i>a</i><sup><i>n</i></sup> · <i>b</i><sup><i>n</i></sup> = (<i>a</i> · <i>b</i>)<sup><i>n</i></sup></span>, <span class="mat"><i>a</i><sup><i>n</i></sup> : <i>b</i><sup><i>n</i></sup> = (<i>a</i> : <i>b</i>)<sup><i>n</i></sup></span>.</p>
+</div>
 
-<div class="sint-blocco"><h3><span>5</span>Le leggi di monotonia</h3>
+<div class="sint-blocco"><h3><span>5</span>Le espressioni con i numeri interi</h3>
+<p>Si seguono le regole delle espressioni in ℕ (parentesi, poi potenze, poi moltiplicazioni e divisioni, infine addizioni algebriche), applicando a ogni passaggio le regole dei segni.</p>
+<p class="formula">[(−2)<sup>3</sup> + 5] · (−4) − (−6)<sup>2</sup> : 9 = (−3) · (−4) − 36 : 9 = +12 − 4 = +8</p>
+<ul class="sint-lista">
+<li><span class="mat">−2<sup>4</sup> = −16, (−2)<sup>4</sup> = +16</span><span class="nota">il meno fuori dalla parentesi non fa parte della base</span></li>
+<li><span class="mat"><i>a</i> = −5 → <i>a</i><sup>2</sup> = (−5)<sup>2</sup> = +25</span><span class="nota">nelle espressioni letterali i numeri negativi si sostituiscono tra parentesi</span></li>
+</ul>
+</div>
+
+<div class="sint-blocco"><h3><span>6</span>Uguaglianze, disuguaglianze e leggi di monotonia</h3>
 <table class="tab"><tr><th>Se</th><th>Prima legge</th><th>Seconda legge</th></tr>
 <tr><td><i>a</i> = <i>b</i></td><td><i>a</i> + <i>c</i> = <i>b</i> + <i>c</i></td><td><i>a</i> · <i>c</i> = <i>b</i> · <i>c</i> (con <i>c</i> ≠ 0)</td></tr>
 <tr><td><i>a</i> &lt; <i>b</i></td><td><i>a</i> + <i>c</i> &lt; <i>b</i> + <i>c</i></td><td><i>a</i> · <i>c</i> &lt; <i>b</i> · <i>c</i> se <i>c</i> &gt; 0 &emsp; a · <i>c</i> &gt; <i>b</i> · <i>c</i> se <i>c</i> &lt; 0</td></tr>
 <tr><td><i>a</i> &gt; <i>b</i></td><td><i>a</i> + <i>c</i> &gt; <i>b</i> + <i>c</i></td><td><i>a</i> · <i>c</i> &gt; <i>b</i> · <i>c</i> se <i>c</i> &gt; 0 &emsp; a · <i>c</i> &lt; <i>b</i> · <i>c</i> se <i>c</i> &lt; 0</td></tr></table>
-<p>Moltiplicando i due membri di una disuguaglianza per un numero <b>negativo</b> si deve <b>cambiare il verso</b>. Le leggi inverse si chiamano <b>leggi di cancellazione</b>.</p></div>
+<p>Moltiplicando i due membri di una disuguaglianza per un numero <b>negativo</b> si deve <b>cambiare il verso</b>. Le leggi inverse si chiamano <b>leggi di cancellazione</b>.</p>
+</div>
 `,
 
   /* ------------------------------ TEORIA ------------------------------ */
   paragrafi: [
-  { n: 1, id: "p1", titolo: "Che cosa sono i numeri interi", html: `
+  { n: 1, id: "p1", titolo: "I numeri con il segno", html: `
 <figure class="fig-testo" data-img="termometro"><figcaption>Sul termometro i numeri hanno un segno, a seconda che siano sopra o sotto lo zero.</figcaption></figure><p>Molte grandezze si misurano rispetto a un <b>livello di riferimento</b>. Sul termometro il riferimento è lo 0 °C, la temperatura a cui il ghiaccio fonde. Se fuori ci sono 12 gradi sopra lo zero scriviamo <span class="mat">+12 °C</span>, se ce ne sono 4 sotto lo zero scriviamo <span class="mat">−4 °C</span>. Allo stesso modo un sub a 20 metri sotto il livello del mare si trova a quota −20 m, mentre la vetta di un monte alto 1500 metri è a quota +1500 m.</p>
 <p>Se a ogni numero naturale diverso da zero mettiamo davanti il segno + oppure il segno −, otteniamo due nuovi numeri. Per esempio da 7 si ottengono <span class="mat">+7</span> e <span class="mat">−7</span>. I numeri con il segno + si chiamano <b>positivi</b>, quelli con il segno − si chiamano <b>negativi</b>. Lo <b>0</b> non ha segno: non è né positivo né negativo.</p>
 <div class="anim" data-anim="termometro" data-titolo="Il termometro: sopra e sotto lo zero"></div>
@@ -245,7 +259,7 @@ Se il secondo numero è diverso da 0 e il valore assoluto del primo è multiplo 
 </div>
 `},
 
-  { n: 4, id: "p4", titolo: "La potenza", html: `
+  { n: 4, id: "p4", titolo: "Le potenze in ℤ e le loro proprietà", html: `
 <p>Come in ℕ, la potenza di un intero con esponente naturale è un modo breve di scrivere un prodotto di fattori uguali, per esempio <span class="mat">(−2)<sup>3</sup> = (−2)(−2)(−2)</span>. Il segno del risultato si ricava dalla regola del prodotto dei segni contando i fattori negativi.</p>
 <div class="definizione"><b>Definizione</b>
 La <b>potenza</b> di un numero intero con esponente naturale è un intero che ha
@@ -282,10 +296,6 @@ La <b>potenza</b> di un numero intero con esponente naturale è un intero che ha
 </ul>
 <div class="esempio"><b>Esempio</b>(−6)<sup>4</sup> · 6<sup>3</sup> = 6<sup>4</sup> · 6<sup>3</sup> = 6<sup>7</sup> &emsp; (−6)<sup>5</sup> : 6<sup>2</sup> = −6<sup>5</sup> : 6<sup>2</sup> = −6<sup>3</sup></div>
 
-<h3>Le espressioni con i numeri interi</h3>
-<p>Nelle espressioni con i numeri interi si seguono le stesse regole delle espressioni in ℕ. Si calcolano prima le parentesi (tonde, poi quadre, poi graffe) e, al loro interno, prima le potenze, poi moltiplicazioni e divisioni da sinistra a destra, infine le addizioni algebriche.</p>
-<div class="esempio"><b>Esempio</b>[(−2)<sup>3</sup> + 5] · (−4) − (−6)<sup>2</sup> : 9 = [−8 + 5] · (−4) − 36 : 9 = (−3)(−4) − 4 = +12 − 4 = +8</div>
-
 <div class="curiosita" data-img="lampadina" data-titolo="Acceso, spento, acceso… le potenze di −1">
 <p>Immagina una lampadina comandata da un interruttore. Ogni volta che premi il pulsante, lo stato si inverte. Se +1 vuol dire “accesa” e −1 “spenta”, premere il pulsante equivale a moltiplicare per −1.</p>
 <p>Partendo da accesa (+1), dopo <span class="mat"><i>n</i></span> pressioni la lampadina è nello stato <span class="mat">(−1)<sup><i>n</i></sup></span>. Dopo 2, 4, 6, … pressioni è di nuovo accesa (+1), dopo 1, 3, 5, … pressioni è spenta (−1). Quindi, per sapere come sarà dopo 2027 pressioni, non serve contarle una per una. Basta osservare che 2027 è dispari, perciò (−1)<sup>2027</sup> = −1 e la lampadina sarà spenta.</p>
@@ -293,7 +303,38 @@ La <b>potenza</b> di un numero intero con esponente naturale è un intero che ha
 </div>
 `},
 
-  { n: 5, id: "p5", titolo: "Le leggi di monotonia", html: `
+  { n: 5, id: "p5", titolo: "Le espressioni con i numeri interi", html: `
+<p>Nelle espressioni con i numeri interi si seguono le stesse regole delle espressioni in ℕ. La novità è il <b>segno</b> davanti a ogni numero, che va gestito con le regole viste nei paragrafi precedenti: l'addizione algebrica, la regola del prodotto dei segni, il segno delle potenze.</p>
+<div class="regola"><b>Regola</b>Si calcolano prima le espressioni nelle parentesi tonde, poi nelle quadre, poi nelle graffe. All'interno di ogni parentesi si calcolano prima le potenze, poi moltiplicazioni e divisioni nell'ordine in cui compaiono, infine le addizioni algebriche.</div>
+
+<h3>Un esempio passo passo</h3>
+<div class="esempio"><b>Esempio</b> &emsp; Calcoliamo [(−2)<sup>3</sup> + 5] · (−4) − (−6)<sup>2</sup> : 9.</div>
+<ol class="passaggi">
+<li>Nella parentesi quadra c'è una potenza con base negativa ed esponente dispari, quindi il risultato è negativo. &emsp; <span class="nw">(−2)<sup>3</sup> = <span class="c1">−8</span></span></li>
+<li>Si fa l'addizione algebrica nella parentesi. &emsp; <span class="nw">[<span class="c1">−8</span> + 5] = <span class="c2">−3</span></span></li>
+<li>Fuori dalle parentesi resta una potenza con base negativa ed esponente pari, che è positiva. &emsp; <span class="nw">(−6)<sup>2</sup> = <span class="c3">+36</span></span></li>
+<li>Si fanno moltiplicazione e divisione con la regola del prodotto dei segni. <span class="perche">Meno per meno dà più, più diviso più dà più.</span> &emsp; <span class="nw">(<span class="c2">−3</span>) · (−4) = +12 &emsp; <span class="c3">36</span> : 9 = 4</span></li>
+<li>Resta l'addizione algebrica finale. &emsp; <span class="nw">+12 − 4 = +8</span></li>
+</ol>
+
+<div class="attenzione"><b>Attenzione</b>Un segno meno davanti a una potenza senza parentesi non fa parte della base. Per esempio −2<sup>4</sup> = −16, mentre (−2)<sup>4</sup> = +16. Allo stesso modo −(−3)<sup>2</sup> = −9, perché prima si calcola la potenza (+9) e poi si cambia il segno.</div>
+
+<h3>Le espressioni letterali con i numeri interi</h3>
+<p>Quando in un'espressione letterale si sostituisce alle lettere un numero negativo, il numero va <b>sempre scritto tra parentesi</b>. Così si evitano errori di segno, soprattutto con le potenze.</p>
+<div class="esempio"><b>Esempio</b> &emsp; Calcoliamo <span class="mat"><i>a</i><sup>2</sup> − 3<i>b</i></span> per <span class="mat"><i>a</i> = −5</span> e <span class="mat"><i>b</i> = −2</span>.</div>
+<ol class="passaggi">
+<li>Si sostituiscono i valori, ciascuno tra parentesi. &emsp; <span class="nw">(<span class="c1">−5</span>)<sup>2</sup> − 3 · (<span class="c2">−2</span>)</span></li>
+<li>Si calcola la potenza. <span class="perche">Base negativa ed esponente pari, quindi risultato positivo.</span> &emsp; <span class="nw">= +25 − 3 · (−2)</span></li>
+<li>Si fa la moltiplicazione. &emsp; <span class="nw">= +25 + 6</span></li>
+<li>Si somma. &emsp; <span class="nw">= +31</span></li>
+</ol>
+<p>Senza parentesi si sarebbe potuto scrivere −5<sup>2</sup>, che vale −25, e il risultato sarebbe stato sbagliato.</p>
+
+<h3>Dalle parole alle espressioni</h3>
+<p>Le espressioni con i numeri interi descrivono bene le situazioni in cui una grandezza aumenta e diminuisce, come un saldo, una temperatura, una quota. Per esempio, se la temperatura è di −3 °C, sale di 7 gradi e poi scende di 9, l'espressione −3 + 7 − 9 = −5 dà la temperatura finale, −5 °C.</p>
+`},
+
+  { n: 6, id: "p6", titolo: "Uguaglianze, disuguaglianze e leggi di monotonia", html: `
 <p>Le uguaglianze e le disuguaglianze fra numeri interi hanno due proprietà fondamentali, una per l'addizione e una per la moltiplicazione, chiamate <b>leggi di monotonia</b>. Le useremo moltissimo per risolvere equazioni e disequazioni.</p>
 <figure class="fig-testo" data-img="bilancia"><figcaption>Una bilancia in equilibrio resta in equilibrio se aggiungiamo lo stesso peso sui due piatti.</figcaption></figure>
 <h3>Prima legge di monotonia</h3>
