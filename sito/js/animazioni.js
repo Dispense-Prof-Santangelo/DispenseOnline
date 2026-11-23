@@ -755,5 +755,106 @@
     disegna();
   };
 
+
+  /* ===== CAPITOLO 4 ===== */
+  /* 28 ─ Costruisci un sottoinsieme: ogni elemento dentro (1) o fuori (0) */
+  ANIM.sottoinsiemi = function (el, stampa) {
+    const el4 = [1, 2, 3, 4]; let dentro = stampa ? [true, false, true, false] : [true, false, true, false];
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    el4.forEach((x, i) => bottone(com, "elemento " + x, () => { dentro[i] = !dentro[i]; disegna(); }, true));
+    function disegna() {
+      box.innerHTML = ""; const s = svg(box, 520, 150);
+      S("ellipse", { cx: 200, cy: 78, rx: 180, ry: 64, fill: "#fff", stroke: C.blu, "stroke-width": 2 }, s);
+      S("text", { x: 34, y: 28, "font-size": 18, "font-style": "italic", "font-weight": 700, fill: C.blu, "font-family": "serif" }, s, "A");
+      el4.forEach((x, i) => {
+        const cx = 80 + i * 80;
+        S("circle", { cx, cy: 78, r: 24, fill: dentro[i] ? C.aranc : "#fff", stroke: dentro[i] ? C.arancio : C.grigio, "stroke-width": 2 }, s);
+        S("text", { x: cx, y: 85, "font-size": 20, "text-anchor": "middle", fill: C.testo, "font-family": "serif" }, s, x);
+        S("text", { x: 430 + i * 20, y: 85, "font-size": 22, "text-anchor": "middle", fill: dentro[i] ? C.arancio : C.grigio, "font-family": "monospace", "font-weight": 700 }, s, dentro[i] ? 1 : 0);
+      });
+      S("text", { x: 460, y: 50, "font-size": 12, "text-anchor": "middle", fill: C.testo, "font-family": "serif" }, s, "codice");
+      const B = el4.filter((x, i) => dentro[i]), cod = dentro.map(d => d ? 1 : 0).join("");
+      lett.innerHTML = `<i>B</i> = ${B.length ? "{" + B.join(", ") + "}" : "∅"} &emsp; codice ${cod} &emsp; ` +
+        (B.length === 0 ? "è l'insieme vuoto, sottoinsieme improprio. " : B.length === 4 ? "è <i>A</i> stesso, sottoinsieme improprio. " : "è un sottoinsieme proprio di <i>A</i>. ") +
+        `Ogni elemento ha 2 scelte, quindi i sottoinsiemi di <i>A</i> sono 2<sup>4</sup> = 16.`;
+    }
+    disegna();
+  };
+
+  /* 29 ─ Le operazioni fra insiemi sul diagramma di Eulero-Venn */
+  ANIM.operazioni = function (el, stampa) {
+    const U = [1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 18], A = [1, 2, 3, 4, 6, 12], B = [1, 2, 3, 6, 9, 18];
+    const pos = { 4: [120, 70], 12: [112, 112], 1: [200, 56], 2: [214, 94], 3: [200, 128], 6: [186, 94], 9: [282, 78], 18: [290, 116], 5: [44, 40], 7: [372, 44], 8: [372, 150] };
+    const OP = [["A ∩ B", (a, b) => a && b], ["A ∪ B", (a, b) => a || b], ["A − B", (a, b) => a && !b], ["B − A", (a, b) => b && !a],
+      ["complementare di A", (a, b) => !a], ["complementare di A ∪ B", (a, b) => !(a || b)]];
+    let k = 0; let n = 0;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    OP.forEach((o, i) => bottone(com, o[0], () => { k = i; disegna(); }, true));
+    function disegna() {
+      box.innerHTML = ""; const s = svg(box, 420, 180); n++;
+      const id = "op" + Math.random().toString(36).slice(2, 7);
+      const d = S("defs", {}, s);
+      const zone = [[true, true], [true, false], [false, true], [false, false]];
+      const cA = { cx: 155, cy: 90, r: 72 }, cB = { cx: 245, cy: 90, r: 72 };
+      zone.forEach(([a, b], z) => {
+        if (!OP[k][1](a, b)) return;
+        let g = S("g", {}, s), inner = g;
+        if (a) { const cp = S("clipPath", { id: id + "a" + z }, d); S("circle", cA, cp); inner = S("g", { "clip-path": `url(#${id}a${z})` }, inner); }
+        if (b) { const cp = S("clipPath", { id: id + "b" + z }, d); S("circle", cB, cp); inner = S("g", { "clip-path": `url(#${id}b${z})` }, inner); }
+        if (!a || !b) {
+          const m = S("mask", { id: id + "m" + z }, d); S("rect", { x: 0, y: 0, width: 420, height: 180, fill: "#fff" }, m);
+          if (!a) S("circle", Object.assign({ fill: "#000" }, cA), m); if (!b) S("circle", Object.assign({ fill: "#000" }, cB), m);
+          inner.setAttribute("mask", `url(#${id}m${z})`);
+        }
+        S("rect", { x: 0, y: 0, width: 420, height: 180, fill: "#f6d58e" }, inner);
+      });
+      S("rect", { x: 2, y: 2, width: 416, height: 176, fill: "none", stroke: C.testo, "stroke-width": 1.5 }, s);
+      S("text", { x: 12, y: 22, "font-size": 17, "font-style": "italic", "font-weight": 700, fill: C.testo, "font-family": "serif" }, s, "U");
+      S("circle", Object.assign({ fill: "none", stroke: C.blu, "stroke-width": 2.2 }, cA), s);
+      S("circle", Object.assign({ fill: "none", stroke: "#c8621f", "stroke-width": 2.2 }, cB), s);
+      S("text", { x: 96, y: 30, "font-size": 18, "font-style": "italic", "font-weight": 700, fill: C.blu, "font-family": "serif" }, s, "A");
+      S("text", { x: 304, y: 30, "font-size": 18, "font-style": "italic", "font-weight": 700, fill: "#c8621f", "font-family": "serif" }, s, "B");
+      const ris = U.filter(x => OP[k][1](A.includes(x), B.includes(x)));
+      U.forEach(x => S("text", { x: pos[x][0], y: pos[x][1] + 6, "font-size": 16, "text-anchor": "middle", fill: ris.includes(x) ? C.rosso : C.testo, "font-weight": ris.includes(x) ? 700 : 400, "font-family": "serif" }, s, x));
+      const nome = ["<i>A</i> ∩ <i>B</i>", "<i>A</i> ∪ <i>B</i>", "<i>A</i> − <i>B</i>", "<i>B</i> − <i>A</i>", '<span class="compl"><i>A</i></span>', '<span class="compl"><i>A</i> ∪ <i>B</i></span>'][k];
+      lett.innerHTML = `${nome} = ${ris.length ? "{" + ris.join(", ") + "}" : "∅"} &emsp; <i>A</i> = divisori di 12, <i>B</i> = divisori di 18, <i>U</i> = {1, 2, …, 9, 12, 18}.`;
+    }
+    disegna();
+  };
+
+  /* 30 ─ Connettivi e interruttori: in serie (e), in parallelo (o) */
+  ANIM.circuito = function (el, stampa) {
+    let p = true, q = stampa ? false : true, serie = true;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    bottone(com, "interruttore p", () => { p = !p; disegna(); }, true);
+    bottone(com, "interruttore q", () => { q = !q; disegna(); }, true);
+    bottone(com, "serie / parallelo", () => { serie = !serie; disegna(); });
+    function interr(s, x, y, chiuso, nome) {
+      S("circle", { cx: x, cy: y, r: 4, fill: "#fff", stroke: C.testo, "stroke-width": 2 }, s);
+      S("circle", { cx: x + 50, cy: y, r: 4, fill: "#fff", stroke: C.testo, "stroke-width": 2 }, s);
+      S("line", { x1: x + 4, y1: y, x2: chiuso ? x + 46 : x + 40, y2: chiuso ? y : y - 22, stroke: chiuso ? C.verde : C.rosso, "stroke-width": 4 }, s);
+      S("text", { x: x + 25, y: y - 26, "font-size": 16, "font-style": "italic", "text-anchor": "middle", fill: C.blu, "font-family": "serif", "font-weight": 700 }, s, nome);
+      S("text", { x: x + 25, y: y + 22, "font-size": 13, "text-anchor": "middle", fill: chiuso ? C.verde : C.rosso, "font-family": "serif", "font-weight": 700 }, s, chiuso ? "chiuso · V" : "aperto · F");
+    }
+    function disegna() {
+      box.innerHTML = ""; const s = svg(box, 560, 190);
+      const acceso = serie ? p && q : p || q, L = (d, c) => S("path", { d, fill: "none", stroke: c || C.testo, "stroke-width": 2.4 }, s);
+      S("rect", { x: 20, y: 90, width: 24, height: 34, fill: "#fff", stroke: C.testo, "stroke-width": 2 }, s);
+      S("text", { x: 32, y: 112, "font-size": 14, "text-anchor": "middle", "font-family": "serif" }, s, "+");
+      if (serie) { L("M32 90 V50 H100"); interr(s, 100, 50, p, "p"); L("M154 50 H220"); interr(s, 220, 50, q, "q"); L("M274 50 H300 V120 H338 M382 120 H400 V170 H32 V124"); }
+      else { L("M32 90 V80 H80 M80 40 V120 M80 40 H120 M80 120 H120"); interr(s, 120, 40, p, "p"); interr(s, 120, 120, q, "q"); L("M174 40 H220 V120 H174 M220 80 H300 V120 H338 M382 120 H400 V170 H32 V124"); }
+      S("circle", { cx: 360, cy: 120, r: 22, fill: acceso ? "#ffd84a" : "#e9e6df", stroke: C.testo, "stroke-width": 2 }, s);
+      if (acceso) for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4; S("line", { x1: 360 + 28 * Math.cos(a), y1: 120 + 28 * Math.sin(a), x2: 360 + 38 * Math.cos(a), y2: 120 + 38 * Math.sin(a), stroke: "#e0a800", "stroke-width": 3 }, s); }
+      const op = serie ? "∧" : "∨", vf = b => b ? "V" : "F";
+      let t = `<table class="tab tav" style="margin:0"><tr><th><i>p</i></th><th><i>q</i></th><th><i>p</i> ${op} <i>q</i></th></tr>`;
+      [[true, true], [true, false], [false, true], [false, false]].forEach(([a, b]) => { const r = serie ? a && b : a || b;
+        t += `<tr${a === p && b === q ? ' class="evid"' : ""}><td>${vf(a)}</td><td>${vf(b)}</td><td>${vf(r)}</td></tr>`; });
+      const fo = document.createElementNS(NS, "foreignObject"); fo.setAttribute("x", 420); fo.setAttribute("y", 14); fo.setAttribute("width", 140); fo.setAttribute("height", 170);
+      fo.innerHTML = `<div xmlns="http://www.w3.org/1999/xhtml" style="font-size:14px">${t}</table></div>`; s.appendChild(fo);
+      lett.innerHTML = `Interruttori in <b>${serie ? "serie" : "parallelo"}</b>, come <i>p</i> ${op} <i>q</i>. <i>p</i> è ${vf(p)}, <i>q</i> è ${vf(q)} &emsp; la lampadina è <b>${acceso ? "accesa (V)" : "spenta (F)"}</b>.`;
+    }
+    disegna();
+  };
+
   window.ANIM = ANIM;
 })();

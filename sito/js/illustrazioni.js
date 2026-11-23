@@ -160,6 +160,51 @@
   I.torta = s(`${Array.from({length:8},(_,i)=>{const a1=-Math.PI/2+i*Math.PI/4,a2=a1+Math.PI/4;return `<path d="M80 60 L${80+46*Math.cos(a1)} ${60+46*Math.sin(a1)} A46 46 0 0 1 ${80+46*Math.cos(a2)} ${60+46*Math.sin(a2)} Z" fill="${i<3?A:C}" stroke="${K}" stroke-width="1.4"/>`}).join("")}
     ${fz(140,52,"3","8",A,13)}`);
 
+  /* ---- capitolo 4: insiemi e logica ---- */
+  /* barbiere: rasoio, pettine e un grande punto di domanda */
+  I.barbiere = s(`<rect x="0" y="100" width="160" height="20" fill="${L}"/>
+    <rect x="22" y="14" width="10" height="70" fill="#fff" stroke="${K}" stroke-width="1.5"/>${[0,1,2,3,4].map(i=>`<path d="M22 ${20+i*14} L32 ${27+i*14}" stroke="${R}" stroke-width="4"/><path d="M22 ${27+i*14} L32 ${34+i*14}" stroke="${B}" stroke-width="2"/>`).join("")}
+    <circle cx="27" cy="10" r="6" fill="${G}"/><rect x="24" y="84" width="6" height="16" fill="${K}"/>
+    <path d="M58 64 L104 40 L110 48 L66 74 Z" fill="#cfd6df" stroke="${K}" stroke-width="1.5"/><path d="M58 64 L44 74 Q40 80 46 82 L66 74 Z" fill="${A}" stroke="${K}" stroke-width="1.2"/>
+    <rect x="60" y="86" width="58" height="9" fill="${K}"/>${[...Array(12)].map((_,i)=>`<rect x="${62+i*4.6}" y="93" width="2" height="8" fill="${K}"/>`).join("")}
+    <text x="138" y="70" font-size="54" text-anchor="middle" font-family="serif" font-weight="700" fill="${R}">?</text>`);
+  /* ricerca: casella di testo con due cerchi che si intersecano */
+  I.motore = s(`<rect x="8" y="10" width="144" height="26" fill="#fff" stroke="${K}" stroke-width="1.6"/><text x="16" y="28" font-size="12" font-family="monospace" fill="${K}">Venn AND Eulero</text>
+    <circle cx="136" cy="22" r="6" fill="none" stroke="${B}" stroke-width="2"/><path d="M140 26 l6 6" stroke="${B}" stroke-width="2.4"/>
+    <circle cx="64" cy="78" r="30" fill="${B}" opacity=".25" stroke="${B}" stroke-width="2"/><circle cx="96" cy="78" r="30" fill="${A}" opacity=".25" stroke="${A}" stroke-width="2"/>
+    <path d="M80 53 A30 30 0 0 1 80 103 A30 30 0 0 1 80 53Z" fill="${G}"/>
+    <text x="48" y="82" font-size="11" text-anchor="middle" font-family="serif" fill="${B}" font-weight="700">Venn</text><text x="113" y="82" font-size="11" text-anchor="middle" font-family="serif" fill="${A}" font-weight="700">Eulero</text>`);
+  /* albero di classificazione */
+  I.linneo = s(`${[[80,14,"viventi",K]].map(([x,y,t,c])=>`<rect x="${x-30}" y="${y-10}" width="60" height="16" fill="${C}" stroke="${c}"/><text x="${x}" y="${y+2}" font-size="10" text-anchor="middle" font-family="serif" fill="${c}">${t}</text>`).join("")}
+    ${[[36,"animali",A],[124,"piante",V]].map(([x,t,c])=>`<line x1="80" y1="20" x2="${x}" y2="44" stroke="${K}"/><rect x="${x-28}" y="44" width="56" height="16" fill="${C}" stroke="${c}"/><text x="${x}" y="56" font-size="10" text-anchor="middle" font-family="serif" fill="${c}">${t}</text>`).join("")}
+    ${[[14,"uccelli"],[40,"pesci"],[66,"insetti"]].map(([x,t])=>`<line x1="36" y1="60" x2="${x}" y2="84" stroke="${K}"/><text x="${x}" y="96" font-size="9" text-anchor="middle" font-family="serif" fill="${A}">${t}</text>`).join("")}
+    ${[[104,"felci"],[146,"fiori"]].map(([x,t])=>`<line x1="124" y1="60" x2="${x}" y2="84" stroke="${K}"/><text x="${x}" y="96" font-size="9" text-anchor="middle" font-family="serif" fill="${V}">${t}</text>`).join("")}
+    <path d="M10 108 h140" stroke="${L}" stroke-width="3"/>`);
+  /* vetrata con tre cerchi */
+  I.vetrata = s(`<path d="M30 116 V44 A50 50 0 0 1 130 44 V116Z" fill="#26324a" stroke="${K}" stroke-width="3"/>
+    <circle cx="68" cy="58" r="24" fill="${B}" opacity=".75"/><circle cx="92" cy="58" r="24" fill="${R}" opacity=".7"/><circle cx="80" cy="79" r="24" fill="${G}" opacity=".7"/>
+    ${[68,92].map(x=>`<circle cx="${x}" cy="58" r="24" fill="none" stroke="${K}" stroke-width="1.6"/>`).join("")}<circle cx="80" cy="79" r="24" fill="none" stroke="${K}" stroke-width="1.6"/>
+    <path d="M30 104 H130" stroke="${K}" stroke-width="2"/><path d="M80 104 V116" stroke="${K}" stroke-width="2"/>`);
+  /* circuito: interruttori in serie e lampadina */
+  I.circuito = s(`<path d="M18 30 H52 M76 22 L56 30 M80 30 H100 M124 22 L104 30 M128 30 H142 V96 H18 V30" fill="none" stroke="${K}" stroke-width="2.4"/>
+    ${[52,76,100,124].map(x=>`<circle cx="${x}" cy="30" r="3.4" fill="${C}" stroke="${K}" stroke-width="1.6"/>`).join("")}
+    <circle cx="80" cy="96" r="13" fill="${G}" stroke="${K}" stroke-width="2"/><path d="M73 89 l14 14 M87 89 l-14 14" stroke="${K}" stroke-width="1.6"/>
+    <rect x="10" y="56" width="16" height="18" fill="${C}" stroke="${K}" stroke-width="1.8"/><text x="18" y="69" font-size="11" text-anchor="middle" font-family="serif" fill="${K}">+</text>
+    <text x="64" y="16" font-size="11" text-anchor="middle" font-family="serif" fill="${B}" font-weight="700">p</text><text x="112" y="16" font-size="11" text-anchor="middle" font-family="serif" fill="${B}" font-weight="700">q</text>
+    <text x="80" y="62" font-size="13" text-anchor="middle" font-family="serif" fill="${R}" font-weight="700">p ∧ q</text>`);
+  /* cane accucciato e silenzioso, luna */
+  I.cane = s(`<rect x="0" y="0" width="160" height="120" fill="#26324a"/><circle cx="130" cy="24" r="12" fill="${G}"/><circle cx="135" cy="20" r="11" fill="#26324a"/>
+    <rect x="0" y="96" width="160" height="24" fill="#3a3527"/>
+    <ellipse cx="74" cy="88" rx="38" ry="14" fill="#a3743f"/><circle cx="112" cy="78" r="13" fill="#a3743f"/><path d="M104 70 q-6 -12 2 -14 q4 6 4 12z" fill="#6e4a26"/>
+    <ellipse cx="124" cy="82" rx="7" ry="5" fill="#a3743f"/><circle cx="130" cy="81" r="2.2" fill="${K}"/><path d="M110 78 q3 2 6 0" stroke="${K}" stroke-width="1.4" fill="none"/>
+    <path d="M38 88 q-14 -6 -12 6" stroke="#a3743f" stroke-width="5" fill="none"/>
+    <text x="40" y="40" font-size="13" font-family="serif" fill="#fff" font-style="italic">zzz…</text>`);
+  /* n² + n + 41 */
+  I.eulero41 = s(`<rect x="10" y="8" width="140" height="104" fill="#fff" stroke="${K}" stroke-width="1.4"/>
+    <text x="80" y="28" font-size="13" text-anchor="middle" font-family="serif" fill="${B}" font-style="italic">n² + n + 41</text>
+    ${[["0","41",V],["1","43",V],["2","47",V],["…","…",K],["39","1601",V],["40","1681 = 41²",R]].map(([n,v,c],i)=>`<text x="40" y="${46+i*12}" font-size="10" text-anchor="middle" font-family="serif" fill="${K}">${n}</text><text x="98" y="${46+i*12}" font-size="10" text-anchor="middle" font-family="serif" fill="${c}" font-weight="700">${v}</text>`).join("")}
+    <line x1="62" y1="36" x2="62" y2="110" stroke="${L}" stroke-width="1.4"/>`);
+
   /* ---- FOTO REALI (immagini solo illustrative): file in img/, licenze libere da Wikimedia Commons ----
      Le figure matematiche/geometriche restano disegni SVG qui sopra. */
   const FOTO = {

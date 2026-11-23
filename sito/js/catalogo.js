@@ -55,7 +55,8 @@ window.SCUOLA = {
   stato: {
     cap1: "in revisione",
     cap2: "in revisione",
-    cap3: "in revisione"
+    cap3: "in revisione",
+    cap4: "in revisione"
   },
 
   /* ---------- PIANI: capitoli di ogni disciplina per percorso e anno ----------
@@ -67,8 +68,7 @@ window.SCUOLA = {
       "scientifico-1": {
         pdf: "pdf/matematica-primo-anno.pdf", pdfNome: "Matematica - Primo anno.pdf",
         parti: [
-          { titolo: "Aritmetica e algebra", capitoli: ["cap1", "cap2", "cap3",
-            { titolo: "Gli insiemi e la logica" }, { titolo: "Relazioni e funzioni" }, { titolo: "I monomi" },
+          { titolo: "Aritmetica e algebra", capitoli: ["cap1", "cap2", "cap3", "cap4", { titolo: "Relazioni e funzioni" }, { titolo: "I monomi" },
             { titolo: "I polinomi e i prodotti notevoli" }, { titolo: "La scomposizione in fattori" },
             { titolo: "Le frazioni algebriche" }, { titolo: "Le equazioni lineari" }, { titolo: "Le disequazioni lineari" }] },
           { titolo: "Dati e previsioni", capitoli: [{ titolo: "Introduzione alla statistica" }] },

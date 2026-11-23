@@ -684,3 +684,22 @@ a.bottone-tema:hover .sfondo-tema{color:#fff}
    (per gli elementi inline-block il margine conta nell'altezza della riga) */
 .gp{margin-top:.3em;margin-bottom:.3em}
 .esempio:has(.fr),.esempio:has(.gp){line-height:2.2}
+
+/* ====== CAPITOLO 4 — insiemi e logica ====== */
+/* complementare di un insieme e negazione di una proposizione: segno sopra */
+.compl{text-decoration:overline;text-decoration-thickness:1.3px;text-decoration-skip-ink:none}
+/* tavole di verità */
+table.tav{width:auto;margin:10px auto;border-collapse:collapse}
+table.tav th,table.tav td{text-align:center;padding:4px 14px}
+table.tab-es.tav td{min-width:2.4em;height:1.6em}
+table.tav tr.evid td{background:#fdf3d6}
+.tav-lato{margin:4px 0}
+.tav-lato table.tav{margin:4px auto 12px}
+/* schemi di ragionamento: premesse sopra, conclusione sotto la linea */
+.schema{display:inline-block;margin:4px 0 12px 28px;padding:2px 18px;font-size:1.2rem;border-left:3px solid var(--blu-chiaro)}
+.schema div{padding:2px 0}
+.schema .linea{border-top:1.5px solid var(--testo);margin-top:3px;padding-top:4px}
+.due-schemi{display:flex;flex-wrap:wrap;gap:12px 48px}
+@media screen and (max-width:600px){.tav-lato{float:none}.tav-lato table.tav{margin:8px auto}}
+@media print{.tav-lato{break-inside:avoid}.schema{break-inside:avoid}table.tav{break-inside:avoid}}
+@media screen and (max-width:600px){table.tav{display:table;white-space:normal;margin:8px auto}}
