@@ -35,11 +35,11 @@ LIBRO.capitoli.cap1 = {
   /* ------------------------- TEORIA IN SINTESI (chiusura) ------------------------- */
   sintesi: `
 <div class="sint-blocco"><h3><span>1</span>Che cosa sono i numeri naturali</h3>
-<p>I numeri naturali sono <span class="mat">ℕ = {0, 1, 2, 3, …}</span>. Ogni numero <span class="mat">n</span> ha un <b>successivo</b> <span class="mat">n + 1</span>; ogni numero diverso da 0 ha un <b>precedente</b> <span class="mat">n − 1</span>. Lo 0 è il più piccolo numero naturale e non esiste un numero naturale più grande di tutti.</p>
+<p>I numeri naturali sono <span class="mat">ℕ = {0, 1, 2, 3, …}</span>. Ogni numero <span class="mat"><i>n</i></span> ha un <b>successivo</b> <span class="mat"><i>n</i> + 1</span>; ogni numero diverso da 0 ha un <b>precedente</b> <span class="mat"><i>n</i> − 1</span>. Lo 0 è il più piccolo numero naturale e non esiste un numero naturale più grande di tutti.</p>
 <p>Due numeri si confrontano con i simboli <span class="mat">=</span> &ensp;<span class="mat">≠</span> &ensp;<span class="mat">&lt;</span> &ensp;<span class="mat">&gt;</span> &ensp;<span class="mat">≤</span> &ensp;<span class="mat">≥</span></p>
 <ul class="sint-lista">
-<li><span class="mat">2k</span><span class="nota">numeri <b>pari</b> (0, 2, 4, 6, …)</span></li>
-<li><span class="mat">2k + 1</span><span class="nota">numeri <b>dispari</b> (1, 3, 5, 7, …)</span></li>
+<li><span class="mat">2<i>k</i></span><span class="nota">numeri <b>pari</b> (0, 2, 4, 6, …)</span></li>
+<li><span class="mat">2<i>k</i> + 1</span><span class="nota">numeri <b>dispari</b> (1, 3, 5, 7, …)</span></li>
 </ul></div>
 
 <div class="sint-blocco"><h3><span>2</span>Le quattro operazioni</h3>
@@ -48,24 +48,24 @@ LIBRO.capitoli.cap1 = {
 <tr><td>moltiplicazione</td><td>fattori</td><td>prodotto</td><td>sì</td></tr>
 <tr><td>sottrazione</td><td>minuendo, sottraendo</td><td>differenza</td><td>solo se il minuendo è ≥ del sottraendo</td></tr>
 <tr><td>divisione</td><td>dividendo, divisore</td><td>quoziente</td><td>solo se il dividendo è multiplo del divisore</td></tr></table>
-<p><b>Divisione con resto.</b> Dati <span class="mat">a</span> e <span class="mat">b ≠ 0</span>, si ha <span class="mat">a = b · q + r</span> con <span class="mat">r &lt; b</span>. Per esempio 23 = 5 · 4 + 3.</p>
+<p><b>Divisione con resto.</b> Dati <span class="mat"><i>a</i></span> e <span class="mat"><i>b</i> ≠ 0</span>, si ha <span class="mat"><i>a</i> = <i>b</i> · <i>q</i> + <i>r</i></span> con <span class="mat"><i>r</i> &lt; <i>b</i></span>. Per esempio 23 = 5 · 4 + 3.</p>
 <p><b>Lo 0 e l'1</b></p>
 <ul class="sint-lista">
-<li><span class="mat">a + 0 = a</span><span class="nota">lo 0 è l'elemento neutro dell'addizione</span></li>
-<li><span class="mat">a · 1 = a</span><span class="nota">l'1 è l'elemento neutro della moltiplicazione</span></li>
-<li><span class="mat">a · 0 = 0</span><span class="nota">lo 0 è l'elemento assorbente della moltiplicazione</span></li>
-<li><span class="mat">0 : a = 0</span><span class="nota">con a ≠ 0</span></li>
-<li><span class="mat">a : 0</span><span class="nota"><b>impossibile</b> se a ≠ 0</span></li>
+<li><span class="mat"><i>a</i> + 0 = a</span><span class="nota">lo 0 è l'elemento neutro dell'addizione</span></li>
+<li><span class="mat"><i>a</i> · 1 = <i>a</i></span><span class="nota">l'1 è l'elemento neutro della moltiplicazione</span></li>
+<li><span class="mat"><i>a</i> · 0 = 0</span><span class="nota">lo 0 è l'elemento assorbente della moltiplicazione</span></li>
+<li><span class="mat">0 : <i>a</i> = 0</span><span class="nota">con <i>a</i> ≠ 0</span></li>
+<li><span class="mat"><i>a</i> : 0</span><span class="nota"><b>impossibile</b> se <i>a</i> ≠ 0</span></li>
 <li><span class="mat">0 : 0</span><span class="nota"><b>indeterminata</b></span></li>
 </ul></div>
 
 <div class="sint-blocco"><h3><span>3</span>Le potenze</h3>
-<p>La potenza <span class="mat">a<sup>n</sup></span> è il prodotto di <span class="mat">n</span> fattori uguali ad <span class="mat">a</span>. La <b>base</b> è <span class="mat">a</span>, l'<b>esponente</b> è <span class="mat">n</span>. Per esempio 2<sup>5</sup> = 2 · 2 · 2 · 2 · 2 = 32.</p>
+<p>La potenza <span class="mat"><i>a</i><sup><i>n</i></sup></span> è il prodotto di <span class="mat"><i>n</i></span> fattori uguali ad <span class="mat">a</span>. La <b>base</b> è <span class="mat">a</span>, l'<b>esponente</b> è <span class="mat"><i>n</i></span>. Per esempio 2<sup>5</sup> = 2 · 2 · 2 · 2 · 2 = 32.</p>
 <ul class="sint-lista">
-<li><span class="mat">a<sup>1</sup> = a</span><span class="nota">esponente 1</span></li>
-<li><span class="mat">a<sup>0</sup> = 1</span><span class="nota">esponente 0, con a ≠ 0</span></li>
-<li><span class="mat">1<sup>n</sup> = 1</span><span class="nota">base 1</span></li>
-<li><span class="mat">0<sup>n</sup> = 0</span><span class="nota">base 0, con n ≠ 0</span></li>
+<li><span class="mat"><i>a</i><sup>1</sup> = a</span><span class="nota">esponente 1</span></li>
+<li><span class="mat"><i>a</i><sup>0</sup> = 1</span><span class="nota">esponente 0, con <i>a</i> ≠ 0</span></li>
+<li><span class="mat">1<sup><i>n</i></sup> = 1</span><span class="nota">base 1</span></li>
+<li><span class="mat">0<sup><i>n</i></sup> = 0</span><span class="nota">base 0, con <i>n</i> ≠ 0</span></li>
 <li><span class="mat">0<sup>0</sup></span><span class="nota">non ha significato</span></li>
 </ul></div>
 
@@ -73,32 +73,32 @@ LIBRO.capitoli.cap1 = {
 <p><b>Ordine di calcolo.</b> Prima le parentesi, dalle tonde alle quadre alle graffe. Dentro ogni parentesi si calcolano prima le potenze, poi moltiplicazioni e divisioni nell'ordine in cui compaiono, infine addizioni e sottrazioni nell'ordine in cui compaiono.</p>
 <p class="formula">[(2 + 3)<sup>2</sup> − 5 · 3] : 2 = [25 − 15] : 2 = 10 : 2 = 5</p>
 <p>In un'<b>espressione letterale</b> le lettere (variabili) stanno al posto dei numeri. Per calcolarne il valore si sostituiscono i numeri alle lettere.</p>
-<table class="tab"><tr><th>A parole</th><th>Con i simboli</th><th>Con a = 3 e b = 4</th></tr>
-<tr><td>il quadrato della somma di a e b</td><td>(a + b)<sup>2</sup></td><td>7<sup>2</sup> = 49</td></tr>
-<tr><td>la somma dei quadrati di a e b</td><td>a<sup>2</sup> + b<sup>2</sup></td><td>9 + 16 = 25</td></tr>
-<tr><td>il doppio del successivo di a</td><td>2(a + 1)</td><td>2 · 4 = 8</td></tr></table></div>
+<table class="tab"><tr><th>A parole</th><th>Con i simboli</th><th>Con <i>a</i> = 3 e <i>b</i> = 4</th></tr>
+<tr><td>il quadrato della somma di <i>a</i> e <i>b</i></td><td>(<i>a</i> + <i>b</i>)<sup>2</sup></td><td>7<sup>2</sup> = 49</td></tr>
+<tr><td>la somma dei quadrati di <i>a</i> e <i>b</i></td><td><i>a</i><sup>2</sup> + <i>b</i><sup>2</sup></td><td>9 + 16 = 25</td></tr>
+<tr><td>il doppio del successivo di a</td><td>2(<i>a</i> + 1)</td><td>2 · 4 = 8</td></tr></table></div>
 
 <div class="sint-blocco"><h3><span>5</span>Le proprietà delle operazioni</h3>
 <table class="tab"><tr><th>Proprietà</th><th>Vale per</th><th>Espressione</th></tr>
-<tr><td>commutativa</td><td>addizione, moltiplicazione</td><td>a + b = b + a<br>a · b = b · a</td></tr>
-<tr><td>associativa</td><td>addizione, moltiplicazione</td><td>(a + b) + c = a + (b + c)<br>(a · b) · c = a · (b · c)</td></tr>
-<tr><td>distributiva</td><td>moltiplicazione rispetto ad addizione e sottrazione</td><td>a · (b + c) = a · b + a · c<br>a · (b − c) = a · b − a · c</td></tr>
-<tr><td>distributiva a destra</td><td>divisione rispetto ad addizione e sottrazione</td><td>(a + b) : c = a : c + b : c<br><small>c ≠ 0, divisioni esatte</small></td></tr>
-<tr><td>invariantiva</td><td>sottrazione</td><td>a − b = (a + c) − (b + c)</td></tr>
-<tr><td>invariantiva</td><td>divisione</td><td>a : b = (a · c) : (b · c)<br><small>b ≠ 0, c ≠ 0</small></td></tr></table>
+<tr><td>commutativa</td><td>addizione, moltiplicazione</td><td><i>a</i> + <i>b</i> = <i>b</i> + <i>a</i><br><i>a</i> · <i>b</i> = <i>b</i> · <i>a</i></td></tr>
+<tr><td>associativa</td><td>addizione, moltiplicazione</td><td>(<i>a</i> + <i>b</i>) + <i>c</i> = <i>a</i> + (<i>b</i> + <i>c</i>)<br>(<i>a</i> · <i>b</i>) · <i>c</i> = <i>a</i> · (<i>b</i> · <i>c</i>)</td></tr>
+<tr><td>distributiva</td><td>moltiplicazione rispetto ad addizione e sottrazione</td><td><i>a</i> · (<i>b</i> + <i>c</i>) = <i>a</i> · <i>b</i> + <i>a</i> · <i>c</i><br><i>a</i> · (<i>b</i> − <i>c</i>) = <i>a</i> · <i>b</i> − <i>a</i> · <i>c</i></td></tr>
+<tr><td>distributiva a destra</td><td>divisione rispetto ad addizione e sottrazione</td><td>(<i>a</i> + <i>b</i>) : <i>c</i> = <i>a</i> : <i>c</i> + <i>b</i> : <i>c</i><br><small><i>c</i> ≠ 0, divisioni esatte</small></td></tr>
+<tr><td>invariantiva</td><td>sottrazione</td><td><i>a</i> − <i>b</i> = (<i>a</i> + <i>c</i>) − (<i>b</i> + <i>c</i>)</td></tr>
+<tr><td>invariantiva</td><td>divisione</td><td><i>a</i> : <i>b</i> = (<i>a</i> · <i>c</i>) : (<i>b</i> · <i>c</i>)<br><small><i>b</i> ≠ 0, <i>c</i> ≠ 0</small></td></tr></table>
 </div>
 
 <div class="sint-blocco"><h3><span>6</span>Le proprietà delle potenze</h3>
 <table class="tab"><tr><th>Proprietà</th><th>Espressione</th><th>Esempio</th></tr>
-<tr><td>prodotto di potenze con la stessa base</td><td>a<sup>m</sup> · a<sup>n</sup> = a<sup>m + n</sup></td><td>3<sup>2</sup> · 3<sup>4</sup> = 3<sup>6</sup></td></tr>
-<tr><td>quoziente di potenze con la stessa base</td><td>a<sup>m</sup> : a<sup>n</sup> = a<sup>m − n</sup><br><small>a ≠ 0, m ≥ n</small></td><td>7<sup>5</sup> : 7<sup>2</sup> = 7<sup>3</sup></td></tr>
-<tr><td>potenza di una potenza</td><td>(a<sup>m</sup>)<sup>n</sup> = a<sup>m · n</sup></td><td>(2<sup>3</sup>)<sup>4</sup> = 2<sup>12</sup></td></tr>
-<tr><td>prodotto di potenze con lo stesso esponente</td><td>a<sup>n</sup> · b<sup>n</sup> = (a · b)<sup>n</sup></td><td>4<sup>3</sup> · 5<sup>3</sup> = 20<sup>3</sup></td></tr>
-<tr><td>quoziente di potenze con lo stesso esponente</td><td>a<sup>n</sup> : b<sup>n</sup> = (a : b)<sup>n</sup><br><small>b ≠ 0, a multiplo di b</small></td><td>18<sup>2</sup> : 6<sup>2</sup> = 3<sup>2</sup></td></tr></table>
-<p>Attenzione, non esistono regole per la somma: in generale <span class="mat">(a + b)<sup>2</sup> ≠ a<sup>2</sup> + b<sup>2</sup></span>.</p></div>
+<tr><td>prodotto di potenze con la stessa base</td><td><i>a</i><sup><i>m</i></sup> · <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i> + <i>n</i></sup></td><td>3<sup>2</sup> · 3<sup>4</sup> = 3<sup>6</sup></td></tr>
+<tr><td>quoziente di potenze con la stessa base</td><td><i>a</i><sup><i>m</i></sup> : <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i> − <i>n</i></sup><br><small><i>a</i> ≠ 0, <i>m</i> ≥ <i>n</i></small></td><td>7<sup>5</sup> : 7<sup>2</sup> = 7<sup>3</sup></td></tr>
+<tr><td>potenza di una potenza</td><td>(<i>a</i><sup><i>m</i></sup>)<sup><i>n</i></sup> = <i>a</i><sup><i>m</i> · <i>n</i></sup></td><td>(2<sup>3</sup>)<sup>4</sup> = 2<sup>12</sup></td></tr>
+<tr><td>prodotto di potenze con lo stesso esponente</td><td><i>a</i><sup><i>n</i></sup> · <i>b</i><sup><i>n</i></sup> = (<i>a</i> · <i>b</i>)<sup><i>n</i></sup></td><td>4<sup>3</sup> · 5<sup>3</sup> = 20<sup>3</sup></td></tr>
+<tr><td>quoziente di potenze con lo stesso esponente</td><td><i>a</i><sup><i>n</i></sup> : <i>b</i><sup><i>n</i></sup> = (<i>a</i> : <i>b</i>)<sup><i>n</i></sup><br><small><i>b</i> ≠ 0, a multiplo di <i>b</i></small></td><td>18<sup>2</sup> : 6<sup>2</sup> = 3<sup>2</sup></td></tr></table>
+<p>Attenzione, non esistono regole per la somma: in generale <span class="mat">(<i>a</i> + <i>b</i>)<sup>2</sup> ≠ <i>a</i><sup>2</sup> + <i>b</i><sup>2</sup></span>.</p></div>
 
 <div class="sint-blocco"><h3><span>7</span>Multipli e divisori</h3>
-<p><span class="mat">a</span> è <b>multiplo</b> di <span class="mat">b</span>, e <span class="mat">b</span> è <b>divisore</b> di <span class="mat">a</span>, se esiste un numero naturale <span class="mat">c</span> tale che <span class="mat">a = b · c</span>. Per esempio 42 = 6 · 7, quindi 42 è multiplo di 6 e di 7, mentre 6 e 7 sono divisori di 42.</p>
+<p><span class="mat"><i>a</i></span> è <b>multiplo</b> di <span class="mat"><i>b</i></span>, e <span class="mat"><i>b</i></span> è <b>divisore</b> di <span class="mat">a</span>, se esiste un numero naturale <span class="mat"><i>c</i></span> tale che <span class="mat"><i>a</i> = <i>b</i> · c</span>. Per esempio 42 = 6 · 7, quindi 42 è multiplo di 6 e di 7, mentre 6 e 7 sono divisori di 42.</p>
 <p>Un numero maggiore di 1 è <b>primo</b> se ha come divisori solo 1 e se stesso, altrimenti è <b>composto</b>. Ogni numero composto si scrive in un solo modo come prodotto di fattori primi, per esempio 90 = 2 · 3<sup>2</sup> · 5.</p>
 <p><b>Criteri di divisibilità</b></p>
 <table class="tab"><tr><th>Divisibile per</th><th>se…</th></tr>
@@ -117,11 +117,11 @@ LIBRO.capitoli.cap1 = {
 <ul class="sint-lista">
 <li><span class="mat">36 = 2<sup>2</sup> · 3<sup>2</sup></span></li>
 <li><span class="mat">60 = 2<sup>2</sup> · 3 · 5</span></li>
-<li><span class="mat">MCD(36, 60) = 2<sup>2</sup> · 3 = 12</span><span class="nota">fattori comuni, esponente minore</span></li>
-<li><span class="mat">mcm(36, 60) = 2<sup>2</sup> · 3<sup>2</sup> · 5 = 180</span><span class="nota">tutti i fattori, esponente maggiore</span></li>
+<li><span class="mat">MCD(36; 60) = 2<sup>2</sup> · 3 = 12</span><span class="nota">fattori comuni, esponente minore</span></li>
+<li><span class="mat">mcm(36; 60) = 2<sup>2</sup> · 3<sup>2</sup> · 5 = 180</span><span class="nota">tutti i fattori, esponente maggiore</span></li>
 </ul></div>
 <p>Due numeri con MCD = 1 si dicono <b>primi tra loro</b>.</p>
-<p class="formula">MCD(a, b) · mcm(a, b) = a · b</p></div>
+<p class="formula">MCD(<i>a</i>; <i>b</i>) · mcm(<i>a</i>; <i>b</i>) = <i>a</i> · <i>b</i></p></div>
 `,
 
   /* ------------------------------ TEORIA ------------------------------ */
@@ -133,7 +133,7 @@ LIBRO.capitoli.cap1 = {
 
 <h3>Successivo e precedente</h3>
 <div class="definizione"><b>Definizione</b>
-Il <b>successivo</b> di un numero naturale <span class="mat">n</span> è <span class="mat">n + 1</span>. Il <b>precedente</b> di <span class="mat">n</span> (se <span class="mat">n ≠ 0</span>) è <span class="mat">n − 1</span>. Due numeri come 7 e 8, uno successivo dell'altro, si dicono <b>consecutivi</b>.</div>
+Il <b>successivo</b> di un numero naturale <span class="mat"><i>n</i></span> è <span class="mat"><i>n</i> + 1</span>. Il <b>precedente</b> di <span class="mat"><i>n</i></span> (se <span class="mat"><i>n</i> ≠ 0</span>) è <span class="mat"><i>n</i> − 1</span>. Due numeri come 7 e 8, uno successivo dell'altro, si dicono <b>consecutivi</b>.</div>
 <p>Da qui seguono tre fatti importanti:</p>
 <ul>
 <li>ogni numero naturale ha un successivo, quindi <span class="mat">ℕ</span> è un insieme <b>infinito</b> e <b>non ha un numero più grande di tutti</b>;</li>
@@ -152,16 +152,16 @@ Il <b>successivo</b> di un numero naturale <span class="mat">n</span> è <span c
 <tr><td>≠</td><td>diverso da</td><td>5 ≠ 8</td></tr>
 <tr><td>&lt;</td><td>minore di</td><td>3 &lt; 9</td></tr>
 <tr><td>&gt;</td><td>maggiore di</td><td>12 &gt; 10</td></tr>
-<tr><td>≤</td><td>minore o uguale a</td><td>n ≤ 5 vale per 0, 1, 2, 3, 4, 5</td></tr>
-<tr><td>≥</td><td>maggiore o uguale a</td><td>n ≥ 1 vale per tutti i naturali tranne lo 0</td></tr></table>
+<tr><td>≤</td><td>minore o uguale a</td><td><i>n</i> ≤ 5 vale per 0, 1, 2, 3, 4, 5</td></tr>
+<tr><td>≥</td><td>maggiore o uguale a</td><td><i>n</i> ≥ 1 vale per tutti i naturali tranne lo 0</td></tr></table>
 <div class="regola"><b>Trucco</b>La “bocca” del simbolo &lt; o &gt; è sempre aperta verso il numero più grande.</div>
 
 <h3>Numeri pari e dispari</h3>
-<p>Un numero è <b>pari</b> se si può dividere in due parti uguali senza resto (0, 2, 4, 6, …), <b>dispari</b> altrimenti (1, 3, 5, 7, …). Pari e dispari si alternano: il successivo di un pari è dispari e viceversa. Con le lettere, un pari si scrive <span class="mat">2k</span> e un dispari <span class="mat">2k + 1</span>, dove <span class="mat">k</span> è un numero naturale qualsiasi.</p>
+<p>Un numero è <b>pari</b> se si può dividere in due parti uguali senza resto (0, 2, 4, 6, …), <b>dispari</b> altrimenti (1, 3, 5, 7, …). Pari e dispari si alternano: il successivo di un pari è dispari e viceversa. Con le lettere, un pari si scrive <span class="mat">2<i>k</i></span> e un dispari <span class="mat">2<i>k</i> + 1</span>, dove <span class="mat"><i>k</i></span> è un numero naturale qualsiasi.</p>
 
 <div class="curiosita" data-img="hotel" data-titolo="L'albergo di Hilbert: sempre una stanza libera">
-<p>Il matematico tedesco David Hilbert inventò un esperimento mentale per far capire quanto è strano l'infinito. Immagina un albergo con <b>infinite stanze</b>, numerate 1, 2, 3, … e <b>tutte occupate</b>. Arriva un nuovo ospite: il portiere non si scompone e chiede a ogni cliente di spostarsi dalla stanza <span class="mat">n</span> alla stanza <span class="mat">n + 1</span>. Nessuno resta senza camera e la stanza 1 si libera!</p>
-<p>E se arrivasse un pullman con infiniti nuovi ospiti? Basta spostare ogni cliente dalla stanza <span class="mat">n</span> alla stanza <span class="mat">2n</span>: gli ospiti già presenti finiscono tutti nelle stanze pari e restano libere infinite stanze dispari.</p>
+<p>Il matematico tedesco David Hilbert inventò un esperimento mentale per far capire quanto è strano l'infinito. Immagina un albergo con <b>infinite stanze</b>, numerate 1, 2, 3, … e <b>tutte occupate</b>. Arriva un nuovo ospite: il portiere non si scompone e chiede a ogni cliente di spostarsi dalla stanza <span class="mat"><i>n</i></span> alla stanza <span class="mat"><i>n</i> + 1</span>. Nessuno resta senza camera e la stanza 1 si libera!</p>
+<p>E se arrivasse un pullman con infiniti nuovi ospiti? Basta spostare ogni cliente dalla stanza <span class="mat"><i>n</i></span> alla stanza <span class="mat">2<i>n</i></span>: gli ospiti già presenti finiscono tutti nelle stanze pari e restano libere infinite stanze dispari.</p>
 <p>Con un numero finito di stanze tutto questo sarebbe impossibile. È proprio il fatto che ogni numero naturale ha un successivo a rendere possibile il “trucco”.</p>
 </div>
 `},
@@ -178,8 +178,8 @@ Il <b>successivo</b> di un numero naturale <span class="mat">n</span> è <span c
 <p>Se sommiamo o moltiplichiamo due numeri naturali, otteniamo sempre un numero naturale. Si dice che addizione e moltiplicazione sono <b>operazioni interne</b> in <span class="mat">ℕ</span>.</p>
 <p>Con la sottrazione e la divisione non è così.</p>
 <ul>
-<li><span class="mat">a − b</span> si può calcolare in <span class="mat">ℕ</span> solo se <span class="mat">a ≥ b</span>. Per esempio 9 − 4 = 5, mentre 4 − 9 non è un numero naturale;</li>
-<li><span class="mat">a : b</span> dà un quoziente esatto solo se <span class="mat">a</span> è un multiplo di <span class="mat">b</span>. Per esempio 36 : 4 = 9, mentre 37 : 4 non ha un quoziente esatto in <span class="mat">ℕ</span>.</li>
+<li><span class="mat"><i>a</i> − <i>b</i></span> si può calcolare in <span class="mat">ℕ</span> solo se <span class="mat"><i>a</i> ≥ <i>b</i></span>. Per esempio 9 − 4 = 5, mentre 4 − 9 non è un numero naturale;</li>
+<li><span class="mat"><i>a</i> : <i>b</i></span> dà un quoziente esatto solo se <span class="mat"><i>a</i></span> è un multiplo di <span class="mat"><i>b</i></span>. Per esempio 36 : 4 = 9, mentre 37 : 4 non ha un quoziente esatto in <span class="mat">ℕ</span>.</li>
 </ul>
 <p>Sottrazione e divisione sono le <b>operazioni inverse</b> di addizione e moltiplicazione. Infatti 13 − 4 = 9 perché 9 + 4 = 13, e 36 : 4 = 9 perché 9 · 4 = 36.</p>
 
@@ -187,16 +187,16 @@ Il <b>successivo</b> di un numero naturale <span class="mat">n</span> è <span c
 <figure class="fig-testo" data-img="caramelle"><figcaption>Quante caramelle per ciascuno? E quante ne avanzano?</figcaption></figure><p>Quando la divisione non è esatta possiamo comunque dividere “il più possibile” e vedere quanto avanza. Se distribuiamo 23 caramelle in sacchetti da 5, riempiamo 4 sacchetti e ne avanzano 3. In simboli scriviamo</p>
 <p class="formula">23 = 5 · 4 + 3</p>
 <div class="definizione"><b>Definizione</b>
-Dati due naturali <span class="mat">a</span> e <span class="mat">b</span>, con <span class="mat">b ≠ 0</span>, eseguire la <b>divisione con resto</b> significa trovare il <b>quoziente</b> <span class="mat">q</span> e il <b>resto</b> <span class="mat">r</span> tali che
-<p class="formula">a = b · q + r &emsp; con &emsp; 0 ≤ r &lt; b</p>
-Il resto è sempre più piccolo del divisore. Se <span class="mat">r = 0</span> la divisione è esatta.</div>
+Dati due naturali <span class="mat"><i>a</i></span> e <span class="mat"><i>b</i></span>, con <span class="mat"><i>b</i> ≠ 0</span>, eseguire la <b>divisione con resto</b> significa trovare il <b>quoziente</b> <span class="mat"><i>q</i></span> e il <b>resto</b> <span class="mat"><i>r</i></span> tali che
+<p class="formula"><i>a</i> = <i>b</i> · <i>q</i> + <i>r</i> &emsp; con &emsp; 0 ≤ <i>r</i> &lt; <i>b</i></p>
+Il resto è sempre più piccolo del divisore. Se <span class="mat"><i>r</i> = 0</span> la divisione è esatta.</div>
 <div class="anim" data-anim="divisione" data-titolo="Caramelle nei sacchetti: quoziente e resto"></div>
 
 <h3>Due numeri speciali: lo 0 e l'1</h3>
 <ul>
-<li>Sommare 0 non cambia un numero, cioè <span class="mat">a + 0 = a</span>. Lo 0 è l'<b>elemento neutro</b> dell'addizione.</li>
-<li>Moltiplicare per 1 non cambia un numero, cioè <span class="mat">a · 1 = a</span>. L'1 è l'<b>elemento neutro</b> della moltiplicazione.</li>
-<li>Moltiplicare per 0 dà sempre 0, cioè <span class="mat">a · 0 = 0</span>. Lo 0 è l'<b>elemento assorbente</b> della moltiplicazione.</li>
+<li>Sommare 0 non cambia un numero, cioè <span class="mat"><i>a</i> + 0 = <i>a</i></span>. Lo 0 è l'<b>elemento neutro</b> dell'addizione.</li>
+<li>Moltiplicare per 1 non cambia un numero, cioè <span class="mat"><i>a</i> · 1 = <i>a</i></span>. L'1 è l'<b>elemento neutro</b> della moltiplicazione.</li>
+<li>Moltiplicare per 0 dà sempre 0, cioè <span class="mat"><i>a</i> · 0 = 0</span>. Lo 0 è l'<b>elemento assorbente</b> della moltiplicazione.</li>
 </ul>
 <div class="regola"><b>Legge di annullamento del prodotto</b>Un prodotto è uguale a 0 se e solo se almeno uno dei fattori è 0.</div>
 
@@ -217,14 +217,14 @@ Il resto è sempre più piccolo del divisore. Se <span class="mat">r = 0</span> 
 <p>Quando moltiplichiamo un numero per se stesso più volte, la scrittura diventa lunga, come in <span class="mat">2 · 2 · 2 · 2 · 2</span>. Per abbreviarla si usa la <b>potenza</b>:</p>
 <p class="formula">2 · 2 · 2 · 2 · 2 = 2<sup>5</sup> = 32</p>
 <div class="definizione"><b>Definizione</b>
-La <b>potenza</b> <span class="mat">a<sup>n</sup></span>, con <span class="mat">n ≥ 2</span>, è il prodotto di <span class="mat">n</span> fattori tutti uguali ad <span class="mat">a</span>. Il numero <span class="mat">a</span> si chiama <b>base</b>, il numero <span class="mat">n</span> <b>esponente</b>.</div>
-<p>Si legge “<i>a</i> elevato alla <i>n</i>”. Alcune potenze hanno nomi speciali. Per esempio <span class="mat">a<sup>2</sup></span> è “<i>a</i> al quadrato”, <span class="mat">a<sup>3</sup></span> è “<i>a</i> al cubo”.</p>
+La <b>potenza</b> <span class="mat"><i>a</i><sup><i>n</i></sup></span>, con <span class="mat"><i>n</i> ≥ 2</span>, è il prodotto di <span class="mat"><i>n</i></span> fattori tutti uguali ad <span class="mat">a</span>. Il numero <span class="mat">a</span> si chiama <b>base</b>, il numero <span class="mat"><i>n</i></span> <b>esponente</b>.</div>
+<p>Si legge “<i>a</i> elevato alla <i>n</i>”. Alcune potenze hanno nomi speciali. Per esempio <span class="mat"><i>a</i><sup>2</sup></span> è “<i>a</i> al quadrato”, <span class="mat"><i>a</i><sup>3</sup></span> è “<i>a</i> al cubo”.</p>
 <div class="attenzione"><b>Attenzione</b>2<sup>5</sup> non è 2 · 5 = 10! L'esponente dice <b>quante volte</b> la base compare come fattore, quindi 2<sup>5</sup> = 32.</div>
 
 <h3>Esponente 1 ed esponente 0</h3>
 <p>La definizione funziona da 2 fattori in su. Per gli esponenti 1 e 0 si stabilisce che</p>
-<p class="formula">a<sup>1</sup> = a &emsp; a<sup>0</sup> = 1 &emsp; (con a ≠ 0)</p>
-<p>La scelta di <span class="mat">a<sup>0</sup> = 1</span> non è un capriccio: nel paragrafo 6 vedremo che è l'unica che rende coerenti le proprietà delle potenze. L'espressione <span class="mat">0<sup>0</sup></span> invece <b>non ha significato</b>. Inoltre <span class="mat">1<sup>n</sup> = 1</span> e <span class="mat">0<sup>n</sup> = 0</span> per ogni <span class="mat">n ≥ 1</span>.</p>
+<p class="formula"><i>a</i><sup>1</sup> = <i>a</i> &emsp; <i>a</i><sup>0</sup> = 1 &emsp; (con <i>a</i> ≠ 0)</p>
+<p>La scelta di <span class="mat"><i>a</i><sup>0</sup> = 1</span> non è un capriccio: nel paragrafo 6 vedremo che è l'unica che rende coerenti le proprietà delle potenze. L'espressione <span class="mat">0<sup>0</sup></span> invece <b>non ha significato</b>. Inoltre <span class="mat">1<sup><i>n</i></sup> = 1</span> e <span class="mat">0<sup><i>n</i></sup> = 0</span> per ogni <span class="mat"><i>n</i> ≥ 1</span>.</p>
 
 <h3>Le potenze crescono in fretta</h3>
 <p>Ogni volta che l'esponente aumenta di 1, il risultato viene moltiplicato per la base. Con la base 2 il risultato raddoppia a ogni passo; con la base 3 triplica. Guarda l'albero: ogni ramo si divide in tanti rami quanta è la base.</p>
@@ -258,16 +258,16 @@ La <b>potenza</b> <span class="mat">a<sup>n</sup></span>, con <span class="mat">
 <div class="anim" data-anim="espressione" data-titolo="Un'espressione risolta passo dopo passo"></div>
 
 <h3>Le espressioni con le lettere</h3>
-<p>In un'espressione possiamo usare delle lettere al posto dei numeri, come in <span class="mat">2a + b</span>. Le lettere si chiamano <b>variabili</b>: il valore dell'espressione dipende dai numeri che sostituiamo. Con <span class="mat">a = 5</span> e <span class="mat">b = 3</span> si ottiene <span class="mat">2 · 5 + 3 = 13</span>.</p>
-<p>Il segno di moltiplicazione tra un numero e una lettera, o tra due lettere, di solito non si scrive. Per esempio <span class="mat">2a</span> significa <span class="mat">2 · a</span>.</p>
+<p>In un'espressione possiamo usare delle lettere al posto dei numeri, come in <span class="mat">2<i>a</i> + <i>b</i></span>. Le lettere si chiamano <b>variabili</b>: il valore dell'espressione dipende dai numeri che sostituiamo. Con <span class="mat"><i>a</i> = 5</span> e <span class="mat"><i>b</i> = 3</span> si ottiene <span class="mat">2 · 5 + 3 = 13</span>.</p>
+<p>Il segno di moltiplicazione tra un numero e una lettera, o tra due lettere, di solito non si scrive. Per esempio <span class="mat">2<i>a</i></span> significa <span class="mat">2 · a</span>.</p>
 <p>Le lettere servono anche a <b>tradurre le frasi</b> in simboli, come nella tabella.</p>
 <table class="tab"><tr><th>A parole</th><th>Con i simboli</th></tr>
-<tr><td>il doppio di <i>a</i></td><td>2a</td></tr>
-<tr><td>la metà di <i>a</i></td><td>a : 2</td></tr>
-<tr><td>il successivo di <i>n</i></td><td>n + 1</td></tr>
-<tr><td>la somma dei quadrati di <i>a</i> e <i>b</i></td><td>a<sup>2</sup> + b<sup>2</sup></td></tr>
-<tr><td>il quadrato della somma di <i>a</i> e <i>b</i></td><td>(a + b)<sup>2</sup></td></tr></table>
-<p>Le ultime due righe sembrano simili ma non lo sono: con <span class="mat">a = 3</span> e <span class="mat">b = 4</span> la prima vale 9 + 16 = 25, la seconda 7<sup>2</sup> = 49.</p>
+<tr><td>il doppio di <i>a</i></td><td>2<i>a</i></td></tr>
+<tr><td>la metà di <i>a</i></td><td><i>a</i> : 2</td></tr>
+<tr><td>il successivo di <i>n</i></td><td><i>n</i> + 1</td></tr>
+<tr><td>la somma dei quadrati di <i>a</i> e <i>b</i></td><td><i>a</i><sup>2</sup> + <i>b</i><sup>2</sup></td></tr>
+<tr><td>il quadrato della somma di <i>a</i> e <i>b</i></td><td>(<i>a</i> + <i>b</i>)<sup>2</sup></td></tr></table>
+<p>Le ultime due righe sembrano simili ma non lo sono: con <span class="mat"><i>a</i> = 3</span> e <span class="mat"><i>b</i> = 4</span> la prima vale 9 + 16 = 25, la seconda 7<sup>2</sup> = 49.</p>
 
 <div class="curiosita" data-img="telefono" data-titolo="Il problema che ha diviso Internet">
 <p>Qualche anno fa sui social è diventata virale questa espressione, <b>6 : 2(1 + 2)</b>. Metà delle persone rispondeva 9, l'altra metà 1. E perfino le calcolatrici non erano d'accordo tra loro!</p>
@@ -281,28 +281,28 @@ La <b>potenza</b> <span class="mat">a<sup>n</sup></span>, con <span class="mat">
 
 <h3>Proprietà commutativa</h3>
 <div class="regola"><b>Commutativa</b>Cambiando l'ordine degli addendi la somma non cambia; cambiando l'ordine dei fattori il prodotto non cambia.
-<p class="formula">a + b = b + a &emsp; a · b = b · a</p></div>
+<p class="formula"><i>a</i> + <i>b</i> = <i>b</i> + <i>a</i> &emsp; <i>a</i> · <i>b</i> = <i>b</i> · <i>a</i></p></div>
 <p>Non vale per la sottrazione (9 − 4 ≠ 4 − 9) né per la divisione (8 : 2 ≠ 2 : 8).</p>
 
 <h3>Proprietà associativa</h3>
 <div class="regola"><b>Associativa</b>In una somma (o in un prodotto) di tre o più termini, si possono raggruppare a piacere due termini vicini e sostituirli con il loro risultato.
-<p class="formula">(a + b) + c = a + (b + c) &emsp; (a · b) · c = a · (b · c)</p></div>
+<p class="formula">(<i>a</i> + <i>b</i>) + <i>c</i> = <i>a</i> + (<i>b</i> + <i>c</i>) &emsp; (<i>a</i> · <i>b</i>) · <i>c</i> = <i>a</i> · (<i>b</i> · <i>c</i>)</p></div>
 <div class="esempio"><b>Esempio</b> &emsp; 37 + 26 + 4 = 37 + (26 + 4) = 37 + 30 = 67 &emsp; 4 · 13 · 25 = 13 · (4 · 25) = 13 · 100 = 1300</div>
 <p>Anche l'associativa non vale per la sottrazione e per la divisione. Per esempio (20 − 8) − 2 = 10, mentre 20 − (8 − 2) = 14; (48 : 4) : 2 = 6, mentre 48 : (4 : 2) = 24.</p>
 
 <h3>Proprietà distributiva</h3>
 <figure class="fig-testo" data-img="pizza"><figcaption>Ogni pizza ha 6 fette, quindi 3 pizze e poi altre 2 danno (3 + 2) · 6 = 3 · 6 + 2 · 6 fette.</figcaption></figure><div class="regola"><b>Distributiva della moltiplicazione</b>Per moltiplicare un numero per una somma (o una differenza) si può moltiplicare il numero per ciascun termine e poi sommare (o sottrarre) i risultati.
-<p class="formula">a · (b + c) = a · b + a · c &emsp; a · (b − c) = a · b − a · c</p></div>
-<p>L'animazione mostra perché funziona: l'area di un rettangolo di base <span class="mat">b + c</span> e altezza <span class="mat">a</span> è uguale alla somma delle aree dei due rettangoli più piccoli.</p>
+<p class="formula"><i>a</i> · (<i>b</i> + <i>c</i>) = <i>a</i> · <i>b</i> + <i>a</i> · <i>c</i> &emsp; <i>a</i> · (<i>b</i> − <i>c</i>) = <i>a</i> · <i>b</i> − <i>a</i> · <i>c</i></p></div>
+<p>L'animazione mostra perché funziona: l'area di un rettangolo di base <span class="mat"><i>b</i> + <i>c</i></span> e altezza <span class="mat"><i>a</i></span> è uguale alla somma delle aree dei due rettangoli più piccoli.</p>
 <div class="anim" data-anim="area" data-titolo="La proprietà distributiva vista con le aree"></div>
 <p>Anche la divisione è distributiva, ma <b>solo a destra</b>. Per esempio <span class="mat">(12 + 8) : 4 = 12 : 4 + 8 : 4 = 5</span>. Invece <span class="mat">24 : (4 + 2)</span> = 4, mentre 24 : 4 + 24 : 2 = 18, quindi a sinistra la proprietà non vale.</p>
 
 <h3>Proprietà invariantiva</h3>
 <div class="regola"><b>Invariantiva</b>
 <b style="display:inline;text-transform:none;letter-spacing:0">Sottrazione:</b> aggiungendo o togliendo lo stesso numero a minuendo e sottraendo, la differenza non cambia.
-<p class="formula">a − b = (a + c) − (b + c)</p>
+<p class="formula"><i>a</i> − <i>b</i> = (<i>a</i> + <i>c</i>) − (<i>b</i> + <i>c</i>)</p>
 <b style="display:inline;text-transform:none;letter-spacing:0">Divisione:</b> moltiplicando o dividendo dividendo e divisore per lo stesso numero (diverso da 0), il quoziente non cambia.
-<p class="formula">a : b = (a · c) : (b · c)</p></div>
+<p class="formula"><i>a</i> : <i>b</i> = (<i>a</i> · <i>c</i>) : (<i>b</i> · <i>c</i>)</p></div>
 <div class="esempio"><b>Esempio</b> &emsp; 83 − 28 = 85 − 30 = 55 &emsp; 4200 : 600 = 42 : 6 = 7</div>
 
 <div class="curiosita" data-img="cronometro" data-titolo="Calcolo mentale da campioni">
@@ -321,30 +321,30 @@ La <b>potenza</b> <span class="mat">a<sup>n</sup></span>, con <span class="mat">
 <p>Le potenze con la stessa base, o con lo stesso esponente, si possono combinare con cinque regole. Tutte nascono dalla definizione: basta “contare i fattori”.</p>
 
 <h3>1. Prodotto di potenze con la stessa base</h3>
-<p class="formula">a<sup>m</sup> · a<sup>n</sup> = a<sup>m + n</sup></p>
+<p class="formula"><i>a</i><sup><i>m</i></sup> · <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i> + <i>n</i></sup></p>
 <p>Infatti <span class="mat">2<sup>3</sup> · 2<sup>2</sup> = (2 · 2 · 2) · (2 · 2)</span>, quindi in tutto ci sono 3 + 2 = 5 fattori uguali a 2.</p>
 <div class="anim" data-anim="gettoni" data-titolo="Contiamo i fattori: prodotto di potenze con la stessa base"></div>
 
 <h3>2. Quoziente di potenze con la stessa base</h3>
-<p class="formula">a<sup>m</sup> : a<sup>n</sup> = a<sup>m − n</sup> &emsp; (a ≠ 0, m ≥ n)</p>
-<p>Dividendo si “eliminano” fattori. Per esempio 5<sup>6</sup> : 5<sup>4</sup> = 5<sup>2</sup>. Se <span class="mat">m = n</span> otteniamo <span class="mat">a<sup>n</sup> : a<sup>n</sup> = a<sup>0</sup></span>; ma un numero diviso per se stesso dà 1. Ecco perché si pone <span class="mat">a<sup>0</sup> = 1</span>.</p>
+<p class="formula"><i>a</i><sup><i>m</i></sup> : <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i> − <i>n</i></sup> &emsp; (<i>a</i> ≠ 0, <i>m</i> ≥ <i>n</i>)</p>
+<p>Dividendo si “eliminano” fattori. Per esempio 5<sup>6</sup> : 5<sup>4</sup> = 5<sup>2</sup>. Se <span class="mat"><i>m</i> = <i>n</i></span> otteniamo <span class="mat"><i>a</i><sup><i>n</i></sup> : <i>a</i><sup><i>n</i></sup> = <i>a</i><sup>0</sup></span>; ma un numero diviso per se stesso dà 1. Ecco perché si pone <span class="mat"><i>a</i><sup>0</sup> = 1</span>.</p>
 
 <h3>3. Potenza di una potenza</h3>
-<p class="formula">(a<sup>m</sup>)<sup>n</sup> = a<sup>m · n</sup></p>
+<p class="formula">(<i>a</i><sup><i>m</i></sup>)<sup><i>n</i></sup> = <i>a</i><sup><i>m</i> · <i>n</i></sup></p>
 <p>(3<sup>2</sup>)<sup>3</sup> = 3<sup>2</sup> · 3<sup>2</sup> · 3<sup>2</sup> = 3<sup>6</sup>.</p>
 
 <h3>4. Prodotto di potenze con lo stesso esponente</h3>
-<p class="formula">a<sup>n</sup> · b<sup>n</sup> = (a · b)<sup>n</sup></p>
+<p class="formula"><i>a</i><sup><i>n</i></sup> · <i>b</i><sup><i>n</i></sup> = (<i>a</i> · <i>b</i>)<sup><i>n</i></sup></p>
 <p>2<sup>3</sup> · 5<sup>3</sup> = (2 · 5)<sup>3</sup> = 10<sup>3</sup> = 1000. Utilissima per i calcoli a mente!</p>
 
 <h3>5. Quoziente di potenze con lo stesso esponente</h3>
-<p class="formula">a<sup>n</sup> : b<sup>n</sup> = (a : b)<sup>n</sup> &emsp; (b ≠ 0, a multiplo di b)</p>
+<p class="formula"><i>a</i><sup><i>n</i></sup> : <i>b</i><sup><i>n</i></sup> = (<i>a</i> : <i>b</i>)<sup><i>n</i></sup> &emsp; (<i>b</i> ≠ 0, a multiplo di <i>b</i>)</p>
 <p>12<sup>4</sup> : 4<sup>4</sup> = (12 : 4)<sup>4</sup> = 3<sup>4</sup> = 81.</p>
 
 <div class="attenzione"><b>Errori da evitare</b>
 <ul style="margin:4px 0 0">
 <li>2<sup>3</sup> · 3<sup>2</sup> <b>non</b> si semplifica: basi ed esponenti sono entrambi diversi.</li>
-<li>(a + b)<sup>2</sup> ≠ a<sup>2</sup> + b<sup>2</sup>, perché le proprietà valgono per prodotti e quozienti, <b>non</b> per somme e differenze.</li>
+<li>(<i>a</i> + <i>b</i>)<sup>2</sup> ≠ <i>a</i><sup>2</sup> + <i>b</i><sup>2</sup>, perché le proprietà valgono per prodotti e quozienti, <b>non</b> per somme e differenze.</li>
 <li>(2<sup>3</sup>)<sup>2</sup> = 2<sup>6</sup>, mentre 2<sup>3</sup> · 2<sup>2</sup> = 2<sup>5</sup>. Non confondere la terza proprietà con la prima.</li>
 </ul></div>
 
@@ -357,7 +357,7 @@ La <b>potenza</b> <span class="mat">a<sup>n</sup></span>, con <span class="mat">
 
   { n: 7, id: "p7", titolo: "Multipli e divisori", html: `
 <div class="definizione"><b>Definizione</b>
-Un numero <span class="mat">a</span> è <b>multiplo</b> di <span class="mat">b</span> se esiste un naturale <span class="mat">k</span> tale che <span class="mat">a = b · k</span>. In questo caso si dice anche che <span class="mat">b</span> è un <b>divisore</b> di <span class="mat">a</span>, o che <span class="mat">a</span> è <b>divisibile</b> per <span class="mat">b</span> (con <span class="mat">b ≠ 0</span>).</div>
+Un numero <span class="mat"><i>a</i></span> è <b>multiplo</b> di <span class="mat"><i>b</i></span> se esiste un naturale <span class="mat"><i>k</i></span> tale che <span class="mat"><i>a</i> = <i>b</i> · k</span>. In questo caso si dice anche che <span class="mat"><i>b</i></span> è un <b>divisore</b> di <span class="mat">a</span>, o che <span class="mat"><i>a</i></span> è <b>divisibile</b> per <span class="mat"><i>b</i></span> (con <span class="mat"><i>b</i> ≠ 0</span>).</div>
 <div class="esempio"><b>Esempio</b> &emsp; 35 = 7 · 5, quindi 35 è multiplo di 7 e di 5; 7 e 5 sono divisori di 35.</div>
 <ul>
 <li>I multipli di un numero sono <b>infiniti</b>: i multipli di 6 sono 0, 6, 12, 18, 24, …</li>
@@ -381,7 +381,7 @@ Un numero <span class="mat">a</span> è <b>multiplo</b> di <span class="mat">b</
 <figure class="fig-testo" data-img="piastrelle"><figcaption>24 piastrelle disposte in un rettangolo 6 × 4, quindi 6 e 4 sono divisori di 24.</figcaption></figure><div class="definizione"><b>Definizione</b>
 Un numero naturale maggiore di 1 è <b>primo</b> se ha esattamente due divisori, cioè 1 e se stesso. Un numero maggiore di 1 che non è primo si dice <b>composto</b>.</div>
 <p>I primi numeri primi sono 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, … Il numero <b>1 non è primo</b> (ha un solo divisore) e <b>2 è l'unico primo pari</b>.</p>
-<p>Un modo per “vedere” i divisori: prendi <span class="mat">n</span> piastrelle quadrate e prova a disporle in un rettangolo pieno. Ogni rettangolo diverso corrisponde a una coppia di divisori. Un numero primo si può disporre <b>solo in una fila</b>!</p>
+<p>Un modo per “vedere” i divisori: prendi <span class="mat"><i>n</i></span> piastrelle quadrate e prova a disporle in un rettangolo pieno. Ogni rettangolo diverso corrisponde a una coppia di divisori. Un numero primo si può disporre <b>solo in una fila</b>!</p>
 <div class="anim" data-anim="rettangoli" data-titolo="Piastrelle e rettangoli: trova i divisori"></div>
 
 <h3>Il crivello di Eratostene</h3>
@@ -413,17 +413,17 @@ quindi 180 = 2<sup>2</sup> · 3<sup>2</sup> · 5</div>
 <div class="definizione"><b>Definizione</b>
 Il <b>massimo comune divisore</b> di due o più numeri è il più grande tra i loro divisori comuni.</div>
 <div class="regola"><b>Regola</b>Il MCD è il prodotto dei soli fattori primi <b>comuni</b>, presi una sola volta con l'esponente <b>minore</b>.</div>
-<div class="esempio"><b>Esempio</b> &emsp; 60 = 2<sup>2</sup> · 3 · 5 &emsp; 90 = 2 · 3<sup>2</sup> · 5 &emsp; MCD(60, 90) = 2 · 3 · 5 = 30</div>
+<div class="esempio"><b>Esempio</b> &emsp; 60 = 2<sup>2</sup> · 3 · 5 &emsp; 90 = 2 · 3<sup>2</sup> · 5 &emsp; MCD(60; 90) = 2 · 3 · 5 = 30</div>
 <p>Se il MCD di due numeri è 1, i numeri si dicono <b>primi tra loro</b> (ad esempio 8 e 15).</p>
 <p>Il MCD risponde a domande del tipo: <i>qual è la piastrella quadrata più grande con cui posso ricoprire esattamente un pavimento rettangolare?</i></p>
 <div class="anim" data-anim="piastrelle" data-titolo="La piastrella più grande: il MCD"></div>
 
 <h3>Il minimo comune multiplo (mcm)</h3>
-<figure class="fig-testo" data-img="ingranaggi"><figcaption>Due ruote dentate da 12 e 8 denti tornano nella posizione iniziale dopo mcm(12, 8) = 24 denti.</figcaption></figure><div class="definizione"><b>Definizione</b>
+<figure class="fig-testo" data-img="ingranaggi"><figcaption>Due ruote dentate da 12 e 8 denti tornano nella posizione iniziale dopo mcm(12; 8) = 24 denti.</figcaption></figure><div class="definizione"><b>Definizione</b>
 Il <b>minimo comune multiplo</b> di due o più numeri (diversi da 0) è il più piccolo tra i loro multipli comuni diversi da 0.</div>
 <div class="regola"><b>Regola</b>Il mcm è il prodotto di tutti i fattori primi, <b>comuni e non comuni</b>, presi una sola volta con l'esponente <b>maggiore</b>.</div>
-<div class="esempio"><b>Esempio</b> &emsp; 60 = 2<sup>2</sup> · 3 · 5 &emsp; 90 = 2 · 3<sup>2</sup> · 5 &emsp; mcm(60, 90) = 2<sup>2</sup> · 3<sup>2</sup> · 5 = 180</div>
-<p>Per due numeri vale sempre una relazione elegante: <span class="mat">MCD(a, b) · mcm(a, b) = a · b</span>. Per esempio, con 60 e 90 si ha MCD = 30, mcm = 180 e 30 · 180 = 5400 = 60 · 90.</p>
+<div class="esempio"><b>Esempio</b> &emsp; 60 = 2<sup>2</sup> · 3 · 5 &emsp; 90 = 2 · 3<sup>2</sup> · 5 &emsp; mcm(60; 90) = 2<sup>2</sup> · 3<sup>2</sup> · 5 = 180</div>
+<p>Per due numeri vale sempre una relazione elegante: <span class="mat">MCD(<i>a</i>; <i>b</i>) · mcm(<i>a</i>; <i>b</i>) = <i>a</i> · b</span>. Per esempio, con 60 e 90 si ha MCD = 30, mcm = 180 e 30 · 180 = 5400 = 60 · 90.</p>
 <div class="regola"><b>MCD o mcm? Come riconoscerli nei problemi</b>
 <ul><li>Si usa il <b>MCD</b> quando bisogna <b>dividere</b> più quantità in parti uguali, le più grandi possibili, senza avanzi (per esempio tagliare due nastri da 60 cm e 90 cm in pezzi uguali e più lunghi possibile, cioè da 30 cm).</li>
 <li>Si usa il <b>mcm</b> quando si cerca <b>quando</b> due o più fatti che si ripetono capiteranno di nuovo insieme (per esempio due autobus che partono ogni 60 e ogni 90 minuti ripartono insieme dopo 180 minuti).</li></ul>
@@ -432,7 +432,7 @@ Il MCD non supera mai il più piccolo dei numeri, il mcm non è mai minore del p
 
 <div class="curiosita" data-img="cicala" data-titolo="Le cicale che contano con i numeri primi">
 <p>In Nord America vivono delle cicale (del genere <i>Magicicada</i>) che passano quasi tutta la vita sottoterra e poi escono tutte insieme, a milioni, ogni <b>13</b> o ogni <b>17</b> anni. Due numeri primi: è un caso?</p>
-<p>Secondo alcuni biologi no. Supponiamo che un predatore abbia un ciclo di 4 anni. Una cicala con ciclo di 12 anni lo incontrerebbe a ogni uscita (mcm(12, 4) = 12). Una cicala con ciclo di 13 anni lo incontra solo ogni mcm(13, 4) = 52 anni! Con un ciclo primo, le coincidenze con i predatori diventano rarissime.</p>
+<p>Secondo alcuni biologi no. Supponiamo che un predatore abbia un ciclo di 4 anni. Una cicala con ciclo di 12 anni lo incontrerebbe a ogni uscita (mcm(12; 4) = 12). Una cicala con ciclo di 13 anni lo incontra solo ogni mcm(13; 4) = 52 anni! Con un ciclo primo, le coincidenze con i predatori diventano rarissime.</p>
 <p>Prova tu con l'animazione qui sotto: scegli i due cicli e osserva ogni quanto si incontrano.</p>
 <div class="anim" data-anim="cicale" data-titolo="Cicale e predatori: ogni quanto si incontrano?"></div>
 </div>

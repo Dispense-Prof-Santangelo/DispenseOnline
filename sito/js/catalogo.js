@@ -39,6 +39,18 @@ window.SCUOLA = {
       ] }
   ],
 
+  /* ---------- NOTE SULLE DISPENSE (pagina "Note sulle dispense" e fondo dei PDF) ----------
+     autori e scuola: si lasciano vuoti finché il gruppo di docenti non decide come firmare.
+     segnalazioni: indirizzo di un modulo anonimo (es. Google Moduli) per segnalare un errore; vuoto = si avvisa il docente. */
+  note: {
+    autori: "",
+    scuola: "",
+    aggiornamento: "23/11/2026",
+    licenza: "CC BY-SA 4.0",
+    licenzaLink: "https://creativecommons.org/licenses/by-sa/4.0/deed.it",
+    segnalazioni: ""
+  },
+
   /* ---------- STATO DI OGNI CAPITOLO ---------- */
   stato: {
     cap1: "in revisione",

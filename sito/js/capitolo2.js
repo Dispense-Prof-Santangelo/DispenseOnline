@@ -36,20 +36,20 @@ LIBRO.capitoli.cap2 = {
 <li><span class="mat">ℤ<sub>0</sub><sup>+</sup></span><span class="nota">interi <b>non negativi</b> (positivi e zero), che corrispondono a ℕ</span></li>
 </ul>
 <p><b>Opposti</b> sono due interi con segno diverso e stesso valore assoluto, come +7 e −7. Due interi diversi da 0 sono <b>concordi</b> se hanno lo stesso segno, <b>discordi</b> se hanno segno diverso.</p>
-<p><b>Valore assoluto</b>. <span class="mat">|a| = a</span> se <span class="mat">a ≥ 0</span> e <span class="mat">|a| = −a</span> se <span class="mat">a &lt; 0</span>. Per esempio |−9| = 9 e |+4| = 4.</p>
+<p><b>Valore assoluto</b>. <span class="mat">|a| = a</span> se <span class="mat"><i>a</i> ≥ 0</span> e <span class="mat">|a| = −a</span> se <span class="mat"><i>a</i> &lt; 0</span>. Per esempio |−9| = 9 e |+4| = 4.</p>
 <p><b>Confronto</b>. Sulla retta orientata è maggiore il numero più a destra.</p>
 <ul class="sint-lista">
 <li><span class="mat">+8 &gt; +3</span><span class="nota">fra due positivi è maggiore quello con valore assoluto maggiore</span></li>
 <li><span class="mat">−3 &gt; −8</span><span class="nota">fra due negativi è maggiore quello con valore assoluto <b>minore</b></span></li>
 <li><span class="mat">−8 &lt; 0 &lt; +3</span><span class="nota">lo zero sta fra i negativi e i positivi</span></li>
 </ul>
-<p>ℤ è ordinato, discreto e infinito; ogni intero <span class="mat">x</span> ha il precedente <span class="mat">x − 1</span> e il successivo <span class="mat">x + 1</span>.</p></div>
+<p>ℤ è ordinato, discreto e infinito; ogni intero <span class="mat"><i>x</i></span> ha il precedente <span class="mat"><i>x</i> − 1</span> e il successivo <span class="mat"><i>x</i> + 1</span>.</p></div>
 
 <div class="sint-blocco"><h3><span>2</span>L'addizione e la sottrazione</h3>
 <table class="tab"><tr><th>Addendi</th><th>Valore assoluto della somma</th><th>Segno della somma</th><th>Esempio</th></tr>
 <tr><td>concordi</td><td>somma dei valori assoluti</td><td>quello comune</td><td>(−6) + (−5) = −11</td></tr>
 <tr><td>discordi</td><td>differenza dei valori assoluti (maggiore meno minore)</td><td>quello dell'addendo con valore assoluto maggiore</td><td>(−9) + (+4) = −5</td></tr></table>
-<p class="formula">a − b = a + (−b)</p>
+<p class="formula"><i>a</i> − <i>b</i> = <i>a</i> + (−<i>b</i>)</p>
 <p>La differenza è la somma del minuendo con l'opposto del sottraendo, per esempio (+3) − (−7) = +3 + 7 = +10. In ℤ la sottrazione è sempre possibile. Addizione e sottrazione diventano un'unica operazione, l'<b>addizione algebrica</b>.</p>
 <p><b>Parentesi</b>. Con il segno + davanti si eliminano lasciando i segni invariati; con il segno − davanti si eliminano cambiando tutti i segni interni.</p></div>
 
@@ -57,23 +57,23 @@ LIBRO.capitoli.cap2 = {
 <table class="tab-segni"><tr><th class="angolo">·&ensp;:</th><th>+</th><th>−</th></tr><tr><th>+</th><td>+</td><td>−</td></tr><tr><th>−</th><td>−</td><td>+</td></tr></table>
 <p><b>Regola del prodotto dei segni</b>. Il prodotto (o il quoziente) di due interi ha per valore assoluto il prodotto (o il quoziente) dei valori assoluti, segno + se i numeri sono concordi, segno − se sono discordi. Con più fattori il prodotto è negativo se i fattori negativi sono in numero dispari.</p>
 <div class="esempio"><b>Esempio</b>(−4) · (−6) = +24 &emsp; (+30) : (−5) = −6 &emsp; (−1)(−2)(−3) = −6</div>
-<p>La divisione <span class="mat">a : b</span> esiste in ℤ solo se <span class="mat">b ≠ 0</span> e <span class="mat">|a|</span> è multiplo di <span class="mat">|b|</span>. ℤ è un <b>ampliamento</b> di ℕ in cui valgono tutte le proprietà delle operazioni già note (principio di permanenza).</p></div>
+<p>La divisione <span class="mat"><i>a</i> : <i>b</i></span> esiste in ℤ solo se <span class="mat"><i>b</i> ≠ 0</span> e <span class="mat">|a|</span> è multiplo di <span class="mat">|<i>b</i>|</span>. ℤ è un <b>ampliamento</b> di ℕ in cui valgono tutte le proprietà delle operazioni già note (principio di permanenza).</p></div>
 
 <div class="sint-blocco"><h3><span>4</span>La potenza</h3>
-<p>Il valore assoluto di <span class="mat">a<sup>n</sup></span> è la potenza del valore assoluto della base. Il segno è <b>negativo solo se la base è negativa e l'esponente è dispari</b>.</p>
+<p>Il valore assoluto di <span class="mat"><i>a</i><sup><i>n</i></sup></span> è la potenza del valore assoluto della base. Il segno è <b>negativo solo se la base è negativa e l'esponente è dispari</b>.</p>
 <ul class="sint-lista">
 <li><span class="mat">(−2)<sup>4</sup> = +16</span><span class="nota">base negativa, esponente pari</span></li>
 <li><span class="mat">(−2)<sup>3</sup> = −8</span><span class="nota">base negativa, esponente dispari</span></li>
 <li><span class="mat">−2<sup>4</sup> = −16</span><span class="nota">la potenza si calcola prima del segno</span></li>
-<li><span class="mat">a<sup>0</sup> = 1</span><span class="nota">con a ≠ 0; 0<sup>0</sup> non è definita</span></li>
+<li><span class="mat"><i>a</i><sup>0</sup> = 1</span><span class="nota">con <i>a</i> ≠ 0; 0<sup>0</sup> non è definita</span></li>
 </ul>
-<p>Valgono le cinque proprietà delle potenze di ℕ, cioè <span class="mat">a<sup>m</sup> · a<sup>n</sup> = a<sup>m+n</sup></span>, <span class="mat">a<sup>m</sup> : a<sup>n</sup> = a<sup>m−n</sup></span>, <span class="mat">(a<sup>m</sup>)<sup>n</sup> = a<sup>m·n</sup></span>, <span class="mat">a<sup>n</sup> · b<sup>n</sup> = (a · b)<sup>n</sup></span>, <span class="mat">a<sup>n</sup> : b<sup>n</sup> = (a : b)<sup>n</sup></span>.</p></div>
+<p>Valgono le cinque proprietà delle potenze di ℕ, cioè <span class="mat"><i>a</i><sup><i>m</i></sup> · <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i>+<i>n</i></sup></span>, <span class="mat"><i>a</i><sup><i>m</i></sup> : <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i>−<i>n</i></sup></span>, <span class="mat">(<i>a</i><sup><i>m</i></sup>)<sup><i>n</i></sup> = <i>a</i><sup><i>m</i>·<i>n</i></sup></span>, <span class="mat"><i>a</i><sup><i>n</i></sup> · <i>b</i><sup><i>n</i></sup> = (<i>a</i> · <i>b</i>)<sup><i>n</i></sup></span>, <span class="mat"><i>a</i><sup><i>n</i></sup> : <i>b</i><sup><i>n</i></sup> = (<i>a</i> : <i>b</i>)<sup><i>n</i></sup></span>.</p></div>
 
 <div class="sint-blocco"><h3><span>5</span>Le leggi di monotonia</h3>
 <table class="tab"><tr><th>Se</th><th>Prima legge</th><th>Seconda legge</th></tr>
-<tr><td>a = b</td><td>a + c = b + c</td><td>a · c = b · c (con c ≠ 0)</td></tr>
-<tr><td>a &lt; b</td><td>a + c &lt; b + c</td><td>a · c &lt; b · c se c &gt; 0 &emsp; a · c &gt; b · c se c &lt; 0</td></tr>
-<tr><td>a &gt; b</td><td>a + c &gt; b + c</td><td>a · c &gt; b · c se c &gt; 0 &emsp; a · c &lt; b · c se c &lt; 0</td></tr></table>
+<tr><td><i>a</i> = <i>b</i></td><td><i>a</i> + <i>c</i> = <i>b</i> + <i>c</i></td><td><i>a</i> · <i>c</i> = <i>b</i> · <i>c</i> (con <i>c</i> ≠ 0)</td></tr>
+<tr><td><i>a</i> &lt; <i>b</i></td><td><i>a</i> + <i>c</i> &lt; <i>b</i> + <i>c</i></td><td><i>a</i> · <i>c</i> &lt; <i>b</i> · <i>c</i> se <i>c</i> &gt; 0 &emsp; a · <i>c</i> &gt; <i>b</i> · <i>c</i> se <i>c</i> &lt; 0</td></tr>
+<tr><td><i>a</i> &gt; <i>b</i></td><td><i>a</i> + <i>c</i> &gt; <i>b</i> + <i>c</i></td><td><i>a</i> · <i>c</i> &gt; <i>b</i> · <i>c</i> se <i>c</i> &gt; 0 &emsp; a · <i>c</i> &lt; <i>b</i> · <i>c</i> se <i>c</i> &lt; 0</td></tr></table>
 <p>Moltiplicando i due membri di una disuguaglianza per un numero <b>negativo</b> si deve <b>cambiare il verso</b>. Le leggi inverse si chiamano <b>leggi di cancellazione</b>.</p></div>
 `,
 
@@ -104,8 +104,8 @@ Due interi diversi da 0 sono <b>concordi</b> se hanno lo stesso segno, <b>discor
 <h3>Il valore assoluto</h3>
 <div class="definizione"><b>Definizione</b>
 Il <b>valore assoluto</b> (o <b>modulo</b>) di un numero intero <span class="mat">a</span>, che si indica con <span class="mat">|a|</span>, è
-<ul><li>il numero stesso, se <span class="mat">a</span> è positivo o è zero;</li>
-<li>l'opposto del numero, se <span class="mat">a</span> è negativo.</li></ul></div>
+<ul><li>il numero stesso, se <span class="mat"><i>a</i></span> è positivo o è zero;</li>
+<li>l'opposto del numero, se <span class="mat"><i>a</i></span> è negativo.</li></ul></div>
 <p>In pratica il valore assoluto è il numero “senza segno”, e non è mai negativo. Di solito lo scriviamo senza il segno +.</p>
 <div class="esempio"><b>Esempio</b>|+8| = 8 &emsp; |−15| = 15 &emsp; |0| = 0</div>
 <p>Due numeri opposti hanno lo stesso valore assoluto. Per esempio |+6| = |−6| = 6.</p>
@@ -129,8 +129,8 @@ Il <b>valore assoluto</b> (o <b>modulo</b>) di un numero intero <span class="mat
 <li>Lo 0 è maggiore di ogni negativo e minore di ogni positivo.</li>
 </ul></div>
 <div class="attenzione"><b>Attenzione</b>Con i negativi l'intuizione inganna. −20 °C è una temperatura più bassa di −2 °C, quindi −20 &lt; −2, anche se 20 è maggiore di 2.</div>
-<p>Dati due interi <span class="mat">a</span> e <span class="mat">b</span>, vale sempre una e una sola delle relazioni <span class="mat">a &lt; b</span>, <span class="mat">a = b</span>, <span class="mat">a &gt; b</span>. Per questo ℤ è un insieme <b>ordinato</b>.</p>
-<p>Ogni intero <span class="mat">x</span> ha un <b>successivo</b> <span class="mat">x + 1</span> e un <b>precedente</b> <span class="mat">x − 1</span>. Per esempio il precedente di −6 è −7 e il successivo di −6 è −5. A differenza di quanto accade in ℕ, <b>anche lo 0 ha un precedente</b>, che è −1. Quindi ℤ non ha né un numero più piccolo di tutti né uno più grande di tutti: è un insieme <b>infinito</b> in entrambe le direzioni. Inoltre fra un intero e il suo successivo non ci sono altri interi, quindi anche ℤ, come ℕ, è un insieme <b>discreto</b>.</p>
+<p>Dati due interi <span class="mat"><i>a</i></span> e <span class="mat"><i>b</i></span>, vale sempre una e una sola delle relazioni <span class="mat"><i>a</i> &lt; <i>b</i></span>, <span class="mat"><i>a</i> = <i>b</i></span>, <span class="mat"><i>a</i> &gt; b</span>. Per questo ℤ è un insieme <b>ordinato</b>.</p>
+<p>Ogni intero <span class="mat"><i>x</i></span> ha un <b>successivo</b> <span class="mat"><i>x</i> + 1</span> e un <b>precedente</b> <span class="mat"><i>x</i> − 1</span>. Per esempio il precedente di −6 è −7 e il successivo di −6 è −5. A differenza di quanto accade in ℕ, <b>anche lo 0 ha un precedente</b>, che è −1. Quindi ℤ non ha né un numero più piccolo di tutti né uno più grande di tutti: è un insieme <b>infinito</b> in entrambe le direzioni. Inoltre fra un intero e il suo successivo non ci sono altri interi, quindi anche ℤ, come ℕ, è un insieme <b>discreto</b>.</p>
 
 <div class="curiosita" data-img="marmorto" data-titolo="Sotto il livello del mare">
 <p>Le quote si misurano a partire dal livello medio del mare, che vale 0 metri. La vetta dell'Everest è a circa +8849 m, ma esistono luoghi asciutti con quota negativa! La riva del <b>Mar Morto</b>, fra Israele e Giordania, si trova a circa −430 m ed è il punto di terraferma più basso del pianeta. Le sue acque sono così salate che si galleggia senza alcuno sforzo.</p>
@@ -158,18 +158,18 @@ La somma di due numeri opposti è 0.</div>
 <p>L'addizione è un'<b>operazione interna</b> in ℤ e valgono le proprietà già note in ℕ, cioè la <b>commutativa</b> e l'<b>associativa</b>; lo 0 è l'<b>elemento neutro</b>. In più c'è una proprietà nuova: ogni intero ha un <b>opposto</b>, e la somma di un numero con il suo opposto dà l'elemento neutro 0, per esempio (−9) + (+9) = 0.</p>
 
 <h3>Le somme sulla retta</h3>
-<p>Per rappresentare <span class="mat">a + b</span> sulla retta partiamo dal punto <span class="mat">a</span> e ci spostiamo di <span class="mat">|b|</span> unità, <b>verso destra se b è positivo</b> e <b>verso sinistra se b è negativo</b>. Il punto di arrivo è la somma.</p>
+<p>Per rappresentare <span class="mat"><i>a</i> + <i>b</i></span> sulla retta partiamo dal punto <span class="mat">a</span> e ci spostiamo di <span class="mat">|<i>b</i>|</span> unità, <b>verso destra se <i>b</i> è positivo</b> e <b>verso sinistra se <i>b</i> è negativo</b>. Il punto di arrivo è la somma.</p>
 <div class="anim" data-anim="somma" data-titolo="Addizione con i salti sulla retta"></div>
 
 <h3>La sottrazione</h3>
 <div class="definizione"><b>Definizione</b>
 La <b>differenza</b> di due numeri interi è la somma del minuendo con l'<b>opposto del sottraendo</b>.
-<p class="formula">a − b = a + (−b)</p></div>
+<p class="formula"><i>a</i> − <i>b</i> = <i>a</i> + (−<i>b</i>)</p></div>
 <div class="esempio"><b>Esempio</b>(+10) − (+4) = (+10) + (−4) = +6 &emsp; (−3) − (−11) = (−3) + (+11) = +8</div>
 <p>In pratica si eliminano le parentesi del sottraendo <b>cambiandogli il segno</b>, come in (+5) − (−2) = +5 + 2 = +7.</p>
 <p>In ℕ la sottrazione <span class="mat">3 − 8</span> non si poteva eseguire; in ℤ invece</p>
 <p class="formula">3 − 8 = (+3) + (−8) = −5</p>
-<p>La sottrazione è quindi un'<b>operazione interna</b> in ℤ e non serve più la condizione che il minuendo sia maggiore o uguale al sottraendo. Vale anche la <b>proprietà invariantiva</b>, cioè <span class="mat">a − b = (a + c) − (b + c)</span> e <span class="mat">a − b = (a − c) − (b − c)</span>. Per esempio (−7) − (−4) = (−7 + 4) − (−4 + 4) = −3 − 0 = −3.</p>
+<p>La sottrazione è quindi un'<b>operazione interna</b> in ℤ e non serve più la condizione che il minuendo sia maggiore o uguale al sottraendo. Vale anche la <b>proprietà invariantiva</b>, cioè <span class="mat"><i>a</i> − <i>b</i> = (<i>a</i> + <i>c</i>) − (<i>b</i> + <i>c</i>)</span> e <span class="mat"><i>a</i> − <i>b</i> = (<i>a</i> − <i>c</i>) − (<i>b</i> − <i>c</i>)</span>. Per esempio (−7) − (−4) = (−7 + 4) − (−4 + 4) = −3 − 0 = −3.</p>
 <div class="attenzione"><b>Attenzione</b>La sottrazione non è commutativa nemmeno in ℤ. Infatti 5 − 9 = −4, mentre 9 − 5 = +4, quindi i due risultati sono opposti.</div>
 
 <h3>L'addizione algebrica</h3>
@@ -183,7 +183,7 @@ La <b>differenza</b> di due numeri interi è la somma del minuendo con l'<b>oppo
 <div class="approfondimento"><b>Per approfondire · Anni avanti Cristo e dopo Cristo</b>
 <p>Nel nostro calendario possiamo indicare gli anni avanti Cristo con numeri negativi e quelli dopo Cristo con numeri positivi. C'è però una particolarità, cioè <b>l'anno 0 non esiste</b>, perché all'anno 1 a.C. segue direttamente l'anno 1 d.C. Per questo, se un periodo comincia in un anno a.C. e finisce in un anno d.C., alla differenza fra i due numeri bisogna togliere 1.</p>
 <p>Secondo la tradizione Roma fu fondata nel 753 a.C. Quanti anni sono trascorsi fino al 2026? Si ha 2026 − (−753) − 1 = 2026 + 753 − 1 = 2778 anni.</p>
-<p>Gli antichi Greci contavano gli anni in <b>Olimpiadi</b>, periodi di 4 anni a partire dai primi giochi del 776 a.C. Dal 776 a.C. al 2026 sono trascorsi 2026 + 776 − 1 = 2801 anni. Poiché 2801 = 4 · 700 + 1, sono passate 700 Olimpiadi complete e il 2026 sarebbe il secondo anno della 701<sup>a</sup> Olimpiade.</p></div>
+<p>Gli antichi Greci contavano gli anni in <b>Olimpiadi</b>, periodi di 4 anni a partire dai primi giochi del 776 a.C. Dal 776 a.C. al 2026 sono trascorsi 2026 + 776 − 1 = 2801 anni. Poiché 2801 = 4 · 700 + 1, sono passate 700 Olimpiadi complete e il 2026 sarebbe il secondo anno della 701<sup><i>a</i></sup> Olimpiade.</p></div>
 
 <div class="curiosita" data-img="registro" data-titolo="Essere “in rosso”">
 <p>Si dice che un conto è “in rosso” quando il saldo è negativo, cioè quando si deve del denaro alla banca. L'espressione viene dall'abitudine dei contabili di scrivere i debiti e le perdite con l'inchiostro rosso e i crediti con quello nero.</p>
@@ -221,11 +221,11 @@ Se il secondo numero è diverso da 0 e il valore assoluto del primo è multiplo 
 <div class="attenzione"><b>Attenzione</b>Non vale invece la distributiva <b>a sinistra</b>. Per esempio 24 : (6 − 2) = 24 : 4 = 6, mentre 24 : 6 − 24 : 2 = 4 − 12 = −8.</div>
 <p>Come in ℕ, la divisione <b>non</b> è un'operazione interna in ℤ. Per esempio (−17) : (+5) non ha risultato in ℤ, perché 17 non è multiplo di 5.</p>
 <table class="tab"><tr><th>Caso</th><th>Risultato</th></tr>
-<tr><td>a : (+1)</td><td>a</td></tr>
-<tr><td>a : (−1)</td><td>−a, cioè l'opposto di a</td></tr>
-<tr><td>a : a, con a ≠ 0</td><td>+1</td></tr>
-<tr><td>0 : a, con a ≠ 0</td><td>0</td></tr>
-<tr><td>a : 0, con a ≠ 0</td><td>non è definita (impossibile)</td></tr>
+<tr><td><i>a</i> : (+1)</td><td>a</td></tr>
+<tr><td><i>a</i> : (−1)</td><td>−a, cioè l'opposto di a</td></tr>
+<tr><td><i>a</i> : <i>a</i>, con <i>a</i> ≠ 0</td><td>+1</td></tr>
+<tr><td>0 : <i>a</i>, con <i>a</i> ≠ 0</td><td>0</td></tr>
+<tr><td><i>a</i> : 0, con <i>a</i> ≠ 0</td><td>non è definita (impossibile)</td></tr>
 <tr><td>0 : 0</td><td>non è definita (indeterminata)</td></tr></table>
 
 <h3>ℤ è un ampliamento di ℕ</h3>
@@ -261,20 +261,20 @@ La <b>potenza</b> di un numero intero con esponente naturale è un intero che ha
 <p class="formula">−3<sup>2</sup> = −(3 · 3) = −9 &emsp; mentre &emsp; (−3)<sup>2</sup> = (−3)(−3) = +9</p></div>
 <p>I casi particolari sono gli stessi di ℕ.</p>
 <ul>
-<li><span class="mat">a<sup>1</sup> = a</span>, per esempio (−7)<sup>1</sup> = −7;</li>
-<li><span class="mat">a<sup>0</sup> = 1</span> se <span class="mat">a ≠ 0</span>, per esempio (−7)<sup>0</sup> = +1;</li>
-<li><span class="mat">0<sup>n</sup> = 0</span> se <span class="mat">n ≠ 0</span>, mentre <span class="mat">0<sup>0</sup></span> non è definita.</li>
+<li><span class="mat"><i>a</i><sup>1</sup> = <i>a</i></span>, per esempio (−7)<sup>1</sup> = −7;</li>
+<li><span class="mat"><i>a</i><sup>0</sup> = 1</span> se <span class="mat"><i>a</i> ≠ 0</span>, per esempio (−7)<sup>0</sup> = +1;</li>
+<li><span class="mat">0<sup><i>n</i></sup> = 0</span> se <span class="mat"><i>n</i> ≠ 0</span>, mentre <span class="mat">0<sup>0</sup></span> non è definita.</li>
 </ul>
 <p>Le potenze di −1 sono speciali, perché valgono +1 se l'esponente è pari e −1 se è dispari.</p>
 
 <h3>Le proprietà delle potenze</h3>
 <p>In ℤ valgono le stesse proprietà delle potenze viste in ℕ.</p>
 <table class="tab"><tr><th>Proprietà</th><th>Esempio in ℤ</th></tr>
-<tr><td>a<sup>m</sup> · a<sup>n</sup> = a<sup>m+n</sup></td><td>(−2)<sup>3</sup> · (−2)<sup>4</sup> = (−2)<sup>7</sup></td></tr>
-<tr><td>a<sup>m</sup> : a<sup>n</sup> = a<sup>m−n</sup>, con m ≥ n e a ≠ 0</td><td>(−5)<sup>9</sup> : (−5)<sup>6</sup> = (−5)<sup>3</sup></td></tr>
-<tr><td>(a<sup>m</sup>)<sup>n</sup> = a<sup>m·n</sup></td><td>[(−3)<sup>2</sup>]<sup>4</sup> = (−3)<sup>8</sup></td></tr>
-<tr><td>a<sup>n</sup> · b<sup>n</sup> = (a · b)<sup>n</sup></td><td>(−4)<sup>3</sup> · (+2)<sup>3</sup> = (−8)<sup>3</sup></td></tr>
-<tr><td>a<sup>n</sup> : b<sup>n</sup> = (a : b)<sup>n</sup>, con b ≠ 0 e |a| multiplo di |b|</td><td>(−18)<sup>5</sup> : (+6)<sup>5</sup> = (−3)<sup>5</sup></td></tr></table>
+<tr><td><i>a</i><sup><i>m</i></sup> · <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i>+<i>n</i></sup></td><td>(−2)<sup>3</sup> · (−2)<sup>4</sup> = (−2)<sup>7</sup></td></tr>
+<tr><td><i>a</i><sup><i>m</i></sup> : <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i>−<i>n</i></sup>, con <i>m</i> ≥ <i>n</i> e <i>a</i> ≠ 0</td><td>(−5)<sup>9</sup> : (−5)<sup>6</sup> = (−5)<sup>3</sup></td></tr>
+<tr><td>(<i>a</i><sup><i>m</i></sup>)<sup><i>n</i></sup> = <i>a</i><sup><i>m</i>·<i>n</i></sup></td><td>[(−3)<sup>2</sup>]<sup>4</sup> = (−3)<sup>8</sup></td></tr>
+<tr><td><i>a</i><sup><i>n</i></sup> · <i>b</i><sup><i>n</i></sup> = (<i>a</i> · <i>b</i>)<sup><i>n</i></sup></td><td>(−4)<sup>3</sup> · (+2)<sup>3</sup> = (−8)<sup>3</sup></td></tr>
+<tr><td><i>a</i><sup><i>n</i></sup> : <i>b</i><sup><i>n</i></sup> = (<i>a</i> : <i>b</i>)<sup><i>n</i></sup>, con <i>b</i> ≠ 0 e |a| multiplo di |<i>b</i>|</td><td>(−18)<sup>5</sup> : (+6)<sup>5</sup> = (−3)<sup>5</sup></td></tr></table>
 <p>Quando le basi sono <b>opposte</b> conviene prima renderle uguali.</p>
 <ul>
 <li>Se l'esponente è pari si può cambiare il segno della base, per esempio (−6)<sup>4</sup> = (+6)<sup>4</sup>.</li>
@@ -288,7 +288,7 @@ La <b>potenza</b> di un numero intero con esponente naturale è un intero che ha
 
 <div class="curiosita" data-img="lampadina" data-titolo="Acceso, spento, acceso… le potenze di −1">
 <p>Immagina una lampadina comandata da un interruttore. Ogni volta che premi il pulsante, lo stato si inverte. Se +1 vuol dire “accesa” e −1 “spenta”, premere il pulsante equivale a moltiplicare per −1.</p>
-<p>Partendo da accesa (+1), dopo <span class="mat">n</span> pressioni la lampadina è nello stato <span class="mat">(−1)<sup>n</sup></span>. Dopo 2, 4, 6, … pressioni è di nuovo accesa (+1), dopo 1, 3, 5, … pressioni è spenta (−1). Quindi, per sapere come sarà dopo 2027 pressioni, non serve contarle una per una. Basta osservare che 2027 è dispari, perciò (−1)<sup>2027</sup> = −1 e la lampadina sarà spenta.</p>
+<p>Partendo da accesa (+1), dopo <span class="mat"><i>n</i></span> pressioni la lampadina è nello stato <span class="mat">(−1)<sup><i>n</i></sup></span>. Dopo 2, 4, 6, … pressioni è di nuovo accesa (+1), dopo 1, 3, 5, … pressioni è spenta (−1). Quindi, per sapere come sarà dopo 2027 pressioni, non serve contarle una per una. Basta osservare che 2027 è dispari, perciò (−1)<sup>2027</sup> = −1 e la lampadina sarà spenta.</p>
 <p>Questa “altalena” dei segni si usa spesso in matematica e in informatica per indicare qualcosa che si alterna, come i turni di due giocatori.</p>
 </div>
 `},
@@ -299,20 +299,20 @@ La <b>potenza</b> di un numero intero con esponente naturale è un intero che ha
 <h3>Prima legge di monotonia</h3>
 <div class="regola"><b>Prima legge di monotonia</b>
 Un'uguaglianza o una disuguaglianza resta valida se ai due membri si <b>aggiunge uno stesso numero</b>.
-<p class="formula">a = b &ensp;→&ensp; a + c = b + c &emsp;&emsp; a &lt; b &ensp;→&ensp; a + c &lt; b + c</p></div>
+<p class="formula"><i>a</i> = <i>b</i> &ensp;→&ensp; <i>a</i> + <i>c</i> = <i>b</i> + <i>c</i> &emsp;&emsp; <i>a</i> &lt; <i>b</i> &ensp;→&ensp; <i>a</i> + <i>c</i> &lt; <i>b</i> + <i>c</i></p></div>
 <div class="esempio"><b>Esempio</b>Da −4 &lt; +6, aggiungendo −9 ai due membri, si ottiene −4 + (−9) &lt; +6 + (−9), cioè −13 &lt; −3, che è ancora vera.</div>
 <p>Aggiungere un numero equivale a spostare entrambi i numeri sulla retta della stessa quantità, nella stessa direzione. Per questo il loro ordine non cambia.</p>
 
 <h3>Seconda legge di monotonia per le uguaglianze</h3>
 <div class="regola"><b>Seconda legge per le uguaglianze</b>
 Un'uguaglianza resta valida se i due membri si <b>moltiplicano per uno stesso numero diverso da 0</b>.
-<p class="formula">a = b &ensp;→&ensp; a · c = b · c &emsp; con c ≠ 0</p></div>
+<p class="formula"><i>a</i> = <i>b</i> &ensp;→&ensp; <i>a</i> · <i>c</i> = <i>b</i> · <i>c</i> &emsp; con <i>c</i> ≠ 0</p></div>
 <div class="esempio"><b>Esempio</b>Da 15 = 9 + 6, moltiplicando per −3, si ottiene 15 · (−3) = (9 + 6) · (−3). Entrambi i membri valgono −45.</div>
 
 <h3>Seconda legge di monotonia per le disuguaglianze</h3>
 <div class="regola"><b>Seconda legge per le disuguaglianze</b>
 Se si moltiplicano i due membri di una disuguaglianza per un numero <b>positivo</b>, la disuguaglianza resta valida. Se si moltiplicano per un numero <b>negativo</b>, per ottenere una disuguaglianza valida bisogna <b>cambiare il verso</b>.
-<p class="formula">a &lt; b &ensp;→&ensp; a · c &lt; b · c se c &gt; 0 &emsp;&emsp; a &lt; b &ensp;→&ensp; a · c &gt; b · c se c &lt; 0</p></div>
+<p class="formula"><i>a</i> &lt; <i>b</i> &ensp;→&ensp; <i>a</i> · <i>c</i> &lt; <i>b</i> · <i>c</i> se <i>c</i> &gt; 0 &emsp;&emsp; a &lt; <i>b</i> &ensp;→&ensp; <i>a</i> · <i>c</i> &gt; <i>b</i> · <i>c</i> se <i>c</i> &lt; 0</p></div>
 <div class="esempio"><b>Esempio</b>Da +3 &lt; +7, moltiplicando per −2, si ottiene −6 &gt; −14. Il verso cambia da &lt; a &gt;.</div>
 <p>Il motivo si vede bene sulla retta. Moltiplicare per −1 scambia ogni numero con il suo opposto, cioè “ribalta” la retta attorno allo 0 come in uno specchio. Il numero che prima stava più a destra finisce più a sinistra, e quindi il verso si inverte.</p>
 <div class="attenzione"><b>Attenzione</b>Nella seconda legge il numero per cui si moltiplica non può essere 0. Da 2 &lt; 5, moltiplicando per 0, si otterrebbe 0 = 0 e la disuguaglianza andrebbe persa. Per lo stesso motivo nelle leggi di cancellazione non si può “cancellare” un fattore 0, infatti 0 · 3 = 0 · 7 ma 3 ≠ 7.</div>
@@ -326,7 +326,7 @@ Se si moltiplicano i due membri di una disuguaglianza per un numero <b>positivo<
 </ul>
 
 <div class="attenzione"><b>Attenzione</b>Elevare al quadrato i due membri <b>non</b> è una legge di monotonia. Per esempio −5 &lt; 2, ma (−5)<sup>2</sup> = 25 è maggiore di 2<sup>2</sup> = 4.</div>
-<div class="esempio"><b>Esempio</b>Le leggi di monotonia servono a trovare un numero sconosciuto. Se <span class="mat">x + 7 = 3</span>, aggiungendo −7 ai due membri si ottiene <span class="mat">x = 3 − 7 = −4</span>. Se <span class="mat">−3x &lt; 12</span>, moltiplicando i due membri per −1 si ottiene <span class="mat">3x &gt; −12</span> (il verso cambia!), e quindi x deve essere maggiore di −4. Le studierai a fondo nei capitoli sulle equazioni e sulle disequazioni.</div>
+<div class="esempio"><b>Esempio</b>Le leggi di monotonia servono a trovare un numero sconosciuto. Se <span class="mat"><i>x</i> + 7 = 3</span>, aggiungendo −7 ai due membri si ottiene <span class="mat"><i>x</i> = 3 − 7 = −4</span>. Se <span class="mat">−3<i>x</i> &lt; 12</span>, moltiplicando i due membri per −1 si ottiene <span class="mat">3<i>x</i> &gt; −12</span> (il verso cambia!), e quindi <i>x</i> deve essere maggiore di −4. Le studierai a fondo nei capitoli sulle equazioni e sulle disequazioni.</div>
 
 <div class="curiosita" data-img="specchio" data-titolo="Lo specchio dei numeri">
 <p>Metti uno specchio verticale appoggiato sullo 0 della retta dei numeri. Il riflesso di +5 è −5, quello di −2 è +2. Ogni numero si riflette nel suo opposto.</p>

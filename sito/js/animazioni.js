@@ -360,7 +360,7 @@
       S("rect", { x: x0, y: y0, width: a * u, height: b * u, fill: "none", stroke: C.testo, "stroke-width": 3 }, s);
       requestAnimationFrame(() => requestAnimationFrame(() => s.querySelectorAll("rect").forEach(r => (r.style.opacity = 1))));
       const n = (a / g) * (b / g);
-      lett.innerHTML = `MCD(${a}, ${b}) = <b>${g}</b> → la piastrella più grande è un quadrato di lato <b>${g} dm</b>; ne servono ${a / g} × ${b / g} = <b>${n}</b>.` + (g === 1 ? " I due numeri sono <b>primi tra loro</b>." : "");
+      lett.innerHTML = `MCD(${a}; ${b}) = <b>${g}</b> → la piastrella più grande è un quadrato di lato <b>${g} dm</b>; ne servono ${a / g} × ${b / g} = <b>${n}</b>.` + (g === 1 ? " I due numeri sono <b>primi tra loro</b>." : "");
     }
     disegna();
   };
@@ -398,7 +398,7 @@
         e.style.cssText = `opacity:0;transition:opacity .3s ${(k++) * 0.02}s`;
       }
       requestAnimationFrame(() => requestAnimationFrame(() => s.querySelectorAll("circle,path,rect").forEach(r => { r.style.opacity = r.tagName === "rect" ? .55 : 1; })));
-      lett.innerHTML = `Si incontrano ogni <b>mcm(${c}, ${p}) = ${M} anni</b> → in 120 anni <b>${incontri}</b> ${incontri === 1 ? "incontro" : "incontri"} (oltre all'anno 0).` +
+      lett.innerHTML = `Si incontrano ogni <b>mcm(${c}; ${p}) = ${M} anni</b> → in 120 anni <b>${incontri}</b> ${incontri === 1 ? "incontro" : "incontri"} (oltre all'anno 0).` +
         (M === c ? ` &emsp; <span style="color:${C.rosso}">Ahi! Le cicale incontrano i predatori a <b>ogni</b> uscita.</span>` : "");
     }
     disegna();
