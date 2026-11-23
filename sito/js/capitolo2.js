@@ -36,7 +36,7 @@ LIBRO.capitoli.cap2 = {
 <li><span class="mat">ℤ<sub>0</sub><sup>+</sup></span><span class="nota">interi <b>non negativi</b> (positivi e zero), che corrispondono a ℕ</span></li>
 </ul>
 <p><b>Opposti</b> sono due interi con segno diverso e stesso valore assoluto, come +7 e −7. Due interi diversi da 0 sono <b>concordi</b> se hanno lo stesso segno, <b>discordi</b> se hanno segno diverso.</p>
-<p><b>Valore assoluto</b>. <span class="mat">|a| = a</span> se <span class="mat"><i>a</i> ≥ 0</span> e <span class="mat">|a| = −a</span> se <span class="mat"><i>a</i> &lt; 0</span>. Per esempio |−9| = 9 e |+4| = 4.</p>
+<p><b>Valore assoluto</b>. <span class="mat">|a| = <i>a</i></span> se <span class="mat"><i>a</i> ≥ 0</span> e <span class="mat">|a| = −a</span> se <span class="mat"><i>a</i> &lt; 0</span>. Per esempio |−9| = 9 e |+4| = 4.</p>
 <p><b>Confronto</b>. Sulla retta orientata è maggiore il numero più a destra.</p>
 <ul class="sint-lista">
 <li><span class="mat">+8 &gt; +3</span><span class="nota">fra due positivi è maggiore quello con valore assoluto maggiore</span></li>
@@ -103,7 +103,7 @@ Due interi diversi da 0 sono <b>concordi</b> se hanno lo stesso segno, <b>discor
 
 <h3>Il valore assoluto</h3>
 <div class="definizione"><b>Definizione</b>
-Il <b>valore assoluto</b> (o <b>modulo</b>) di un numero intero <span class="mat">a</span>, che si indica con <span class="mat">|a|</span>, è
+Il <b>valore assoluto</b> (o <b>modulo</b>) di un numero intero <span class="mat"><i>a</i></span>, che si indica con <span class="mat">|a|</span>, è
 <ul><li>il numero stesso, se <span class="mat"><i>a</i></span> è positivo o è zero;</li>
 <li>l'opposto del numero, se <span class="mat"><i>a</i></span> è negativo.</li></ul></div>
 <p>In pratica il valore assoluto è il numero “senza segno”, e non è mai negativo. Di solito lo scriviamo senza il segno +.</p>
@@ -158,7 +158,7 @@ La somma di due numeri opposti è 0.</div>
 <p>L'addizione è un'<b>operazione interna</b> in ℤ e valgono le proprietà già note in ℕ, cioè la <b>commutativa</b> e l'<b>associativa</b>; lo 0 è l'<b>elemento neutro</b>. In più c'è una proprietà nuova: ogni intero ha un <b>opposto</b>, e la somma di un numero con il suo opposto dà l'elemento neutro 0, per esempio (−9) + (+9) = 0.</p>
 
 <h3>Le somme sulla retta</h3>
-<p>Per rappresentare <span class="mat"><i>a</i> + <i>b</i></span> sulla retta partiamo dal punto <span class="mat">a</span> e ci spostiamo di <span class="mat">|<i>b</i>|</span> unità, <b>verso destra se <i>b</i> è positivo</b> e <b>verso sinistra se <i>b</i> è negativo</b>. Il punto di arrivo è la somma.</p>
+<p>Per rappresentare <span class="mat"><i>a</i> + <i>b</i></span> sulla retta partiamo dal punto <span class="mat"><i>a</i></span> e ci spostiamo di <span class="mat">|<i>b</i>|</span> unità, <b>verso destra se <i>b</i> è positivo</b> e <b>verso sinistra se <i>b</i> è negativo</b>. Il punto di arrivo è la somma.</p>
 <div class="anim" data-anim="somma" data-titolo="Addizione con i salti sulla retta"></div>
 
 <h3>La sottrazione</h3>

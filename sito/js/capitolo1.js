@@ -29,7 +29,7 @@ LIBRO.capitoli.cap1 = {
 <li><span class="data">1489 – fine del Seicento</span>Nascono i <b>simboli</b> che usiamo ancora oggi. I segni + e − compaiono in un manuale tedesco di aritmetica per mercanti (1489), il segno = viene proposto da Robert Recorde (1557), l'esponente scritto in alto da Cartesio (1637); il punto per la moltiplicazione e i due punti per la divisione si diffondono grazie a Gottfried Leibniz.</li>
 <li><span class="data">1889</span>Il matematico torinese <b>Giuseppe Peano</b> descrive i numeri naturali con pochi assiomi, partendo da un primo numero e dall'idea di <b>successivo</b>, la stessa da cui parte questo capitolo.</li>
 </ol>
-<p class="storia-capitolo"><b>In questo capitolo</b> ripercorriamo lo stesso cammino. Impareremo a contare e confrontare, a usare le quattro operazioni nate per i commerci, a scrivere in breve numeri enormi con le potenze, e a lavorare con multipli e divisori, utili per dividere in parti uguali o per capire quando due eventi che si ripetono capiteranno di nuovo insieme.</p>
+<p class="storia-capitolo"><b>In questo capitolo</b> ripercorriamo lo stesso cammino. Impareremo a contare e confrontare, a usare le quattro operazioni nate per i commerci e le loro proprietà, a scrivere in breve numeri enormi con le potenze, a capire come funziona la scrittura posizionale in base 10 e in base 2 (quella dei computer), e a lavorare con multipli e divisori, utili per dividere in parti uguali o per capire quando due eventi che si ripetono capiteranno di nuovo insieme.</p>
 `,
 
   /* ------------------------- TEORIA IN SINTESI (chiusura) ------------------------- */
@@ -40,7 +40,8 @@ LIBRO.capitoli.cap1 = {
 <ul class="sint-lista">
 <li><span class="mat">2<i>k</i></span><span class="nota">numeri <b>pari</b> (0, 2, 4, 6, …)</span></li>
 <li><span class="mat">2<i>k</i> + 1</span><span class="nota">numeri <b>dispari</b> (1, 3, 5, 7, …)</span></li>
-</ul></div>
+</ul>
+</div>
 
 <div class="sint-blocco"><h3><span>2</span>Le quattro operazioni</h3>
 <table class="tab"><tr><th>Operazione</th><th>Termini</th><th>Risultato</th><th>Si può sempre fare in ℕ?</th></tr>
@@ -51,34 +52,16 @@ LIBRO.capitoli.cap1 = {
 <p><b>Divisione con resto.</b> Dati <span class="mat"><i>a</i></span> e <span class="mat"><i>b</i> ≠ 0</span>, si ha <span class="mat"><i>a</i> = <i>b</i> · <i>q</i> + <i>r</i></span> con <span class="mat"><i>r</i> &lt; <i>b</i></span>. Per esempio 23 = 5 · 4 + 3.</p>
 <p><b>Lo 0 e l'1</b></p>
 <ul class="sint-lista">
-<li><span class="mat"><i>a</i> + 0 = a</span><span class="nota">lo 0 è l'elemento neutro dell'addizione</span></li>
+<li><span class="mat"><i>a</i> + 0 = <i>a</i></span><span class="nota">lo 0 è l'elemento neutro dell'addizione</span></li>
 <li><span class="mat"><i>a</i> · 1 = <i>a</i></span><span class="nota">l'1 è l'elemento neutro della moltiplicazione</span></li>
 <li><span class="mat"><i>a</i> · 0 = 0</span><span class="nota">lo 0 è l'elemento assorbente della moltiplicazione</span></li>
 <li><span class="mat">0 : <i>a</i> = 0</span><span class="nota">con <i>a</i> ≠ 0</span></li>
 <li><span class="mat"><i>a</i> : 0</span><span class="nota"><b>impossibile</b> se <i>a</i> ≠ 0</span></li>
 <li><span class="mat">0 : 0</span><span class="nota"><b>indeterminata</b></span></li>
-</ul></div>
+</ul>
+</div>
 
-<div class="sint-blocco"><h3><span>3</span>Le potenze</h3>
-<p>La potenza <span class="mat"><i>a</i><sup><i>n</i></sup></span> è il prodotto di <span class="mat"><i>n</i></span> fattori uguali ad <span class="mat">a</span>. La <b>base</b> è <span class="mat">a</span>, l'<b>esponente</b> è <span class="mat"><i>n</i></span>. Per esempio 2<sup>5</sup> = 2 · 2 · 2 · 2 · 2 = 32.</p>
-<ul class="sint-lista">
-<li><span class="mat"><i>a</i><sup>1</sup> = a</span><span class="nota">esponente 1</span></li>
-<li><span class="mat"><i>a</i><sup>0</sup> = 1</span><span class="nota">esponente 0, con <i>a</i> ≠ 0</span></li>
-<li><span class="mat">1<sup><i>n</i></sup> = 1</span><span class="nota">base 1</span></li>
-<li><span class="mat">0<sup><i>n</i></sup> = 0</span><span class="nota">base 0, con <i>n</i> ≠ 0</span></li>
-<li><span class="mat">0<sup>0</sup></span><span class="nota">non ha significato</span></li>
-</ul></div>
-
-<div class="sint-blocco"><h3><span>4</span>Le espressioni</h3>
-<p><b>Ordine di calcolo.</b> Prima le parentesi, dalle tonde alle quadre alle graffe. Dentro ogni parentesi si calcolano prima le potenze, poi moltiplicazioni e divisioni nell'ordine in cui compaiono, infine addizioni e sottrazioni nell'ordine in cui compaiono.</p>
-<p class="formula">[(2 + 3)<sup>2</sup> − 5 · 3] : 2 = [25 − 15] : 2 = 10 : 2 = 5</p>
-<p>In un'<b>espressione letterale</b> le lettere (variabili) stanno al posto dei numeri. Per calcolarne il valore si sostituiscono i numeri alle lettere.</p>
-<table class="tab"><tr><th>A parole</th><th>Con i simboli</th><th>Con <i>a</i> = 3 e <i>b</i> = 4</th></tr>
-<tr><td>il quadrato della somma di <i>a</i> e <i>b</i></td><td>(<i>a</i> + <i>b</i>)<sup>2</sup></td><td>7<sup>2</sup> = 49</td></tr>
-<tr><td>la somma dei quadrati di <i>a</i> e <i>b</i></td><td><i>a</i><sup>2</sup> + <i>b</i><sup>2</sup></td><td>9 + 16 = 25</td></tr>
-<tr><td>il doppio del successivo di a</td><td>2(<i>a</i> + 1)</td><td>2 · 4 = 8</td></tr></table></div>
-
-<div class="sint-blocco"><h3><span>5</span>Le proprietà delle operazioni</h3>
+<div class="sint-blocco"><h3><span>3</span>Le proprietà delle operazioni</h3>
 <table class="tab"><tr><th>Proprietà</th><th>Vale per</th><th>Espressione</th></tr>
 <tr><td>commutativa</td><td>addizione, moltiplicazione</td><td><i>a</i> + <i>b</i> = <i>b</i> + <i>a</i><br><i>a</i> · <i>b</i> = <i>b</i> · <i>a</i></td></tr>
 <tr><td>associativa</td><td>addizione, moltiplicazione</td><td>(<i>a</i> + <i>b</i>) + <i>c</i> = <i>a</i> + (<i>b</i> + <i>c</i>)<br>(<i>a</i> · <i>b</i>) · <i>c</i> = <i>a</i> · (<i>b</i> · <i>c</i>)</td></tr>
@@ -88,17 +71,45 @@ LIBRO.capitoli.cap1 = {
 <tr><td>invariantiva</td><td>divisione</td><td><i>a</i> : <i>b</i> = (<i>a</i> · <i>c</i>) : (<i>b</i> · <i>c</i>)<br><small><i>b</i> ≠ 0, <i>c</i> ≠ 0</small></td></tr></table>
 </div>
 
-<div class="sint-blocco"><h3><span>6</span>Le proprietà delle potenze</h3>
+<div class="sint-blocco"><h3><span>4</span>Le potenze e le loro proprietà</h3>
+<p>La potenza <span class="mat"><i>a</i><sup><i>n</i></sup></span> è il prodotto di <span class="mat"><i>n</i></span> fattori uguali ad <span class="mat"><i>a</i></span>. La <b>base</b> è <span class="mat"><i>a</i></span>, l'<b>esponente</b> è <span class="mat"><i>n</i></span>. Per esempio 2<sup>5</sup> = 2 · 2 · 2 · 2 · 2 = 32.</p>
+<ul class="sint-lista">
+<li><span class="mat"><i>a</i><sup>1</sup> = <i>a</i></span><span class="nota">esponente 1</span></li>
+<li><span class="mat"><i>a</i><sup>0</sup> = 1</span><span class="nota">esponente 0, con <i>a</i> ≠ 0</span></li>
+<li><span class="mat">1<sup><i>n</i></sup> = 1</span><span class="nota">base 1</span></li>
+<li><span class="mat">0<sup><i>n</i></sup> = 0</span><span class="nota">base 0, con <i>n</i> ≠ 0</span></li>
+<li><span class="mat">0<sup>0</sup></span><span class="nota">non ha significato</span></li>
+</ul>
 <table class="tab"><tr><th>Proprietà</th><th>Espressione</th><th>Esempio</th></tr>
 <tr><td>prodotto di potenze con la stessa base</td><td><i>a</i><sup><i>m</i></sup> · <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i> + <i>n</i></sup></td><td>3<sup>2</sup> · 3<sup>4</sup> = 3<sup>6</sup></td></tr>
 <tr><td>quoziente di potenze con la stessa base</td><td><i>a</i><sup><i>m</i></sup> : <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i> − <i>n</i></sup><br><small><i>a</i> ≠ 0, <i>m</i> ≥ <i>n</i></small></td><td>7<sup>5</sup> : 7<sup>2</sup> = 7<sup>3</sup></td></tr>
 <tr><td>potenza di una potenza</td><td>(<i>a</i><sup><i>m</i></sup>)<sup><i>n</i></sup> = <i>a</i><sup><i>m</i> · <i>n</i></sup></td><td>(2<sup>3</sup>)<sup>4</sup> = 2<sup>12</sup></td></tr>
 <tr><td>prodotto di potenze con lo stesso esponente</td><td><i>a</i><sup><i>n</i></sup> · <i>b</i><sup><i>n</i></sup> = (<i>a</i> · <i>b</i>)<sup><i>n</i></sup></td><td>4<sup>3</sup> · 5<sup>3</sup> = 20<sup>3</sup></td></tr>
 <tr><td>quoziente di potenze con lo stesso esponente</td><td><i>a</i><sup><i>n</i></sup> : <i>b</i><sup><i>n</i></sup> = (<i>a</i> : <i>b</i>)<sup><i>n</i></sup><br><small><i>b</i> ≠ 0, a multiplo di <i>b</i></small></td><td>18<sup>2</sup> : 6<sup>2</sup> = 3<sup>2</sup></td></tr></table>
-<p>Attenzione, non esistono regole per la somma: in generale <span class="mat">(<i>a</i> + <i>b</i>)<sup>2</sup> ≠ <i>a</i><sup>2</sup> + <i>b</i><sup>2</sup></span>.</p></div>
+<p>Attenzione, non esistono regole per la somma: in generale <span class="mat">(<i>a</i> + <i>b</i>)<sup>2</sup> ≠ <i>a</i><sup>2</sup> + <i>b</i><sup>2</sup></span>.</p>
+</div>
+
+<div class="sint-blocco"><h3><span>5</span>Base 10 e base 2</h3>
+<p>Il nostro sistema di numerazione è <b>posizionale</b> e in <b>base 10</b>, cioè ogni posizione vale 10 volte quella alla sua destra. 3507 = 3 · 10<sup>3</sup> + 5 · 10<sup>2</sup> + 0 · 10<sup>1</sup> + 7 · 10<sup>0</sup>.</p>
+<p>In <b>base 2</b> si usano solo le cifre 0 e 1 e ogni posizione vale il doppio di quella alla sua destra (1, 2, 4, 8, 16, …).</p>
+<ul class="sint-lista">
+<li><span class="mat">1101<sub>2</sub> = 8 + 4 + 0 + 1 = 13</span><span class="nota">da base 2 a base 10, si sommano i valori delle posizioni con l'1</span></li>
+<li><span class="mat">13 → resti 1, 0, 1, 1 → 1101<sub>2</sub></span><span class="nota">da base 10 a base 2, divisioni successive per 2 e resti letti dall'ultimo al primo</span></li>
+</ul>
+</div>
+
+<div class="sint-blocco"><h3><span>6</span>Le espressioni</h3>
+<p><b>Ordine di calcolo.</b> Prima le parentesi, dalle tonde alle quadre alle graffe. Dentro ogni parentesi si calcolano prima le potenze, poi moltiplicazioni e divisioni nell'ordine in cui compaiono, infine addizioni e sottrazioni nell'ordine in cui compaiono.</p>
+<p class="formula">[(2 + 3)<sup>2</sup> − 5 · 3] : 2 = [25 − 15] : 2 = 10 : 2 = 5</p>
+<p>In un'<b>espressione letterale</b> le lettere (variabili) stanno al posto dei numeri. Per calcolarne il valore si sostituiscono i numeri alle lettere.</p>
+<table class="tab"><tr><th>A parole</th><th>Con i simboli</th><th>Con <i>a</i> = 3 e <i>b</i> = 4</th></tr>
+<tr><td>il quadrato della somma di <i>a</i> e <i>b</i></td><td>(<i>a</i> + <i>b</i>)<sup>2</sup></td><td>7<sup>2</sup> = 49</td></tr>
+<tr><td>la somma dei quadrati di <i>a</i> e <i>b</i></td><td><i>a</i><sup>2</sup> + <i>b</i><sup>2</sup></td><td>9 + 16 = 25</td></tr>
+<tr><td>il doppio del successivo di a</td><td>2(<i>a</i> + 1)</td><td>2 · 4 = 8</td></tr></table>
+</div>
 
 <div class="sint-blocco"><h3><span>7</span>Multipli e divisori</h3>
-<p><span class="mat"><i>a</i></span> è <b>multiplo</b> di <span class="mat"><i>b</i></span>, e <span class="mat"><i>b</i></span> è <b>divisore</b> di <span class="mat">a</span>, se esiste un numero naturale <span class="mat"><i>c</i></span> tale che <span class="mat"><i>a</i> = <i>b</i> · c</span>. Per esempio 42 = 6 · 7, quindi 42 è multiplo di 6 e di 7, mentre 6 e 7 sono divisori di 42.</p>
+<p><span class="mat"><i>a</i></span> è <b>multiplo</b> di <span class="mat"><i>b</i></span>, e <span class="mat"><i>b</i></span> è <b>divisore</b> di <span class="mat"><i>a</i></span>, se esiste un numero naturale <span class="mat"><i>c</i></span> tale che <span class="mat"><i>a</i> = <i>b</i> · c</span>. Per esempio 42 = 6 · 7, quindi 42 è multiplo di 6 e di 7, mentre 6 e 7 sono divisori di 42.</p>
 <p>Un numero maggiore di 1 è <b>primo</b> se ha come divisori solo 1 e se stesso, altrimenti è <b>composto</b>. Ogni numero composto si scrive in un solo modo come prodotto di fattori primi, per esempio 90 = 2 · 3<sup>2</sup> · 5.</p>
 <p><b>Criteri di divisibilità</b></p>
 <table class="tab"><tr><th>Divisibile per</th><th>se…</th></tr>
@@ -109,7 +120,8 @@ LIBRO.capitoli.cap1 = {
 <tr><td>9</td><td>la somma delle cifre è divisibile per 9</td></tr>
 <tr><td>10, 100, …</td><td>termina con uno, due, … zeri</td></tr>
 <tr><td>11</td><td>la differenza tra la somma delle cifre di posto dispari e quella delle cifre di posto pari è 0 o un multiplo di 11</td></tr>
-<tr><td>25</td><td>le ultime due cifre sono 00, 25, 50 o 75</td></tr></table></div>
+<tr><td>25</td><td>le ultime due cifre sono 00, 25, 50 o 75</td></tr></table>
+</div>
 
 <div class="sint-blocco"><h3><span>8</span>MCD e mcm</h3>
 <p>Il <b>MCD</b> di due o più numeri è il prodotto dei soli fattori primi <b>comuni</b>, ciascuno preso una volta con l'esponente <b>minore</b>. Il <b>mcm</b> è il prodotto dei fattori primi <b>comuni e non comuni</b>, ciascuno preso una volta con l'esponente <b>maggiore</b>.</p>
@@ -121,7 +133,8 @@ LIBRO.capitoli.cap1 = {
 <li><span class="mat">mcm(36; 60) = 2<sup>2</sup> · 3<sup>2</sup> · 5 = 180</span><span class="nota">tutti i fattori, esponente maggiore</span></li>
 </ul></div>
 <p>Due numeri con MCD = 1 si dicono <b>primi tra loro</b>.</p>
-<p class="formula">MCD(<i>a</i>; <i>b</i>) · mcm(<i>a</i>; <i>b</i>) = <i>a</i> · <i>b</i></p></div>
+<p class="formula">MCD(<i>a</i>; <i>b</i>) · mcm(<i>a</i>; <i>b</i>) = <i>a</i> · <i>b</i></p>
+</div>
 `,
 
   /* ------------------------------ TEORIA ------------------------------ */
@@ -213,70 +226,7 @@ Il resto è sempre più piccolo del divisore. Se <span class="mat"><i>r</i> = 0<
 </div>
 `},
 
-  { n: 3, id: "p3", titolo: "Le potenze", html: `
-<p>Quando moltiplichiamo un numero per se stesso più volte, la scrittura diventa lunga, come in <span class="mat">2 · 2 · 2 · 2 · 2</span>. Per abbreviarla si usa la <b>potenza</b>:</p>
-<p class="formula">2 · 2 · 2 · 2 · 2 = 2<sup>5</sup> = 32</p>
-<div class="definizione"><b>Definizione</b>
-La <b>potenza</b> <span class="mat"><i>a</i><sup><i>n</i></sup></span>, con <span class="mat"><i>n</i> ≥ 2</span>, è il prodotto di <span class="mat"><i>n</i></span> fattori tutti uguali ad <span class="mat">a</span>. Il numero <span class="mat">a</span> si chiama <b>base</b>, il numero <span class="mat"><i>n</i></span> <b>esponente</b>.</div>
-<p>Si legge “<i>a</i> elevato alla <i>n</i>”. Alcune potenze hanno nomi speciali. Per esempio <span class="mat"><i>a</i><sup>2</sup></span> è “<i>a</i> al quadrato”, <span class="mat"><i>a</i><sup>3</sup></span> è “<i>a</i> al cubo”.</p>
-<div class="attenzione"><b>Attenzione</b>2<sup>5</sup> non è 2 · 5 = 10! L'esponente dice <b>quante volte</b> la base compare come fattore, quindi 2<sup>5</sup> = 32.</div>
-
-<h3>Esponente 1 ed esponente 0</h3>
-<p>La definizione funziona da 2 fattori in su. Per gli esponenti 1 e 0 si stabilisce che</p>
-<p class="formula"><i>a</i><sup>1</sup> = <i>a</i> &emsp; <i>a</i><sup>0</sup> = 1 &emsp; (con <i>a</i> ≠ 0)</p>
-<p>La scelta di <span class="mat"><i>a</i><sup>0</sup> = 1</span> non è un capriccio: nel paragrafo 6 vedremo che è l'unica che rende coerenti le proprietà delle potenze. L'espressione <span class="mat">0<sup>0</sup></span> invece <b>non ha significato</b>. Inoltre <span class="mat">1<sup><i>n</i></sup> = 1</span> e <span class="mat">0<sup><i>n</i></sup> = 0</span> per ogni <span class="mat"><i>n</i> ≥ 1</span>.</p>
-
-<h3>Le potenze crescono in fretta</h3>
-<p>Ogni volta che l'esponente aumenta di 1, il risultato viene moltiplicato per la base. Con la base 2 il risultato raddoppia a ogni passo; con la base 3 triplica. Guarda l'albero: ogni ramo si divide in tanti rami quanta è la base.</p>
-<div class="anim" data-anim="albero" data-titolo="L'albero delle potenze"></div>
-
-<h3>Le potenze di 10 e il nostro modo di scrivere i numeri</h3>
-<figure class="fig-testo" data-img="monete"><figcaption>Unità, decine, centinaia: ogni posizione vale 10 volte la precedente.</figcaption></figure><p>Il nostro sistema di numerazione è <b>decimale</b> e <b>posizionale</b>: ogni cifra vale di più o di meno a seconda della posizione che occupa. Le posizioni corrispondono alle potenze di 10. Per esempio</p>
-<p class="formula">3507 = 3 · 10<sup>3</sup> + 5 · 10<sup>2</sup> + 0 · 10<sup>1</sup> + 7 · 10<sup>0</sup></p>
-<p>Il 3 vale tremila perché sta nella posizione delle migliaia (10<sup>3</sup> = 1000). Lo 0 è indispensabile: segna che le decine mancano.</p>
-
-<div class="curiosita" data-img="scacchiera" data-titolo="La leggenda della scacchiera e del riso">
-<p>Una leggenda indiana racconta che l'inventore degli scacchi, invitato dal re a scegliere una ricompensa, chiese solo del riso. Voleva <b>1 chicco</b> sulla prima casella della scacchiera, <b>2</b> sulla seconda, <b>4</b> sulla terza, e così via raddoppiando fino alla sessantaquattresima.</p>
-<p>Il re rise per la richiesta così modesta. Ma sull'ultima casella ci sarebbero dovuti essere <span class="mat">2<sup>63</sup></span> chicchi, cioè più di <b>9 miliardi di miliardi</b>. Tutto il riso prodotto oggi nel mondo in un anno non basterebbe nemmeno lontanamente: per riempire la scacchiera servirebbero alcune centinaia di anni di raccolti mondiali.</p>
-<p>Un esperimento simile puoi farlo con un foglio: piegandolo a metà lo spessore raddoppia. Dopo 42 piegature (se fosse possibile farle!) lo spessore supererebbe la distanza tra la Terra e la Luna.</p>
-</div>
-`},
-
-  { n: 4, id: "p4", titolo: "Le espressioni", html: `
-<p>Un'<b>espressione</b> è una sequenza di numeri legati da operazioni, ad esempio <span class="mat">20 − 3 · 4 + 2<sup>3</sup></span>. Il risultato finale si chiama <b>valore</b> dell'espressione. Perché tutti ottengano lo stesso valore, bisogna rispettare un ordine preciso.</p>
-<div class="regola"><b>Ordine delle operazioni</b>
-<ol>
-<li>si calcolano le <b>potenze</b>;</li>
-<li>si eseguono <b>moltiplicazioni e divisioni</b>, nell'ordine in cui compaiono da sinistra a destra;</li>
-<li>si eseguono <b>addizioni e sottrazioni</b>, nell'ordine in cui compaiono da sinistra a destra.</li>
-</ol></div>
-<div class="esempio"><b>Esempio</b> &emsp; 20 − 3 · 4 + 2<sup>3</sup> = 20 − 3 · 4 + 8 = 20 − 12 + 8 = 8 + 8 = 16</div>
-<div class="attenzione"><b>Attenzione</b>“Da sinistra a destra” conta davvero. Per esempio 24 : 4 · 2 = 6 · 2 = 12, e non 24 : 8 = 3.</div>
-
-<h3>Le parentesi</h3>
-<p>Le parentesi servono a cambiare l'ordine: ciò che è dentro le parentesi si calcola <b>prima</b>. Quando ci sono più livelli si usano le parentesi <b>tonde</b> ( ), poi le <b>quadre</b> [ ] e infine le <b>graffe</b> { }, e si procede dall'interno verso l'esterno. Dentro ogni parentesi vale l'ordine delle operazioni visto sopra.</p>
-<div class="anim" data-anim="espressione" data-titolo="Un'espressione risolta passo dopo passo"></div>
-
-<h3>Le espressioni con le lettere</h3>
-<p>In un'espressione possiamo usare delle lettere al posto dei numeri, come in <span class="mat">2<i>a</i> + <i>b</i></span>. Le lettere si chiamano <b>variabili</b>: il valore dell'espressione dipende dai numeri che sostituiamo. Con <span class="mat"><i>a</i> = 5</span> e <span class="mat"><i>b</i> = 3</span> si ottiene <span class="mat">2 · 5 + 3 = 13</span>.</p>
-<p>Il segno di moltiplicazione tra un numero e una lettera, o tra due lettere, di solito non si scrive. Per esempio <span class="mat">2<i>a</i></span> significa <span class="mat">2 · a</span>.</p>
-<p>Le lettere servono anche a <b>tradurre le frasi</b> in simboli, come nella tabella.</p>
-<table class="tab"><tr><th>A parole</th><th>Con i simboli</th></tr>
-<tr><td>il doppio di <i>a</i></td><td>2<i>a</i></td></tr>
-<tr><td>la metà di <i>a</i></td><td><i>a</i> : 2</td></tr>
-<tr><td>il successivo di <i>n</i></td><td><i>n</i> + 1</td></tr>
-<tr><td>la somma dei quadrati di <i>a</i> e <i>b</i></td><td><i>a</i><sup>2</sup> + <i>b</i><sup>2</sup></td></tr>
-<tr><td>il quadrato della somma di <i>a</i> e <i>b</i></td><td>(<i>a</i> + <i>b</i>)<sup>2</sup></td></tr></table>
-<p>Le ultime due righe sembrano simili ma non lo sono: con <span class="mat"><i>a</i> = 3</span> e <span class="mat"><i>b</i> = 4</span> la prima vale 9 + 16 = 25, la seconda 7<sup>2</sup> = 49.</p>
-
-<div class="curiosita" data-img="telefono" data-titolo="Il problema che ha diviso Internet">
-<p>Qualche anno fa sui social è diventata virale questa espressione, <b>6 : 2(1 + 2)</b>. Metà delle persone rispondeva 9, l'altra metà 1. E perfino le calcolatrici non erano d'accordo tra loro!</p>
-<p>Seguendo le regole che usiamo in questo libro si calcola prima la parentesi (3), poi divisione e moltiplicazione da sinistra a destra, cioè prima 6 : 2 = 3 e poi 3 · 3 = <b>9</b>. Chi risponde 1 considera invece la moltiplicazione “nascosta” 2(1 + 2) come un blocco unico, da calcolare prima.</p>
-<p>La morale? Le regole servono proprio a evitare ambiguità. Chi scrive bene un'espressione usa le parentesi per non lasciare dubbi, scrivendo (6 : 2) · (1 + 2) oppure 6 : [2 · (1 + 2)].</p>
-</div>
-`},
-
-  { n: 5, id: "p5", titolo: "Le proprietà delle operazioni", html: `
+  { n: 3, id: "p3", titolo: "Le proprietà delle operazioni", html: `
 <p>Le operazioni hanno delle <b>proprietà</b>: regole che valgono sempre, qualunque siano i numeri. Conoscerle permette di calcolare più velocemente, anche a mente.</p>
 
 <h3>Proprietà commutativa</h3>
@@ -317,27 +267,50 @@ La <b>potenza</b> <span class="mat"><i>a</i><sup><i>n</i></sup></span>, con <spa
 </div>
 `},
 
-  { n: 6, id: "p6", titolo: "Le proprietà delle potenze", html: `
+  { n: 4, id: "p4", titolo: "Le potenze e le loro proprietà", html: `
+<p>Quando moltiplichiamo un numero per se stesso più volte, la scrittura diventa lunga, come in <span class="mat">2 · 2 · 2 · 2 · 2</span>. Per abbreviarla si usa la <b>potenza</b>:</p>
+<p class="formula">2 · 2 · 2 · 2 · 2 = 2<sup>5</sup> = 32</p>
+<div class="definizione"><b>Definizione</b>
+La <b>potenza</b> <span class="mat"><i>a</i><sup><i>n</i></sup></span>, con <span class="mat"><i>n</i> ≥ 2</span>, è il prodotto di <span class="mat"><i>n</i></span> fattori tutti uguali ad <span class="mat"><i>a</i></span>. Il numero <span class="mat"><i>a</i></span> si chiama <b>base</b>, il numero <span class="mat"><i>n</i></span> <b>esponente</b>.</div>
+<p>Si legge “<i>a</i> elevato alla <i>n</i>”. Alcune potenze hanno nomi speciali. Per esempio <span class="mat"><i>a</i><sup>2</sup></span> è “<i>a</i> al quadrato”, <span class="mat"><i>a</i><sup>3</sup></span> è “<i>a</i> al cubo”.</p>
+<div class="attenzione"><b>Attenzione</b>2<sup>5</sup> non è 2 · 5 = 10! L'esponente dice <b>quante volte</b> la base compare come fattore, quindi 2<sup>5</sup> = 32.</div>
+
+<h3>Esponente 1 ed esponente 0</h3>
+<p>La definizione funziona da 2 fattori in su. Per gli esponenti 1 e 0 si stabilisce che</p>
+<p class="formula"><i>a</i><sup>1</sup> = <i>a</i> &emsp; <i>a</i><sup>0</sup> = 1 &emsp; (con <i>a</i> ≠ 0)</p>
+<p>La scelta di <span class="mat"><i>a</i><sup>0</sup> = 1</span> non è un capriccio: più avanti, con le proprietà delle potenze, vedremo che è l'unica che le rende coerenti. L'espressione <span class="mat">0<sup>0</sup></span> invece <b>non ha significato</b>. Inoltre <span class="mat">1<sup><i>n</i></sup> = 1</span> e <span class="mat">0<sup><i>n</i></sup> = 0</span> per ogni <span class="mat"><i>n</i> ≥ 1</span>.</p>
+
+<h3>Le potenze crescono in fretta</h3>
+<p>Ogni volta che l'esponente aumenta di 1, il risultato viene moltiplicato per la base. Con la base 2 il risultato raddoppia a ogni passo; con la base 3 triplica. Guarda l'albero: ogni ramo si divide in tanti rami quanta è la base.</p>
+<div class="anim" data-anim="albero" data-titolo="L'albero delle potenze"></div>
+
+<div class="curiosita" data-img="scacchiera" data-titolo="La leggenda della scacchiera e del riso">
+<p>Una leggenda indiana racconta che l'inventore degli scacchi, invitato dal re a scegliere una ricompensa, chiese solo del riso. Voleva <b>1 chicco</b> sulla prima casella della scacchiera, <b>2</b> sulla seconda, <b>4</b> sulla terza, e così via raddoppiando fino alla sessantaquattresima.</p>
+<p>Il re rise per la richiesta così modesta. Ma sull'ultima casella ci sarebbero dovuti essere <span class="mat">2<sup>63</sup></span> chicchi, cioè più di <b>9 miliardi di miliardi</b>. Tutto il riso prodotto oggi nel mondo in un anno non basterebbe nemmeno lontanamente: per riempire la scacchiera servirebbero alcune centinaia di anni di raccolti mondiali.</p>
+<p>Un esperimento simile puoi farlo con un foglio: piegandolo a metà lo spessore raddoppia. Dopo 42 piegature (se fosse possibile farle!) lo spessore supererebbe la distanza tra la Terra e la Luna.</p>
+</div>
+
+<h3>Le proprietà delle potenze</h3>
 <p>Le potenze con la stessa base, o con lo stesso esponente, si possono combinare con cinque regole. Tutte nascono dalla definizione: basta “contare i fattori”.</p>
 
-<h3>1. Prodotto di potenze con la stessa base</h3>
+<h4>1. Prodotto di potenze con la stessa base</h4>
 <p class="formula"><i>a</i><sup><i>m</i></sup> · <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i> + <i>n</i></sup></p>
 <p>Infatti <span class="mat">2<sup>3</sup> · 2<sup>2</sup> = (2 · 2 · 2) · (2 · 2)</span>, quindi in tutto ci sono 3 + 2 = 5 fattori uguali a 2.</p>
 <div class="anim" data-anim="gettoni" data-titolo="Contiamo i fattori: prodotto di potenze con la stessa base"></div>
 
-<h3>2. Quoziente di potenze con la stessa base</h3>
+<h4>2. Quoziente di potenze con la stessa base</h4>
 <p class="formula"><i>a</i><sup><i>m</i></sup> : <i>a</i><sup><i>n</i></sup> = <i>a</i><sup><i>m</i> − <i>n</i></sup> &emsp; (<i>a</i> ≠ 0, <i>m</i> ≥ <i>n</i>)</p>
 <p>Dividendo si “eliminano” fattori. Per esempio 5<sup>6</sup> : 5<sup>4</sup> = 5<sup>2</sup>. Se <span class="mat"><i>m</i> = <i>n</i></span> otteniamo <span class="mat"><i>a</i><sup><i>n</i></sup> : <i>a</i><sup><i>n</i></sup> = <i>a</i><sup>0</sup></span>; ma un numero diviso per se stesso dà 1. Ecco perché si pone <span class="mat"><i>a</i><sup>0</sup> = 1</span>.</p>
 
-<h3>3. Potenza di una potenza</h3>
+<h4>3. Potenza di una potenza</h4>
 <p class="formula">(<i>a</i><sup><i>m</i></sup>)<sup><i>n</i></sup> = <i>a</i><sup><i>m</i> · <i>n</i></sup></p>
 <p>(3<sup>2</sup>)<sup>3</sup> = 3<sup>2</sup> · 3<sup>2</sup> · 3<sup>2</sup> = 3<sup>6</sup>.</p>
 
-<h3>4. Prodotto di potenze con lo stesso esponente</h3>
+<h4>4. Prodotto di potenze con lo stesso esponente</h4>
 <p class="formula"><i>a</i><sup><i>n</i></sup> · <i>b</i><sup><i>n</i></sup> = (<i>a</i> · <i>b</i>)<sup><i>n</i></sup></p>
 <p>2<sup>3</sup> · 5<sup>3</sup> = (2 · 5)<sup>3</sup> = 10<sup>3</sup> = 1000. Utilissima per i calcoli a mente!</p>
 
-<h3>5. Quoziente di potenze con lo stesso esponente</h3>
+<h4>5. Quoziente di potenze con lo stesso esponente</h4>
 <p class="formula"><i>a</i><sup><i>n</i></sup> : <i>b</i><sup><i>n</i></sup> = (<i>a</i> : <i>b</i>)<sup><i>n</i></sup> &emsp; (<i>b</i> ≠ 0, a multiplo di <i>b</i>)</p>
 <p>12<sup>4</sup> : 4<sup>4</sup> = (12 : 4)<sup>4</sup> = 3<sup>4</sup> = 81.</p>
 
@@ -347,17 +320,93 @@ La <b>potenza</b> <span class="mat"><i>a</i><sup><i>n</i></sup></span>, con <spa
 <li>(<i>a</i> + <i>b</i>)<sup>2</sup> ≠ <i>a</i><sup>2</sup> + <i>b</i><sup>2</sup>, perché le proprietà valgono per prodotti e quozienti, <b>non</b> per somme e differenze.</li>
 <li>(2<sup>3</sup>)<sup>2</sup> = 2<sup>6</sup>, mentre 2<sup>3</sup> · 2<sup>2</sup> = 2<sup>5</sup>. Non confondere la terza proprietà con la prima.</li>
 </ul></div>
+`},
+
+  { n: 5, id: "p5", titolo: "Scrivere i numeri: base 10 e base 2", html: `
+<p>Per scrivere i numeri usiamo solo dieci simboli, le <b>cifre</b> 0, 1, 2, …, 9. Eppure con queste dieci cifre riusciamo a scrivere numeri grandi quanto vogliamo. Il segreto è la <b>posizione</b>: la stessa cifra vale di più o di meno a seconda del posto che occupa. In questo paragrafo vediamo come funziona il nostro sistema, che si basa sulle potenze di 10, e un sistema che si basa sulle potenze di 2, quello che usano i computer.</p>
+
+<h3>Il sistema decimale</h3>
+<figure class="fig-testo" data-img="monete"><figcaption>Unità, decine, centinaia: ogni posizione vale 10 volte la precedente.</figcaption></figure><p>Il nostro sistema di numerazione è <b>decimale</b> (si basa sul 10) e <b>posizionale</b>. Partendo da destra, la prima cifra conta le unità, la seconda le decine, la terza le centinaia, e così via. Ogni posizione vale 10 volte quella alla sua destra, quindi le posizioni corrispondono alle potenze di 10.</p>
+<table class="tab"><tr><th>Posizione</th><th>migliaia</th><th>centinaia</th><th>decine</th><th>unità</th></tr>
+<tr><td>Valore</td><td>10<sup>3</sup> = 1000</td><td>10<sup>2</sup> = 100</td><td>10<sup>1</sup> = 10</td><td>10<sup>0</sup> = 1</td></tr>
+<tr><td>Cifre di 3507</td><td>3</td><td>5</td><td>0</td><td>7</td></tr></table>
+<p>Ogni cifra si moltiplica per il valore della sua posizione e poi si sommano i risultati.</p>
+<p class="formula">3507 = 3 · 10<sup>3</sup> + 5 · 10<sup>2</sup> + 0 · 10<sup>1</sup> + 7 · 10<sup>0</sup></p>
+<p>Il 3 vale tremila perché sta nella posizione delle migliaia. Lo 0 è indispensabile, perché segna che le decine mancano. Senza lo 0, 3507 e 357 si scriverebbero allo stesso modo.</p>
+<div class="definizione"><b>Definizione</b>
+Un sistema di numerazione è <b>posizionale</b> se il valore di una cifra dipende dalla posizione che occupa nel numero. La <b>base</b> è il numero di cifre che il sistema usa, ed è anche il numero per cui si moltiplica il valore passando da una posizione a quella alla sua sinistra.</div>
+
+<h3>Il sistema binario</h3>
+<p>Nulla ci obbliga a usare proprio il 10. Con la base 2 bastano due cifre, lo <b>0</b> e l'<b>1</b>, e ogni posizione vale il doppio di quella alla sua destra.</p>
+<table class="tab"><tr><th>Posizione</th><th>5ª</th><th>4ª</th><th>3ª</th><th>2ª</th><th>1ª</th></tr>
+<tr><td>Valore</td><td>2<sup>4</sup> = 16</td><td>2<sup>3</sup> = 8</td><td>2<sup>2</sup> = 4</td><td>2<sup>1</sup> = 2</td><td>2<sup>0</sup> = 1</td></tr></table>
+<p>Per non confondere un numero scritto in base 2 con uno scritto in base 10, si scrive la base in piccolo, in basso a destra. Per esempio 1101<sub>2</sub> si legge “uno uno zero uno in base due”.</p>
+
+<h3>Dalla base 2 alla base 10</h3>
+<div class="regola"><b>Regola</b>Per trovare il valore di un numero scritto in base 2 si moltiplica ogni cifra per la potenza di 2 della sua posizione e si sommano i risultati. In pratica basta sommare i valori delle posizioni in cui c'è un 1.</div>
+<div class="esempio"><b>Esempio</b> &emsp; Quanto vale 1101<sub>2</sub> in base 10?</div>
+<ol class="passaggi">
+<li>Si scrivono le cifre con il valore della loro posizione, partendo da destra. &emsp; <span class="nw">1101<sub>2</sub> = <span class="c1">1</span> · 2<sup>3</sup> + <span class="c2">1</span> · 2<sup>2</sup> + <span class="c3">0</span> · 2<sup>1</sup> + <span class="c4">1</span> · 2<sup>0</sup></span></li>
+<li>Si calcolano le potenze di 2. &emsp; <span class="nw">= <span class="c1">1</span> · 8 + <span class="c2">1</span> · 4 + <span class="c3">0</span> · 2 + <span class="c4">1</span> · 1</span></li>
+<li>Si fanno le moltiplicazioni e si somma. <span class="perche">La cifra 0 non porta niente, quindi si possono sommare solo i valori delle posizioni con l'1.</span> &emsp; <span class="nw">= 8 + 4 + 0 + 1 = 13</span></li>
+</ol>
+
+<h3>Dalla base 10 alla base 2</h3>
+<p>Per fare il cammino inverso si usano le <b>divisioni successive per 2</b>. Il resto di ogni divisione è 0 oppure 1, e questi resti sono proprio le cifre del numero in base 2.</p>
+<div class="regola"><b>Regola</b>Si divide il numero per 2 e si scrive il resto. Si divide per 2 il quoziente ottenuto e si scrive il nuovo resto, e così via fino ad arrivare a quoziente 0. Il numero in base 2 si ottiene leggendo i resti <b>dall'ultimo al primo</b>.</div>
+<div class="esempio"><b>Esempio</b> &emsp; Scriviamo 13 in base 2.</div>
+<table class="tab"><tr><th>Divisione</th><th>Quoziente</th><th>Resto</th></tr>
+<tr><td>13 : 2</td><td>6</td><td><span class="c1">1</span></td></tr>
+<tr><td>6 : 2</td><td>3</td><td><span class="c2">0</span></td></tr>
+<tr><td>3 : 2</td><td>1</td><td><span class="c3">1</span></td></tr>
+<tr><td>1 : 2</td><td>0</td><td><span class="c4">1</span></td></tr></table>
+<p>Leggendo i resti dal basso verso l'alto si ottiene 13 = <span class="c4">1</span><span class="c3">1</span><span class="c2">0</span><span class="c1">1</span><sub>2</sub>. Il primo resto è la cifra delle unità, perché dice se il numero è pari (resto 0) o dispari (resto 1). Infatti abbiamo appena visto che 1101<sub>2</sub> = 13.</p>
+<div class="attenzione"><b>Attenzione</b>10<sub>2</sub> non è “dieci”, ma vale 1 · 2 + 0 · 1 = 2. Allo stesso modo 100<sub>2</sub> = 4 e 1000<sub>2</sub> = 8. In base 2, aggiungere uno 0 a destra <b>raddoppia</b> il numero, come in base 10 aggiungere uno 0 lo moltiplica per 10.</div>
 
 <div class="curiosita" data-img="chip" data-titolo="Perché 1 kilobyte non è 1000 byte?">
-<p>I computer “pensano” in base 2, cioè ogni informazione è una sequenza di 0 e 1 (i <b>bit</b>). Per questo nell'informatica le potenze di 2 sono ovunque.</p>
-<p>La potenza di 2 più vicina a 1000 è <b>2<sup>10</sup> = 1024</b>. Per decenni i programmatori hanno chiamato “kilobyte” 1024 byte, “megabyte” 1024 · 1024 = 2<sup>20</sup> byte, e così via. Ecco perché una chiavetta da “64 GB” sul computer risulta un po' più piccola di quanto ti aspetti!</p>
-<p>Prova a riconoscere altre potenze di 2 nel mondo digitale, come gli 8 bit in un byte (2<sup>3</sup>), 256 livelli di colore (2<sup>8</sup>), memorie da 128, 256, 512 GB…</p>
+<p>I computer lavorano con circuiti che hanno solo due stati, acceso e spento, ed è per questo che “pensano” in base 2. Ogni informazione è una sequenza di 0 e 1, i <b>bit</b>, e un gruppo di 8 bit (2<sup>3</sup>) forma un <b>byte</b>.</p>
+<p>La potenza di 2 più vicina a 1000 è <b>2<sup>10</sup> = 1024</b>. Per decenni i programmatori hanno chiamato “kilobyte” 1024 byte, “megabyte” 1024 · 1024 = 2<sup>20</sup> byte, e così via. Oggi per questi multipli si usano nomi diversi (kibibyte, mebibyte), ma molti programmi continuano a contare in potenze di 2. Ecco perché una chiavetta da “64 GB” sul computer risulta un po' più piccola di quanto ti aspetti!</p>
+<p>Con un byte si possono scrivere 2<sup>8</sup> = 256 numeri diversi, da 00000000<sub>2</sub> = 0 a 11111111<sub>2</sub> = 255. Per questo i livelli di colore di un'immagine digitale vanno spesso da 0 a 255.</p>
+</div>
+`},
+
+  { n: 6, id: "p6", titolo: "Le espressioni", html: `
+<p>Un'<b>espressione</b> è una sequenza di numeri legati da operazioni, ad esempio <span class="mat">20 − 3 · 4 + 2<sup>3</sup></span>. Il risultato finale si chiama <b>valore</b> dell'espressione. Perché tutti ottengano lo stesso valore, bisogna rispettare un ordine preciso.</p>
+<div class="regola"><b>Ordine delle operazioni</b>
+<ol>
+<li>si calcolano le <b>potenze</b>;</li>
+<li>si eseguono <b>moltiplicazioni e divisioni</b>, nell'ordine in cui compaiono da sinistra a destra;</li>
+<li>si eseguono <b>addizioni e sottrazioni</b>, nell'ordine in cui compaiono da sinistra a destra.</li>
+</ol></div>
+<div class="esempio"><b>Esempio</b> &emsp; 20 − 3 · 4 + 2<sup>3</sup> = 20 − 3 · 4 + 8 = 20 − 12 + 8 = 8 + 8 = 16</div>
+<div class="attenzione"><b>Attenzione</b>“Da sinistra a destra” conta davvero. Per esempio 24 : 4 · 2 = 6 · 2 = 12, e non 24 : 8 = 3.</div>
+
+<h3>Le parentesi</h3>
+<p>Le parentesi servono a cambiare l'ordine: ciò che è dentro le parentesi si calcola <b>prima</b>. Quando ci sono più livelli si usano le parentesi <b>tonde</b> ( ), poi le <b>quadre</b> [ ] e infine le <b>graffe</b> { }, e si procede dall'interno verso l'esterno. Dentro ogni parentesi vale l'ordine delle operazioni visto sopra.</p>
+<div class="anim" data-anim="espressione" data-titolo="Un'espressione risolta passo dopo passo"></div>
+
+<h3>Le espressioni con le lettere</h3>
+<p>In un'espressione possiamo usare delle lettere al posto dei numeri, come in <span class="mat">2<i>a</i> + <i>b</i></span>. Le lettere si chiamano <b>variabili</b>: il valore dell'espressione dipende dai numeri che sostituiamo. Con <span class="mat"><i>a</i> = 5</span> e <span class="mat"><i>b</i> = 3</span> si ottiene <span class="mat">2 · 5 + 3 = 13</span>.</p>
+<p>Il segno di moltiplicazione tra un numero e una lettera, o tra due lettere, di solito non si scrive. Per esempio <span class="mat">2<i>a</i></span> significa <span class="mat">2 · a</span>.</p>
+<p>Le lettere servono anche a <b>tradurre le frasi</b> in simboli, come nella tabella.</p>
+<table class="tab"><tr><th>A parole</th><th>Con i simboli</th></tr>
+<tr><td>il doppio di <i>a</i></td><td>2<i>a</i></td></tr>
+<tr><td>la metà di <i>a</i></td><td><i>a</i> : 2</td></tr>
+<tr><td>il successivo di <i>n</i></td><td><i>n</i> + 1</td></tr>
+<tr><td>la somma dei quadrati di <i>a</i> e <i>b</i></td><td><i>a</i><sup>2</sup> + <i>b</i><sup>2</sup></td></tr>
+<tr><td>il quadrato della somma di <i>a</i> e <i>b</i></td><td>(<i>a</i> + <i>b</i>)<sup>2</sup></td></tr></table>
+<p>Le ultime due righe sembrano simili ma non lo sono: con <span class="mat"><i>a</i> = 3</span> e <span class="mat"><i>b</i> = 4</span> la prima vale 9 + 16 = 25, la seconda 7<sup>2</sup> = 49.</p>
+
+<div class="curiosita" data-img="telefono" data-titolo="Il problema che ha diviso Internet">
+<p>Qualche anno fa sui social è diventata virale questa espressione, <b>6 : 2(1 + 2)</b>. Metà delle persone rispondeva 9, l'altra metà 1. E perfino le calcolatrici non erano d'accordo tra loro!</p>
+<p>Seguendo le regole che usiamo in questo libro si calcola prima la parentesi (3), poi divisione e moltiplicazione da sinistra a destra, cioè prima 6 : 2 = 3 e poi 3 · 3 = <b>9</b>. Chi risponde 1 considera invece la moltiplicazione “nascosta” 2(1 + 2) come un blocco unico, da calcolare prima.</p>
+<p>La morale? Le regole servono proprio a evitare ambiguità. Chi scrive bene un'espressione usa le parentesi per non lasciare dubbi, scrivendo (6 : 2) · (1 + 2) oppure 6 : [2 · (1 + 2)].</p>
 </div>
 `},
 
   { n: 7, id: "p7", titolo: "Multipli e divisori", html: `
 <div class="definizione"><b>Definizione</b>
-Un numero <span class="mat"><i>a</i></span> è <b>multiplo</b> di <span class="mat"><i>b</i></span> se esiste un naturale <span class="mat"><i>k</i></span> tale che <span class="mat"><i>a</i> = <i>b</i> · k</span>. In questo caso si dice anche che <span class="mat"><i>b</i></span> è un <b>divisore</b> di <span class="mat">a</span>, o che <span class="mat"><i>a</i></span> è <b>divisibile</b> per <span class="mat"><i>b</i></span> (con <span class="mat"><i>b</i> ≠ 0</span>).</div>
+Un numero <span class="mat"><i>a</i></span> è <b>multiplo</b> di <span class="mat"><i>b</i></span> se esiste un naturale <span class="mat"><i>k</i></span> tale che <span class="mat"><i>a</i> = <i>b</i> · k</span>. In questo caso si dice anche che <span class="mat"><i>b</i></span> è un <b>divisore</b> di <span class="mat"><i>a</i></span>, o che <span class="mat"><i>a</i></span> è <b>divisibile</b> per <span class="mat"><i>b</i></span> (con <span class="mat"><i>b</i> ≠ 0</span>).</div>
 <div class="esempio"><b>Esempio</b> &emsp; 35 = 7 · 5, quindi 35 è multiplo di 7 e di 5; 7 e 5 sono divisori di 35.</div>
 <ul>
 <li>I multipli di un numero sono <b>infiniti</b>: i multipli di 6 sono 0, 6, 12, 18, 24, …</li>
