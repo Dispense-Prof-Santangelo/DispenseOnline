@@ -60,24 +60,13 @@
   };
 
   /* restituisce l'HTML dello sfondo animato per un tema */
-  function sfondo(nomeTema, quanti, conScena) {
-    const t = T[nomeTema] || T.neutro; quanti = quanti || 60;
-    /* pagine intere degli indirizzi: scena animata su canvas (js/scene.js), se esiste */
-    if (conScena && window.SCENE && window.SCENE.esiste(nomeTema)) return `<div class="sfondo-tema scena" aria-hidden="true" data-scena="${nomeTema}" style="--tc:${t.colore}"></div>`;
-    let h = "";
-    if (t.macchie) for (let i = 0; i < 9; i++) {
-      const c = t.macchie[i % t.macchie.length], s = 90 + (i * 53) % 160;
-      h += `<i class="macchia" style="left:${(i * 29) % 92}%;width:${s}px;height:${Math.round(s * .8)}px;background:${c};animation-duration:${26 + (i * 7) % 20}s;animation-delay:-${(i * 5) % 30}s;border-radius:${40 + i * 7 % 30}% ${60 - i * 5 % 20}% ${50 + i * 3 % 20}% ${45 + i * 11 % 25}%"></i>`;
-    }
-    const n = t.segni.length, mcd = (a, b) => b ? mcd(b, a % b) : a;
-    const passo = [7, 5, 11, 3, 13, 1].find(x => mcd(x, n) === 1); // così compaiono tutti i segni, mescolati
-    for (let i = 0; i < quanti; i++) {
-      const s = t.segni[(i * passo) % n];
-      const icon = s[0] === "@", testo = icon ? icona(s.slice(1)) : s;
-      const lungo = !icon && s.length > 3 ? 0.55 : 1; // le parole lunghe più piccole, per non coprire tutto
-      h += `<span style="left:${(i * 37 + Math.floor(i / 9) * 11) % 100}%;font-size:${((1 + ((i * 7) % 6) * 0.55) * lungo).toFixed(2)}rem;animation-duration:${16 + (i * 5) % 18}s;animation-delay:-${(i * 3.3) % 32}s">${testo}</span>`;
-    }
-    return `<div class="sfondo-tema" aria-hidden="true" style="--tc:${t.colore}">${h}</div>`;
+  /* restituisce il contenitore dello sfondo: la scena dell'indirizzo (pagine intere, se esiste) oppure
+     i "segni" del tema che fluttuano e si urtano senza mai sovrapporsi (disegnati su canvas da js/scene.js).
+     mini = sfondo dentro un pulsante; altrimenti copre tutto lo schermo. */
+  function sfondo(nomeTema, quanti, conScena, mini) {
+    const t = T[nomeTema] ? nomeTema : "neutro";
+    if (conScena && window.SCENE && window.SCENE.esiste(t)) return `<div class="sfondo-tema scena" aria-hidden="true" data-scena="${t}" style="--tc:${T[t].colore}"></div>`;
+    return `<div class="sfondo-tema ${mini ? "mini" : "scena"}" aria-hidden="true" data-scena="segni" data-tema="${t}" data-quanti="${quanti || 60}" style="--tc:${T[t].colore}"></div>`;
   }
-  window.TEMI = { sfondo, icona, colore: n => (T[n] || T.neutro).colore, esiste: n => !!T[n] };
+  window.TEMI = { sfondo, icona, colore: n => (T[n] || T.neutro).colore, esiste: n => !!T[n], dati: n => T[n] || T.neutro, SVG: I };
 })();

@@ -646,3 +646,5 @@ a.bottone-tema:hover .sfondo-tema{color:#fff}
 .pagina-tema.scura h1,.pagina-tema.scura h2.gruppo{color:#f3ead2}
 .pagina-tema.scura .sottotitolo{color:#c9d3e6}
 .pagina-tema.scura .indice-tema h1{color:var(--blu-scuro)}
+/* segni fluttuanti su canvas (senza sovrapposizioni) dentro i pulsanti */
+.sfondo-tema.mini canvas{display:block;width:100%;height:100%}

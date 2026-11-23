@@ -118,7 +118,7 @@
 
   /* pulsante grande con segni fluttuanti a tema */
   function bottoneTema(href, titolo, sotto, tema, simbolo) {
-    return `<a class="bottone-tema" href="${href}" style="--tc:${TEMI.colore(tema)}">${TEMI.sfondo(tema, 14).replace('class="sfondo-tema"', 'class="sfondo-tema mini"')}
+    return `<a class="bottone-tema" href="${href}" style="--tc:${TEMI.colore(tema)}">${TEMI.sfondo(tema, 14, false, true)}
       ${simbolo ? `<span class="simbolo">${simbolo}</span>` : ""}<span class="scritta">${titolo}</span><small>${sotto}</small></a>`;
   }
   function pagina(tema, contenuto) {
@@ -145,6 +145,7 @@
           ${bottoneTema("#studenti", "Studenti", "Scegli indirizzo e anno ›", "linguistico", TEMI.icona("tocco"))}
         </div>
       </div></section>`;
+    if (window.SCENE) window.SCENE.avvia(app);
   }
 
   /* ---------- DOCENTI ---------- */
