@@ -276,6 +276,155 @@
     ${[["1",22,40],["3",52,58],["5",92,80],["7",134,104]].map(([n,x,y])=>`<text x="${x}" y="${y+12}" font-size="10" text-anchor="middle" font-family="serif" fill="${B}" font-weight="700">${n}</text>`).join("")}
     <text x="104" y="40" font-size="10" font-family="serif" fill="${K}" font-style="italic">spazi come</text><text x="104" y="52" font-size="10" font-family="serif" fill="${K}" font-style="italic">1, 3, 5, 7…</text>`);
 
+
+  /* ---- CAPITOLO 6 ---- */
+  /* lettera cifrata con sigillo: simboli al posto delle parole */
+  I.cifrario = s(`<rect width="160" height="120" fill="${C}"/>
+    <path d="M22 14 h108 l8 8 v84 h-116z" fill="#f3e6c4" stroke="#8a6d3b" stroke-width="1.6"/><path d="M130 14 v8 h8" fill="none" stroke="#8a6d3b" stroke-width="1.4"/>
+    ${["Δ ♄ 7 ⊕ ψ 3 ☿ ∞","♃ ϟ 2 Ω ☉ 9 ✠ Ξ","8 Φ ♂ λ Θ 4 Ψ ♀","Σ 1 ☽ ∂ 6 Ж ⊗ 5"].map((r,i)=>`<text x="30" y="${36+i*16}" font-size="11" font-family="serif" fill="#3a2a14" letter-spacing="1.5">${r}</text>`).join("")}
+    <circle cx="116" cy="98" r="12" fill="${R}"/><circle cx="116" cy="98" r="7" fill="none" stroke="#f3c9c4" stroke-width="1.4"/>
+    <text x="34" y="104" font-size="10" font-family="serif" font-style="italic" fill="${B}" font-weight="700">x = ?</text>`);
+  /* un segmento, un quadrato e un cubo: grado 1, 2, 3 */
+  I.omogeneita = s(`<rect width="160" height="120" fill="${C}"/>
+    <line x1="12" y1="78" x2="44" y2="78" stroke="${B}" stroke-width="4"/>
+    <rect x="58" y="46" width="32" height="32" fill="#cfdcf5" stroke="${B}" stroke-width="2"/>
+    <path d="M104 52 h32 v32 h-32z" fill="#cfdcf5" stroke="${B}" stroke-width="2"/><path d="M104 52 l14 -12 h32 l-14 12z" fill="#e3ebf9" stroke="${B}" stroke-width="2"/><path d="M136 52 l14 -12 v32 l-14 12z" fill="#b5c8ee" stroke="${B}" stroke-width="2"/>
+    ${[["a",28,"1"],["a²",74,"2"],["a³",128,"3"]].map(([t,x,g])=>`<text x="${x}" y="102" font-size="14" text-anchor="middle" font-family="serif" font-style="italic" fill="${K}">${t}</text><text x="${x}" y="116" font-size="9" text-anchor="middle" font-family="serif" fill="${A}">grado ${g}</text>`).join("")}
+    <text x="80" y="22" font-size="11" text-anchor="middle" font-family="serif" fill="${R}" font-weight="700">m + m² + m³ ?</text>`);
+  /* testa con fumetto: n → 2n → 2n + 10 → n + 5 → 5 */
+  I.numeropensato = s(`<rect width="160" height="120" fill="${C}"/>
+    <circle cx="34" cy="80" r="20" fill="#e9c9a0" stroke="${K}" stroke-width="1.4"/><path d="M14 76 q20 -26 40 0" fill="#5a3b22"/><circle cx="28" cy="82" r="2" fill="${K}"/><circle cx="41" cy="82" r="2" fill="${K}"/><path d="M29 91 q5 4 10 0" fill="none" stroke="${K}" stroke-width="1.4"/>
+    <path d="M16 100 q18 -6 36 0 v20 h-36z" fill="${B}"/>
+    <circle cx="58" cy="56" r="3" fill="#fff" stroke="${K}"/><circle cx="66" cy="46" r="4.5" fill="#fff" stroke="${K}"/>
+    <rect x="70" y="8" width="84" height="64" rx="12" fill="#fff" stroke="${K}" stroke-width="1.4"/>
+    ${["n","2n","2n + 10","n + 5","5"].map((t,i)=>`<text x="112" y="${22+i*11.5}" font-size="${i===4?12:10}" text-anchor="middle" font-family="serif" ${i<4?'font-style="italic"':""} fill="${i===4?R:K}" font-weight="${i===4?700:400}">${t}</text>`).join("")}`);
+  /* altare cubico di spigolo l e altare di spigolo 2l: 8 cubi */
+  I.delo = s(`<rect width="160" height="120" fill="${C}"/>
+    <rect x="0" y="104" width="160" height="16" fill="${L}"/>
+    <path d="M14 104 v-22 h22 v22z" fill="#e8dcc0" stroke="${K}" stroke-width="1.4"/><path d="M14 82 l9 -7 h22 l-9 7z" fill="#f4ecd8" stroke="${K}" stroke-width="1.4"/><path d="M36 82 l9 -7 v22 l-9 7z" fill="#d6c7a2" stroke="${K}" stroke-width="1.4"/>
+    <text x="25" y="116" font-size="10" text-anchor="middle" font-family="serif" font-style="italic" fill="${K}">l</text>
+    ${[[0,0],[1,0],[0,1],[1,1]].map(([i,j])=>`<rect x="${70+i*28}" y="${48+j*28}" width="28" height="28" fill="#e8dcc0" stroke="${K}" stroke-width="1.2"/>`).join("")}
+    <path d="M70 48 l18 -14 h56 l-18 14z" fill="#f4ecd8" stroke="${K}" stroke-width="1.4"/><path d="M98 48 l18 -14" stroke="${K}"/><path d="M79 41 h56" stroke="${K}"/>
+    <path d="M126 48 l18 -14 v56 l-18 14z" fill="#d6c7a2" stroke="${K}" stroke-width="1.4"/><path d="M126 76 l18 -14" stroke="${K}"/><path d="M135 41 v56" stroke="${K}"/>
+    <text x="98" y="116" font-size="10" text-anchor="middle" font-family="serif" font-style="italic" fill="${K}">2l</text>
+    <text x="104" y="22" font-size="12" text-anchor="middle" font-family="serif" fill="${R}" font-weight="700">× 8</text>`);
+  /* piscina in sezione: volume : area del fondo = profondità */
+  I.piscina = s(`<rect width="160" height="120" fill="${C}"/>
+    <rect x="0" y="34" width="160" height="10" fill="#cfc6b0"/>
+    <path d="M18 44 h124 v56 h-124z" fill="#9fd0ea" stroke="#3d7fa6" stroke-width="2"/>
+    <path d="M18 54 q15 -6 31 0 t31 0 t31 0 t31 0" fill="none" stroke="#fff" stroke-width="1.6" opacity=".8"/>
+    <line x1="150" y1="44" x2="150" y2="100" stroke="${R}" stroke-width="1.6"/><path d="M150 44 l-3 7 h6z M150 100 l-3 -7 h6z" fill="${R}"/>
+    <text x="154" y="76" font-size="10" font-family="serif" fill="${R}" font-weight="700" transform="rotate(-90 156 76)">? m</text>
+    <text x="80" y="80" font-size="11" text-anchor="middle" font-family="serif" fill="#1d4f6e" font-weight="700">300 m³</text>
+    <text x="80" y="114" font-size="10" text-anchor="middle" font-family="serif" fill="${K}">fondo 150 m²</text>
+    <text x="80" y="22" font-size="11" text-anchor="middle" font-family="serif" fill="${K}">m³ : m² = m</text>`);
+  /* schermo di un computer con un calcolo letterale */
+  I.cas = s(`<rect width="160" height="120" fill="${C}"/>
+    <rect x="18" y="10" width="124" height="80" rx="4" fill="${K}"/><rect x="24" y="16" width="112" height="66" fill="#11281c"/>
+    <text x="30" y="32" font-size="10" font-family="monospace" fill="#7ee0a0">&gt; (2*a^2*b)^3</text>
+    <text x="30" y="46" font-size="10" font-family="monospace" fill="#d6f5df">  8 a^6 b^3</text>
+    <text x="30" y="62" font-size="10" font-family="monospace" fill="#7ee0a0">&gt; 3a + 2a</text>
+    <text x="30" y="76" font-size="10" font-family="monospace" fill="#d6f5df">  5 a</text>
+    <rect x="68" y="90" width="24" height="12" fill="#6d665a"/><rect x="46" y="102" width="68" height="6" fill="#6d665a"/>`);
+  I.ingranaggi = (() => {
+    /* ruote con lo stesso passo dei denti (modulo 4): raggi primitivi 24 e 36, interasse 60; la seconda ruota è sfasata di mezzo dente */
+    const ruota = (cx, cy, n, fase, col) => {
+      const m = 4, r = m * n / 2, rp = r - 5, rt = r + 4, p = 2 * Math.PI / n; let d = "";
+      for (let i = 0; i < n; i++) {
+        const c = fase + i * p, pt = (rr, a) => (cx + rr * Math.cos(a)).toFixed(2) + " " + (cy + rr * Math.sin(a)).toFixed(2);
+        d += (i ? "L" : "M") + pt(rp, c - 0.5 * p) + " L" + pt(rp, c - 0.3 * p) + " L" + pt(rt, c - 0.17 * p) + " L" + pt(rt, c + 0.17 * p) + " L" + pt(rp, c + 0.3 * p) + " ";
+      }
+      return `<path d="${d}Z" fill="${col}" stroke="${K}" stroke-width="0.8"/><circle cx="${cx}" cy="${cy}" r="${r * 0.42}" fill="${C}" stroke="${K}" stroke-width="0.8"/>
+        <text x="${cx}" y="${cy + 4}" font-size="11" text-anchor="middle" font-family="serif" fill="${K}" font-weight="700">${n}</text>`;
+    };
+    return s(`<rect width="160" height="120" fill="${C}"/>${ruota(46, 56, 12, 0, B)}${ruota(107, 56, 18, Math.PI + Math.PI / 18, A)}
+      <circle cx="66" cy="56" r="1.7" fill="${R}"/><circle cx="77.4" cy="50.8" r="1.7" fill="${R}"/>
+      <text x="80" y="112" font-size="10" text-anchor="middle" font-family="serif" fill="${K}">mcm(12; 18) = 36</text>`);
+  })();
+  /* due ruote dentate da 12 e 18 denti che ingranano */
+  /* corpo che cade e formula con le unità */
+  I.fourier = s(`<rect width="160" height="120" fill="${C}"/>
+    <line x1="30" y1="10" x2="30" y2="108" stroke="${K}" stroke-width="1.2" stroke-dasharray="3 3"/>
+    ${[0,1,2,3].map(t=>`<circle cx="30" cy="${14+t*t*10}" r="5" fill="${R}" opacity="${0.35+0.2*t}"/><text x="40" y="${18+t*t*10}" font-size="9" font-family="serif" fill="${K}">t = ${t} s</text>`).join("")}
+    <rect x="76" y="34" width="78" height="54" fill="#fff" stroke="${B}" stroke-width="1.4"/>
+    <text x="115" y="54" font-size="11" text-anchor="middle" font-family="serif" fill="${B}"><tspan font-style="italic">s</tspan> = ½ <tspan font-style="italic">g t</tspan>²</text>
+    <text x="115" y="76" font-size="10" text-anchor="middle" font-family="serif" fill="${K}">m/s² · s² = m</text>`);
+
+  /* ---- CAPITOLO 7 ---- */
+  /* schema di Horner: scatole una dentro l'altra ((3x − 2)x + 5)x − 1 */
+  I.horner = s(`<rect width="160" height="120" fill="${C}"/>
+    <rect x="8" y="34" width="144" height="56" fill="#fff" stroke="${B}" stroke-width="1.4"/>
+    <rect x="16" y="42" width="98" height="40" fill="#e3ebf9" stroke="${B}" stroke-width="1.2"/>
+    <rect x="24" y="50" width="54" height="24" fill="#cfdcf5" stroke="${B}" stroke-width="1.2"/>
+    <text x="51" y="66" font-size="11" text-anchor="middle" font-family="serif" fill="${K}">3<tspan font-style="italic">x</tspan> − 2</text>
+    <text x="96" y="66" font-size="11" text-anchor="middle" font-family="serif" fill="${K}">· <tspan font-style="italic">x</tspan> + 5</text>
+    <text x="134" y="66" font-size="11" text-anchor="middle" font-family="serif" fill="${K}">· <tspan font-style="italic">x</tspan> − 1</text>
+    <text x="80" y="22" font-size="10" text-anchor="middle" font-family="serif" fill="${R}" font-weight="700">3 moltiplicazioni invece di 6</text>
+    <text x="80" y="108" font-size="10" text-anchor="middle" font-family="serif" fill="${K}">3<tspan font-style="italic">x</tspan>³ − 2<tspan font-style="italic">x</tspan>² + 5<tspan font-style="italic">x</tspan> − 1</text>`);
+  /* addizione in colonna di numeri accanto a polinomi incolonnati */
+  I.colonne = s(`<rect width="160" height="120" fill="${C}"/>
+    ${[["","3","5","2"],["+","4","1","7"]].map((r,i)=>r.map((c,j)=>`<text x="${14+j*16}" y="${40+i*18}" font-size="14" text-anchor="middle" font-family="serif" fill="${K}">${c}</text>`).join("")).join("")}
+    <line x1="8" y1="64" x2="70" y2="64" stroke="${K}" stroke-width="1.4"/>
+    ${["7","6","9"].map((c,j)=>`<text x="${30+j*16}" y="82" font-size="14" text-anchor="middle" font-family="serif" fill="${B}" font-weight="700">${c}</text>`).join("")}
+    <text x="38" y="22" font-size="8" text-anchor="middle" font-family="serif" fill="${A}">h  da  u</text>
+    <line x1="80" y1="14" x2="80" y2="104" stroke="${L}" stroke-width="1.4"/>
+    <text x="120" y="40" font-size="11" text-anchor="middle" font-family="serif" fill="${K}">3<tspan font-style="italic">x</tspan>² + 5<tspan font-style="italic">x</tspan> + 2</text>
+    <text x="120" y="58" font-size="11" text-anchor="middle" font-family="serif" fill="${K}">+ 4<tspan font-style="italic">x</tspan>² + <tspan font-style="italic">x</tspan> + 7</text>
+    <line x1="88" y1="64" x2="154" y2="64" stroke="${K}" stroke-width="1.4"/>
+    <text x="120" y="82" font-size="11" text-anchor="middle" font-family="serif" fill="${B}" font-weight="700">7<tspan font-style="italic">x</tspan>² + 6<tspan font-style="italic">x</tspan> + 9</text>
+    <text x="80" y="114" font-size="9" text-anchor="middle" font-family="serif" fill="${R}">con <tspan font-style="italic">x</tspan> = 10 è la stessa somma</text>`);
+  /* moltiplicazione per gelosia: 47 × 36 = 1692 */
+  I.gelosia = s(`<rect width="160" height="120" fill="${C}"/>
+    ${[0,1].map(i=>[0,1].map(j=>`<rect x="${48+i*30}" y="${26+j*30}" width="30" height="30" fill="#fff" stroke="${K}" stroke-width="1.2"/><line x1="${48+i*30+30}" y1="${26+j*30}" x2="${48+i*30}" y2="${26+j*30+30}" stroke="${A}" stroke-width="1"/>`).join("")).join("")}
+    ${[[4,3,[1,2]],[7,3,[2,1]],[4,6,[2,4]],[7,6,[4,2]]].map(([a,b,[d,u]],k)=>{const i=k%2,j=Math.floor(k/2);return `<text x="${48+i*30+9}" y="${26+j*30+13}" font-size="10" text-anchor="middle" font-family="serif" fill="${B}">${d}</text><text x="${48+i*30+21}" y="${26+j*30+26}" font-size="10" text-anchor="middle" font-family="serif" fill="${B}">${u}</text>`;}).join("")}
+    <text x="63" y="20" font-size="13" text-anchor="middle" font-family="serif" fill="${K}" font-weight="700">4</text><text x="93" y="20" font-size="13" text-anchor="middle" font-family="serif" fill="${K}" font-weight="700">7</text>
+    <text x="116" y="46" font-size="13" text-anchor="middle" font-family="serif" fill="${K}" font-weight="700">3</text><text x="116" y="76" font-size="13" text-anchor="middle" font-family="serif" fill="${K}" font-weight="700">6</text>
+    <text x="80" y="108" font-size="11" text-anchor="middle" font-family="serif" fill="${R}" font-weight="700">47 × 36 = 1692</text>
+    <path d="M4 14 h22 v80 h-22z M134 14 h22 v80 h-22z" fill="#a9875a" opacity=".45"/>
+    ${[0,1,2,3,4,5].map(k=>`<line x1="4" y1="${22+k*13}" x2="26" y2="${22+k*13}" stroke="#7a5c34" stroke-width="1"/><line x1="134" y1="${22+k*13}" x2="156" y2="${22+k*13}" stroke="#7a5c34" stroke-width="1"/>`).join("")}`);
+  /* il quadrato di Euclide diviso in quattro parti, con le lettere greche */
+  I.euclide = s(`<rect width="160" height="120" fill="${C}"/>
+    <rect x="44" y="10" width="62" height="62" fill="#e8dcc0" stroke="${K}" stroke-width="1.4"/>
+    <rect x="106" y="10" width="34" height="62" fill="#f4ecd8" stroke="${K}" stroke-width="1.4"/>
+    <rect x="44" y="72" width="62" height="34" fill="#f4ecd8" stroke="${K}" stroke-width="1.4"/>
+    <rect x="106" y="72" width="34" height="34" fill="#d6c7a2" stroke="${K}" stroke-width="1.4"/>
+    <line x1="44" y1="10" x2="140" y2="106" stroke="${K}" stroke-width="1" stroke-dasharray="3 3"/>
+    ${[["Α",40,8],["Β",144,8],["Γ",40,114],["Δ",144,114]].map(([t,x,y])=>`<text x="${x}" y="${y}" font-size="10" text-anchor="middle" font-family="serif" fill="${K}">${t}</text>`).join("")}
+    <text x="75" y="45" font-size="12" text-anchor="middle" font-family="serif" font-style="italic" fill="${K}">a²</text>
+    <text x="123" y="45" font-size="11" text-anchor="middle" font-family="serif" font-style="italic" fill="${K}">ab</text>
+    <text x="75" y="93" font-size="11" text-anchor="middle" font-family="serif" font-style="italic" fill="${K}">ab</text>
+    <text x="123" y="93" font-size="11" text-anchor="middle" font-family="serif" font-style="italic" fill="${K}">b²</text>
+    <path d="M10 30 q8 -8 16 0 v70 q-8 8 -16 0z" fill="#f3e6c4" stroke="#8a6d3b" stroke-width="1.2"/><path d="M14 44 h8 M14 54 h8 M14 64 h8 M14 74 h8" stroke="#8a6d3b" stroke-width=".8"/>`);
+  /* il cubo del binomio di Montessori: cubo rosso, cubetto blu, prismi con le facce rosse e blu */
+  I.cubomontessori = (() => {
+    const cubo = (x, y, w, d, h, f, top) => `<path d="M${x} ${y} h${w} v${h} h-${w}z" fill="${f}" stroke="${K}" stroke-width="1"/><path d="M${x} ${y} l${d*.6} ${-d*.45} h${w} l${-d*.6} ${d*.45}z" fill="${top}" stroke="${K}" stroke-width="1"/><path d="M${x+w} ${y} l${d*.6} ${-d*.45} v${h} l${-d*.6} ${d*.45}z" fill="${f}" opacity=".8" stroke="${K}" stroke-width="1"/>`;
+    return s(`<rect width="160" height="120" fill="${C}"/><rect x="6" y="100" width="148" height="14" fill="#c9a46a" stroke="#8a6d3b"/>
+      ${cubo(12,60,36,36,36,R,"#e4706b")}${cubo(56,78,36,36,18,"#2b2b2b",R)}${cubo(100,78,36,18,18,"#2b2b2b",B)}${cubo(140,86,10,10,10,B,"#6a8ad6")}
+      ${cubo(56,40,36,36,18,"#2b2b2b",R)}${cubo(100,52,36,18,18,"#2b2b2b",B)}
+      <text x="80" y="16" font-size="11" text-anchor="middle" font-family="serif" fill="${K}">(<tspan font-style="italic">a</tspan> + <tspan font-style="italic">b</tspan>)³ = 8 pezzi</text>`);
+  })();
+  /* triangolo di Tartaglia con i dispari colorati: triangolo di Sierpiński */
+  I.sierpinski = (() => {
+    let t = "", row = [1];
+    for (let r = 0; r < 16; r++) {
+      row.forEach((c, k) => { const x = 80 + (k - r / 2) * 9, y = 8 + r * 6.6; if (c % 2) t += `<rect x="${x - 4}" y="${y}" width="8" height="6" fill="${P}"/>`; else t += `<rect x="${x - 4}" y="${y}" width="8" height="6" fill="#fff" stroke="${L}" stroke-width=".4"/>`; });
+      const nr = [1]; for (let k = 1; k <= r; k++) nr.push((row[k - 1] + row[k]) % 2); nr.push(1); row = nr;
+    }
+    return s(`<rect width="160" height="120" fill="${C}"/>${t}`);
+  })();
+  /* 35² = 1225: 3 · 4 = 12 e poi 25 */
+  I.mente = s(`<rect width="160" height="120" fill="${C}"/>
+    <circle cx="36" cy="62" r="24" fill="#e9c9a0" stroke="${K}" stroke-width="1.4"/><path d="M12 56 q24 -30 48 0" fill="#5a3b22"/><circle cx="29" cy="64" r="2" fill="${K}"/><circle cx="44" cy="64" r="2" fill="${K}"/><path d="M30 74 q6 4 12 0" fill="none" stroke="${K}" stroke-width="1.4"/>
+    <text x="110" y="34" font-size="18" text-anchor="middle" font-family="serif" fill="${K}">35² = ?</text>
+    <text x="110" y="62" font-size="13" text-anchor="middle" font-family="serif" fill="${B}">3 · 4 = 12</text>
+    <text x="110" y="92" font-size="20" text-anchor="middle" font-family="serif" fill="${R}" font-weight="700"><tspan fill="${B}">12</tspan>25</text>`);
+  /* curva di Bézier cubica con i punti di controllo */
+  I.bezier = s(`<rect width="160" height="120" fill="${C}"/>
+    <path d="M14 96 L40 18 L118 22 L146 92" fill="none" stroke="${L}" stroke-width="1.4" stroke-dasharray="4 3"/>
+    <path d="M14 96 C40 18 118 22 146 92" fill="none" stroke="${B}" stroke-width="3"/>
+    ${[[14,96],[40,18],[118,22],[146,92]].map(([x,y],k)=>`<circle cx="${x}" cy="${y}" r="4.5" fill="${k%3?"#fff":B}" stroke="${B}" stroke-width="1.6"/>`).join("")}
+    <text x="80" y="112" font-size="10" text-anchor="middle" font-family="serif" fill="${K}">coefficienti 1 · 3 · 3 · 1</text>`);
+
   /* ---- FOTO REALI (immagini solo illustrative): file in img/, licenze libere da Wikimedia Commons ----
      Le figure matematiche/geometriche restano disegni SVG qui sopra. */
   const FOTO = {

@@ -721,3 +721,22 @@ table.tav tr.evid td{background:#fdf3d6}
 @media screen and (max-width:860px){.fig-testo.larga{width:270px}}
 @media screen and (max-width:600px){.fig-riga figure{flex:1 1 150px;max-width:220px}.esercizio .fig.media{width:auto;max-width:100%}}
 @media print{.fig-testo.larga{width:54mm}.fig-riga{break-inside:avoid}.fig-riga figure{flex:0 1 42mm}.fig-riga figure.larga{flex-basis:75mm}.fig-riga figure.piccola{flex-basis:36mm}.esercizio .fig.media{max-width:66mm}}
+em.u{font-style:normal}
+
+/* ====== CAPITOLO 7 — polinomi e prodotti notevoli ====== */
+/* polinomi incolonnati: termini simili nella stessa colonna, riga del risultato sotto la linea */
+table.colonne{border-collapse:collapse;margin:10px auto 14px;font-family:var(--serif);font-size:1.2rem}
+table.colonne td{padding:3px 10px;text-align:right;white-space:nowrap}
+table.colonne td:first-child{padding-right:4px;color:var(--blu-scuro)}
+table.colonne tr.tot td{border-top:1.5px solid var(--testo);padding-top:6px;font-weight:700}
+/* tabella del prodotto di due polinomi (come la moltiplicazione per gelosia) */
+table.tab-prodotto{border-collapse:collapse;margin:12px auto;font-family:var(--serif)}
+table.tab-prodotto th,table.tab-prodotto td{min-width:70px;height:38px;text-align:center;vertical-align:middle;font-size:1.15rem;border:1px solid var(--bordo);padding:2px 8px}
+table.tab-prodotto th{background:#dbe9f7;color:var(--blu-scuro);font-weight:700;border:2px solid var(--blu)}
+table.tab-prodotto th.angolo{background:var(--blu);color:#fff}
+table.tab-prodotto td{background:#fff}
+@media print{table.colonne,table.tab-prodotto{break-inside:avoid}table.colonne{font-size:1rem}table.tab-prodotto th,table.tab-prodotto td{height:28px;font-size:1rem}}
+@media screen and (max-width:600px){table.colonne{font-size:1rem}table.colonne td{padding:3px 5px}table.tab-prodotto th,table.tab-prodotto td{min-width:52px;padding:2px 4px}}
+.tri-tart{max-width:430px;margin:8px auto}
+.tri-tart svg{display:block;width:100%;height:auto}
+@media print{.tri-tart{max-width:90mm;break-inside:avoid}}

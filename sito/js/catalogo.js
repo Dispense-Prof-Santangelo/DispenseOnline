@@ -45,7 +45,7 @@ window.SCUOLA = {
   note: {
     autori: "",
     scuola: "",
-    aggiornamento: "23/11/2026",
+    aggiornamento: "24/11/2026",
     licenza: "CC BY-SA 4.0",
     licenzaLink: "https://creativecommons.org/licenses/by-sa/4.0/deed.it",
     segnalazioni: ""
@@ -57,7 +57,9 @@ window.SCUOLA = {
     cap2: "in revisione",
     cap3: "in revisione",
     cap4: "in revisione",
-    cap5: "in revisione"
+    cap5: "in revisione",
+    cap6: "in revisione",
+    cap7: "in revisione"
   },
 
   /* ---------- PIANI: capitoli di ogni disciplina per percorso e anno ----------
@@ -69,8 +71,7 @@ window.SCUOLA = {
       "scientifico-1": {
         pdf: "pdf/matematica-primo-anno.pdf", pdfNome: "Matematica - Primo anno.pdf",
         parti: [
-          { titolo: "Aritmetica e algebra", capitoli: ["cap1", "cap2", "cap3", "cap4", "cap5", { titolo: "I monomi" },
-            { titolo: "I polinomi e i prodotti notevoli" }, { titolo: "La scomposizione in fattori" },
+          { titolo: "Aritmetica e algebra", capitoli: ["cap1", "cap2", "cap3", "cap4", "cap5", "cap6", "cap7", { titolo: "La scomposizione in fattori" },
             { titolo: "Le frazioni algebriche" }, { titolo: "Le equazioni lineari" }, { titolo: "Le disequazioni lineari" }] },
           { titolo: "Dati e previsioni", capitoli: [{ titolo: "Introduzione alla statistica" }] },
           { titolo: "Geometria", capitoli: [{ titolo: "Enti geometrici fondamentali" }, { titolo: "I triangoli" },

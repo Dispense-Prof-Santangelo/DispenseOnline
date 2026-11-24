@@ -975,5 +975,198 @@
     comandi(); disegna();
   };
 
+
+  /* 34 ─ Valore numerico: si scelgono l'espressione e i valori delle lettere */
+  ANIM.valorenum = function (el, stampa) {
+    let k = 0, a = -2, b = 3;
+    const nf = t => (t < 0 ? "−" + (-t) : "" + t), p = t => (t < 0 ? "(" + nf(t) + ")" : nf(t));
+    const I = x => `<i>${x}</i>`;
+    const E = [
+      { t: `3${I("a")} + 2${I("b")}`, s: (a, b) => [`3 · ${p(a)} + 2 · ${p(b)}`, `${nf(3 * a)} + ${p(2 * b)}`], v: (a, b) => 3 * a + 2 * b },
+      { t: `${I("a")}<sup>2</sup> − 2${I("b")}`, s: (a, b) => [`${p(a)}<sup>2</sup> − 2 · ${p(b)}`, `${nf(a * a)} − ${p(2 * b)}`], v: (a, b) => a * a - 2 * b },
+      { t: `−${I("a")}<sup>2</sup> + ${I("ab")}`, s: (a, b) => [`−${p(a)}<sup>2</sup> + ${p(a)} · ${p(b)}`, `${nf(-a * a)} + ${p(a * b)}`], v: (a, b) => -a * a + a * b },
+      { t: `2${I("a")}<sup>2</sup>${I("b")}`, s: (a, b) => [`2 · ${p(a)}<sup>2</sup> · ${p(b)}`, `2 · ${a * a} · ${p(b)}`], v: (a, b) => 2 * a * a * b }
+    ];
+    const box = H("div", { class: "lettura", style: "font-size:1.15rem;line-height:2.2;text-align:center" }, el);
+    const com = H("div", { class: "comandi" }, el), par = H("div", { class: "comandi" }, el);
+    E.forEach((e, i) => bottone(com, "", () => { k = i; disegna(); }, true).innerHTML = e.t);
+    const ca = cursore(par, "a =", -5, 5, a, v => { a = v; disegna(); }), cb = cursore(par, "b =", -5, 5, b, v => { b = v; disegna(); });
+    [ca, cb].forEach(c => c.addEventListener("input", () => { c.nextSibling.textContent = nf(+c.value); }));
+    ca.nextSibling.textContent = nf(a);
+    function disegna() {
+      const e = E[k], st = e.s(a, b);
+      box.innerHTML = `${e.t} &emsp; con ${I("a")} = ${nf(a)} e ${I("b")} = ${nf(b)}<br>${st[0]} = ${st[1]} = <b style="color:#c8373b">${nf(e.v(a, b))}</b>`;
+    }
+    disegna();
+  };
+
+  /* 35 ─ Tessere: si aggiungono monomi a, b, a² positivi e negativi e si raggruppano i simili */
+  ANIM.tessere = function (el, stampa) {
+    let T = stampa ? ["a", "a", "a2", "-a", "b", "a", "-b", "b"] : ["a", "a", "-a", "b", "a2"];
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    const NOMI = { a: "<i>a</i>", b: "<i>b</i>", a2: "<i>a</i><sup>2</sup>" };
+    [["+ a", "a"], ["− a", "-a"], ["+ b", "b"], ["− b", "-b"], ["+ a²", "a2"], ["− a²", "-a2"]].forEach(([t, x]) =>
+      bottone(com, t, () => { if (T.length < 14) T.push(x); disegna(); }, true));
+    bottone(com, "ricomincia", () => { T = []; disegna(); });
+    const dim = { a: [16, 46], b: [16, 30], a2: [46, 46] }, COL = { a: C.blu, b: C.verde, a2: C.viola };
+    function tessera(s, x, y, t) {
+      const neg = t[0] === "-", tipo = neg ? t.slice(1) : t, [w, h] = dim[tipo];
+      S("rect", { x, y: y + 46 - h, width: w, height: h, fill: neg ? "#f6d5d5" : { a: C.bluc, b: C.verdec, a2: C.violac }[tipo], stroke: neg ? C.rosso : COL[tipo], "stroke-width": 2 }, s);
+      S("text", { x: x + w / 2, y: y + 46 - h / 2 + 4, "font-size": 11, "text-anchor": "middle", "font-family": "serif", "font-style": "italic", fill: neg ? C.rosso : COL[tipo] }, s, (neg ? "−" : "") + (tipo === "a2" ? "a²" : tipo));
+      return w;
+    }
+    function disegna() {
+      box.innerHTML = ""; const s = svg(box, 560, 150);
+      S("text", { x: 4, y: 14, "font-size": 12, "font-family": "serif", fill: C.grigio }, s, "come le hai messe");
+      let x = 4; T.forEach(t => { x += tessera(s, x, 20, t) + 6; });
+      S("text", { x: 4, y: 92, "font-size": 12, "font-family": "serif", fill: C.grigio }, s, "raggruppate (le tessere opposte si annullano)");
+      const n = { a: 0, b: 0, a2: 0 }; T.forEach(t => { if (t[0] === "-") n[t.slice(1)]--; else n[t]++; });
+      x = 4;
+      ["a2", "a", "b"].forEach(tp => { for (let i = 0; i < Math.abs(n[tp]); i++) x += tessera(s, x, 98, (n[tp] < 0 ? "-" : "") + tp) + 4; if (n[tp]) x += 14; });
+      const pezzo = (t, i) => { const neg = t[0] === "-", nome = NOMI[neg ? t.slice(1) : t]; return i === 0 ? (neg ? "−" : "") + nome : (neg ? " − " : " + ") + nome; };
+      let somma = T.map(pezzo).join("") || "0", ris = "";
+      ["a2", "a", "b"].forEach(tp => { const c = n[tp]; if (!c) return; const m = (Math.abs(c) === 1 ? "" : Math.abs(c)) + NOMI[tp];
+        ris += ris === "" ? (c < 0 ? "−" : "") + m : (c < 0 ? " − " : " + ") + m; });
+      lett.innerHTML = `${somma} = <b>${ris || "0"}</b>` + (Object.values(n).filter(c => c).length > 1 ? " &emsp; Le tessere di tipo diverso restano separate: il risultato è un polinomio." : "");
+    }
+    disegna();
+  };
+
+  /* 36 ─ Prodotto di due monomi come area di un rettangolo */
+  ANIM.rettangolo = function (el, stampa) {
+    let m = 3, n = 2, conB = true;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    const cm = cursore(com, "coefficiente della base", 1, 6, m, v => { m = v; disegna(); });
+    const cn = cursore(com, "coefficiente dell'altezza", 1, 4, n, v => { n = v; disegna(); });
+    const bb = bottone(com, "altezza con a", () => { conB = !conB; bb.textContent = conB ? "altezza con a" : "altezza con b"; disegna(); }, true);
+    function disegna() {
+      box.innerHTML = ""; const s = svg(box, 420, 260); s.style.maxWidth = "440px"; s.style.margin = "0 auto";
+      const ua = 52, ub = conB ? 34 : 52, x0 = 70, y0 = 14;
+      for (let i = 0; i < m; i++) for (let j = 0; j < n; j++)
+        S("rect", { x: x0 + i * ua, y: y0 + j * ub, width: ua, height: ub, fill: (i + j) % 2 ? C.bluc : "#e6eefb", stroke: C.blu, "stroke-width": 1.4 }, s);
+      S("rect", { x: x0, y: y0, width: m * ua, height: n * ub, fill: "none", stroke: C.blu, "stroke-width": 3 }, s);
+      const lb = conB ? "b" : "a";
+      S("text", { x: x0 + m * ua / 2, y: y0 + n * ub + 22, "font-size": 17, "text-anchor": "middle", "font-family": "serif", fill: C.testo }, s).innerHTML = (m > 1 ? m : "") + '<tspan font-style="italic">a</tspan>';
+      S("text", { x: x0 - 10, y: y0 + n * ub / 2 + 6, "font-size": 17, "text-anchor": "end", "font-family": "serif", fill: C.testo }, s).innerHTML = (n > 1 ? n : "") + `<tspan font-style="italic">${lb}</tspan>`;
+      S("text", { x: x0 + ua / 2, y: y0 + ub / 2 + 5, "font-size": 13, "text-anchor": "middle", "font-family": "serif", "font-style": "italic", fill: C.blu }, s, conB ? "ab" : "a²");
+      const K = m * n, A = "<i>a</i>", L = conB ? "<i>b</i>" : "<i>a</i>", P = conB ? "<i>ab</i>" : "<i>a</i><sup>2</sup>";
+      lett.innerHTML = `${m > 1 ? m : ""}${A} · ${n > 1 ? n : ""}${L} = (${m} · ${n})${P} = <b>${K > 1 ? K : ""}${P}</b> &emsp; il rettangolo contiene ${K} ${K === 1 ? "rettangolino" : "rettangolini"} di area ${P}.`;
+    }
+    disegna();
+  };
+
+  /* 37 ─ Somma per differenza: dal quadrato a² si toglie b² e il pezzo si sposta a formare (a + b)(a − b) */
+  ANIM.sommadiff = function (el, stampa) {
+    let a = 7, b = 3, t = stampa ? 1 : 0, anim = null;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    const ca = cursore(com, "a =", 3, 9, a, v => { a = v; if (b >= a) { b = a - 1; cb.value = b; cb.nextSibling.textContent = b; } disegna(); });
+    const cb = cursore(com, "b =", 1, 8, b, v => { b = Math.min(v, a - 1); cb.value = b; cb.nextSibling.textContent = b; disegna(); });
+    const bt = bottone(com, "sposta il pezzo 1", () => {
+      const da = t, a_ = t < 0.5 ? 1 : 0, t0 = performance.now();
+      if (anim) cancelAnimationFrame(anim);
+      const passo = ora => { const k = Math.min(1, (ora - t0) / 900); t = da + (a_ - da) * (k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2); disegna(); if (k < 1) anim = requestAnimationFrame(passo); };
+      anim = requestAnimationFrame(passo);
+    });
+    function disegna() {
+      box.innerHTML = ""; const s = svg(box, 440, 270); s.style.maxWidth = "460px"; s.style.margin = "0 auto";
+      const u = Math.min(24, 320 / (a + b), 210 / a), x0 = 92, y0 = 20, X = v => x0 + v * u, Y = v => y0 + v * u;
+      S("rect", { x: X(a - b), y: Y(0), width: b * u, height: b * u, fill: "none", stroke: C.rosso, "stroke-width": 1.5, "stroke-dasharray": "5 4" }, s);
+      S("text", { x: X(a - b / 2), y: Y(b / 2) + 5, "font-size": 14, "text-anchor": "middle", "font-family": "serif", fill: C.rosso }, s).innerHTML = '<tspan font-style="italic">b</tspan>²';
+      S("rect", { x: X(0), y: Y(b), width: a * u, height: (a - b) * u, fill: C.bluc, stroke: C.blu, "stroke-width": 2 }, s);
+      S("text", { x: X(a / 2), y: Y(b + (a - b) / 2) + 6, "font-size": 16, "text-anchor": "middle", "font-family": "serif", fill: C.blu }, s, "2");
+      const cx = X((a - b) / 2) + (X(a + b / 2) - X((a - b) / 2)) * t, cy = Y(b / 2) + (Y(b + (a - b) / 2) - Y(b / 2)) * t;
+      const g = S("g", { transform: `translate(${cx} ${cy}) rotate(${90 * t})` }, s);
+      S("rect", { x: -(a - b) * u / 2, y: -b * u / 2, width: (a - b) * u, height: b * u, fill: C.aranc, stroke: C.arancio, "stroke-width": 2 }, g);
+      S("text", { x: 0, y: 6, "font-size": 16, "text-anchor": "middle", "font-family": "serif", fill: C.arancio, transform: `rotate(${-90 * t})` }, g, "1");
+      const et = (x, y, txt, anc) => S("text", { x, y, "font-size": 15, "text-anchor": anc || "middle", "font-family": "serif", fill: C.testo }, s).innerHTML = txt;
+      const I = v => `<tspan font-style="italic">${v}</tspan>`;
+      if (t > 0.98) { et(X((a + b) / 2), Y(a) + 22, `${I("a")} + ${I("b")} = ${a + b}`); et(X(0) - 6, Y(b + (a - b) / 2) + 5, `${I("a")} − ${I("b")} = ${a - b}`, "end"); }
+      else if (t < 0.02) { et(X(a / 2), Y(a) + 22, `${I("a")} = ${a}`); et(X(a) + 6, Y(b / 2) + 5, `${I("b")} = ${b}`, "start"); }
+      bt.textContent = t > 0.5 ? "rimetti a posto il pezzo 1" : "sposta il pezzo 1";
+      lett.innerHTML = `<i>a</i><sup>2</sup> − <i>b</i><sup>2</sup> = ${a}<sup>2</sup> − ${b}<sup>2</sup> = ${a * a} − ${b * b} = <b>${a * a - b * b}</b> &emsp; (<i>a</i> + <i>b</i>)(<i>a</i> − <i>b</i>) = ${a + b} · ${a - b} = <b>${(a + b) * (a - b)}</b>`;
+    }
+    disegna();
+  };
+
+  /* 38 ─ Quadrato di un binomio: il quadrato di lato a + b e i suoi quattro pezzi */
+  ANIM.quadratobinomio = function (el, stampa) {
+    let a = 5, b = 3, sbagliata = false;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    cursore(com, "a =", 1, 9, a, v => { a = v; disegna(); });
+    cursore(com, "b =", 1, 6, b, v => { b = v; disegna(); });
+    const bt = bottone(com, "prova la formula sbagliata a² + b²", () => { sbagliata = !sbagliata; disegna(); }, true);
+    function disegna() {
+      box.innerHTML = ""; const s = svg(box, 420, 330); s.style.maxWidth = "420px"; s.style.margin = "0 auto";
+      const u = Math.min(28, 280 / (a + b)), x0 = 60, y0 = 14, L = (a + b) * u;
+      const pezzo = (x, y, w, h, f, st, txt, vuoto) => {
+        S("rect", { x, y, width: w, height: h, fill: vuoto ? "#fff" : f, stroke: vuoto ? C.rosso : st, "stroke-width": vuoto ? 1.5 : 2, "stroke-dasharray": vuoto ? "5 4" : "none" }, s);
+        S("text", { x: x + w / 2, y: y + h / 2 + 5, "font-size": Math.min(16, Math.max(11, Math.min(w, h) / 2.2)), "text-anchor": "middle", "font-family": "serif", fill: vuoto ? C.rosso : st }, s).innerHTML = txt;
+      };
+      const I = v => `<tspan font-style="italic">${v}</tspan>`;
+      pezzo(x0, y0, a * u, a * u, C.bluc, C.blu, `${I("a")}² = ${a * a}`);
+      pezzo(x0 + a * u, y0, b * u, a * u, C.aranc, C.arancio, `${I("ab")} = ${a * b}`, sbagliata);
+      pezzo(x0, y0 + a * u, a * u, b * u, C.aranc, C.arancio, `${I("ab")} = ${a * b}`, sbagliata);
+      pezzo(x0 + a * u, y0 + a * u, b * u, b * u, C.verdec, C.verde, `${I("b")}² = ${b * b}`);
+      S("rect", { x: x0, y: y0, width: L, height: L, fill: "none", stroke: C.testo, "stroke-width": 2.5 }, s);
+      S("text", { x: x0 + a * u / 2, y: y0 + L + 20, "font-size": 15, "text-anchor": "middle", "font-family": "serif" }, s).innerHTML = `${I("a")} = ${a}`;
+      S("text", { x: x0 + a * u + b * u / 2, y: y0 + L + 20, "font-size": 15, "text-anchor": "middle", "font-family": "serif" }, s).innerHTML = `${I("b")} = ${b}`;
+      bt.textContent = sbagliata ? "rimetti i due rettangoli" : "prova la formula sbagliata a² + b²";
+      const tot = (a + b) * (a + b);
+      lett.innerHTML = sbagliata
+        ? `<i>a</i><sup>2</sup> + <i>b</i><sup>2</sup> = ${a * a} + ${b * b} = ${a * a + b * b}, ma il quadrato ha area ${a + b}<sup>2</sup> = ${tot}. <b style="color:#c8373b">Mancano i due rettangoli</b>, cioè 2<i>ab</i> = ${2 * a * b}.`
+        : `(<i>a</i> + <i>b</i>)<sup>2</sup> = ${a + b}<sup>2</sup> = <b>${tot}</b> &emsp; <i>a</i><sup>2</sup> + 2<i>ab</i> + <i>b</i><sup>2</sup> = ${a * a} + ${2 * a * b} + ${b * b} = <b>${a * a + 2 * a * b + b * b}</b>`;
+    }
+    disegna();
+  };
+
+  /* 39 ─ Triangolo di Tartaglia: si aggiungono righe, si clicca un numero per vedere da dove viene, si colorano i dispari */
+  ANIM.tartaglia = function (el, stampa) {
+    let n = stampa ? 6 : 4, sel = null, dispari = false;
+    const box = H("div", {}, el), lett = H("div", { class: "lettura" }, el), com = H("div", { class: "comandi" }, el);
+    const C_ = (r, k) => { let c = 1; for (let i = 0; i < k; i++) c = c * (r - i) / (i + 1); return Math.round(c); };
+    bottone(com, "+ una riga", () => { n = Math.min(dispari ? 31 : 10, n + 1); sel = null; disegna(); });
+    bottone(com, "− una riga", () => { n = Math.max(0, n - 1); sel = null; disegna(); }, true);
+    const bd = bottone(com, "colora i dispari", () => { dispari = !dispari; n = dispari ? 31 : 6; sel = null; disegna(); }, true);
+    const sup = k => (k === 1 ? "" : `<sup>${k}</sup>`);
+    function sviluppo(r) {
+      if (r === 0) return "1";
+      const t = [];
+      for (let k = 0; k <= r; k++) {
+        const c = C_(r, k), pa = r - k ? `<i>a</i>${sup(r - k)}` : "", pb = k ? `<i>b</i>${sup(k)}` : "";
+        t.push(`${c > 1 ? c : ""}${pa}${pb}`);
+      }
+      return t.join(" + ");
+    }
+    function disegna() {
+      box.innerHTML = "";
+      const W = 520, dy = dispari ? 9 : 30, dx = dispari ? 16 : 46, H_ = (n + 1) * dy + 16;
+      const s = svg(box, W, H_); s.style.maxWidth = "560px"; s.style.margin = "0 auto";
+      for (let r = 0; r <= n; r++) for (let k = 0; k <= r; k++) {
+        const x = W / 2 + (k - r / 2) * dx, y = 8 + r * dy, c = C_(r, k);
+        let f = "#fff", st = C.blu;
+        if (dispari) { f = c % 2 ? C.viola : "#fff"; st = c % 2 ? C.viola : "#ddd"; }
+        else if (sel && r === sel[0] && k === sel[1]) { f = C.aranc; st = C.arancio; }
+        else if (sel && r === sel[0] - 1 && (k === sel[1] - 1 || k === sel[1])) { f = C.verdec; st = C.verde; }
+        else if (sel && r === sel[0]) { f = "#fdf3d6"; }
+        const rc = S("rect", { x: x - dx / 2 + 2, y, width: dx - 4, height: dy - 3, fill: f, stroke: st, "stroke-width": dispari ? .5 : 1.4, style: dispari ? "" : "cursor:pointer" }, s);
+        if (!dispari) {
+          S("text", { x, y: y + dy / 2 + 3, "font-size": c > 99 ? 11 : 13, "text-anchor": "middle", "font-family": "serif", fill: C.testo, style: "pointer-events:none" }, s, String(c));
+          rc.addEventListener("click", () => { sel = [r, k]; disegna(); });
+        }
+      }
+      if (dispari) { lett.innerHTML = `${n + 1} righe: i numeri dispari sono colorati. Compare il <b>triangolo di Sierpiński</b>, fatto di triangoli dentro triangoli.`; bd.textContent = "torna ai numeri"; return; }
+      bd.textContent = "colora i dispari";
+      if (sel && sel[1] > 0 && sel[1] < sel[0]) {
+        const [r, k] = sel;
+        lett.innerHTML = `Riga ${r}: ${C_(r - 1, k - 1)} + ${C_(r - 1, k)} = <b>${C_(r, k)}</b>, la somma dei due numeri che gli stanno sopra.<br>(<i>a</i> + <i>b</i>)<sup>${r}</sup> = ${sviluppo(r)}`;
+      } else {
+        const r = sel ? sel[0] : n;
+        lett.innerHTML = `Clicca un numero per vedere da dove viene. &emsp; Riga ${r}<br>(<i>a</i> + <i>b</i>)<sup>${r}</sup> = ${sviluppo(r)}`;
+      }
+    }
+    disegna();
+  };
+
+
   window.ANIM = ANIM;
 })();
