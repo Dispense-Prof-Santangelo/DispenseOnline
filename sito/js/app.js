@@ -278,7 +278,7 @@
     let fig = "";
     if (e.f) fig = e.f.startsWith("<svg") ? `<div class="fig ${e.f.includes('viewBox="0 0 520') ? "larga" : e.f.includes("data-media") ? "media" : ""}">${e.f}</div>` : (ILL[e.f] ? `<div class="fig icona">${ILL[e.f]}</div>` : "");
     const caselle = `<span class="vf"><span>V</span><span>F</span></span>`;
-    const voci = e.v ? `<ol class="voci ${e.vi && !e.vf ? "affiancate" : ""}">${e.v.map((x, i) => `<li><span><b>${"abcdefghijklmn"[i]}.</b> ${x}</span>${e.vf ? caselle : ""}</li>`).join("")}</ol>` : "";
+    const voci = e.v ? `<ol class="voci ${e.v.some(x => /<svg/.test(x)) ? "figure" : (e.vi && !e.vf ? "affiancate" : "")}">${e.v.map((x, i) => `<li><span><b>${"abcdefghijklmn"[i]}.</b> ${x}</span>${e.vf ? caselle : ""}</li>`).join("")}</ol>` : "";
     const opzioni = e.o ? `<ol class="opzioni">${e.o.map((x, i) => `<li><span class="lettera">${"ABCDE"[i]}</span><span>${x}</span></li>`).join("")}</ol>` : "";
     const assoc = e.assoc ? `<div class="associa"><ol>${e.assoc.sx.map(x => `<li>${x}</li>`).join("")}</ol><ol type="a">${e.assoc.dx.map(x => `<li>${x}</li>`).join("")}</ol></div>` : "";
     const svolg = (e.p ? `<ul class="passi">${e.p.map(x => `<li><span class="eq">${x}</span></li>`).join("")}</ul>` : "") + (e.sv ? `<p>${e.sv}</p>` : "");
